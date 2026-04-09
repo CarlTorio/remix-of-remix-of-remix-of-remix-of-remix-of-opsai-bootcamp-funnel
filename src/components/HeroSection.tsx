@@ -5,8 +5,8 @@ import SectionLabel from "./SectionLabel";
 const HeroSection = () => (
   <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
     <div className="absolute inset-0">
-      <img src={heroBg} alt="" className="w-full h-full object-cover opacity-40" width={1920} height={1080} />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
+      <img src={heroBg} alt="" className="w-full h-auto object-cover object-top absolute bottom-0 left-0 right-0" width={1920} height={1080} />
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/70 to-transparent" />
     </div>
     <div className="relative z-10 container text-center py-20 md:py-32">
       <SectionLabel>OpsAI PH Presents</SectionLabel>
