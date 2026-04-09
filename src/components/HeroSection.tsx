@@ -3,12 +3,16 @@ import CTAButton from "./CTAButton";
 import SectionLabel from "./SectionLabel";
 
 const HeroSection = () => (
-  <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-    <div className="absolute inset-0">
-      <img src={heroBg} alt="" className="w-full h-auto object-cover object-top absolute bottom-0 left-0 right-0" width={1920} height={1080} />
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/70 to-transparent" />
+  <section className="relative flex flex-col items-center overflow-hidden bg-background">
+    {/* Image area - upper portion */}
+    <div className="relative w-full flex justify-center">
+      <div className="relative w-full max-w-4xl mx-auto">
+        <img src={heroBg} alt="" className="w-full h-auto object-contain" width={1920} height={1080} />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-transparent to-background" />
+      </div>
     </div>
-    <div className="relative z-10 container text-center py-20 md:py-32">
+    {/* Text content - below image */}
+    <div className="relative z-10 container text-center -mt-16 md:-mt-24 pb-16 md:pb-24">
       <SectionLabel>OpsAI PH Presents</SectionLabel>
       <h1 className="font-heading font-extrabold text-[32px] md:text-[56px] leading-[1.1] mb-6 max-w-4xl mx-auto">
         Build <span className="text-accent">Systems</span> That Scale Your Business —{" "}
