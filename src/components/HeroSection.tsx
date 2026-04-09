@@ -5,9 +5,9 @@ import SectionLabel from "./SectionLabel";
 const HeroSection = () => (
   <section className="relative flex flex-col items-center overflow-hidden bg-background">
     {/* Image area - upper portion */}
-    <div className="relative w-full flex justify-center">
-      <div className="relative w-full max-w-4xl mx-auto">
-        <img src={heroBg} alt="" className="w-full h-auto object-contain" width={1920} height={1080} />
+    <div className="relative w-full">
+      <div className="relative w-full">
+        <img src={heroBg} alt="" className="w-full h-auto" width={1920} height={1080} />
         <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-transparent to-background" />
       </div>
     </div>
