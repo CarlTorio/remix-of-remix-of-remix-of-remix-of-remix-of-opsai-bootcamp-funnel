@@ -1,4 +1,4 @@
-const heroBg = "https://fhgovsymhevqsjtxhiui.supabase.co/storage/v1/object/public/Bootcamp%20Funnel/Hero%20Section%20Original%20V3.png";
+const heroBg = "https://fhgovsymhevqsjtxhiui.supabase.co/storage/v1/object/public/Bootcamp%20Funnel/Hero%20Section%20Original%20V4.png";
 import CTAButton from "./CTAButton";
 import SectionLabel from "./SectionLabel";
 
