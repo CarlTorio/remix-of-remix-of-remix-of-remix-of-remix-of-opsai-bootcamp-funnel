@@ -15,8 +15,8 @@ const HeroSection = () => (
     <div className="relative z-10 container text-center -mt-16 md:-mt-24 pb-16 md:pb-24">
       <SectionLabel>OpsAI PH Presents</SectionLabel>
       <h1 className="font-heading font-extrabold text-[32px] md:text-[56px] leading-[1.1] mb-6 max-w-4xl mx-auto">
-        Build <span className="text-accent">Systems</span> That Scale Your Business —{" "}
-        <span className="text-secondary">Without Burning Out</span>
+        Build Your Own <span className="text-accent">Internal Business System</span> with{" "}
+        <span className="text-secondary">AI</span> in Less Than <span className="text-accent">2 Weeks</span>
       </h1>
       <p className="font-body text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
         The only bootcamp designed for Filipino SME owners who want to stop firefighting and start building
