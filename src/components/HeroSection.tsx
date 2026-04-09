@@ -1,4 +1,4 @@
-import heroBg from "@/assets/hero-bg.jpg";
+const heroBg = "https://fhgovsymhevqsjtxhiui.supabase.co/storage/v1/object/sign/Bootcamp%20Funnel/Hero%20Section%20Original.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8yMzdlOGIxNi02N2VjLTRlZmItYjRkZi1lYzk4MmI5NmQwNWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJCb290Y2FtcCBGdW5uZWwvSGVybyBTZWN0aW9uIE9yaWdpbmFsLnBuZyIsImlhdCI6MTc3NTc0ODUwNSwiZXhwIjo0OTI5MzQ4NTA1fQ.JssXUT8vbyYNM2Ax4Zh7AFY98ItQPTi92TtotVbYMuc";
 import CTAButton from "./CTAButton";
 import SectionLabel from "./SectionLabel";
 
