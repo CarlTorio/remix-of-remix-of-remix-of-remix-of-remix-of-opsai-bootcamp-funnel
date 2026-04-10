@@ -1,9 +1,8 @@
 const heroBg = "https://fhgovsymhevqsjtxhiui.supabase.co/storage/v1/object/public/Bootcamp%20Funnel/Hero%20Section%20Original%20V5.png";
 const systemBg = "https://fhgovsymhevqsjtxhiui.supabase.co/storage/v1/object/public/Bootcamp%20Funnel/System.png";
 import CTAButton from "./CTAButton";
-import ShinyText from "./ShinyText";
-import SectionLabel from "./SectionLabel";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { ScrollStack, ScrollStackItem } from "./ScrollStack";
 
 const pills = [
   "Google Sheets",
@@ -11,6 +10,34 @@ const pills = [
   "Manual follow-ups",
   "Disconnected Tools",
   "Delayed reports",
+];
+
+const stackCards = [
+  {
+    title: "Automate Your Workflows",
+    description: "Stop doing repetitive tasks manually. Build systems that run 24/7 without you lifting a finger.",
+    gradient: "from-[hsl(220,80%,15%)] to-[hsl(220,60%,25%)]",
+  },
+  {
+    title: "Centralize Your Data",
+    description: "No more scattered spreadsheets. One single source of truth for your entire business.",
+    gradient: "from-[hsl(200,70%,12%)] to-[hsl(200,50%,22%)]",
+  },
+  {
+    title: "Track Everything in Real-Time",
+    description: "Dashboards that update automatically. Know exactly where your business stands at any moment.",
+    gradient: "from-[hsl(250,60%,14%)] to-[hsl(250,40%,24%)]",
+  },
+  {
+    title: "Scale Without Hiring",
+    description: "Handle 10x more clients with the same team. Let A.I. do the heavy lifting.",
+    gradient: "from-[hsl(170,50%,10%)] to-[hsl(170,40%,20%)]",
+  },
+  {
+    title: "Own Your System Forever",
+    description: "No monthly subscriptions to expensive software. Build it once, use it for life.",
+    gradient: "from-[hsl(30,60%,12%)] to-[hsl(30,50%,22%)]",
+  },
 ];
 
 const HeroSection = () => {
@@ -79,6 +106,36 @@ const HeroSection = () => {
             It is one problem away from chaos.
           </p>
         </div>
+      </div>
+
+      {/* ScrollStack cards */}
+      <div className="relative w-full">
+        <ScrollStack
+          useWindowScroll={true}
+          itemDistance={80}
+          itemScale={0.02}
+          itemStackDistance={25}
+          stackPosition="25%"
+          scaleEndPosition="15%"
+          baseScale={0.88}
+          rotationAmount={0.5}
+          blurAmount={1}
+          className="max-w-5xl mx-auto px-4 md:px-8"
+        >
+          {stackCards.map((card, i) => (
+            <ScrollStackItem
+              key={i}
+              itemClassName={`bg-gradient-to-br ${card.gradient} border border-border`}
+            >
+              <h3 className="font-heading font-bold text-xl md:text-2xl text-foreground mb-3">
+                {card.title}
+              </h3>
+              <p className="font-body text-muted-foreground text-sm md:text-base leading-relaxed max-w-2xl">
+                {card.description}
+              </p>
+            </ScrollStackItem>
+          ))}
+        </ScrollStack>
       </div>
     </section>
   );
