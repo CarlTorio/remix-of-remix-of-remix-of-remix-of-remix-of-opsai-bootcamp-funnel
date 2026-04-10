@@ -143,16 +143,16 @@ const HeroSection = () => {
       <section
         ref={heroSectionRef}
         className="relative bg-background"
-        style={{ height: isMobile ? "250vh" : "300vh" }}
+        style={{ height: "100vh" }}
       >
-        <div className="sticky top-0 h-screen w-full overflow-hidden">
+        <div className="h-screen w-full overflow-hidden relative">
           {/* Hero content — blurred */}
           <div
             className="absolute inset-0"
             style={{
               filter: `blur(${blurAmount}px)`,
               willChange: "filter",
-              transition: "filter 0.3s ease-out",
+              transition: "filter 1.5s ease-out",
             }}
           >
             {/* Image area */}
@@ -185,7 +185,7 @@ const HeroSection = () => {
               height: "60%",
               background: "linear-gradient(to top, #000 0%, rgba(0,0,0,0.92) 35%, rgba(0,0,0,0.5) 70%, rgba(0,0,0,0) 100%)",
               opacity: overlayOpacity,
-              transition: "opacity 0.3s ease-out",
+              transition: "opacity 1.5s ease-out",
             }}
           />
 
@@ -195,7 +195,7 @@ const HeroSection = () => {
             style={{
               bottom: "8vh",
               opacity: textOpacity,
-              transition: "opacity 0.3s ease-out",
+              transition: "opacity 1.5s ease-out",
             }}
           >
             <h2 className="text-destructive text-2xl md:text-4xl font-heading font-bold text-center">
