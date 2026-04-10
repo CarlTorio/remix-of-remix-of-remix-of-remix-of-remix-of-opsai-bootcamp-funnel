@@ -101,6 +101,30 @@ const ScrollStack = ({
     cardsRef.current.forEach((card, i) => {
       if (!card) return;
 
+      // First card stays pinned in place, doesn't move
+      if (i === 0) {
+        const cardTop = originalOffsetsRef.current[i];
+        const pinStart = cardTop - stackPositionPx;
+        const pinEnd = endElementTop - containerHeight / 2;
+
+        let translateY = 0;
+        if (scrollTop >= pinStart && scrollTop <= pinEnd) {
+          translateY = scrollTop - cardTop + stackPositionPx;
+        } else if (scrollTop > pinEnd) {
+          translateY = pinEnd - cardTop + stackPositionPx;
+        }
+
+        const newTransform = { translateY: Math.round(translateY * 100) / 100, scale: 1 };
+        const lastTransform = lastTransformsRef.current.get(i);
+        const hasChanged = !lastTransform || Math.abs(lastTransform.translateY - newTransform.translateY) > 0.1;
+
+        if (hasChanged) {
+          card.style.transform = `translate3d(0, ${newTransform.translateY}px, 0) scale(1)`;
+          lastTransformsRef.current.set(i, newTransform);
+        }
+        return;
+      }
+
       const cardTop = originalOffsetsRef.current[i];
       const triggerStart = cardTop - stackPositionPx - itemStackDistance * i;
       const triggerEnd = cardTop - scaleEndPositionPx;
