@@ -17,27 +17,27 @@ const stackCards = [
   {
     title: "Automate Your Workflows",
     description: "Stop doing repetitive tasks manually. Build systems that run 24/7 without you lifting a finger.",
-    gradient: "from-[hsl(0,40%,22%)] to-[hsl(0,30%,28%)]",
+    gradient: "from-[#dc2626] to-[#b91c1c]",
   },
   {
     title: "Centralize Your Data",
     description: "No more scattered spreadsheets. One single source of truth for your entire business.",
-    gradient: "from-[hsl(0,45%,18%)] to-[hsl(0,35%,24%)]",
+    gradient: "from-[#b91c1c] to-[#991b1b]",
   },
   {
     title: "Track Everything in Real-Time",
     description: "Dashboards that update automatically. Know exactly where your business stands at any moment.",
-    gradient: "from-[hsl(0,50%,15%)] to-[hsl(0,40%,20%)]",
+    gradient: "from-[#991b1b] to-[#7f1d1d]",
   },
   {
     title: "Scale Without Hiring",
     description: "Handle 10x more clients with the same team. Let A.I. do the heavy lifting.",
-    gradient: "from-[hsl(0,55%,12%)] to-[hsl(0,45%,17%)]",
+    gradient: "from-[#7f1d1d] to-[#601414]",
   },
   {
     title: "Own Your System Forever",
     description: "No monthly subscriptions to expensive software. Build it once, use it for life.",
-    gradient: "from-[hsl(0,60%,9%)] to-[hsl(0,50%,14%)]",
+    gradient: "from-[#601414] to-[#450a0a]",
   },
 ];
 
