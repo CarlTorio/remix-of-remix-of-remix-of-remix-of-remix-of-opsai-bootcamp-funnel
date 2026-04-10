@@ -237,7 +237,7 @@ const HeroSection = () => {
       {/* SECOND SECTION — completely separate sibling, untouched */}
       <section
         ref={secondSectionRef}
-        className="relative w-full bg-cover bg-center bg-fixed"
+        className="relative w-full bg-cover bg-center"
         style={{ backgroundImage: `url('https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object/public/Video%20-%20Image%20Hosting/Background.png')` }}
       >
         <div className="absolute inset-0 bg-background/50" />
