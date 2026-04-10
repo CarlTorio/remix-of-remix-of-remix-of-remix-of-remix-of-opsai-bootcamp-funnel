@@ -75,7 +75,7 @@
     border-top: 1px solid rgba(255, 255, 255, 0.05);
   }
   .animate-slow-pulse {
-    animation: slow-pulse 3s ease-in-out infinite;
+    animation: slow-pulse 2s ease-in-out infinite;
   }
 }
 
