@@ -70,7 +70,7 @@ const Section5BeforeAfter = () => {
           <div
             ref={refR}
             className={`bg-card rounded-2xl border border-accent/20 p-6 md:p-8 transition-all duration-700 ${visR ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}`}
-            style={{ boxShadow: "0 0 40px hsl(217 71% 68% / 0.08)" }}
+            style={{ boxShadow: "0 0 40px hsl(223 85% 70% / 0.08)" }}
           >
             <div className="h-[3px] w-full bg-gradient-to-r from-accent/80 to-accent/20 rounded-full mb-6" />
             <h3 className="font-heading font-bold text-xl text-accent mb-2">What Life Looks Like After This</h3>
@@ -87,7 +87,7 @@ const Section5BeforeAfter = () => {
               That changes everything: <span className="text-accent">faster decisions • better delegation • fewer errors • stronger accountability • more control • more peace of mind</span>
             </p>
             <p className="text-accent font-body text-sm font-semibold">You stop operating from confusion.</p>
-            <p className="text-accent font-body text-sm font-semibold" style={{ textShadow: "0 0 15px hsl(217 71% 68% / 0.3)" }}>
+            <p className="text-accent font-body text-sm font-semibold" style={{ textShadow: "0 0 15px hsl(223 85% 70% / 0.3)" }}>
               You start operating from <span className="font-bold">systems</span>.
             </p>
             <p className="text-accent font-body text-sm mt-2">That changes everything.</p>

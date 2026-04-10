@@ -32,10 +32,10 @@ const Section8Timing = () => {
         </div>
 
         <p className="text-center font-heading font-bold text-xl md:text-2xl mb-8">
-          But now? <span className="text-accent" style={{ textShadow: "0 0 20px hsl(217 71% 68% / 0.4)" }}>AI</span> has changed the game.
+          But now? <span className="text-accent" style={{ textShadow: "0 0 20px hsl(223 85% 70% / 0.4)" }}>AI</span> has changed the game.
         </p>
 
-        <div className="bg-card rounded-2xl border border-accent/30 p-6 md:p-8 space-y-4" style={{ boxShadow: "0 0 30px hsl(217 71% 68% / 0.06)" }}>
+        <div className="bg-card rounded-2xl border border-accent/30 p-6 md:p-8 space-y-4" style={{ boxShadow: "0 0 30px hsl(223 85% 70% / 0.06)" }}>
           <p className="text-accent font-heading font-bold text-sm uppercase tracking-wider">THE SMARTER WAY</p>
           <div className="space-y-3">
             {[
@@ -54,7 +54,7 @@ const Section8Timing = () => {
         </div>
 
         <p className="text-center font-body text-base text-muted-foreground mt-8">
-          And it gives you something most owners still don't have: <span className="text-accent font-semibold" style={{ textShadow: "0 0 15px hsl(217 71% 68% / 0.3)" }}>control</span> over how your business system is designed.
+          And it gives you something most owners still don't have: <span className="text-accent font-semibold" style={{ textShadow: "0 0 15px hsl(223 85% 70% / 0.3)" }}>control</span> over how your business system is designed.
         </p>
       </div>
     </section>
