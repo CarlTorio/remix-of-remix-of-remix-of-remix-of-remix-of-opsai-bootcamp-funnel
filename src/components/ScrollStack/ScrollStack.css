@@ -17,13 +17,13 @@
 
 .scroll-stack-card {
   height: auto;
-  min-height: 12rem;
+  min-height: 8rem;
   width: 100%;
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 30vh;
-  padding: 3rem;
+  padding: 2rem;
   border-radius: 32px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   transform-origin: top center;
@@ -48,7 +48,7 @@
     padding-bottom: 2vh;
   }
   .scroll-stack-card {
-    min-height: 14rem;
+    min-height: 10rem;
     margin-bottom: 25vh;
     padding: 1.5rem;
     border-radius: 24px;
@@ -61,7 +61,7 @@
     padding-bottom: 1vh;
   }
   .scroll-stack-card {
-    min-height: 12rem;
+    min-height: 8rem;
     padding: 1.25rem;
     border-radius: 20px;
   }
