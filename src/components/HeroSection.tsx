@@ -1,4 +1,5 @@
 const heroBg = "https://fhgovsymhevqsjtxhiui.supabase.co/storage/v1/object/public/Bootcamp%20Funnel/Hero%20Section%20Original%20V5.png";
+import chaosBg from "@/assets/chaos-bg.png";
 const systemBg = "https://fhgovsymhevqsjtxhiui.supabase.co/storage/v1/object/public/Bootcamp%20Funnel/System.png";
 import CTAButton from "./CTAButton";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -98,13 +99,19 @@ const HeroSection = () => {
       </div>
 
       {/* Problem statement below stacks */}
-      <div className="w-full text-center py-12 md:py-20">
-        <p className="text-muted-foreground font-body text-lg mb-3">
-          …then your business is not "organized enough."
-        </p>
-        <p className="text-destructive font-heading font-semibold text-xl md:text-2xl">
-          It is one problem away from chaos.
-        </p>
+      <div
+        className="w-full text-center py-12 md:py-20 relative bg-cover bg-center"
+        style={{ backgroundImage: `url(${chaosBg})` }}
+      >
+        <div className="absolute inset-0 bg-background/60" />
+        <div className="relative z-10">
+          <p className="text-muted-foreground font-body text-lg mb-3">
+            …then your business is not "organized enough."
+          </p>
+          <p className="text-destructive font-heading font-semibold text-xl md:text-2xl">
+            It is one problem away from chaos.
+          </p>
+        </div>
       </div>
     </section>
   );
