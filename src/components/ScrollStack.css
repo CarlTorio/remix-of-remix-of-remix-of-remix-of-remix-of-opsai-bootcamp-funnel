@@ -13,7 +13,7 @@
 
 .scroll-stack-card {
   transform-origin: top center;
-  will-change: transform, filter;
+  will-change: transform;
   backface-visibility: hidden;
   transform-style: preserve-3d;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
@@ -27,6 +27,7 @@
   transform: translateZ(0);
   position: relative;
   overflow: hidden;
+  transition: transform 0.15s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .scroll-stack-end {
