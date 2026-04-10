@@ -1,7 +1,7 @@
 .scroll-stack-scroller {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 70vh;
   overflow-y: auto;
   overflow-x: visible;
   overscroll-behavior: contain;
@@ -13,8 +13,8 @@
 }
 
 .scroll-stack-inner {
-  padding: 5vh 10rem 50rem;
-  min-height: 100vh;
+  padding: 3vh 10rem 40rem;
+  min-height: 70vh;
 }
 
 .scroll-stack-card-wrapper {
