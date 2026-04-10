@@ -45,7 +45,7 @@ const HeroSection = () => {
   const { ref, visible } = useScrollReveal();
 
   return (
-    <section className="relative flex flex-col items-center overflow-x-hidden bg-background">
+    <section className="relative flex flex-col items-center overflow-hidden bg-background">
       {/* Image area - upper portion */}
       <div className="relative w-full">
         <div className="relative w-full">
@@ -79,41 +79,30 @@ const HeroSection = () => {
       >
         <div className="absolute inset-0 bg-background/70" />
         <div className="relative z-10">
-          <div className="relative">
-            <div className="sticky top-0 z-20 h-screen pointer-events-none">
-              <div className="flex justify-center px-4 pt-12 md:pt-20">
-                <p className="font-heading font-semibold text-lg md:text-2xl text-foreground text-center">
-                  If your business is still running on…
-                </p>
-              </div>
-            </div>
-
-            <div className="-mt-screen pt-28 md:pt-36">
-              <ScrollStack
-                useWindowScroll={true}
-                itemScale={0.03}
-                itemStackDistance={30}
-                stackPosition="25%"
-                baseScale={0.88}
-                className="max-w-5xl mx-auto px-4 md:px-8"
+          <ScrollStack
+            useWindowScroll={true}
+            itemScale={0.03}
+            itemStackDistance={30}
+            stackPosition="25%"
+            baseScale={0.88}
+            className="max-w-5xl mx-auto px-4 md:px-8"
+          >
+            {stackCards.map((card, i) => (
+              <ScrollStackItem
+                key={i}
+                itemClassName={`bg-gradient-to-br ${card.gradient} border border-border`}
               >
-                {stackCards.map((card, i) => (
-                  <ScrollStackItem
-                    key={i}
-                    itemClassName={`bg-gradient-to-br ${card.gradient} border border-border`}
-                  >
-                    <h3 className="font-heading font-bold text-xl md:text-2xl text-foreground mb-3">
-                      {card.title}
-                    </h3>
-                    <p className="font-body text-muted-foreground text-sm md:text-base leading-relaxed max-w-2xl">
-                      {card.description}
-                    </p>
-                  </ScrollStackItem>
-                ))}
-              </ScrollStack>
-            </div>
-          </div>
+                <h3 className="font-heading font-bold text-xl md:text-2xl text-foreground mb-3">
+                  {card.title}
+                </h3>
+                <p className="font-body text-muted-foreground text-sm md:text-base leading-relaxed max-w-2xl">
+                  {card.description}
+                </p>
+              </ScrollStackItem>
+            ))}
+          </ScrollStack>
 
+          {/* Problem statement below stacks */}
           <div className="w-full text-center py-12 md:py-20">
             <p className="text-muted-foreground font-body text-lg mb-3">
               …then your business is not "organized enough."
