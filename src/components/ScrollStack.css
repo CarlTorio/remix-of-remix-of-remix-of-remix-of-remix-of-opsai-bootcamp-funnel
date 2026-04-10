@@ -4,7 +4,7 @@
 }
 
 .scroll-stack-inner {
-  padding: 3vh 15rem 50rem;
+  padding: 3vh 15rem 30rem;
 }
 
 .scroll-stack-card-wrapper {
@@ -17,7 +17,7 @@
   backface-visibility: hidden;
   transform-style: preserve-3d;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
-  height: 14rem;
+  height: 11rem;
   width: 100%;
   margin: 30px 0;
   padding: 3rem;
