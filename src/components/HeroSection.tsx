@@ -79,9 +79,11 @@ const HeroSection = () => {
       >
         <div className="absolute inset-0 bg-background/70" />
         <div className="relative z-10">
-          <p className="text-center font-heading font-semibold text-lg md:text-2xl text-foreground pt-12 md:pt-20 mb-8">
-            If your business is still running on…
-          </p>
+          <div className="sticky top-8 md:top-12 z-20 text-center pt-12 md:pt-20 mb-8 pointer-events-none">
+            <p className="font-heading font-semibold text-lg md:text-2xl text-foreground">
+              If your business is still running on…
+            </p>
+          </div>
           <ScrollStack
             useWindowScroll={true}
             itemScale={0.03}
