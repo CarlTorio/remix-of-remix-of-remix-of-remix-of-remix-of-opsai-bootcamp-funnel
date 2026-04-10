@@ -189,37 +189,51 @@ const ScrollStack = ({
       card.style.transformOrigin = 'top center';
     });
 
-    const lenis = new Lenis({
-      wrapper: scroller,
-      content: scroller.querySelector('.scroll-stack-inner') as HTMLElement,
-      duration: 1.2,
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-    });
+    if (useWindowScroll) {
+      const onScroll = () => updateCardTransforms();
+      window.addEventListener('scroll', onScroll, { passive: true });
+      updateCardTransforms();
 
-    lenis.on('scroll', updateCardTransforms);
+      return () => {
+        window.removeEventListener('scroll', onScroll);
+        stackCompletedRef.current = false;
+        cardsRef.current = [];
+        transformsCache.clear();
+        isUpdatingRef.current = false;
+      };
+    } else {
+      const lenis = new Lenis({
+        wrapper: scroller,
+        content: scroller.querySelector('.scroll-stack-inner') as HTMLElement,
+        duration: 1.2,
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+      });
 
-    const raf = (time: number) => {
-      lenis.raf(time);
+      lenis.on('scroll', updateCardTransforms);
+
+      const raf = (time: number) => {
+        lenis.raf(time);
+        animationFrameRef.current = requestAnimationFrame(raf);
+      };
+
       animationFrameRef.current = requestAnimationFrame(raf);
-    };
+      lenisRef.current = lenis;
+      updateCardTransforms();
 
-    animationFrameRef.current = requestAnimationFrame(raf);
-    lenisRef.current = lenis;
-    updateCardTransforms();
-
-    return () => {
-      if (animationFrameRef.current) {
-        cancelAnimationFrame(animationFrameRef.current);
-      }
-      if (lenisRef.current) {
-        lenisRef.current.destroy();
-      }
-      stackCompletedRef.current = false;
-      cardsRef.current = [];
-      transformsCache.clear();
-      isUpdatingRef.current = false;
-    };
+      return () => {
+        if (animationFrameRef.current) {
+          cancelAnimationFrame(animationFrameRef.current);
+        }
+        if (lenisRef.current) {
+          lenisRef.current.destroy();
+        }
+        stackCompletedRef.current = false;
+        cardsRef.current = [];
+        transformsCache.clear();
+        isUpdatingRef.current = false;
+      };
+    }
   }, [itemDistance, updateCardTransforms, useWindowScroll]);
 
   return (

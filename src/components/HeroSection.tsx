@@ -45,7 +45,7 @@ const HeroSection = () => {
           itemStackDistance={30}
           stackPosition="20%"
           baseScale={0.85}
-          useWindowScroll={false}
+          useWindowScroll={true}
         >
           {problems.map((p) => (
             <ScrollStackItem key={p.num}>
