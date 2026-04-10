@@ -42,7 +42,7 @@ const ProblemsSection = () => (
   <section className="w-full bg-background" style={{ padding: '40px 0' }}>
 
     <ScrollStack
-      itemDistance={100}
+      itemDistance={30}
       itemScale={0.03}
       itemStackDistance={30}
       stackPosition="20%"
