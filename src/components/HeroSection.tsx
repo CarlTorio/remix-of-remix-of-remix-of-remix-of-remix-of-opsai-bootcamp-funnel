@@ -4,7 +4,6 @@ import CTAButton from "./CTAButton";
 import ShinyText from "./ShinyText";
 import SectionLabel from "./SectionLabel";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import ScrollStackSection from "./ScrollStackSection";
 
 const pills = [
   "Google Sheets",
@@ -81,8 +80,6 @@ const HeroSection = () => {
           </p>
         </div>
       </div>
-
-      <ScrollStackSection />
     </section>
   );
 };
