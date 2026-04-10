@@ -4,6 +4,7 @@ import CTAButton from "./CTAButton";
 import ShinyText from "./ShinyText";
 import SectionLabel from "./SectionLabel";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import ScrollStack, { ScrollStackItem } from '@/components/ScrollStack/ScrollStack';
 
 const pills = [
   "Google Sheets",
@@ -17,7 +18,7 @@ const HeroSection = () => {
   const { ref, visible } = useScrollReveal();
 
   return (
-    <section className="relative flex flex-col items-center overflow-hidden bg-background">
+    <section className="relative flex flex-col items-center overflow-visible bg-background">
       {/* Image area - upper portion */}
       <div className="relative w-full">
         <div className="relative w-full">
@@ -79,6 +80,27 @@ const HeroSection = () => {
             It is one problem away from chaos.
           </p>
         </div>
+      </div>
+
+      {/* ScrollStack Pain Points Overlay */}
+      <div style={{ position: 'absolute', bottom: '-80px', left: 0, right: 0, zIndex: 20, pointerEvents: 'none' }}>
+        <ScrollStack useWindowScroll>
+          <ScrollStackItem>
+            <p className="scroll-stack-card-text">Google Sheets</p>
+          </ScrollStackItem>
+          <ScrollStackItem>
+            <p className="scroll-stack-card-text">Messenger Group Chats</p>
+          </ScrollStackItem>
+          <ScrollStackItem>
+            <p className="scroll-stack-card-text">Manual follow-ups</p>
+          </ScrollStackItem>
+          <ScrollStackItem>
+            <p className="scroll-stack-card-text">Disconnected Tools</p>
+          </ScrollStackItem>
+          <ScrollStackItem>
+            <p className="scroll-stack-card-text">Delayed reports</p>
+          </ScrollStackItem>
+        </ScrollStack>
       </div>
     </section>
   );
