@@ -38,6 +38,8 @@ const HeroSection = () => {
   const secondSectionRef = useRef<HTMLElement>(null);
   const [animationStage, setAnimationStage] = useState<0 | 1 | 2>(0);
   // 0 = initial (sharp hero), 1 = animating (blur+overlay), 2 = done (faded out, ready to leave)
+  const isAnimatingRef = useRef(false);
+  const stageRef = useRef<0 | 1 | 2>(0);
   const [isMobile, setIsMobile] = useState(false);
   const timeoutsRef = useRef<number[]>([]);
 
