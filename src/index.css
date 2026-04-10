@@ -91,7 +91,7 @@
   bottom: -12px;
   right: -250%;
   border-radius: 50%;
-  animation: star-movement-bottom linear infinite alternate;
+  animation: star-movement-bottom linear infinite;
   z-index: 0;
 }
 
@@ -103,7 +103,7 @@
   top: -12px;
   left: -250%;
   border-radius: 50%;
-  animation: star-movement-top linear infinite alternate;
+  animation: star-movement-top linear infinite;
   z-index: 0;
 }
 
