@@ -29,8 +29,8 @@ const Section9HowItWorks = () => {
           <div className="hidden md:block absolute top-[22px] left-[16.67%] right-[16.67%] h-px bg-accent/30" />
           {stats.map((s, i) => (
             <div key={i} className="bg-card rounded-2xl border border-border p-6 text-center relative">
-              <div className="w-3 h-3 rounded-full bg-accent mx-auto mb-4" style={{ boxShadow: "0 0 12px hsl(223 85% 70% / 0.5)" }} />
-              <p className="font-heading font-extrabold text-4xl text-accent mb-1" style={{ textShadow: "0 0 20px hsl(223 85% 70% / 0.3)" }}>{s.num}</p>
+              <div className="w-3 h-3 rounded-full bg-accent mx-auto mb-4" style={{ boxShadow: "0 0 12px hsl(217 71% 68% / 0.5)" }} />
+              <p className="font-heading font-extrabold text-4xl text-accent mb-1" style={{ textShadow: "0 0 20px hsl(217 71% 68% / 0.3)" }}>{s.num}</p>
               <p className="font-heading font-semibold text-foreground text-base mb-1">{s.label}</p>
               <p className="text-muted-foreground font-body text-sm">{s.desc}</p>
             </div>
@@ -46,7 +46,7 @@ const Section9HowItWorks = () => {
             So instead of wasting months trying to explain your operations to someone else… you'll learn how to build from <span className="text-foreground font-semibold">the logic that already exists inside your head</span>.
           </p>
           <p className="font-body text-base text-muted-foreground leading-relaxed">
-            That's why this is powerful. You are not starting from zero. You are starting from <span className="text-accent font-semibold" style={{ textShadow: "0 0 15px hsl(223 85% 70% / 0.3)" }}>ownership</span>.
+            That's why this is powerful. You are not starting from zero. You are starting from <span className="text-accent font-semibold" style={{ textShadow: "0 0 15px hsl(217 71% 68% / 0.3)" }}>ownership</span>.
           </p>
           <p className="font-body text-base text-muted-foreground leading-relaxed">
             And when the owner finally has the right tools, prompts, and process… the build becomes <span className="text-foreground font-semibold">dramatically faster</span>.

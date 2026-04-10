@@ -37,7 +37,7 @@ const Section17EmotionalPush = () => {
         </p>
 
         <p className="font-heading font-bold text-xl md:text-2xl mb-6">
-          You don't need more hustle. You need <span className="text-accent" style={{ textShadow: "0 0 20px hsl(223 85% 70% / 0.4)" }}>better infrastructure</span>.
+          You don't need more hustle. You need <span className="text-accent" style={{ textShadow: "0 0 20px hsl(217 71% 68% / 0.4)" }}>better infrastructure</span>.
         </p>
 
         <p className="font-body text-base text-muted-foreground">

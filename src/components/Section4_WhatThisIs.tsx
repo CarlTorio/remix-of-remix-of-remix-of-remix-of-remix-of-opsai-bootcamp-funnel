@@ -55,7 +55,7 @@ const Section4WhatThisIs = () => {
             </p>
           </div>
 
-          <p className="font-heading font-bold text-lg md:text-xl text-foreground" style={{ textShadow: "0 0 20px hsl(223 85% 70% / 0.2)" }}>
+          <p className="font-heading font-bold text-lg md:text-xl text-foreground" style={{ textShadow: "0 0 20px hsl(217 71% 68% / 0.2)" }}>
             A system based on your real business logic.
           </p>
 
