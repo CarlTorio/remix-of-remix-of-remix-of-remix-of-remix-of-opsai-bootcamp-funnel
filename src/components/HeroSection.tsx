@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import FuzzyText from "./FuzzyText";
 const heroBg = "https://fhgovsymhevqsjtxhiui.supabase.co/storage/v1/object/public/Bootcamp%20Funnel/Hero%20Section%20Original%20V5.png";
 import chaosBg from "@/assets/chaos-bg.png";
 const systemBg = "https://fhgovsymhevqsjtxhiui.supabase.co/storage/v1/object/public/Bootcamp%20Funnel/System.png";
@@ -271,9 +272,20 @@ const HeroSection = () => {
             <p className="text-muted-foreground font-body text-xl md:text-2xl mb-3">
               …then your business is not "organized enough."
             </p>
-            <p className="text-destructive font-heading font-extrabold text-2xl md:text-3xl uppercase tracking-wide">
-              It is one problem away from chaos.
-            </p>
+            <div className="flex justify-center">
+              <FuzzyText
+                fontSize="clamp(1.5rem, 3vw, 1.875rem)"
+                fontWeight={800}
+                color="hsl(0, 84%, 60%)"
+                baseIntensity={0.2}
+                hoverIntensity={0.5}
+                enableHover
+                fuzzRange={15}
+                className="max-w-full"
+              >
+                IT IS ONE PROBLEM AWAY FROM CHAOS.
+              </FuzzyText>
+            </div>
           </div>
         </div>
       </section>
