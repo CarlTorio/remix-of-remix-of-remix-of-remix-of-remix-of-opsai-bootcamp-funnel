@@ -18,7 +18,7 @@ const HeroSection = () => (
       
       <h1 className="font-heading font-extrabold text-[26px] md:text-[44px] leading-[1.1] mb-6 max-w-4xl mx-auto flex flex-wrap items-center justify-center gap-x-3">
         <span>Build Your Own</span> <ShinyText text="Internal Business System" speed={2} delay={0} color="hsl(217, 71%, 68%)" shineColor="#ffffff" spread={120} direction="left" className="text-accent" /> <span>with</span>{" "}
-        <FuzzyText fontSize="clamp(1.5rem, 3.5vw, 3rem)" fontWeight={800} color="#fbbd23" baseIntensity={0.2} hoverIntensity={0.5} enableHover fuzzRange={30} className="inline-block align-middle" fontFamily="inherit">Artificial Intelligence</FuzzyText> <span>in Less Than</span> <ShinyText text="2 Weeks" speed={2} delay={0} color="#fbbd23" shineColor="#ffffff" spread={120} direction="left" className="" />
+        <FuzzyText fontSize="clamp(1.5rem, 3.5vw, 3rem)" fontWeight={800} color="#fbbd23" baseIntensity={0.08} hoverIntensity={0.5} enableHover fuzzRange={30} className="inline-block align-middle" fontFamily="inherit">Artificial Intelligence</FuzzyText> <span>in Less Than</span> <ShinyText text="2 Weeks" speed={2} delay={0} color="#fbbd23" shineColor="#ffffff" spread={120} direction="left" className="" />
       </h1>
       <p className="font-body text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
         Without Hiring Developers, Without Coding, and Without Spending ₱500,000+ on Custom Software.
