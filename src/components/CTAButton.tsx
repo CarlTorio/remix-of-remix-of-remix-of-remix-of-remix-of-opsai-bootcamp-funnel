@@ -12,7 +12,7 @@ const CTAButton = ({ children, href = "#pricing", className = "" }: CTAButtonPro
     <BorderGlow
       edgeSensitivity={30}
       glowColor="40 80 80"
-      backgroundColor="hsl(43, 96%, 56%)"
+      backgroundColor="transparent"
       borderRadius={9999}
       glowRadius={40}
       glowIntensity={1}
