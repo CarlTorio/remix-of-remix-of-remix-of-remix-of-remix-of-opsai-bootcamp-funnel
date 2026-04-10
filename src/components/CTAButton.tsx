@@ -16,7 +16,7 @@ const CTAButton = ({ children, href = "#pricing", className = "" }: CTAButtonPro
       thickness={2}
       className={className}
     >
-      <span className="inline-block bg-secondary text-secondary-foreground font-heading font-bold text-lg uppercase px-10 py-4 tracking-wide">
+      <span className="inline-block bg-gradient-to-r from-secondary to-amber-400 text-secondary-foreground font-heading font-bold text-lg uppercase px-10 py-2.5 tracking-wide">
         {children}
       </span>
     </StarBorder>
