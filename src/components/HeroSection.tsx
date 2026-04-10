@@ -1,6 +1,7 @@
 const heroBg = "https://fhgovsymhevqsjtxhiui.supabase.co/storage/v1/object/public/Bootcamp%20Funnel/Hero%20Section%20Original%20V5.png";
 import CTAButton from "./CTAButton";
 import ShinyText from "./ShinyText";
+import FuzzyText from "./FuzzyText";
 import SectionLabel from "./SectionLabel";
 
 const HeroSection = () => (
@@ -15,9 +16,9 @@ const HeroSection = () => (
     {/* Text content - below image */}
     <div className="relative z-10 container text-center -mt-16 md:-mt-24 pb-16 md:pb-24">
       
-      <h1 className="font-heading font-extrabold text-[26px] md:text-[44px] leading-[1.1] mb-6 max-w-4xl mx-auto">
-        Build Your Own <ShinyText text="Internal Business System" speed={2} delay={0} color="hsl(217, 71%, 68%)" shineColor="#ffffff" spread={120} direction="left" className="text-accent" /> with{" "}
-        <ShinyText text="A.I." speed={2} delay={0} color="#fbbd23" shineColor="#ffffff" spread={120} direction="left" className="" /> in Less Than <ShinyText text="2 Weeks" speed={2} delay={0} color="#fbbd23" shineColor="#ffffff" spread={120} direction="left" className="" />
+      <h1 className="font-heading font-extrabold text-[26px] md:text-[44px] leading-[1.1] mb-6 max-w-4xl mx-auto flex flex-wrap items-center justify-center gap-x-3">
+        <span>Build Your Own</span> <ShinyText text="Internal Business System" speed={2} delay={0} color="hsl(217, 71%, 68%)" shineColor="#ffffff" spread={120} direction="left" className="text-accent" /> <span>with</span>{" "}
+        <FuzzyText fontSize="inherit" fontWeight={800} color="#fbbd23" baseIntensity={0.2} hoverIntensity={0.5} enableHover fuzzRange={30} className="inline-block align-middle" fontFamily="inherit">A.I.</FuzzyText> <span>in Less Than</span> <ShinyText text="2 Weeks" speed={2} delay={0} color="#fbbd23" shineColor="#ffffff" spread={120} direction="left" className="" />
       </h1>
       <p className="font-body text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
         Without Hiring Developers, Without Coding, and Without Spending ₱500,000+ on Custom Software.
