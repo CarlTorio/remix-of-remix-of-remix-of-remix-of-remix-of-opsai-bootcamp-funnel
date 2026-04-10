@@ -19,7 +19,7 @@ const HeroSection = () => (
         <ShinyText
           text={
             <>
-              Build Your Own <span className="text-accent">Internal Business System</span> with{" "}
+              Build Your Own <span style={{ background: 'linear-gradient(135deg, hsl(220, 80%, 49%), hsl(217, 71%, 68%))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Internal Business System</span> with{" "}
               <span className="text-secondary">AI</span> in Less Than <span className="text-accent">2 Weeks</span>
             </>
           }
