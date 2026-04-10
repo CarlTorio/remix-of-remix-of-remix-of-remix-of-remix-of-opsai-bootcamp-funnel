@@ -1,4 +1,5 @@
 const heroBg = "https://fhgovsymhevqsjtxhiui.supabase.co/storage/v1/object/public/Bootcamp%20Funnel/Hero%20Section%20Original%20V5.png";
+const systemBg = "https://fhgovsymhevqsjtxhiui.supabase.co/storage/v1/object/public/Bootcamp%20Funnel/System.png";
 import CTAButton from "./CTAButton";
 import ShinyText from "./ShinyText";
 import SectionLabel from "./SectionLabel";
@@ -42,36 +43,42 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Problem section - integrated */}
-      <div ref={ref} className="container max-w-[900px] text-center pb-12 md:pb-20">
-        <p
-          className={`text-muted-foreground font-body text-lg mb-5 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
-        >
-          If your business is still running on
-        </p>
-        <div className="flex flex-wrap justify-center gap-2.5 mb-6">
-          {pills.map((pill, i) => (
-            <span
-              key={i}
-              className={`inline-block px-4 py-1.5 rounded-full text-sm font-body font-medium border transition-all duration-500 bg-destructive/10 border-destructive/30 text-destructive ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
-              style={{ transitionDelay: `${150 + i * 80}ms` }}
-            >
-              {pill}
-            </span>
-          ))}
+      {/* Problem section - with system background */}
+      <div className="relative w-full">
+        <div className="absolute inset-0">
+          <img src={systemBg} alt="" className="w-full h-full object-cover opacity-20" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background" />
         </div>
-        <p
-          className={`text-foreground font-body font-medium text-lg mb-2 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
-          style={{ transitionDelay: "600ms" }}
-        >
-          …then your business is not "organized enough."
-        </p>
-        <p
-          className={`text-destructive font-heading font-semibold text-xl md:text-2xl transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
-          style={{ transitionDelay: "750ms" }}
-        >
-          It is one problem away from chaos.
-        </p>
+        <div ref={ref} className="relative z-10 container max-w-[900px] text-center py-12 md:py-20">
+          <p
+            className={`text-muted-foreground font-body text-lg mb-5 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+          >
+            If your business is still running on
+          </p>
+          <div className="flex flex-wrap justify-center gap-2.5 mb-6">
+            {pills.map((pill, i) => (
+              <span
+                key={i}
+                className={`inline-block px-4 py-1.5 rounded-full text-sm font-body font-medium border transition-all duration-500 bg-destructive/10 border-destructive/30 text-destructive ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+                style={{ transitionDelay: `${150 + i * 80}ms` }}
+              >
+                {pill}
+              </span>
+            ))}
+          </div>
+          <p
+            className={`text-foreground font-body font-medium text-lg mb-2 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+            style={{ transitionDelay: "600ms" }}
+          >
+            …then your business is not "organized enough."
+          </p>
+          <p
+            className={`text-destructive font-heading font-semibold text-xl md:text-2xl transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+            style={{ transitionDelay: "750ms" }}
+          >
+            It is one problem away from chaos.
+          </p>
+        </div>
       </div>
     </section>
   );
