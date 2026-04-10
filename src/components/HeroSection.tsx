@@ -1,4 +1,5 @@
 const heroBg = "https://fhgovsymhevqsjtxhiui.supabase.co/storage/v1/object/public/Bootcamp%20Funnel/Hero%20Section%20Original%20V5.png";
+const heroOverlay = "https://fhgovsymhevqsjtxhiui.supabase.co/storage/v1/object/public/Bootcamp%20Funnel/Hero%20Section%20Original%20V3.png";
 import CTAButton from "./CTAButton";
 import ShinyText from "./ShinyText";
 import SectionLabel from "./SectionLabel";
@@ -40,6 +41,12 @@ const HeroSection = () => {
           <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-success inline-block" /> 6-Week Program</span>
           <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-success inline-block" /> Lifetime Access</span>
         </div>
+      </div>
+
+      {/* Overlay image */}
+      <div className="relative w-full">
+        <img src={heroOverlay} alt="" className="w-full h-auto opacity-80" width={1920} height={1080} />
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
       </div>
 
       {/* Problem section - integrated */}
