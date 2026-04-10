@@ -195,7 +195,7 @@ const HeroSection = () => {
             style={{
               bottom: "8vh",
               opacity: textOpacity,
-              transition: "opacity 1.5s ease-out",
+              transition: "opacity 2s ease-out",
             }}
           >
             <h2 className="text-destructive text-2xl md:text-4xl font-heading font-bold text-center">
