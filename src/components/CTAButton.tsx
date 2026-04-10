@@ -1,3 +1,5 @@
+import StarBorder from "./StarBorder";
+
 interface CTAButtonProps {
   children: React.ReactNode;
   href?: string;
@@ -7,12 +9,17 @@ interface CTAButtonProps {
 
 const CTAButton = ({ children, href = "#pricing", className = "" }: CTAButtonProps) => {
   return (
-    <a
+    <StarBorder
+      as="a"
       href={href}
-      className={`inline-block bg-secondary text-secondary-foreground font-heading font-bold text-lg uppercase rounded-full px-10 py-4 tracking-wide transition-all duration-200 hover:brightness-110 hover:scale-105 ${className}`}
+      color="hsl(43, 96%, 56%)"
+      speed="5s"
+      className={className}
     >
-      {children}
-    </a>
+      <span className="inline-block bg-secondary text-secondary-foreground font-heading font-bold text-lg uppercase px-10 py-4 tracking-wide">
+        {children}
+      </span>
+    </StarBorder>
   );
 };
 
