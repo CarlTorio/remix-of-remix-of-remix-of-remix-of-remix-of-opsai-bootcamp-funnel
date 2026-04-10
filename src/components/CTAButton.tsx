@@ -5,7 +5,7 @@ interface CTAButtonProps {
   onClick?: () => void;
 }
 
-const CTAButton = ({ children, href = "#enroll", className = "" }: CTAButtonProps) => {
+const CTAButton = ({ children, href = "#pricing", className = "" }: CTAButtonProps) => {
   return (
     <a
       href={href}
