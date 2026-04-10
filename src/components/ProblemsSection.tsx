@@ -71,7 +71,7 @@ const ProblemsSection = () => (
               background: p.bg,
               borderRadius: '40px',
               padding: '3rem',
-              height: '20rem',
+              height: '14rem',
               width: '100%',
               position: 'absolute',
               top: 0,
