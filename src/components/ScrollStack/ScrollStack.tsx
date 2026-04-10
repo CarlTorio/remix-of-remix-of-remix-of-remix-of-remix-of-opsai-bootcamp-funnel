@@ -59,7 +59,7 @@ export const ScrollStack: React.FC<ScrollStackProps> = ({
   const lastTransforms = useRef<Map<number, string>>(new Map());
 
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
-  const effectiveStackPosition = isMobile ? "15%" : stackPosition;
+  const effectiveStackPosition = isMobile ? "35%" : stackPosition;
   const effectiveItemStackDistance = isMobile ? 20 : itemStackDistance;
 
   const parsePosValue = useCallback(
