@@ -115,8 +115,8 @@ const HeroSection = () => {
               stageRef.current = 0;
               setAnimationStage(0);
             }, 1500);
-          }, 1000);
-        }, 2500);
+          }, 2000);
+        }, 5000);
       } else if (currentStage === 1 || currentStage === 2) {
         e.preventDefault();
       }
