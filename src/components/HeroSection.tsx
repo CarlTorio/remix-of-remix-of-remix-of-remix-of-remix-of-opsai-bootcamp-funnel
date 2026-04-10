@@ -271,7 +271,7 @@ const HeroSection = () => {
             <p className="text-muted-foreground font-body text-xl md:text-2xl mb-3">
               …then your business is not "organized enough."
             </p>
-            <p className="text-destructive font-heading font-semibold text-2xl md:text-3xl">
+            <p className="text-destructive font-heading font-extrabold text-2xl md:text-3xl uppercase tracking-wide">
               It is one problem away from chaos.
             </p>
           </div>
