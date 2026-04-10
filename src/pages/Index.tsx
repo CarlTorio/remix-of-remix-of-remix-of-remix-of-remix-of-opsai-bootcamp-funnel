@@ -1,4 +1,5 @@
 import HeroSection from "@/components/HeroSection";
+import ProblemsSection from "@/components/ProblemsSection";
 
 import Section2Checklist from "@/components/Section2_Checklist";
 import Section3Intro from "@/components/Section3_Intro";
@@ -22,6 +23,7 @@ import NewFooter from "@/components/NewFooter";
 const Index = () => (
   <main>
     <HeroSection />
+    <ProblemsSection />
     
     <Section2Checklist />
     <Section3Intro />
