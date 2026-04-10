@@ -13,6 +13,8 @@ const CTAButton = ({ children, href = "#pricing", className = "" }: CTAButtonPro
       as="a"
       href={href}
       color="white"
+      speed="3s"
+      thickness={2}
       speed="5s"
       className={className}
     >
