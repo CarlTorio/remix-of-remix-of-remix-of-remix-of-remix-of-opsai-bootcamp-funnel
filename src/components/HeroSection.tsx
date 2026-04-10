@@ -19,8 +19,7 @@ const HeroSection = () => (
         <span className="text-secondary">AI</span> in Less Than <span className="text-accent">2 Weeks</span>
       </h1>
       <p className="font-body text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-        The only bootcamp designed for Filipino SME owners who want to stop firefighting and start building
-        a business that runs like a machine.
+        Without Hiring Developers, Without Coding, and Without Spending ₱500,000+ on Custom Software.
       </p>
       <CTAButton>Enroll Now — Limited Slots</CTAButton>
       <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-muted-foreground font-body">
