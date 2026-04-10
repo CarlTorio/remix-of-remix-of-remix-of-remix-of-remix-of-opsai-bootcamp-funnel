@@ -12,10 +12,8 @@ const CTAButton = ({ children, href = "#pricing", className = "" }: CTAButtonPro
     <StarBorder
       as="a"
       href={href}
-      color="white"
       speed="3s"
       thickness={2}
-      speed="5s"
       className={className}
     >
       <span className="inline-block bg-secondary text-secondary-foreground font-heading font-bold text-lg uppercase px-10 py-4 tracking-wide">
