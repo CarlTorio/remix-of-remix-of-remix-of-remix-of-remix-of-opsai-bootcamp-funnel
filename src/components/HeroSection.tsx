@@ -110,6 +110,14 @@ const HeroSection = () => {
     };
     const handleTouchMove = (e: TouchEvent) => {
       const deltaY = touchStartY - e.touches[0].clientY;
+
+      // Swipe DOWN (scroll up) — reset
+      if (deltaY < 0 && window.scrollY <= 10 && stageRef.current !== 0) {
+        e.preventDefault();
+        resetToInitial();
+        return;
+      }
+
       if (deltaY <= 0) return;
       if (window.scrollY > 10) return;
 
@@ -120,20 +128,23 @@ const HeroSection = () => {
         stageRef.current = 1;
         setAnimationStage(1);
 
-        setTimeout(() => {
+        const t1 = window.setTimeout(() => {
           stageRef.current = 2;
           setAnimationStage(2);
-          setTimeout(() => {
+          const t2 = window.setTimeout(() => {
             isAnimatingRef.current = false;
             if (secondSectionRef.current) {
               secondSectionRef.current.scrollIntoView({ behavior: "smooth" });
             }
-            setTimeout(() => {
+            const t3 = window.setTimeout(() => {
               stageRef.current = 0;
               setAnimationStage(0);
             }, 1500);
+            timeoutsRef.current.push(t3);
           }, 2000);
+          timeoutsRef.current.push(t2);
         }, 5000);
+        timeoutsRef.current.push(t1);
       } else if (currentStage === 1 || currentStage === 2) {
         e.preventDefault();
       }
