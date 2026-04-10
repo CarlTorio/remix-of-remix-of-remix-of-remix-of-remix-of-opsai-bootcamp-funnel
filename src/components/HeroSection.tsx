@@ -46,7 +46,7 @@ const HeroSection = () => {
       {/* Problem section - with system background */}
       <div className="relative w-full">
         <div className="absolute inset-0">
-          <img src={systemBg} alt="" className="w-full h-full object-cover opacity-20" />
+          <img src={systemBg} alt="" className="w-full h-full object-cover opacity-50" />
           <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background" />
         </div>
         <div ref={ref} className="relative z-10 container max-w-[900px] text-center py-12 md:py-20">
