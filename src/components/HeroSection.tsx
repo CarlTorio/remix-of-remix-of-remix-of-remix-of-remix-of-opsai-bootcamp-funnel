@@ -207,6 +207,7 @@ const HeroSection = () => {
 
       {/* SECOND SECTION — completely separate sibling, untouched */}
       <section
+        ref={secondSectionRef}
         className="relative w-full bg-cover bg-center"
         style={{ backgroundImage: `url(${chaosBg})` }}
       >
