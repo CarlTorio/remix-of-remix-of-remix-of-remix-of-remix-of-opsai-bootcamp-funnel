@@ -274,7 +274,7 @@ const HeroSection = () => {
             </p>
             <div className="flex justify-center">
               <FuzzyText
-                fontSize="clamp(1.5rem, 3vw, 1.875rem)"
+                fontSize="clamp(2rem, 4vw, 2.5rem)"
                 fontWeight={800}
                 color="hsl(0, 84%, 60%)"
                 baseIntensity={0.2}
