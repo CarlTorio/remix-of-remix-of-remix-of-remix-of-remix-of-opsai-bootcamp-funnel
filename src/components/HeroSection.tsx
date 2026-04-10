@@ -21,7 +21,7 @@ const HeroSection = () => (
           <span>Build Your Own</span> <ShinyText text="Internal Business System" speed={2} delay={0} color="hsl(217, 71%, 68%)" shineColor="#ffffff" spread={120} direction="left" className="text-accent" />
         </div>
         <div className="flex flex-wrap items-center justify-center gap-x-3">
-          <span>with</span> <FuzzyText fontSize="clamp(1.5rem, 3.5vw, 3rem)" fontWeight={800} color="#fbbd23" baseIntensity={0.08} hoverIntensity={0.5} enableHover fuzzRange={30} className="inline-block align-middle" fontFamily="inherit">Artificial Intelligence</FuzzyText> <span>in Less Than</span> <ShinyText text="2 Weeks" speed={2} delay={0} color="#fbbd23" shineColor="#ffffff" spread={120} direction="left" className="" />
+          <span>with</span> <FuzzyText fontSize="clamp(1.5rem, 3.5vw, 3rem)" fontWeight={800} color="#fbbd23" baseIntensity={0.08} hoverIntensity={0.5} enableHover fuzzRange={30} className="inline-block align-middle -ml-4" fontFamily="inherit">Artificial Intelligence</FuzzyText> <span>in Less Than</span> <ShinyText text="2 Weeks" speed={2} delay={0} color="#fbbd23" shineColor="#ffffff" spread={120} direction="left" className="" />
         </div>
       </h1>
       <p className="font-body text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
