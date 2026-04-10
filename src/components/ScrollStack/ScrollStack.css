@@ -11,8 +11,8 @@
 }
 
 .scroll-stack-inner {
-  padding: 2vh 5rem;
-  padding-bottom: 10vh;
+  padding: 1vh 5rem;
+  padding-bottom: 5vh;
 }
 
 .scroll-stack-card {
@@ -22,7 +22,7 @@
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 10vh;
+  margin-bottom: 5vh;
   padding: 3rem;
   border-radius: 32px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
@@ -44,12 +44,12 @@
 
 @media (max-width: 768px) {
   .scroll-stack-inner {
-    padding: 2vh 1rem;
-    padding-bottom: 8vh;
+    padding: 1vh 1rem;
+    padding-bottom: 4vh;
   }
   .scroll-stack-card {
     min-height: 14rem;
-    margin-bottom: 8vh;
+    margin-bottom: 4vh;
     padding: 1.5rem;
     border-radius: 24px;
   }
@@ -57,8 +57,8 @@
 
 @media (max-width: 480px) {
   .scroll-stack-inner {
-    padding: 1vh 0.75rem;
-    padding-bottom: 6vh;
+    padding: 0.5vh 0.75rem;
+    padding-bottom: 3vh;
   }
   .scroll-stack-card {
     min-height: 12rem;
