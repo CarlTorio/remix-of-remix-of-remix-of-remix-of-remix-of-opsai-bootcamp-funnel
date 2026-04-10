@@ -16,7 +16,7 @@ const HeroSection = () => (
     <div className="relative z-10 container text-center -mt-16 md:-mt-24 pb-16 md:pb-24">
       
       <h1 className="font-heading font-extrabold text-[26px] md:text-[44px] leading-[1.1] mb-6 max-w-4xl mx-auto">
-        Build Your Own <ShinyText text="Internal Business System" speed={2} delay={0} color="hsl(217, 71%, 68%)" shineColor="#ffffff" spread={120} direction="left" className="text-accent" /> with{" "}
+        Build Your Own <span className="text-accent">Internal Business System</span> with{" "}
         <ShinyText text="A.I." speed={2} delay={0} color="#fbbd23" shineColor="#ffffff" spread={120} direction="left" className="" /> in Less Than <ShinyText text="2 Weeks" speed={2} delay={0} color="#fbbd23" shineColor="#ffffff" spread={120} direction="left" className="" />
       </h1>
       <p className="font-body text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
