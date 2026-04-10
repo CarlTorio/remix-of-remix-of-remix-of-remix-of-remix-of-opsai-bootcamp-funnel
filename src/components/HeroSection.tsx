@@ -61,9 +61,16 @@ const HeroSection = () => {
 
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
+      // Scroll UP while hero is in view — reset to original
+      if (e.deltaY < 0 && window.scrollY <= 10 && stageRef.current !== 0) {
+        e.preventDefault();
+        resetToInitial();
+        return;
+      }
+
       // Only intercept downward scrolls when hero is at top
       if (e.deltaY <= 0) return;
-      if (window.scrollY > 10) return; // already scrolled past hero
+      if (window.scrollY > 10) return;
 
       const currentStage = stageRef.current;
 
@@ -73,26 +80,26 @@ const HeroSection = () => {
         stageRef.current = 1;
         setAnimationStage(1);
 
-        // After animation plays (5s hold), move to stage 2 (fade out overlay)
-        setTimeout(() => {
+        const t1 = window.setTimeout(() => {
           stageRef.current = 2;
           setAnimationStage(2);
 
-          // After fade out (2s), scroll to next section
-          setTimeout(() => {
+          const t2 = window.setTimeout(() => {
             isAnimatingRef.current = false;
             if (secondSectionRef.current) {
               secondSectionRef.current.scrollIntoView({ behavior: "smooth" });
             }
-            // Reset after scrolling away
-            setTimeout(() => {
+            const t3 = window.setTimeout(() => {
               stageRef.current = 0;
               setAnimationStage(0);
             }, 1500);
+            timeoutsRef.current.push(t3);
           }, 2000);
+          timeoutsRef.current.push(t2);
         }, 5000);
+        timeoutsRef.current.push(t1);
       } else if (currentStage === 1 || currentStage === 2) {
-        e.preventDefault(); // block scroll during animation
+        e.preventDefault();
       }
     };
 
