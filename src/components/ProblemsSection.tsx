@@ -39,7 +39,7 @@ const problems = [
 ];
 
 const ProblemsSection = () => (
-  <section style={{ background: '#1A0000', width: '100%', padding: '80px 0' }}>
+  <section style={{ background: '#1A0000', width: '100%', padding: '40px 0' }}>
 
     <ScrollStack
       itemDistance={100}
