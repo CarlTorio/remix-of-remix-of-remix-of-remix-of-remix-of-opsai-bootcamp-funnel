@@ -38,7 +38,7 @@ const HeroSection = () => {
       </div>
 
       {/* ScrollStack Problems */}
-      <div className="w-full" style={{ padding: '40px 0' }}>
+      <div className="w-full" style={{ padding: '0 0 40px 0', marginTop: '-60px' }}>
         <ScrollStack
           itemDistance={100}
           itemScale={0.03}
