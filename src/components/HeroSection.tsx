@@ -79,35 +79,41 @@ const HeroSection = () => {
       >
         <div className="absolute inset-0 bg-background/70" />
         <div className="relative z-10">
-          <div className="sticky top-8 md:top-12 z-20 text-center pt-12 md:pt-20 mb-8 pointer-events-none">
-            <p className="font-heading font-semibold text-lg md:text-2xl text-foreground">
-              If your business is still running on…
-            </p>
-          </div>
-          <ScrollStack
-            useWindowScroll={true}
-            itemScale={0.03}
-            itemStackDistance={30}
-            stackPosition="25%"
-            baseScale={0.88}
-            className="max-w-5xl mx-auto px-4 md:px-8"
-          >
-            {stackCards.map((card, i) => (
-              <ScrollStackItem
-                key={i}
-                itemClassName={`bg-gradient-to-br ${card.gradient} border border-border`}
-              >
-                <h3 className="font-heading font-bold text-xl md:text-2xl text-foreground mb-3">
-                  {card.title}
-                </h3>
-                <p className="font-body text-muted-foreground text-sm md:text-base leading-relaxed max-w-2xl">
-                  {card.description}
+          <div className="relative">
+            <div className="sticky top-0 z-20 h-screen pointer-events-none">
+              <div className="flex justify-center px-4 pt-12 md:pt-20">
+                <p className="font-heading font-semibold text-lg md:text-2xl text-foreground text-center">
+                  If your business is still running on…
                 </p>
-              </ScrollStackItem>
-            ))}
-          </ScrollStack>
+              </div>
+            </div>
 
-          {/* Problem statement below stacks */}
+            <div className="-mt-screen pt-28 md:pt-36">
+              <ScrollStack
+                useWindowScroll={true}
+                itemScale={0.03}
+                itemStackDistance={30}
+                stackPosition="25%"
+                baseScale={0.88}
+                className="max-w-5xl mx-auto px-4 md:px-8"
+              >
+                {stackCards.map((card, i) => (
+                  <ScrollStackItem
+                    key={i}
+                    itemClassName={`bg-gradient-to-br ${card.gradient} border border-border`}
+                  >
+                    <h3 className="font-heading font-bold text-xl md:text-2xl text-foreground mb-3">
+                      {card.title}
+                    </h3>
+                    <p className="font-body text-muted-foreground text-sm md:text-base leading-relaxed max-w-2xl">
+                      {card.description}
+                    </p>
+                  </ScrollStackItem>
+                ))}
+              </ScrollStack>
+            </div>
+          </div>
+
           <div className="w-full text-center py-12 md:py-20">
             <p className="text-muted-foreground font-body text-lg mb-3">
               …then your business is not "organized enough."
