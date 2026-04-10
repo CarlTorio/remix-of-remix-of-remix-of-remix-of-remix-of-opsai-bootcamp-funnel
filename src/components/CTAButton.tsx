@@ -14,7 +14,7 @@ const CTAButton = ({ children, href = "#pricing", className = "" }: CTAButtonPro
       href={href}
       color="hsl(43, 96%, 56%)"
       speed="5s"
-      className={className}
+      className={`animate-slow-pulse ${className}`}
     >
       <span className="inline-block bg-secondary text-secondary-foreground font-heading font-bold text-lg uppercase px-10 py-4 tracking-wide">
         {children}
