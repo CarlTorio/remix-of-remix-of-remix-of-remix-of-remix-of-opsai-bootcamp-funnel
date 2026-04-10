@@ -39,8 +39,16 @@ const HeroSection = () => {
   const [animationStage, setAnimationStage] = useState<0 | 1 | 2>(0);
   // 0 = initial (sharp hero), 1 = animating (blur+overlay), 2 = done (faded out, ready to leave)
   const [isMobile, setIsMobile] = useState(false);
-  const isAnimatingRef = useRef(false);
-  const stageRef = useRef<0 | 1 | 2>(0);
+  const timeoutsRef = useRef<number[]>([]);
+
+  const resetToInitial = () => {
+    // Clear all pending timeouts
+    timeoutsRef.current.forEach(id => clearTimeout(id));
+    timeoutsRef.current = [];
+    isAnimatingRef.current = false;
+    stageRef.current = 0;
+    setAnimationStage(0);
+  };
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
