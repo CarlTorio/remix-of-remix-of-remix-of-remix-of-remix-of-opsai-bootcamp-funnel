@@ -45,7 +45,7 @@ const HeroSection = () => {
 
       {/* Problem section - with system background */}
       <div className="relative w-full">
-        <div className="absolute inset-0">
+        <div className="absolute -top-32 left-0 right-0 bottom-0">
           <img src={systemBg} alt="" className="w-full h-full object-cover object-top opacity-80" />
           <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background" />
         </div>
