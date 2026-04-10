@@ -63,12 +63,12 @@ const HeroSection = () => {
         stageRef.current = 1;
         setAnimationStage(1);
 
-        // After animation plays (2.5s), move to stage 2 (fade out overlay)
+        // After animation plays (5s hold), move to stage 2 (fade out overlay)
         setTimeout(() => {
           stageRef.current = 2;
           setAnimationStage(2);
 
-          // After fade out (1s), scroll to next section
+          // After fade out (2s), scroll to next section
           setTimeout(() => {
             isAnimatingRef.current = false;
             if (secondSectionRef.current) {
@@ -79,8 +79,8 @@ const HeroSection = () => {
               stageRef.current = 0;
               setAnimationStage(0);
             }, 1500);
-          }, 1000);
-        }, 2500);
+          }, 2000);
+        }, 5000);
       } else if (currentStage === 1 || currentStage === 2) {
         e.preventDefault(); // block scroll during animation
       }
@@ -115,8 +115,8 @@ const HeroSection = () => {
               stageRef.current = 0;
               setAnimationStage(0);
             }, 1500);
-          }, 1000);
-        }, 2500);
+          }, 2000);
+        }, 5000);
       } else if (currentStage === 1 || currentStage === 2) {
         e.preventDefault();
       }
@@ -195,7 +195,7 @@ const HeroSection = () => {
             style={{
               bottom: "8vh",
               opacity: textOpacity,
-              transition: "opacity 1.5s ease-out",
+              transition: "opacity 2s ease-out",
             }}
           >
             <h2 className="text-destructive text-2xl md:text-4xl font-heading font-bold text-center">
