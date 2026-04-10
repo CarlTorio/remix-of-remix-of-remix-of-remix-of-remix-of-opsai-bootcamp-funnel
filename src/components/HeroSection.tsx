@@ -43,6 +43,12 @@ const HeroSection = () => {
         </div>
       </div>
 
+      {/* Overlay image */}
+      <div className="relative w-full">
+        <img src={heroOverlay} alt="" className="w-full h-auto opacity-80" width={1920} height={1080} />
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
+      </div>
+
       {/* Problem section - integrated */}
       <div ref={ref} className="container max-w-[900px] text-center pb-12 md:pb-20">
         <p
