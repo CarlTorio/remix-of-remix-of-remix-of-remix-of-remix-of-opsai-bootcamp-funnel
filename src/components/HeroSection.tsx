@@ -73,44 +73,44 @@ const HeroSection = () => {
 
 
       {/* ScrollStack cards */}
-      <div className="relative w-full">
-        <ScrollStack
-          useWindowScroll={true}
-          itemScale={0.03}
-          itemStackDistance={30}
-          stackPosition="25%"
-          baseScale={0.88}
-          className="max-w-5xl mx-auto px-4 md:px-8"
-        >
-          {stackCards.map((card, i) => (
-            <ScrollStackItem
-              key={i}
-              itemClassName={`bg-gradient-to-br ${card.gradient} border border-border`}
-            >
-              <h3 className="font-heading font-bold text-xl md:text-2xl text-foreground mb-3">
-                {card.title}
-              </h3>
-              <p className="font-body text-muted-foreground text-sm md:text-base leading-relaxed max-w-2xl">
-                {card.description}
-              </p>
-            </ScrollStackItem>
-          ))}
-        </ScrollStack>
-      </div>
-
-      {/* Problem statement below stacks */}
       <div
-        className="w-full text-center py-12 md:py-20 relative bg-cover bg-center"
+        className="relative w-full bg-cover bg-center"
         style={{ backgroundImage: `url(${chaosBg})` }}
       >
-        <div className="absolute inset-0 bg-background/60" />
+        <div className="absolute inset-0 bg-background/70" />
         <div className="relative z-10">
-          <p className="text-muted-foreground font-body text-lg mb-3">
-            …then your business is not "organized enough."
-          </p>
-          <p className="text-destructive font-heading font-semibold text-xl md:text-2xl">
-            It is one problem away from chaos.
-          </p>
+          <ScrollStack
+            useWindowScroll={true}
+            itemScale={0.03}
+            itemStackDistance={30}
+            stackPosition="25%"
+            baseScale={0.88}
+            className="max-w-5xl mx-auto px-4 md:px-8"
+          >
+            {stackCards.map((card, i) => (
+              <ScrollStackItem
+                key={i}
+                itemClassName={`bg-gradient-to-br ${card.gradient} border border-border`}
+              >
+                <h3 className="font-heading font-bold text-xl md:text-2xl text-foreground mb-3">
+                  {card.title}
+                </h3>
+                <p className="font-body text-muted-foreground text-sm md:text-base leading-relaxed max-w-2xl">
+                  {card.description}
+                </p>
+              </ScrollStackItem>
+            ))}
+          </ScrollStack>
+
+          {/* Problem statement below stacks */}
+          <div className="w-full text-center py-12 md:py-20">
+            <p className="text-muted-foreground font-body text-lg mb-3">
+              …then your business is not "organized enough."
+            </p>
+            <p className="text-destructive font-heading font-semibold text-xl md:text-2xl">
+              It is one problem away from chaos.
+            </p>
+          </div>
         </div>
       </div>
     </section>
