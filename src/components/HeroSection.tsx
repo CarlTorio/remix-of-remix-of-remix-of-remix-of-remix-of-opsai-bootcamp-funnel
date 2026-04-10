@@ -268,7 +268,8 @@ const HeroSection = () => {
           </div>
 
           {/* Problem statement below stacks */}
-          <div className="w-full text-center py-12 md:py-20">
+          <div className="relative w-full text-center py-12 md:py-20">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent rounded-lg pointer-events-none" />
             <p className="text-foreground font-body text-xl md:text-2xl mb-3">
               …then your business is not "ORGANIZED ENOUGH."
             </p>
