@@ -4,7 +4,9 @@
 }
 
 .scroll-stack-inner {
-  padding: 3vh 15rem 20rem;
+  padding: 3vh 0 20rem;
+  max-width: 50%;
+  margin: 0 auto;
 }
 
 .scroll-stack-card-wrapper {
