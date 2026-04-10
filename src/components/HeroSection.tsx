@@ -35,10 +35,12 @@ const stackCards = [
 
 const HeroSection = () => {
   const heroSectionRef = useRef<HTMLElement>(null);
-  const [blurAmount, setBlurAmount] = useState(0);
-  const [overlayOpacity, setOverlayOpacity] = useState(0);
-  const [textOpacity, setTextOpacity] = useState(0);
+  const secondSectionRef = useRef<HTMLElement>(null);
+  const [animationStage, setAnimationStage] = useState<0 | 1 | 2>(0);
+  // 0 = initial (sharp hero), 1 = animating (blur+overlay), 2 = done (faded out, ready to leave)
   const [isMobile, setIsMobile] = useState(false);
+  const isAnimatingRef = useRef(false);
+  const stageRef = useRef<0 | 1 | 2>(0);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -48,40 +50,92 @@ const HeroSection = () => {
   }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (!heroSectionRef.current) return;
-      const rect = heroSectionRef.current.getBoundingClientRect();
-      const scrolled = -rect.top;
-      const total = rect.height - window.innerHeight;
-      const progress = Math.max(0, Math.min(1, scrolled / total));
+    const handleWheel = (e: WheelEvent) => {
+      // Only intercept downward scrolls when hero is at top
+      if (e.deltaY <= 0) return;
+      if (window.scrollY > 10) return; // already scrolled past hero
 
-      const maxBlur = isMobile ? 6 : 10;
+      const currentStage = stageRef.current;
 
-      let overlayVisibility = 0;
-      if (progress < 0.33) {
-        overlayVisibility = progress / 0.33;
-      } else if (progress < 0.66) {
-        overlayVisibility = 1;
-      } else {
-        overlayVisibility = Math.max(0, 1 - (progress - 0.66) / 0.34);
+      if (currentStage === 0 && !isAnimatingRef.current) {
+        e.preventDefault();
+        isAnimatingRef.current = true;
+        stageRef.current = 1;
+        setAnimationStage(1);
+
+        // After animation plays (2.5s), move to stage 2 (fade out overlay)
+        setTimeout(() => {
+          stageRef.current = 2;
+          setAnimationStage(2);
+
+          // After fade out (1s), scroll to next section
+          setTimeout(() => {
+            isAnimatingRef.current = false;
+            if (secondSectionRef.current) {
+              secondSectionRef.current.scrollIntoView({ behavior: "smooth" });
+            }
+            // Reset after scrolling away
+            setTimeout(() => {
+              stageRef.current = 0;
+              setAnimationStage(0);
+            }, 1500);
+          }, 1000);
+        }, 2500);
+      } else if (currentStage === 1 || currentStage === 2) {
+        e.preventDefault(); // block scroll during animation
       }
-
-      let blurVisibility = 0;
-      if (progress < 0.33) {
-        blurVisibility = progress / 0.33;
-      } else {
-        blurVisibility = 1;
-      }
-
-      setBlurAmount(blurVisibility * maxBlur);
-      setOverlayOpacity(overlayVisibility);
-      setTextOpacity(overlayVisibility);
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [isMobile]);
+    // Also handle touch for mobile
+    let touchStartY = 0;
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartY = e.touches[0].clientY;
+    };
+    const handleTouchMove = (e: TouchEvent) => {
+      const deltaY = touchStartY - e.touches[0].clientY;
+      if (deltaY <= 0) return;
+      if (window.scrollY > 10) return;
+
+      const currentStage = stageRef.current;
+      if (currentStage === 0 && !isAnimatingRef.current) {
+        e.preventDefault();
+        isAnimatingRef.current = true;
+        stageRef.current = 1;
+        setAnimationStage(1);
+
+        setTimeout(() => {
+          stageRef.current = 2;
+          setAnimationStage(2);
+          setTimeout(() => {
+            isAnimatingRef.current = false;
+            if (secondSectionRef.current) {
+              secondSectionRef.current.scrollIntoView({ behavior: "smooth" });
+            }
+            setTimeout(() => {
+              stageRef.current = 0;
+              setAnimationStage(0);
+            }, 1500);
+          }, 1000);
+        }, 2500);
+      } else if (currentStage === 1 || currentStage === 2) {
+        e.preventDefault();
+      }
+    };
+
+    window.addEventListener("wheel", handleWheel, { passive: false });
+    window.addEventListener("touchstart", handleTouchStart, { passive: true });
+    window.addEventListener("touchmove", handleTouchMove, { passive: false });
+    return () => {
+      window.removeEventListener("wheel", handleWheel);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchmove", handleTouchMove);
+    };
+  }, []);
+
+  const maxBlur = isMobile ? 6 : 10;
+  const blurAmount = animationStage >= 1 ? maxBlur : 0;
+  const overlayOpacity = animationStage === 1 ? 1 : 0;
+  const textOpacity = animationStage === 1 ? 1 : 0;
 
   return (
     <>
@@ -89,16 +143,16 @@ const HeroSection = () => {
       <section
         ref={heroSectionRef}
         className="relative bg-background"
-        style={{ height: isMobile ? "250vh" : "300vh" }}
+        style={{ height: "100vh" }}
       >
-        <div className="sticky top-0 h-screen w-full overflow-hidden">
+        <div className="h-screen w-full overflow-hidden relative">
           {/* Hero content — blurred */}
           <div
             className="absolute inset-0"
             style={{
               filter: `blur(${blurAmount}px)`,
               willChange: "filter",
-              transition: "filter 0.3s ease-out",
+              transition: "filter 1.5s ease-out",
             }}
           >
             {/* Image area */}
@@ -131,7 +185,7 @@ const HeroSection = () => {
               height: "60%",
               background: "linear-gradient(to top, #000 0%, rgba(0,0,0,0.92) 35%, rgba(0,0,0,0.5) 70%, rgba(0,0,0,0) 100%)",
               opacity: overlayOpacity,
-              transition: "opacity 0.3s ease-out",
+              transition: "opacity 1.5s ease-out",
             }}
           />
 
@@ -141,7 +195,7 @@ const HeroSection = () => {
             style={{
               bottom: "8vh",
               opacity: textOpacity,
-              transition: "opacity 0.3s ease-out",
+              transition: "opacity 1.5s ease-out",
             }}
           >
             <h2 className="text-destructive text-2xl md:text-4xl font-heading font-bold text-center">
@@ -153,6 +207,7 @@ const HeroSection = () => {
 
       {/* SECOND SECTION — completely separate sibling, untouched */}
       <section
+        ref={secondSectionRef}
         className="relative w-full bg-cover bg-center"
         style={{ backgroundImage: `url(${chaosBg})` }}
       >
