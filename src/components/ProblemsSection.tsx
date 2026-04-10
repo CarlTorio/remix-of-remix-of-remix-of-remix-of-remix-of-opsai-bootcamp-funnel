@@ -40,18 +40,6 @@ const problems = [
 
 const ProblemsSection = () => (
   <section style={{ background: '#1A0000', width: '100%', padding: '80px 0' }}>
-    <h2
-      style={{
-        fontFamily: "'Montserrat', sans-serif",
-        fontWeight: 800,
-        fontSize: '3rem',
-        color: 'white',
-        textAlign: 'center',
-        marginBottom: '48px',
-      }}
-    >
-      Problems We Solve
-    </h2>
 
     <ScrollStack
       itemDistance={100}
