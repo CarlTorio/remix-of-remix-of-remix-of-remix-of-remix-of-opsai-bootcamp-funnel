@@ -16,7 +16,7 @@ const HeroSection = () => (
     {/* Text content - below image */}
     <div className="relative z-10 container text-center -mt-16 md:-mt-24 pb-16 md:pb-24">
       
-      <h1 className="font-heading font-extrabold text-[26px] md:text-[44px] leading-[1.1] mb-6 max-w-4xl mx-auto">
+      <h1 className="font-heading font-extrabold text-[26px] md:text-[44px] leading-[1.1] mb-6 max-w-4xl mx-auto px-6 md:px-12">
         Build Your Own <ShinyText text="Internal Business System" speed={2} delay={0} color="hsl(217, 71%, 68%)" shineColor="#ffffff" spread={120} direction="left" className="text-accent" /> with{" "}
         <span className="hidden md:contents"><FuzzyText fontSize={44} fontWeight={800} fontFamily="inherit" color="#fbbd23" baseIntensity={-0.06} hoverIntensity={0.5} enableHover fuzzRange={20} className="inline-block align-middle -my-2">Artificial Intelligence</FuzzyText></span><span className="contents md:hidden"><FuzzyText fontSize={26} fontWeight={800} fontFamily="inherit" color="#fbbd23" baseIntensity={-0.06} hoverIntensity={0.5} enableHover fuzzRange={12} className="inline-block align-middle -my-1">Artificial Intelligence</FuzzyText></span> in Less Than <ShinyText text="2 Weeks" speed={2} delay={0} color="hsl(217, 71%, 68%)" shineColor="#ffffff" spread={120} direction="left" className="text-accent" />
       </h1>
