@@ -96,6 +96,16 @@ const HeroSection = () => {
           ))}
         </ScrollStack>
       </div>
+
+      {/* Problem statement below stacks */}
+      <div className="w-full text-center py-12 md:py-20">
+        <p className="text-muted-foreground font-body text-lg mb-3">
+          …then your business is not "organized enough."
+        </p>
+        <p className="text-destructive font-heading font-semibold text-xl md:text-2xl">
+          It is one problem away from chaos.
+        </p>
+      </div>
     </section>
   );
 };
