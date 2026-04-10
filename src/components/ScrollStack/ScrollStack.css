@@ -11,22 +11,30 @@
 }
 
 .scroll-stack-inner {
-  padding: 10vh 5rem 50rem;
-  min-height: 100vh;
+  padding: 20vh 5rem;
+  padding-bottom: 100vh;
 }
 
 .scroll-stack-card {
-  transform-origin: top center;
-  will-change: transform, filter;
-  backface-visibility: hidden;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.25);
-  height: 20rem;
+  height: auto;
+  min-height: 18rem;
   width: 100%;
-  margin: 30px 0;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 80vh;
   padding: 3rem;
-  border-radius: 40px;
+  border-radius: 32px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  transform-origin: top center;
+  will-change: transform;
+  backface-visibility: hidden;
   box-sizing: border-box;
   position: relative;
+}
+
+.scroll-stack-card:last-child {
+  margin-bottom: 0;
 }
 
 .scroll-stack-end {
@@ -36,23 +44,24 @@
 
 @media (max-width: 768px) {
   .scroll-stack-inner {
-    padding: 15vh 1rem 30rem;
+    padding: 15vh 1rem;
+    padding-bottom: 80vh;
   }
   .scroll-stack-card {
-    height: auto;
-    min-height: 16rem;
+    min-height: 14rem;
+    margin-bottom: 70vh;
     padding: 1.5rem;
     border-radius: 24px;
-    margin: 16px 0;
   }
 }
 
 @media (max-width: 480px) {
   .scroll-stack-inner {
-    padding: 12vh 0.75rem 25rem;
+    padding: 12vh 0.75rem;
+    padding-bottom: 70vh;
   }
   .scroll-stack-card {
-    min-height: 14rem;
+    min-height: 12rem;
     padding: 1.25rem;
     border-radius: 20px;
   }
