@@ -81,7 +81,7 @@ const HeroSection = () => {
         <div className="relative z-10">
           {/* Sticky headline — stays visible while parent scrolls */}
           <div className="sticky top-0 z-20 pt-8 pb-8 bg-gradient-to-b from-background via-background/90 to-transparent">
-            <h2 className="font-heading text-3xl md:text-5xl font-bold text-foreground text-center px-4">
+            <h2 className="font-heading text-2xl md:text-4xl font-bold text-foreground text-center px-4">
               If your business is still running on
             </h2>
           </div>
