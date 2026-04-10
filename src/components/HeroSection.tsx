@@ -72,35 +72,45 @@ const HeroSection = () => {
       </div>
 
 
-      {/* ScrollStack cards */}
+      {/* ScrollStack section with sticky headline */}
       <div
         className="relative w-full bg-cover bg-center"
         style={{ backgroundImage: `url(${chaosBg})` }}
       >
         <div className="absolute inset-0 bg-background/70" />
         <div className="relative z-10">
-          <ScrollStack
-            useWindowScroll={true}
-            itemScale={0.03}
-            itemStackDistance={30}
-            stackPosition="25%"
-            baseScale={0.88}
-            className="max-w-5xl mx-auto px-4 md:px-8"
-          >
-            {stackCards.map((card, i) => (
-              <ScrollStackItem
-                key={i}
-                itemClassName={`bg-gradient-to-br ${card.gradient} border border-border`}
-              >
-                <h3 className="font-heading font-bold text-xl md:text-2xl text-foreground mb-3">
-                  {card.title}
-                </h3>
-                <p className="font-body text-muted-foreground text-sm md:text-base leading-relaxed max-w-2xl">
-                  {card.description}
-                </p>
-              </ScrollStackItem>
-            ))}
-          </ScrollStack>
+          {/* Sticky headline — stays visible while parent scrolls */}
+          <div className="sticky top-0 z-20 pt-12 pb-8 bg-gradient-to-b from-background via-background/90 to-transparent">
+            <h2 className="font-heading text-3xl md:text-5xl font-bold text-foreground text-center px-4">
+              If your business is still running on
+            </h2>
+          </div>
+
+          {/* ScrollStack below it */}
+          <div className="relative -mt-8">
+            <ScrollStack
+              useWindowScroll={true}
+              itemScale={0.03}
+              itemStackDistance={30}
+              stackPosition="30%"
+              baseScale={0.88}
+              className="max-w-5xl mx-auto px-4 md:px-8"
+            >
+              {stackCards.map((card, i) => (
+                <ScrollStackItem
+                  key={i}
+                  itemClassName={`bg-gradient-to-br ${card.gradient} border border-border`}
+                >
+                  <h3 className="font-heading font-bold text-xl md:text-2xl text-foreground mb-3">
+                    {card.title}
+                  </h3>
+                  <p className="font-body text-muted-foreground text-sm md:text-base leading-relaxed max-w-2xl">
+                    {card.description}
+                  </p>
+                </ScrollStackItem>
+              ))}
+            </ScrollStack>
+          </div>
 
           {/* Problem statement below stacks */}
           <div className="w-full text-center py-12 md:py-20">
