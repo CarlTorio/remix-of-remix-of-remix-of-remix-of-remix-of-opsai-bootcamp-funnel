@@ -1,22 +1,46 @@
 import HeroSection from "@/components/HeroSection";
-import PainPointsSection from "@/components/PainPointsSection";
-import CurriculumSection from "@/components/CurriculumSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import PricingSection from "@/components/PricingSection";
-import FAQSection from "@/components/FAQSection";
-import FinalCTASection from "@/components/FinalCTASection";
-import Footer from "@/components/Footer";
+import Section1Problem from "@/components/Section1_Problem";
+import Section2Checklist from "@/components/Section2_Checklist";
+import Section3Intro from "@/components/Section3_Intro";
+import Section4WhatThisIs from "@/components/Section4_WhatThisIs";
+import Section5BeforeAfter from "@/components/Section5_BeforeAfter";
+import Section6Relevant from "@/components/Section6_Relevant";
+import Section7Trust from "@/components/Section7_Trust";
+import Section8Timing from "@/components/Section8_Timing";
+import Section9HowItWorks from "@/components/Section9_HowItWorks";
+import Section10Curriculum from "@/components/Section10_Curriculum";
+import Section11Industries from "@/components/Section11_Industries";
+import Section12Smarter from "@/components/Section12_Smarter";
+import Section13Pricing from "@/components/Section13_Pricing";
+import Section14Bonuses from "@/components/Section14_Bonuses";
+import Section15FAQ from "@/components/Section15_FAQ";
+import Section16Guarantee from "@/components/Section16_Guarantee";
+import Section17EmotionalPush from "@/components/Section17_EmotionalPush";
+import Section18FinalCTA from "@/components/Section18_FinalCTA";
+import NewFooter from "@/components/NewFooter";
 
 const Index = () => (
   <main>
     <HeroSection />
-    <PainPointsSection />
-    <CurriculumSection />
-    <TestimonialsSection />
-    <PricingSection />
-    <FAQSection />
-    <FinalCTASection />
-    <Footer />
+    <Section1Problem />
+    <Section2Checklist />
+    <Section3Intro />
+    <Section4WhatThisIs />
+    <Section5BeforeAfter />
+    <Section6Relevant />
+    <Section7Trust />
+    <Section8Timing />
+    <Section9HowItWorks />
+    <Section10Curriculum />
+    <Section11Industries />
+    <Section12Smarter />
+    <Section13Pricing />
+    <Section14Bonuses />
+    <Section15FAQ />
+    <Section16Guarantee />
+    <Section17EmotionalPush />
+    <Section18FinalCTA />
+    <NewFooter />
   </main>
 );
 
