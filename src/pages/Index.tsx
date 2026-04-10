@@ -22,6 +22,7 @@ import NewFooter from "@/components/NewFooter";
 const Index = () => (
   <main>
     <HeroSection />
+    <ScrollStackSection />
     
     <Section2Checklist />
     <Section3Intro />
