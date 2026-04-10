@@ -268,10 +268,10 @@ const HeroSection = () => {
 
           {/* Problem statement below stacks */}
           <div className="w-full text-center py-12 md:py-20">
-            <p className="text-muted-foreground font-body text-lg mb-3">
+            <p className="text-muted-foreground font-body text-xl md:text-2xl mb-3">
               …then your business is not "organized enough."
             </p>
-            <p className="text-destructive font-heading font-semibold text-xl md:text-2xl">
+            <p className="text-destructive font-heading font-semibold text-2xl md:text-3xl">
               It is one problem away from chaos.
             </p>
           </div>
