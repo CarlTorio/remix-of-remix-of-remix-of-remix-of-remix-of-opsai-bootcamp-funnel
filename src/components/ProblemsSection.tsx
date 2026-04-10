@@ -69,8 +69,8 @@ const ProblemsSection = () => (
           <div
             style={{
               background: p.bg,
-              borderRadius: '40px',
-              padding: '3rem',
+              borderRadius: '24px',
+              padding: '2rem',
               height: '14rem',
               width: '100%',
               position: 'absolute',
@@ -84,7 +84,7 @@ const ProblemsSection = () => (
               overflow: 'hidden',
             }}
           >
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', maxWidth: '60%', zIndex: 1 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', maxWidth: '60%', zIndex: 1 }}>
               <span
                 style={{
                   fontFamily: "'Montserrat', sans-serif",
@@ -101,7 +101,7 @@ const ProblemsSection = () => (
                 style={{
                   fontFamily: "'Montserrat', sans-serif",
                   fontWeight: 800,
-                  fontSize: '2rem',
+                  fontSize: '1.5rem',
                   color: 'white',
                   lineHeight: 1.2,
                   margin: 0,
@@ -113,7 +113,7 @@ const ProblemsSection = () => (
                 style={{
                   fontFamily: "'Montserrat', sans-serif",
                   fontWeight: 400,
-                  fontSize: '1rem',
+                  fontSize: '0.85rem',
                   color: 'rgba(255,255,255,0.75)',
                   lineHeight: 1.6,
                   margin: 0,
@@ -128,7 +128,7 @@ const ProblemsSection = () => (
               style={{
                 fontFamily: "'Montserrat', sans-serif",
                 fontWeight: 900,
-                fontSize: '9rem',
+                fontSize: '7rem',
                 color: 'rgba(255,255,255,0.07)',
                 position: 'absolute',
                 right: '3rem',
