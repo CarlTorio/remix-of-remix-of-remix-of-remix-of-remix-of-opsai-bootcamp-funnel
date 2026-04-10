@@ -238,7 +238,7 @@ const HeroSection = () => {
       <section
         ref={secondSectionRef}
         className="relative w-full bg-cover bg-center"
-        style={{ backgroundImage: `url('https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object/public/Video%20-%20Image%20Hosting/Background.png')` }}
+        style={{ backgroundImage: `url('https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object/public/Video%20-%20Image%20Hosting/Background%20-%20V2.png')` }}
       >
         <div className="absolute inset-0 bg-background/50" />
         <div className="relative z-10">
