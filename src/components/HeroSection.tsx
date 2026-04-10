@@ -112,14 +112,10 @@ const HeroSection = () => {
       <div className="relative w-full">
         <ScrollStack
           useWindowScroll={true}
-          itemDistance={80}
-          itemScale={0.02}
-          itemStackDistance={25}
+          itemScale={0.03}
+          itemStackDistance={30}
           stackPosition="25%"
-          scaleEndPosition="15%"
           baseScale={0.88}
-          rotationAmount={0.5}
-          blurAmount={1}
           className="max-w-5xl mx-auto px-4 md:px-8"
         >
           {stackCards.map((card, i) => (
