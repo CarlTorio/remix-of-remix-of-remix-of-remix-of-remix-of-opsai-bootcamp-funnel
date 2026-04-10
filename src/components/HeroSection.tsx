@@ -270,7 +270,7 @@ const HeroSection = () => {
           {/* Problem statement below stacks */}
           <div className="w-full text-center py-12 md:py-20">
             <p className="text-foreground font-body text-xl md:text-2xl mb-3">
-              …then your business is not "organized enough."
+              …then your business is not "ORGANIZED ENOUGH."
             </p>
             <div className="flex justify-center">
               <FuzzyText
