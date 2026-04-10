@@ -1,5 +1,6 @@
 const heroBg = "https://fhgovsymhevqsjtxhiui.supabase.co/storage/v1/object/public/Bootcamp%20Funnel/Hero%20Section%20Original%20V5.png";
 import CTAButton from "./CTAButton";
+import ShinyText from "./ShinyText";
 import SectionLabel from "./SectionLabel";
 
 const HeroSection = () => (
@@ -15,8 +16,23 @@ const HeroSection = () => (
     <div className="relative z-10 container text-center -mt-16 md:-mt-24 pb-16 md:pb-24">
       
       <h1 className="font-heading font-extrabold text-[26px] md:text-[44px] leading-[1.1] mb-6 max-w-4xl mx-auto">
-        Build Your Own <span className="text-accent">Internal Business System</span> with{" "}
-        <span className="text-secondary">AI</span> in Less Than <span className="text-accent">2 Weeks</span>
+        <ShinyText
+          text={
+            <>
+              Build Your Own <span className="text-accent">Internal Business System</span> with{" "}
+              <span className="text-secondary">AI</span> in Less Than <span className="text-accent">2 Weeks</span>
+            </>
+          }
+          speed={2}
+          delay={0}
+          color="#b5b5b5"
+          shineColor="#ffffff"
+          spread={120}
+          direction="left"
+          yoyo={false}
+          pauseOnHover={false}
+          disabled={false}
+        />
       </h1>
       <p className="font-body text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
         Without Hiring Developers, Without Coding, and Without Spending ₱500,000+ on Custom Software.
