@@ -254,7 +254,7 @@ const HeroSection = () => {
               {stackCards.map((card, i) => (
                 <ScrollStackItem
                   key={i}
-                  itemClassName={`bg-gradient-to-br ${card.gradient} border border-border`}
+                  itemClassName={`bg-gradient-to-br ${card.gradient} border border-red-500/30 shadow-[0_0_30px_rgba(239,68,68,0.3)]`}
                 >
                   <h3 className="font-heading font-bold text-xl md:text-2xl text-foreground mb-3">
                     {card.title}
