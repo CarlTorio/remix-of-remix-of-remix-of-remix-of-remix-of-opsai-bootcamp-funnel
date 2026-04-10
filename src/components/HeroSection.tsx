@@ -43,7 +43,7 @@ const HeroSection = () => {
           itemDistance={100}
           itemScale={0.03}
           itemStackDistance={30}
-          stackPosition="20%"
+          stackPosition="50%"
           baseScale={0.85}
           useWindowScroll={true}
         >
