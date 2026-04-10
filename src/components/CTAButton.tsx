@@ -16,7 +16,7 @@ const CTAButton = ({ children, href = "#pricing", className = "" }: CTAButtonPro
       speed="5s"
       className={`animate-slow-pulse ${className}`}
     >
-      <span className="inline-block bg-secondary text-secondary-foreground font-heading font-bold text-lg uppercase px-10 py-4 tracking-wide">
+      <span className="inline-block bg-gradient-to-r from-secondary via-accent to-secondary bg-[length:200%_auto] animate-[gradient-shift_3s_ease-in-out_infinite] text-secondary-foreground font-heading font-bold text-lg uppercase px-10 py-4 tracking-wide">
         {children}
       </span>
     </StarBorder>
