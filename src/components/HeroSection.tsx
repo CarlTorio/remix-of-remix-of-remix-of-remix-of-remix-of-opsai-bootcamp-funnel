@@ -79,14 +79,6 @@ const HeroSection = () => {
       >
         <div className="absolute inset-0 bg-background/70" />
         <div className="relative z-10">
-          {/* Sticky floating label */}
-          <div className="sticky top-6 z-20 flex justify-center pointer-events-none mb-4">
-            <div className="bg-background/80 backdrop-blur-md border border-border/50 rounded-full px-5 py-2 shadow-lg">
-              <p className="font-body text-muted-foreground text-sm md:text-base text-center">
-                If your business is still running on
-              </p>
-            </div>
-          </div>
           <ScrollStack
             useWindowScroll={true}
             itemScale={0.03}
