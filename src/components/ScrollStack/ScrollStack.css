@@ -13,7 +13,7 @@
 }
 
 .scroll-stack-inner {
-  padding: 10vh 2rem 30rem;
+  padding: 2vh 2rem 15rem;
   min-height: 100vh;
 }
 
@@ -26,7 +26,7 @@
   will-change: transform, filter;
   backface-visibility: hidden;
   transform-style: preserve-3d;
-  height: 10rem;
+  height: 5rem;
   width: 100%;
   max-width: 680px;
   margin: 20px auto;

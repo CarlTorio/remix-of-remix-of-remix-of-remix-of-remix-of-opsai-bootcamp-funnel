@@ -18,7 +18,7 @@ const HeroSection = () => {
   const { ref, visible } = useScrollReveal();
 
   return (
-    <section className="relative flex flex-col items-center overflow-visible bg-background">
+    <section className="relative flex flex-col items-center overflow-hidden bg-background">
       {/* Image area - upper portion */}
       <div className="relative w-full">
         <div className="relative w-full">
@@ -83,8 +83,8 @@ const HeroSection = () => {
       </div>
 
       {/* ScrollStack Pain Points Overlay */}
-      <div style={{ position: 'absolute', bottom: '-80px', left: 0, right: 0, zIndex: 20, pointerEvents: 'none' }}>
-        <ScrollStack useWindowScroll>
+      <div style={{ position: 'absolute', bottom: '0', left: '0', width: '100%', height: '35%', zIndex: 20, overflow: 'hidden', pointerEvents: 'none' }}>
+        <ScrollStack useWindowScroll itemDistance={40} itemStackDistance={12} stackPosition="80%" baseScale={0.90}>
           <ScrollStackItem>
             <p className="scroll-stack-card-text">Google Sheets</p>
           </ScrollStackItem>
