@@ -15,11 +15,11 @@ const HeroSection = () => (
     {/* Text content - below image */}
     <div className="relative z-10 container text-center -mt-16 md:-mt-24 pb-16 md:pb-24">
       
-      <h1 className="font-heading font-extrabold text-[26px] md:text-[44px] leading-[1.1] mb-6 max-w-4xl mx-auto">
+      <h1 className="font-heading font-extrabold text-[26px] md:text-[44px] leading-[1.1] mb-3 max-w-4xl mx-auto">
         Build Your Own <span className="text-accent">Internal Business System</span> with{" "}
         <span style={{ color: "#fbbd23" }}>A.I.</span> in Less Than <span style={{ color: "#fbbd23" }}>2 Weeks</span>
       </h1>
-      <p className="font-body text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+      <p className="font-body text-muted-foreground text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
         Without Hiring Developers, Without Coding, and Without Spending ₱500,000+ on Custom Software.
       </p>
       <CTAButton>Enroll Now — Limited Slots</CTAButton>
