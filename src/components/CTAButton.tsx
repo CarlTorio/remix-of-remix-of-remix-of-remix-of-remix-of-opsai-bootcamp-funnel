@@ -12,7 +12,7 @@ const CTAButton = ({ children, href = "#pricing", className = "" }: CTAButtonPro
     <StarBorder
       as="a"
       href={href}
-      color="hsl(43, 96%, 56%)"
+      color="white"
       speed="5s"
       className={className}
     >
