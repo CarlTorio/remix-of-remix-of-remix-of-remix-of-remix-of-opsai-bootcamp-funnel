@@ -45,7 +45,7 @@ const HeroSection = () => {
   const { ref, visible } = useScrollReveal();
 
   return (
-    <section className="relative flex flex-col items-center overflow-hidden bg-background">
+    <section className="relative flex flex-col items-center overflow-x-hidden bg-background">
       {/* Image area - upper portion */}
       <div className="relative w-full">
         <div className="relative w-full">
