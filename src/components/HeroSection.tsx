@@ -259,7 +259,7 @@ const HeroSection = () => {
                   <h3 className="font-heading font-bold text-xl md:text-2xl text-foreground mb-3">
                     {card.title}
                   </h3>
-                  <p className="font-body text-muted-foreground text-sm md:text-base leading-relaxed max-w-2xl">
+                  <p className="font-body text-foreground text-sm md:text-base leading-relaxed max-w-2xl">
                     {card.description}
                   </p>
                 </ScrollStackItem>
