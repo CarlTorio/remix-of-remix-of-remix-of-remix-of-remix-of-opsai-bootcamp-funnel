@@ -141,7 +141,7 @@ const FuzzyText: React.FC<FuzzyTextProps> = ({
         offCtx.fillText(text, xOffset - actualLeft, actualAscent);
       }
 
-      const horizontalMargin = Math.max(fuzzRange * 0.5, 4);
+      const horizontalMargin = fuzzRange + 10;
       const verticalMargin = 0;
 
       canvas.width = offscreenWidth + horizontalMargin * 2;
