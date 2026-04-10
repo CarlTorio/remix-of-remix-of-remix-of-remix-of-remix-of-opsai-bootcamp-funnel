@@ -4,7 +4,6 @@ import CTAButton from "./CTAButton";
 import ShinyText from "./ShinyText";
 import SectionLabel from "./SectionLabel";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import ScrollStack, { ScrollStackItem } from '@/components/ScrollStack/ScrollStack';
 
 const pills = [
   "Google Sheets",
@@ -80,27 +79,6 @@ const HeroSection = () => {
             It is one problem away from chaos.
           </p>
         </div>
-      </div>
-
-      {/* ScrollStack Pain Points Overlay */}
-      <div style={{ position: 'absolute', bottom: '0', left: '0', width: '100%', height: '35%', zIndex: 20, overflow: 'hidden', pointerEvents: 'none' }}>
-        <ScrollStack useWindowScroll itemDistance={40} itemStackDistance={12} stackPosition="80%" baseScale={0.90}>
-          <ScrollStackItem>
-            <p className="scroll-stack-card-text">Google Sheets</p>
-          </ScrollStackItem>
-          <ScrollStackItem>
-            <p className="scroll-stack-card-text">Messenger Group Chats</p>
-          </ScrollStackItem>
-          <ScrollStackItem>
-            <p className="scroll-stack-card-text">Manual follow-ups</p>
-          </ScrollStackItem>
-          <ScrollStackItem>
-            <p className="scroll-stack-card-text">Disconnected Tools</p>
-          </ScrollStackItem>
-          <ScrollStackItem>
-            <p className="scroll-stack-card-text">Delayed reports</p>
-          </ScrollStackItem>
-        </ScrollStack>
       </div>
     </section>
   );
