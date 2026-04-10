@@ -15,28 +15,28 @@ const pills = [
 
 const stackCards = [
   {
-    title: "Automate Your Workflows",
-    description: "Stop doing repetitive tasks manually. Build systems that run 24/7 without you lifting a finger.",
+    title: "Google Sheets",
+    description: "Endless tabs and broken formulas with no single source of truth across your team.",
     gradient: "from-[#dc2626] to-[#b91c1c]",
   },
   {
-    title: "Centralize Your Data",
-    description: "No more scattered spreadsheets. One single source of truth for your entire business.",
+    title: "Messenger Group Chats",
+    description: "Critical updates and client requests buried under hundreds of unread messages.",
     gradient: "from-[#b91c1c] to-[#991b1b]",
   },
   {
-    title: "Track Everything in Real-Time",
-    description: "Dashboards that update automatically. Know exactly where your business stands at any moment.",
+    title: "Manual Follow-ups",
+    description: "Hours wasted every week chasing leads instead of actually growing the business.",
     gradient: "from-[#991b1b] to-[#7f1d1d]",
   },
   {
-    title: "Scale Without Hiring",
-    description: "Handle 10x more clients with the same team. Let A.I. do the heavy lifting.",
+    title: "Disconnected Tools",
+    description: "Every app works in isolation, forcing you to switch tabs and re-enter the same data.",
     gradient: "from-[#7f1d1d] to-[#601414]",
   },
   {
-    title: "Own Your System Forever",
-    description: "No monthly subscriptions to expensive software. Build it once, use it for life.",
+    title: "Delayed Reports",
+    description: "You only find out if you're profitable at month-end, when it's already too late to fix.",
     gradient: "from-[#601414] to-[#450a0a]",
   },
 ];
