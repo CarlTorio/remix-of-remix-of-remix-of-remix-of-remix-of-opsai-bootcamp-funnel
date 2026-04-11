@@ -63,7 +63,7 @@ const Section4WhatThisIs = () => {
     <section
       id="overview"
       className="relative py-16 md:py-24 px-4 md:px-8"
-      style={{ backgroundColor: "#0A0E1A", marginTop: "-120px", position: "relative", zIndex: 10 }}
+      style={{ backgroundColor: "#06070e", marginTop: "-120px", position: "relative", zIndex: 10 }}
     >
       {/* Subtle grid pattern */}
       <div
