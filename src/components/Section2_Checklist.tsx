@@ -39,7 +39,7 @@ const Section2Checklist = () => {
         </div>
 
         <div className="max-w-[680px] mx-auto text-center pt-3 pb-10">
-          <p className="font-body text-[16px] md:text-[18px] leading-[1.8] text-muted-foreground">
+          <p className="font-body text-[16px] md:text-[18px] leading-[1.8] text-white">
             If you want{" "}
             <span className="font-bold" style={{ color: "#fbbd23" }}>one internal system</span>{" "}
             that truly matches how your business runs —{" "}
