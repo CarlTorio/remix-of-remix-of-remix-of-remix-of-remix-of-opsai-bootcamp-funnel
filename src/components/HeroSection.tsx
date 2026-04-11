@@ -240,7 +240,7 @@ const HeroSection = () => {
         className="relative w-full bg-cover bg-[center_30%]"
         style={{ backgroundImage: `url('https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object/public/Video%20-%20Image%20Hosting/Background%20-%20V10.png')` }}
       >
-        <div className="absolute inset-0 bg-background/30" />
+        <div className="absolute inset-0 bg-background/80" />
         <div className="relative z-10">
           <div className="relative">
             <ScrollStack
