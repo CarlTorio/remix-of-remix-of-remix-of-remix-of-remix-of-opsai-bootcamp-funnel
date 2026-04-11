@@ -195,7 +195,7 @@ const HeroSection = () => {
                 Build Your Own <span style={{ color: "#fbbd23", textShadow: "0 0 20px rgba(251,189,35,0.3), 0 0 40px rgba(251,189,35,0.15)" }}>Internal Business System</span> with{" "}
                 <span style={{ color: "#fbbd23", textShadow: "0 0 20px rgba(251,189,35,0.3), 0 0 40px rgba(251,189,35,0.15)" }}>A.I.</span> in Less Than <span style={{ color: "#fbbd23", textShadow: "0 0 20px rgba(251,189,35,0.3), 0 0 40px rgba(251,189,35,0.15)" }}>2 Weeks</span>
               </h1>
-              <p className="font-body text-foreground text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+              <p className="font-body text-foreground text-base md:text-lg max-w-2xl mx-auto mb-6 leading-relaxed">
                 Without Hiring Developers, Without Coding,<br />and Without Spending ₱500,000+ on Custom Software.
               </p>
               <CTAButton>Enroll Now — Limited Slots</CTAButton>
