@@ -10,27 +10,27 @@ const stackCards = [
   {
     title: "Google Sheets",
     description: "Endless tabs and broken formulas with no single source of truth across your team.",
-    gradient: "from-[#dc2626] to-[#b91c1c]",
+    gradient: "from-[#fbbd23] to-[#e5a910]",
   },
   {
     title: "Messenger Group Chats",
     description: "Critical updates and client requests buried under hundreds of unread messages.",
-    gradient: "from-[#b91c1c] to-[#991b1b]",
+    gradient: "from-[#e5a910] to-[#c48d0a]",
   },
   {
     title: "Manual Follow-ups",
     description: "Hours wasted every week chasing leads instead of actually growing the business.",
-    gradient: "from-[#991b1b] to-[#7f1d1d]",
+    gradient: "from-[#c48d0a] to-[#9a6f08]",
   },
   {
     title: "Disconnected Tools",
     description: "Every app works in isolation, forcing you to switch tabs and re-enter the same data.",
-    gradient: "from-[#7f1d1d] to-[#601414]",
+    gradient: "from-[#9a6f08] to-[#705006]",
   },
   {
     title: "Delayed Reports",
     description: "You only find out if you're profitable at month-end, when it's already too late to fix.",
-    gradient: "from-[#601414] to-[#450a0a]",
+    gradient: "from-[#705006] to-[#4a3504]",
   },
 ];
 
@@ -254,7 +254,7 @@ const HeroSection = () => {
               {stackCards.map((card, i) => (
                 <ScrollStackItem
                   key={i}
-                  itemClassName={`bg-gradient-to-br ${card.gradient} border border-red-500/60 shadow-[0_0_50px_rgba(239,68,68,0.6)]`}
+                  itemClassName={`bg-gradient-to-br ${card.gradient} border border-accent/60 shadow-[0_0_50px_rgba(251,189,35,0.4)]`}
                 >
                   <h3 className="font-heading font-bold text-xl md:text-2xl text-foreground mb-3">
                     {card.title}
