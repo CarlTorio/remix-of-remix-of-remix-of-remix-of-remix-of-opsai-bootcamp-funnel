@@ -18,7 +18,7 @@ const Section4WhatThisIs = () => {
   const { ref, visible } = useScrollReveal();
 
   return (
-    <section id="overview" className="py-12 md:py-20" style={{ backgroundColor: "#06070e", marginTop: "-60px" }}>
+    <section id="overview" className="py-12 md:py-20" style={{ backgroundColor: "#06070e", marginTop: "-120px", position: "relative", zIndex: 10 }}>
       <div ref={ref} className={`container max-w-[900px] transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
         <div className="text-center mb-10">
           <SectionLabel>WHAT THIS IS</SectionLabel>
