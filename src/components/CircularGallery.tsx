@@ -286,8 +286,8 @@ class Media {
       }
     }
     this.scale = this.screen.height / 1500;
-    this.plane.scale.y = (this.viewport.height * (420 * this.scale)) / this.screen.height;
-    this.plane.scale.x = (this.viewport.width * (680 * this.scale)) / this.screen.width;
+    this.plane.scale.y = (this.viewport.height * (550 * this.scale)) / this.screen.height;
+    this.plane.scale.x = (this.viewport.width * (870 * this.scale)) / this.screen.width;
     this.plane.program.uniforms.uPlaneSizes.value = [this.plane.scale.x, this.plane.scale.y];
     this.padding = 1;
     this.width = this.plane.scale.x + this.padding;
