@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useCallback } from "react";
+import Lenis from "lenis";
 import "./ScrollStack.css";
 
 interface ScrollStackProps {
@@ -53,6 +54,7 @@ export const ScrollStack: React.FC<ScrollStackProps> = ({
   const scrollerRef = useRef<HTMLDivElement>(null);
   const innerRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLElement[]>([]);
+  const lenisRef = useRef<Lenis | null>(null);
   const rafRef = useRef<number>(0);
   const lastTransforms = useRef<Map<number, string>>(new Map());
 
@@ -166,15 +168,31 @@ export const ScrollStack: React.FC<ScrollStackProps> = ({
       card.style.backfaceVisibility = "hidden";
     });
 
-    // Use native scroll listener instead of Lenis to avoid hijacking window scroll
-    const scrollTarget = useWindowScroll ? window : scrollerRef.current;
-    if (!scrollTarget) return;
+    const easing = (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t));
 
-    const onScroll = () => {
-      updateCardTransforms();
+    const lenisOpts = {
+      duration: 1.2,
+      easing,
+      smoothWheel: true,
+      syncTouch: true,
+      lerp: 0.1,
     };
 
-    scrollTarget.addEventListener("scroll", onScroll, { passive: true });
+    const lenis = useWindowScroll
+      ? new Lenis(lenisOpts)
+      : new Lenis({ ...lenisOpts, wrapper: scrollerRef.current!, content: inner });
+
+    lenisRef.current = lenis;
+
+    lenis.on("scroll", () => {
+      updateCardTransforms();
+    });
+
+    const raf = (time: number) => {
+      lenis.raf(time);
+      rafRef.current = requestAnimationFrame(raf);
+    };
+    rafRef.current = requestAnimationFrame(raf);
 
     let resizeTimer: ReturnType<typeof setTimeout>;
     const handleResize = () => {
@@ -189,7 +207,9 @@ export const ScrollStack: React.FC<ScrollStackProps> = ({
     updateCardTransforms();
 
     return () => {
-      scrollTarget.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(rafRef.current);
+      lenis.destroy();
+      lenisRef.current = null;
       window.removeEventListener("resize", handleResize);
       clearTimeout(resizeTimer);
       cardsRef.current = [];
