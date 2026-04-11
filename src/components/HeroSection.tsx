@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import LiquidEther from "./LiquidEther";
 import FuzzyText from "./FuzzyText";
 const heroBg = "https://fhgovsymhevqsjtxhiui.supabase.co/storage/v1/object/public/Bootcamp%20Funnel/Hero%20Section%20Original%20V5.png";
 import chaosBg from "@/assets/chaos-bg.png";
