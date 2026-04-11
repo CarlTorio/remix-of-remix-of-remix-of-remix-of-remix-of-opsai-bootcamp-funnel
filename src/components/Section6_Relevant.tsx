@@ -14,7 +14,7 @@ const Section6Relevant = () => {
   const { ref, visible } = useScrollReveal();
 
   return (
-    <section className="py-12 md:py-20 bg-section-alt section-divider">
+    <section className="py-12 md:py-20" style={{ backgroundColor: "#06070e" }}>
       <div ref={ref} className="container max-w-[1000px]">
         <div className="text-center mb-10">
           <SectionLabel>REAL TALK</SectionLabel>
