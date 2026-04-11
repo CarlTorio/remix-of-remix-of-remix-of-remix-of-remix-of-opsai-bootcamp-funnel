@@ -39,7 +39,7 @@ const Section2Checklist = () => {
         </div>
 
         <div className="max-w-[850px] mx-auto text-center space-y-4 mb-10">
-          <p className="font-heading font-bold text-xl md:text-2xl leading-relaxed text-secondary">
+          <p className="font-heading font-bold text-2xl md:text-3xl leading-relaxed text-secondary">
             If you want one internal system that matches your operations, connects your departments, and gives you real visibility over your business this is for you.
           </p>
           <p className="text-muted-foreground font-body text-base leading-relaxed">
