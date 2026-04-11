@@ -1,6 +1,6 @@
 import { XCircle, ChevronRight } from "lucide-react";
-import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useRef, useState, useEffect } from "react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const problemItems = [
   "Spreadsheets",
@@ -80,7 +80,7 @@ const Section4WhatThisIs = () => {
           ref={headerRef}
           className={`text-center mb-12 md:mb-16 transition-all duration-700 ${headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
         >
-          <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-blue-400 mb-4">
+          <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-[#ffb700] mb-4">
             WHAT THIS IS
           </span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
@@ -99,14 +99,14 @@ const Section4WhatThisIs = () => {
               className={`bg-[#0F1524] border border-[#1E2A44] rounded-2xl p-6 md:p-8 hover:-translate-y-0.5 transition-all duration-300 ${visibleItems[0] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
             >
               <span className="text-gray-500 text-xs uppercase tracking-widest block mb-5">
-                Stop running on
+                STOP RUNNING ON
               </span>
 
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col">
                 {problemItems.map((item, i) => (
                   <div
                     key={i}
-                    className={`flex items-center gap-3 py-2.5 ${i < problemItems.length - 1 ? "border-b border-[#1E2A44]" : ""}`}
+                    className={`flex items-center gap-3 py-3 ${i < problemItems.length - 1 ? "border-b border-[#1E2A44]" : ""}`}
                   >
                     <span className="shrink-0 flex items-center justify-center w-7 h-7 bg-red-500/10 rounded-full">
                       <XCircle className="w-4 h-4 text-red-400" />
@@ -118,13 +118,13 @@ const Section4WhatThisIs = () => {
 
               <div className="border-t border-[#1E2A44] my-6" />
 
-              <span className="text-blue-400 text-xs uppercase tracking-widest block mb-3">
+              <span className="text-[#ffb700] text-xs uppercase tracking-widest block mb-3">
                 THE ALTERNATIVE
               </span>
               <p className="text-white text-xl font-semibold leading-snug mb-3">
                 A system based on your real business logic.
               </p>
-              <p className="text-gray-400 text-sm leading-relaxed italic border-l-2 border-blue-500 pl-4">
+              <p className="text-gray-400 text-sm leading-relaxed italic border-l-2 border-[#ffb700] pl-4">
                 No outsider will ever understand your business as fast as the owner who lives inside it every day.
               </p>
             </div>
@@ -136,25 +136,24 @@ const Section4WhatThisIs = () => {
             <div
               className={`bg-[#0F1524] border border-[#1E2A44] rounded-2xl p-6 md:p-8 hover:-translate-y-0.5 transition-all duration-300 ${visibleItems[1] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
             >
-              <span className="text-blue-400 text-xs uppercase tracking-widest block mb-4">
+              <span className="text-[#ffb700] text-xs uppercase tracking-widest block mb-4">
                 THE APPROACH
               </span>
               <p className="text-gray-300 text-base leading-relaxed">
                 Instead of depending on developers to slowly interpret your operations… this bootcamp shows you how to use{" "}
-                <span className="inline-flex bg-blue-500/10 text-blue-300 px-2.5 py-0.5 rounded-md text-sm font-medium">
+                <span className="inline-flex bg-[#ffb700]/10 text-[#ffcf4d] px-2.5 py-0.5 rounded-md text-sm font-medium border border-[#ffb700]/20">
                   AI + prompts + no-code tools
                 </span>{" "}
                 to build the first real version of{" "}
-                <span className="inline-flex bg-blue-500/10 text-blue-300 px-2.5 py-0.5 rounded-md text-sm font-medium">
+                <span className="inline-flex bg-[#ffb700]/10 text-[#ffcf4d] px-2.5 py-0.5 rounded-md text-sm font-medium border border-[#ffb700]/20">
                   your own internal business system yourself
                 </span>
                 .
               </p>
               <div className="mt-6 flex flex-col gap-2">
-                {["Not a generic template.", "Not a fake demo.", "Not \"pang-idea lang.\""
-                ].map((text, i) => (
+                {["Not a generic template.", "Not a fake demo.", "Not \"pang-idea lang.\""].map((text, i) => (
                   <div key={i} className="flex items-center gap-3 text-white font-semibold text-base">
-                    <span className="text-blue-500 font-bold">—</span>
+                    <span className="text-[#ffb700] font-bold">—</span>
                     <span>{text}</span>
                   </div>
                 ))}
@@ -166,7 +165,7 @@ const Section4WhatThisIs = () => {
               className={`bg-[#0F1524] border border-[#1E2A44] rounded-2xl p-6 md:p-8 hover:-translate-y-0.5 transition-all duration-300 ${visibleItems[2] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
             >
               <div className="flex justify-between items-center mb-5">
-                <span className="text-blue-400 text-xs uppercase tracking-widest">
+                <span className="text-[#ffb700] text-xs uppercase tracking-widest">
                   YOU ALREADY KNOW
                 </span>
                 <span className="text-gray-500 text-xs">6 signals →</span>
@@ -176,30 +175,31 @@ const Section4WhatThisIs = () => {
                 {youKnowItems.map((item, i) => (
                   <div
                     key={i}
-                    className="bg-[#131A2E] hover:bg-[#1A2238] border border-[#1E2A44] hover:border-blue-500/40 rounded-lg px-4 py-3.5 flex items-center gap-3 cursor-pointer transition-all duration-200 group"
+                    className="bg-[#131A2E] hover:bg-[#1A2238] border border-[#1E2A44] hover:border-[#ffb700]/40 rounded-lg px-4 py-3.5 flex items-center gap-3 cursor-pointer transition-all duration-200 group"
                   >
-                    <ChevronRight className="text-blue-400 w-4 h-4 shrink-0 group-hover:translate-x-0.5 transition-transform" />
+                    <ChevronRight className="text-[#ffb700] w-4 h-4 shrink-0 group-hover:translate-x-0.5 transition-transform" />
                     <span className="text-gray-300 text-sm">{item}</span>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-4 bg-gradient-to-r from-blue-500/10 to-transparent border border-blue-500/40 rounded-lg px-4 py-4 flex items-center justify-between">
+              <div className="mt-4 bg-gradient-to-r from-[#ffb700]/10 to-transparent border border-[#ffb700]/40 rounded-lg px-4 py-4 flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <ChevronRight className="text-blue-400 w-4 h-4 shrink-0" />
-                  <span className="text-blue-300 text-sm font-semibold">{highlightedItem}</span>
+                  <ChevronRight className="text-[#ffb700] w-4 h-4 shrink-0" />
+                  <span className="text-[#ffcf4d] text-sm font-semibold">{highlightedItem}</span>
                 </div>
-                <span className="w-2 h-2 bg-blue-400 rounded-full animate-pulse shrink-0" />
+                <span className="w-2 h-2 bg-[#ffb700] rounded-full animate-pulse shrink-0" />
               </div>
             </div>
 
             {/* Card 3 — Final CTA */}
             <div
-              className={`bg-gradient-to-br from-blue-500/10 via-[#0F1524] to-[#0F1524] border border-blue-500/30 rounded-2xl p-6 md:p-8 text-center hover:-translate-y-0.5 transition-all duration-300 ${visibleItems[3] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+              className={`bg-gradient-to-br from-[#ffb700]/10 via-[#0F1524] to-[#0F1524] border border-[#ffb700]/30 rounded-2xl p-6 md:p-8 text-center hover:-translate-y-0.5 transition-all duration-300 ${visibleItems[3] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+              style={{ boxShadow: "0 0 60px rgba(255,183,0,0.08)" }}
             >
               <p className="text-gray-400 text-sm mb-2">You do not need more awareness.</p>
               <p className="text-white text-2xl md:text-3xl font-bold mb-4">You need a way to build.</p>
-              <span className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 text-base font-semibold underline-offset-4 hover:underline cursor-pointer transition-colors">
+              <span className="inline-flex items-center gap-2 text-[#ffb700] hover:text-[#ffcf4d] text-base font-semibold underline-offset-4 hover:underline cursor-pointer transition-colors">
                 That's what this bootcamp gives you →
               </span>
             </div>
