@@ -388,7 +388,7 @@ export default function LiquidEther({
     class Simulation {
       options: any; fbos: any = {}; fboSize = new THREE.Vector2(); cellScale = new THREE.Vector2(); boundarySpace = new THREE.Vector2();
       advection: any; externalForce: any; viscous: any; divergence: any; poisson: any; pressure: any;
-      constructor(options: any) {
+      constructor(options: any = {}) {
         this.options = { iterations_poisson: 32, iterations_viscous: 32, mouse_force: 20, resolution: 0.5, cursor_size: 100, viscous: 30, isBounce: false, dt: 0.014, isViscous: false, BFECC: true, ...options };
         this.init();
       }
