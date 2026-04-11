@@ -18,12 +18,34 @@ const Section2Checklist = () => {
 
   return (
     <section className="py-12 md:py-20 relative overflow-hidden" style={{ backgroundColor: "#06070e" }}>
-      {/* Yellow gradient glow below cards */}
+      {/* Yellow/amber gradient glow below cards */}
       <div
-        className="absolute left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
+        className="absolute left-1/2 -translate-x-1/2 pointer-events-none"
         style={{
-          top: "55%",
-          background: "radial-gradient(circle, rgba(251,189,35,0.15) 0%, rgba(251,189,35,0.05) 40%, transparent 70%)",
+          top: "50%",
+          width: "900px",
+          height: "900px",
+          background: "radial-gradient(ellipse at center, rgba(251,189,35,0.25) 0%, rgba(233,195,7,0.15) 25%, rgba(251,189,35,0.06) 50%, transparent 70%)",
+          filter: "blur(80px)",
+        }}
+      />
+      <div
+        className="absolute left-1/3 -translate-x-1/2 pointer-events-none"
+        style={{
+          top: "45%",
+          width: "500px",
+          height: "500px",
+          background: "radial-gradient(circle, rgba(168,85,247,0.12) 0%, transparent 70%)",
+          filter: "blur(60px)",
+        }}
+      />
+      <div
+        className="absolute left-2/3 -translate-x-1/2 pointer-events-none"
+        style={{
+          top: "48%",
+          width: "500px",
+          height: "500px",
+          background: "radial-gradient(circle, rgba(6,182,212,0.1) 0%, transparent 70%)",
           filter: "blur(60px)",
         }}
       />
