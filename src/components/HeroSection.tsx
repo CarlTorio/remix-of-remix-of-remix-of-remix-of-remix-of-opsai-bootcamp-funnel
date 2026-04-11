@@ -20,7 +20,7 @@ const stackCards = [
   {
     title: "Manual Follow-ups",
     description: "Hours wasted every week chasing leads instead of actually growing the business.",
-    gradient: "from-[#991b1b] to-[#7f1d1d]",
+    gradient: "from-[#450a0a] to-[#991b1b]",
   },
   {
     title: "Disconnected Tools",
