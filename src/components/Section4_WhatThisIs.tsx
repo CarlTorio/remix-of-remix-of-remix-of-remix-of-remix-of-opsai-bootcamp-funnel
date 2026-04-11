@@ -1,87 +1,208 @@
-import SectionLabel from "./SectionLabel";
-import { XCircle, CyanArrow } from "./icons";
+import { XCircle, ChevronRight } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { useRef, useState, useEffect } from "react";
 
-const leaveBehinds = ["spreadsheets", "chats", "memory", "follow-ups", "generic apps", "and outsourced people who still don't fully understand the business"];
+const problemItems = [
+  "Spreadsheets",
+  "Chats",
+  "Memory",
+  "Follow-ups",
+  "Generic apps",
+  "Outsourced people who don't understand the business",
+];
 
-const youKnow = [
+const youKnowItems = [
   "what slows your team down",
   "what data you need to see",
   "what reports matter",
   "what approvals are annoying",
   "what departments are disconnected",
   "what process is broken",
-  "and what kind of system would make your business easier to run",
 ];
 
+const highlightedItem = "and what kind of system would make your business easier to run";
+
+function useStaggerReveal(count: number, stagger = 100) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visibleItems, setVisibleItems] = useState<boolean[]>(Array(count).fill(false));
+  const triggered = useRef(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !triggered.current) {
+          triggered.current = true;
+          for (let i = 0; i < count; i++) {
+            setTimeout(() => {
+              setVisibleItems((prev) => {
+                const next = [...prev];
+                next[i] = true;
+                return next;
+              });
+            }, i * stagger);
+          }
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [count, stagger]);
+
+  return { ref, visibleItems };
+}
+
 const Section4WhatThisIs = () => {
-  const { ref, visible } = useScrollReveal();
+  const { ref: headerRef, visible: headerVisible } = useScrollReveal();
+  const { ref: cardsRef, visibleItems } = useStaggerReveal(4, 100);
 
   return (
-    <section id="overview" className="py-12 md:py-20" style={{ backgroundColor: "#06070e", marginTop: "-120px", position: "relative", zIndex: 10 }}>
-      <div ref={ref} className={`container max-w-[900px] transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
-        <div className="text-center mb-10">
-          <SectionLabel>WHAT THIS IS</SectionLabel>
-          <h2 className="font-heading font-bold text-2xl md:text-4xl">What This Is</h2>
+    <section
+      id="overview"
+      className="relative py-16 md:py-24 px-4 md:px-8"
+      style={{ backgroundColor: "#0A0E1A", marginTop: "-120px", position: "relative", zIndex: 10 }}
+    >
+      {/* Subtle grid pattern */}
+      <div
+        className="absolute inset-0 opacity-[0.02]"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h60v60H0z' fill='none'/%3E%3Cpath d='M60 0v60M0 0h60' stroke='%23fff' stroke-width='1'/%3E%3C/svg%3E")`,
+          backgroundSize: "60px 60px",
+        }}
+      />
+
+      <div className="relative max-w-[1280px] mx-auto">
+        {/* Header */}
+        <div
+          ref={headerRef}
+          className={`text-center mb-12 md:mb-16 transition-all duration-700 ${headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+        >
+          <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-blue-400 mb-4">
+            WHAT THIS IS
+          </span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
+            What This Is
+          </h2>
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto mt-4">
+            The SME Systems Bootcamp is a live implementation bootcamp for business owners who want to stop running their operations on outdated workflows.
+          </p>
         </div>
 
-        <div className="bg-card rounded-2xl border border-accent/30 p-6 md:p-10 space-y-6">
-          <p className="font-body text-base leading-relaxed text-muted-foreground">
-            The SME Systems Bootcamp is a live implementation bootcamp for business owners who want to stop running their operations on:
-          </p>
+        {/* Main Grid */}
+        <div ref={cardsRef} className="grid lg:grid-cols-12 gap-6 md:gap-8">
+          {/* Left Column */}
+          <div className="lg:col-span-5 lg:sticky lg:top-24 lg:self-start">
+            <div
+              className={`bg-[#0F1524] border border-[#1E2A44] rounded-2xl p-6 md:p-8 hover:-translate-y-0.5 transition-all duration-300 ${visibleItems[0] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+            >
+              <span className="text-gray-500 text-xs uppercase tracking-widest block mb-5">
+                Stop running on
+              </span>
 
-          <div className="space-y-2">
-            {leaveBehinds.map((item, i) => (
-              <div key={i} className="flex items-center gap-3">
-                <XCircle className="shrink-0" />
-                <span className="font-body text-base text-muted-foreground">{item}</span>
+              <div className="flex flex-col gap-3">
+                {problemItems.map((item, i) => (
+                  <div
+                    key={i}
+                    className={`flex items-center gap-3 py-2.5 ${i < problemItems.length - 1 ? "border-b border-[#1E2A44]" : ""}`}
+                  >
+                    <span className="shrink-0 flex items-center justify-center w-7 h-7 bg-red-500/10 rounded-full">
+                      <XCircle className="w-4 h-4 text-red-400" />
+                    </span>
+                    <span className="text-gray-300 text-base">{item}</span>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
 
-          <p className="font-body text-base leading-relaxed text-muted-foreground">
-            Instead of depending on developers to slowly interpret your operations… this bootcamp shows you how to use <span className="text-foreground font-semibold">AI + prompts + no-code tools</span> to build the first real version of <span className="text-foreground font-semibold">your own internal business system yourself</span>.
-          </p>
+              <div className="border-t border-[#1E2A44] my-6" />
 
-          <div className="space-y-2 pl-2">
-            <p className="font-body text-foreground font-semibold">
-              <span className="text-accent">—</span> Not a generic template.
-            </p>
-            <p className="font-body text-foreground font-semibold">
-              <span className="text-accent">—</span> Not a fake demo.
-            </p>
-            <p className="font-body text-foreground font-semibold">
-              <span className="text-accent">—</span> Not "pang-idea lang."
-            </p>
-          </div>
-
-          <p className="font-heading font-bold text-lg md:text-xl text-foreground" style={{ textShadow: "0 0 20px hsl(217 71% 68% / 0.2)" }}>
-            A system based on your real business logic.
-          </p>
-
-          <p className="font-body text-base leading-relaxed text-muted-foreground">
-            Because the truth is: No outsider will ever understand your business as fast as <span className="text-foreground font-semibold">the owner who lives inside it every day</span>.
-          </p>
-
-          <div className="pt-4">
-            <p className="font-body text-foreground font-semibold text-center mb-4">You already know:</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-              {youKnow.map((item, i) => (
-                <div
-                  key={i}
-                  className={`flex items-center gap-3 bg-background/50 rounded-xl px-4 py-3 ${i === 6 ? "md:col-span-2 border border-accent/30 text-foreground font-semibold" : ""}`}
-                >
-                  <CyanArrow className="shrink-0" />
-                  <span className={`font-body text-sm ${i === 6 ? "" : "text-muted-foreground"}`}>{item}</span>
-                </div>
-              ))}
+              <span className="text-blue-400 text-xs uppercase tracking-widest block mb-3">
+                THE ALTERNATIVE
+              </span>
+              <p className="text-white text-xl font-semibold leading-snug mb-3">
+                A system based on your real business logic.
+              </p>
+              <p className="text-gray-400 text-sm leading-relaxed italic border-l-2 border-blue-500 pl-4">
+                No outsider will ever understand your business as fast as the owner who lives inside it every day.
+              </p>
             </div>
           </div>
 
-          <div className="text-center space-y-1 pt-4">
-            <p className="text-muted-foreground font-body text-base">You do not need more awareness.</p>
-            <p className="text-foreground font-body font-semibold text-lg">You need a way to build.</p>
-            <p className="text-accent font-body text-base">That's what this bootcamp gives you.</p>
+          {/* Right Column */}
+          <div className="lg:col-span-7 flex flex-col gap-6">
+            {/* Card 1 — The Approach */}
+            <div
+              className={`bg-[#0F1524] border border-[#1E2A44] rounded-2xl p-6 md:p-8 hover:-translate-y-0.5 transition-all duration-300 ${visibleItems[1] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+            >
+              <span className="text-blue-400 text-xs uppercase tracking-widest block mb-4">
+                THE APPROACH
+              </span>
+              <p className="text-gray-300 text-base leading-relaxed">
+                Instead of depending on developers to slowly interpret your operations… this bootcamp shows you how to use{" "}
+                <span className="inline-flex bg-blue-500/10 text-blue-300 px-2.5 py-0.5 rounded-md text-sm font-medium">
+                  AI + prompts + no-code tools
+                </span>{" "}
+                to build the first real version of{" "}
+                <span className="inline-flex bg-blue-500/10 text-blue-300 px-2.5 py-0.5 rounded-md text-sm font-medium">
+                  your own internal business system yourself
+                </span>
+                .
+              </p>
+              <div className="mt-6 flex flex-col gap-2">
+                {["Not a generic template.", "Not a fake demo.", "Not \"pang-idea lang.\""
+                ].map((text, i) => (
+                  <div key={i} className="flex items-center gap-3 text-white font-semibold text-base">
+                    <span className="text-blue-500 font-bold">—</span>
+                    <span>{text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Card 2 — You Already Know */}
+            <div
+              className={`bg-[#0F1524] border border-[#1E2A44] rounded-2xl p-6 md:p-8 hover:-translate-y-0.5 transition-all duration-300 ${visibleItems[2] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+            >
+              <div className="flex justify-between items-center mb-5">
+                <span className="text-blue-400 text-xs uppercase tracking-widest">
+                  YOU ALREADY KNOW
+                </span>
+                <span className="text-gray-500 text-xs">6 signals →</span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {youKnowItems.map((item, i) => (
+                  <div
+                    key={i}
+                    className="bg-[#131A2E] hover:bg-[#1A2238] border border-[#1E2A44] hover:border-blue-500/40 rounded-lg px-4 py-3.5 flex items-center gap-3 cursor-pointer transition-all duration-200 group"
+                  >
+                    <ChevronRight className="text-blue-400 w-4 h-4 shrink-0 group-hover:translate-x-0.5 transition-transform" />
+                    <span className="text-gray-300 text-sm">{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-4 bg-gradient-to-r from-blue-500/10 to-transparent border border-blue-500/40 rounded-lg px-4 py-4 flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <ChevronRight className="text-blue-400 w-4 h-4 shrink-0" />
+                  <span className="text-blue-300 text-sm font-semibold">{highlightedItem}</span>
+                </div>
+                <span className="w-2 h-2 bg-blue-400 rounded-full animate-pulse shrink-0" />
+              </div>
+            </div>
+
+            {/* Card 3 — Final CTA */}
+            <div
+              className={`bg-gradient-to-br from-blue-500/10 via-[#0F1524] to-[#0F1524] border border-blue-500/30 rounded-2xl p-6 md:p-8 text-center hover:-translate-y-0.5 transition-all duration-300 ${visibleItems[3] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+            >
+              <p className="text-gray-400 text-sm mb-2">You do not need more awareness.</p>
+              <p className="text-white text-2xl md:text-3xl font-bold mb-4">You need a way to build.</p>
+              <span className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 text-base font-semibold underline-offset-4 hover:underline cursor-pointer transition-colors">
+                That's what this bootcamp gives you →
+              </span>
+            </div>
           </div>
         </div>
       </div>
