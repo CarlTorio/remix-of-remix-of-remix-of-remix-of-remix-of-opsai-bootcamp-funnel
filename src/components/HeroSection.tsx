@@ -227,7 +227,7 @@ const HeroSection = () => {
               transition: "opacity 2s ease-out",
             }}
           >
-            <h2 className="text-destructive text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-center">
+            <h2 className="text-accent text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-center">
               If your business is still running on
             </h2>
           </div>
@@ -254,7 +254,7 @@ const HeroSection = () => {
               {stackCards.map((card, i) => (
                 <ScrollStackItem
                   key={i}
-                  itemClassName={`bg-gradient-to-br ${card.gradient} border border-red-500/60 shadow-[0_0_50px_rgba(239,68,68,0.6)]`}
+                  itemClassName={`bg-gradient-to-br ${card.gradient} border border-accent/60 shadow-[0_0_50px_rgba(251,189,35,0.4)]`}
                 >
                   <div className="flex flex-col items-center justify-center text-center w-full h-full">
                     <h3 className="font-heading font-black text-2xl md:text-3xl text-foreground mb-3 uppercase tracking-wide">
