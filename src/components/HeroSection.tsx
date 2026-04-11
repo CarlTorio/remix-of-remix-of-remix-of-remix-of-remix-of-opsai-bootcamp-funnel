@@ -10,7 +10,7 @@ const stackCards = [
   {
     title: "Google Sheets",
     description: "Endless tabs and broken formulas with no single source of truth across your team.",
-    gradient: "from-[#dc2626] to-[#b91c1c]",
+    gradient: "from-[#450a0a] to-[#dc2626]",
   },
   {
     title: "Messenger Group Chats",
