@@ -17,7 +17,7 @@ const Section2Checklist = () => {
   const { ref, visible } = useScrollReveal();
 
   return (
-    <section className="py-12 md:py-20 bg-section-alt section-divider">
+    <section className="py-12 md:py-20" style={{ backgroundColor: "#06070e" }}>
       <div ref={ref} className="container max-w-[1000px]">
         <h2 className="font-heading font-bold text-2xl md:text-4xl text-center mb-10">
           This is for you if…
