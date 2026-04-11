@@ -8,6 +8,11 @@ const Section3Intro = () => {
   return (
     <section className="py-12 md:py-20 section-divider">
       <div ref={ref} className={`container max-w-[900px] text-center transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+        <img
+          src="https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object/public/Video%20-%20Image%20Hosting/Build.png"
+          alt="Build"
+          className="mx-auto mb-6 max-w-[300px] md:max-w-[400px] w-full"
+        />
         <SectionLabel>THE BOOTCAMP</SectionLabel>
         <h2 className="font-heading font-bold text-2xl md:text-4xl mb-5">
           Introducing the <span className="text-accent">SME Systems Bootcamp</span>
