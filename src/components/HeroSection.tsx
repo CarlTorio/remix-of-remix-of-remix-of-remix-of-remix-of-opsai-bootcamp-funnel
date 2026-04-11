@@ -257,7 +257,7 @@ const HeroSection = () => {
                   itemClassName={`bg-gradient-to-br ${card.gradient} border border-red-500/60 shadow-[0_0_50px_rgba(239,68,68,0.6)]`}
                 >
                   <div className="flex flex-col items-center justify-center text-center w-full h-full">
-                    <h3 className="font-heading font-bold text-xl md:text-2xl text-foreground mb-3">
+                    <h3 className="font-heading font-black text-2xl md:text-3xl text-foreground mb-3 uppercase tracking-wide">
                       {card.title}
                     </h3>
                     <p className="font-body text-foreground text-sm md:text-base leading-relaxed max-w-2xl">
