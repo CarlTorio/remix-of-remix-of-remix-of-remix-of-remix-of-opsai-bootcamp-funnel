@@ -1,5 +1,6 @@
 import SectionLabel from "./SectionLabel";
 import CTAButton from "./CTAButton";
+import GradualBlur from "./GradualBlur";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const Section3Intro = () => {
@@ -8,12 +9,14 @@ const Section3Intro = () => {
   return (
     <section className="py-12 md:py-20">
       <div ref={ref} className={`container max-w-[900px] text-center transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
-        <img
-          src="https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object/public/Video%20-%20Image%20Hosting/Build.png"
-          alt="Build"
-          className="mx-auto mb-6 max-w-[600px] md:max-w-[800px] w-full rounded-2xl border border-secondary/30"
-          style={{ boxShadow: "0 0 30px rgba(251,189,35,0.2), 0 0 60px rgba(251,189,35,0.1)" }}
-        />
+        <div className="relative mx-auto mb-6 max-w-[600px] md:max-w-[800px] w-full rounded-2xl overflow-hidden">
+          <img
+            src="https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object/public/Video%20-%20Image%20Hosting/Build%20V2.png"
+            alt="Build"
+            className="w-full block"
+          />
+          <GradualBlur />
+        </div>
         
         <h2 className="font-heading font-bold text-2xl md:text-4xl mb-5">
           Introducing the <span className="text-secondary">SME Systems Bootcamp</span>
