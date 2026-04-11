@@ -5,7 +5,7 @@ const Section18FinalCTA = () => {
   const { ref, visible } = useScrollReveal();
 
   return (
-    <section className="py-16 md:py-24 section-divider" style={{ background: "linear-gradient(180deg, hsl(228 25% 7%) 0%, hsl(230 40% 4%) 100%)" }}>
+    <section className="py-16 md:py-24" style={{ backgroundColor: "#06070e" }}>
       <div ref={ref} className={`container max-w-[800px] text-center transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
         <h2 className="font-heading font-bold text-2xl md:text-4xl mb-5">
           Join the SME Systems Bootcamp Today for Just{" "}
