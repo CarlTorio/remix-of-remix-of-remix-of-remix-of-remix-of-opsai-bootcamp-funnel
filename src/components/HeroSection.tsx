@@ -5,7 +5,6 @@ import chaosBg from "@/assets/chaos-bg.png";
 const systemBg = "https://fhgovsymhevqsjtxhiui.supabase.co/storage/v1/object/public/Bootcamp%20Funnel/System.png";
 import CTAButton from "./CTAButton";
 import { ScrollStack, ScrollStackItem } from "./ScrollStack";
-import Noise from "./Noise";
 import cardGoogleSheets from "@/assets/card-google-sheets.jpg";
 import cardMessenger from "@/assets/card-messenger.jpg";
 import cardFollowups from "@/assets/card-followups.jpg";
@@ -252,13 +251,6 @@ const HeroSection = () => {
         style={{ backgroundImage: `url('https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object/public/Video%20-%20Image%20Hosting/Background%20-%20V11.png')` }}
       >
         <div className="absolute inset-0 bg-background/90" />
-        <Noise
-          patternSize={250}
-          patternScaleX={2}
-          patternScaleY={2}
-          patternRefreshInterval={2}
-          patternAlpha={15}
-        />
         <div className="relative z-10">
           <div className="relative">
             <ScrollStack
