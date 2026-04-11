@@ -13,7 +13,7 @@ const HeroImage = () => {
       <img
         src="https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object/public/Video%20-%20Image%20Hosting/Build%20V2.png"
         alt="SME Systems Bootcamp"
-        className="w-full h-auto block object-cover rounded-2xl border border-secondary/30"
+        className="w-full h-auto block object-cover rounded-2xl border-2 border-secondary/40"
       />
       {/* Blur Layer 1 */}
       <div style={{
