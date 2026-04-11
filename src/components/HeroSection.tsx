@@ -272,12 +272,12 @@ const HeroSection = () => {
           {/* Problem statement below stacks */}
           <div className="relative w-full text-center py-12 md:py-20">
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent rounded-lg pointer-events-none -z-0" />
-            <p className="relative z-10 text-foreground font-body text-2xl md:text-4xl mb-3">
+            <p className="relative z-10 text-foreground font-body text-xl md:text-3xl mb-3">
               …then your business is not "ORGANIZED ENOUGH."
             </p>
             <div className="relative z-10 flex justify-center">
               <FuzzyText
-                fontSize="clamp(2rem, 4vw, 2.5rem)"
+                fontSize="clamp(1.5rem, 3.5vw, 2rem)"
                 fontWeight={800}
                 color="#fbbd23"
                 baseIntensity={0.2}
