@@ -196,25 +196,27 @@ const HeroSection = () => {
             }}
           >
             {/* Image area */}
-            <div className="relative w-full">
-              <img src={heroBg} alt="" className="w-full h-auto" width={1920} height={1080} />
+            <div className="relative w-full h-full">
+              <img src={heroBg} alt="" className="w-full h-full object-cover" width={1920} height={1080} />
               <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-transparent to-background" />
             </div>
-            {/* Text content */}
-            <div className="relative z-10 container text-center -mt-16 md:-mt-24">
-              <h1 className="font-heading font-black text-[26px] md:text-[44px] leading-[1.1] mb-3 max-w-4xl mx-auto">
-                Build Your Own <span style={{ color: "#fbbd23" }}>Internal Business System</span> with{" "}
-                <span style={{ color: "#fbbd23" }}>A.I.</span> in Less Than <span style={{ color: "#fbbd23" }}>2 Weeks</span>
-              </h1>
-              <p className="font-body text-white text-base md:text-lg max-w-2xl mx-auto mb-6 leading-relaxed">
-                Without Hiring Developers, Without Coding,<br />and Without Spending ₱500,000+ on Custom Software.
-              </p>
+          </div>
+          {/* Text content — bottom-anchored */}
+          <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center text-center px-6 pb-16 md:pb-20 z-10">
+            <h1 className="font-heading font-black text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-5 max-w-4xl mx-auto drop-shadow-[0_2px_30px_rgba(0,0,0,0.8)]">
+              Build Your Own <span style={{ color: "#fbbd23" }}>Internal Business System</span> with{" "}
+              <span style={{ color: "#fbbd23" }}>A.I.</span> in Less Than <span style={{ color: "#fbbd23" }}>2 Weeks</span>
+            </h1>
+            <p className="font-body text-white text-sm md:text-lg max-w-2xl mx-auto mb-7 leading-relaxed drop-shadow-[0_2px_20px_rgba(0,0,0,0.7)]">
+              Without Hiring Developers, Without Coding,<br />and Without Spending ₱500,000+ on Custom Software.
+            </p>
+            <div className="mb-5">
               <CTAButton>Enroll Now — Limited Slots</CTAButton>
-              <div className="mt-4 flex flex-wrap justify-center gap-6 text-sm text-muted-foreground font-body">
-                <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-success inline-block" /> Live Cohort</span>
-                <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-success inline-block" /> 6-Week Program</span>
-                <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-success inline-block" /> Lifetime Access</span>
-              </div>
+            </div>
+            <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground font-body">
+              <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-success inline-block" /> Live Cohort</span>
+              <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-success inline-block" /> 6-Week Program</span>
+              <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-success inline-block" /> Lifetime Access</span>
             </div>
           </div>
 
