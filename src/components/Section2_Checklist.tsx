@@ -17,8 +17,17 @@ const Section2Checklist = () => {
   const { ref, visible } = useScrollReveal();
 
   return (
-    <section className="py-12 md:py-20" style={{ backgroundColor: "#06070e" }}>
-      <div ref={ref} className="container max-w-[1000px]">
+    <section className="py-12 md:py-20 relative overflow-hidden" style={{ backgroundColor: "#06070e" }}>
+      {/* Yellow gradient glow below cards */}
+      <div
+        className="absolute left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
+        style={{
+          top: "55%",
+          background: "radial-gradient(circle, rgba(251,189,35,0.15) 0%, rgba(251,189,35,0.05) 40%, transparent 70%)",
+          filter: "blur(60px)",
+        }}
+      />
+      <div ref={ref} className="container max-w-[1000px] relative z-10">
         <h2 className="font-heading font-bold text-2xl md:text-4xl text-center mb-10">
           This is for you if…
         </h2>
