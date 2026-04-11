@@ -40,7 +40,7 @@ const Section2Checklist = () => {
 
         <div className="max-w-[850px] mx-auto text-center space-y-4 mb-10">
           <p className="text-foreground font-body font-medium text-lg leading-relaxed">
-            If you want one internal system that matches your operations, connects your departments, and gives you real visibility over your business — this is for you.
+            If you want one internal system that matches your operations, connects your departments, and gives you real visibility over your business this is for you.
           </p>
           <p className="text-muted-foreground font-body text-base leading-relaxed">
             Because no developer, no software company, and no outsourced team will ever understand your business logic faster than you, the owner.
