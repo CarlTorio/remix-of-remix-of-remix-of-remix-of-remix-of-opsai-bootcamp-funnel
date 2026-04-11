@@ -13,7 +13,7 @@ const Section14Bonuses = () => {
   const { ref, visible } = useScrollReveal();
 
   return (
-    <section className="py-12 md:py-20 bg-section-alt section-divider">
+    <section className="py-12 md:py-20" style={{ backgroundColor: "#06070e" }}>
       <div ref={ref} className={`container max-w-[900px] transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
         <div className="text-center mb-10">
           <SectionLabel>BONUSES</SectionLabel>
