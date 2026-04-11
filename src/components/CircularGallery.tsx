@@ -360,7 +360,7 @@ class App {
   createCamera() {
     this.camera = new Camera(this.gl);
     this.camera.fov = 45;
-    this.camera.position.z = 20;
+    this.camera.position.z = 25;
   }
   createScene() {
     this.scene = new Transform();
