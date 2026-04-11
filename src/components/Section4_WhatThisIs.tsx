@@ -91,7 +91,7 @@ export default function Section4WhatThisIs() {
         <RevealBlock delay={120} className="max-w-2xl mx-auto mb-12">
           <div className="bg-[#ffb700]/5 border border-[#ffb700]/25 rounded-2xl px-8 py-10 shadow-[0_0_60px_rgba(255,183,0,0.08)]">
             <p className="text-3xl md:text-4xl font-bold text-white mb-2">
-              <span className="text-[#ffb700]">AI</span> + <span className="text-[#ffb700]">PROMPTS</span> + <span className="text-[#ffb700]">no-code tools</span>
+              <span className="text-[#ffb700]">AI</span> + <span className="text-[#ffb700]">PROMPTS</span> + <span className="text-[#ffb700]">NO CODE</span>
             </p>
             <p className="text-2xl text-[#8A8A94] my-2">=</p>
             <p className="text-2xl md:text-3xl font-bold text-[#ffb700] tracking-tight">your own real business system.</p>
