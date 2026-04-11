@@ -56,7 +56,7 @@ export default function Section4WhatThisIs() {
         </RevealBlock>
 
         <RevealBlock delay={160}>
-          <p className="text-lg md:text-xl text-[#C4C4CC] leading-relaxed max-w-2xl mx-auto mb-16">
+          <p className="text-base md:text-lg text-[#C4C4CC] leading-relaxed max-w-2xl mx-auto mb-16">
             The SME Systems Bootcamp teaches you how to build your own internal business system using{" "}
             <span className="text-white font-semibold">AI and no-code tools</span> — in less than{" "}
             <span className="text-[#ffb700] font-semibold">2 weeks</span>.
@@ -68,7 +68,7 @@ export default function Section4WhatThisIs() {
         </RevealBlock>
 
         <RevealBlock delay={100}>
-          <p className="text-xl md:text-2xl text-white font-medium mb-8">You're probably still running on:</p>
+          <p className="text-lg md:text-xl text-white font-medium mb-8">You're probably still running on:</p>
         </RevealBlock>
 
         <RevealBlock delay={150} className="max-w-xl mx-auto mb-16 pl-8 md:pl-16">
@@ -76,7 +76,7 @@ export default function Section4WhatThisIs() {
             {problems.map((p, i) => (
               <div key={i} className="flex items-start gap-4 text-left">
                 <XCircle className="w-6 h-6 text-red-400/80 flex-shrink-0 mt-0.5" />
-                <span className="text-lg md:text-xl text-[#C4C4CC] leading-snug">
+                <span className="text-base md:text-lg text-[#C4C4CC] leading-snug">
                   <span className="text-white font-semibold">{p.bold}</span>{p.rest}
                 </span>
               </div>
@@ -85,23 +85,23 @@ export default function Section4WhatThisIs() {
         </RevealBlock>
 
         <RevealBlock delay={100}>
-          <p className="text-2xl md:text-3xl font-medium italic mb-10 text-primary-foreground">There's a better way.</p>
+          <p className="text-xl md:text-2xl font-medium italic mb-10 text-primary-foreground">There's a better way.</p>
         </RevealBlock>
 
         <RevealBlock delay={120} className="max-w-2xl mx-auto mb-12">
           <div className="bg-[#ffb700]/5 border border-[#ffb700]/25 rounded-2xl px-8 py-10 shadow-[0_0_60px_rgba(255,183,0,0.08)]">
-            <p className="text-3xl md:text-4xl font-bold text-white mb-2">
+            <p className="text-2xl md:text-3xl font-bold text-white mb-2">
               <span className="text-[#ffb700]">AI</span> + <span className="text-[#ffb700]">PROMPTS</span> + <span className="text-[#ffb700]">NO CODE</span>
             </p>
-            <p className="text-2xl text-[#8A8A94] my-2">=</p>
-            <p className="text-2xl md:text-3xl font-bold text-[#ffb700] tracking-tight">your own real business system.</p>
+            <p className="text-xl text-[#8A8A94] my-2">=</p>
+            <p className="text-xl md:text-2xl font-bold text-[#ffb700] tracking-tight">your own real business system.</p>
           </div>
         </RevealBlock>
 
         <RevealBlock delay={100} className="mb-4">
           <div className="flex flex-col gap-3 items-center">
             {notList.map((item, i) => (
-              <p key={i} className="text-xl md:text-2xl text-[#8A8A94] font-medium">
+              <p key={i} className="text-lg md:text-xl text-[#8A8A94] font-medium">
                 <span className="text-[#ffb700] font-bold">— </span>{item}
               </p>
             ))}
@@ -109,22 +109,22 @@ export default function Section4WhatThisIs() {
         </RevealBlock>
 
         <RevealBlock delay={150}>
-          <p className="text-2xl md:text-3xl font-bold text-white mb-16 mt-6">
+          <p className="text-xl md:text-2xl font-bold text-white mb-16 mt-6">
             A system built around <span className="text-[#ffb700]">YOUR</span> business logic.
           </p>
         </RevealBlock>
 
         <RevealBlock delay={100} className="max-w-2xl mx-auto mb-16 text-left md:text-center">
-          <p className="text-lg md:text-xl text-[#C4C4CC] leading-relaxed">
+          <p className="text-base md:text-lg text-[#C4C4CC] leading-relaxed">
             No developer will ever understand your business faster than <span className="text-white font-semibold">you, the owner</span>.
           </p>
-          <p className="text-lg md:text-xl text-[#C4C4CC] leading-relaxed mt-4">
+          <p className="text-base md:text-lg text-[#C4C4CC] leading-relaxed mt-4">
             You already know what's broken. You just need a <span className="text-[#ffb700] font-semibold">way to build the fix</span>.
           </p>
         </RevealBlock>
 
         <RevealBlock delay={80}>
-          <h3 className="text-2xl md:text-3xl font-bold text-white text-center mb-8">You already know:</h3>
+          <h3 className="text-xl md:text-2xl font-bold text-white text-center mb-8">You already know:</h3>
         </RevealBlock>
 
         <RevealBlock delay={120} className="max-w-3xl mx-auto mb-8">
@@ -148,11 +148,11 @@ export default function Section4WhatThisIs() {
         <div className="mb-20" />
 
         <RevealBlock delay={100} className="max-w-2xl mx-auto text-center">
-          <p className="text-xl md:text-2xl text-[#8A8A94] font-medium mb-3">You don't need more awareness.</p>
-          <p className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight mb-8">
+          <p className="text-lg md:text-xl text-[#8A8A94] font-medium mb-3">You don't need more awareness.</p>
+          <p className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight mb-8">
             You need a <span className="text-[#ffb700]">way to build</span>.
           </p>
-          <a href="#pricing" className="inline-flex text-lg md:text-xl text-[#ffb700] font-semibold hover:text-white cursor-pointer underline-offset-4 hover:underline transition-colors">
+          <a href="#pricing" className="inline-flex text-base md:text-lg text-[#ffb700] font-semibold hover:text-white cursor-pointer underline-offset-4 hover:underline transition-colors">
             That's exactly what this bootcamp gives you. →
           </a>
         </RevealBlock>
