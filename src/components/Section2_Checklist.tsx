@@ -26,7 +26,7 @@ const Section2Checklist = () => {
           {items.map((item, i) => (
             <div
               key={i}
-              className={`bg-card rounded-2xl p-5 border flex items-start gap-4 transition-all duration-500 hover:border-accent/50 hover:-translate-y-0.5 ${item.catchAll ? "border-accent/40" : "border-border"} ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+              className={`bg-white/[0.04] backdrop-blur-md rounded-2xl p-5 border flex items-start gap-4 transition-all duration-500 hover:border-accent/40 hover:-translate-y-0.5 hover:shadow-[0_0_20px_rgba(251,189,35,0.15)] ${item.catchAll ? "border-accent/30 shadow-[0_0_15px_rgba(251,189,35,0.1)]" : "border-white/[0.08]"} ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
               style={{ transitionDelay: `${i * 80}ms` }}
             >
               <CheckCircle className="shrink-0 mt-0.5" />
