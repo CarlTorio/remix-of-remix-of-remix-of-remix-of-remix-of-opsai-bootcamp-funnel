@@ -29,7 +29,7 @@ const Section10Curriculum = () => {
   const { ref, visible } = useScrollReveal();
 
   return (
-    <section className="py-12 md:py-20 bg-section-alt section-divider">
+    <section className="py-12 md:py-20 bg-background">
       <div ref={ref} className={`container max-w-[1000px] transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
         <div className="text-center mb-10">
           <SectionLabel>INSIDE THE BOOTCAMP</SectionLabel>

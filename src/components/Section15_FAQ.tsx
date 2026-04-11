@@ -16,7 +16,7 @@ const Section15FAQ = () => {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-12 md:py-20 section-divider">
+    <section id="faq" className="py-12 md:py-20">
       <div className="container max-w-[800px]">
         <div className="text-center mb-10">
           <SectionLabel>FAQ</SectionLabel>
