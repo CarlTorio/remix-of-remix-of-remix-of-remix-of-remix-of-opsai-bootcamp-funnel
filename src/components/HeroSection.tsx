@@ -10,27 +10,27 @@ const stackCards = [
   {
     title: "Google Sheets",
     description: "Endless tabs and broken formulas with no single source of truth across your team.",
-    gradient: "from-[#dc2626] to-[#b91c1c]",
+    gradient: "from-[#450a0a] to-[#dc2626]",
   },
   {
     title: "Messenger Group Chats",
     description: "Critical updates and client requests buried under hundreds of unread messages.",
-    gradient: "from-[#b91c1c] to-[#991b1b]",
+    gradient: "from-[#450a0a] to-[#b91c1c]",
   },
   {
     title: "Manual Follow-ups",
     description: "Hours wasted every week chasing leads instead of actually growing the business.",
-    gradient: "from-[#991b1b] to-[#7f1d1d]",
+    gradient: "from-[#450a0a] to-[#991b1b]",
   },
   {
     title: "Disconnected Tools",
     description: "Every app works in isolation, forcing you to switch tabs and re-enter the same data.",
-    gradient: "from-[#7f1d1d] to-[#601414]",
+    gradient: "from-[#450a0a] to-[#7f1d1d]",
   },
   {
     title: "Delayed Reports",
     description: "You only find out if you're profitable at month-end, when it's already too late to fix.",
-    gradient: "from-[#601414] to-[#450a0a]",
+    gradient: "from-[#450a0a] to-[#601414]",
   },
 ];
 
