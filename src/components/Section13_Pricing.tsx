@@ -14,7 +14,7 @@ const Section13Pricing = () => {
   const { ref, visible } = useScrollReveal();
 
   return (
-    <section id="pricing" className="py-12 md:py-20">
+    <section id="pricing" className="py-12 md:py-20 section-divider">
       <div ref={ref} className={`container max-w-[900px] transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
         <div className="text-center mb-10">
           <SectionLabel>THE OFFER</SectionLabel>

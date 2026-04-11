@@ -29,7 +29,7 @@ const Section5BeforeAfter = () => {
   const { ref: refR, visible: visR } = useScrollReveal();
 
   return (
-    <section className="py-12 md:py-20">
+    <section className="py-12 md:py-20 section-divider">
       <div className="container max-w-[1100px]">
         <div className="text-center mb-12">
           <SectionLabel>THE TRANSFORMATION</SectionLabel>

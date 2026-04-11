@@ -7,7 +7,7 @@ const Section17EmotionalPush = () => {
   const { ref, visible } = useScrollReveal();
 
   return (
-    <section className="py-12 md:py-20">
+    <section className="py-12 md:py-20 section-divider">
       <div ref={ref} className={`container max-w-[850px] text-center transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
         <h2 className="font-heading font-bold text-2xl md:text-4xl mb-6">
           At Some Point, Every Growing Business Has To Decide

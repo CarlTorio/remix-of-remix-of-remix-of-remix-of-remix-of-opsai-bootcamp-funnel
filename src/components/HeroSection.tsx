@@ -10,27 +10,27 @@ const stackCards = [
   {
     title: "Google Sheets",
     description: "Endless tabs and broken formulas with no single source of truth across your team.",
-    gradient: "from-[#1a1400] to-[#78600a]",
+    gradient: "from-[#dc2626] to-[#b91c1c]",
   },
   {
     title: "Messenger Group Chats",
     description: "Critical updates and client requests buried under hundreds of unread messages.",
-    gradient: "from-[#1a1400] to-[#6b560a]",
+    gradient: "from-[#b91c1c] to-[#991b1b]",
   },
   {
     title: "Manual Follow-ups",
     description: "Hours wasted every week chasing leads instead of actually growing the business.",
-    gradient: "from-[#1a1400] to-[#5c4a0a]",
+    gradient: "from-[#991b1b] to-[#7f1d1d]",
   },
   {
     title: "Disconnected Tools",
     description: "Every app works in isolation, forcing you to switch tabs and re-enter the same data.",
-    gradient: "from-[#1a1400] to-[#4d3e0a]",
+    gradient: "from-[#7f1d1d] to-[#601414]",
   },
   {
     title: "Delayed Reports",
     description: "You only find out if you're profitable at month-end, when it's already too late to fix.",
-    gradient: "from-[#1a1400] to-[#3e320a]",
+    gradient: "from-[#601414] to-[#450a0a]",
   },
 ];
 
@@ -191,11 +191,11 @@ const HeroSection = () => {
             </div>
             {/* Text content */}
             <div className="relative z-10 container text-center -mt-16 md:-mt-24">
-              <h1 className="font-heading font-black text-[26px] md:text-[44px] leading-[1.1] mb-3 max-w-4xl mx-auto drop-shadow-[0_0_25px_rgba(251,189,35,0.2)]" style={{ textShadow: "0 0 20px rgba(251,189,35,0.15), 0 0 40px rgba(251,189,35,0.08)" }}>
-                Build Your Own <span style={{ color: "#fbbd23", textShadow: "0 0 20px rgba(251,189,35,0.3), 0 0 40px rgba(251,189,35,0.15)" }}>Internal Business System</span> with{" "}
-                <span style={{ color: "#fbbd23", textShadow: "0 0 20px rgba(251,189,35,0.3), 0 0 40px rgba(251,189,35,0.15)" }}>A.I.</span> in Less Than <span style={{ color: "#fbbd23", textShadow: "0 0 20px rgba(251,189,35,0.3), 0 0 40px rgba(251,189,35,0.15)" }}>2 Weeks</span>
+              <h1 className="font-heading font-black text-[26px] md:text-[44px] leading-[1.1] mb-3 max-w-4xl mx-auto">
+                Build Your Own <span style={{ color: "#fbbd23" }}>Internal Business System</span> with{" "}
+                <span style={{ color: "#fbbd23" }}>A.I.</span> in Less Than <span style={{ color: "#fbbd23" }}>2 Weeks</span>
               </h1>
-              <p className="font-body text-foreground text-base md:text-lg max-w-2xl mx-auto mb-6 leading-relaxed">
+              <p className="font-body text-muted-foreground text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
                 Without Hiring Developers, Without Coding,<br />and Without Spending ₱500,000+ on Custom Software.
               </p>
               <CTAButton>Enroll Now — Limited Slots</CTAButton>
@@ -227,7 +227,7 @@ const HeroSection = () => {
               transition: "opacity 2s ease-out",
             }}
           >
-            <h2 className="text-accent text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-center">
+            <h2 className="text-destructive text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-center">
               If your business is still running on
             </h2>
           </div>
@@ -254,16 +254,14 @@ const HeroSection = () => {
               {stackCards.map((card, i) => (
                 <ScrollStackItem
                   key={i}
-                  itemClassName={`bg-[#fbbd23] border border-accent/60 shadow-[0_0_50px_rgba(251,189,35,0.4)]`}
+                  itemClassName={`bg-gradient-to-br ${card.gradient} border border-red-500/60 shadow-[0_0_50px_rgba(239,68,68,0.6)]`}
                 >
-                  <div className="flex flex-col items-center justify-center text-center w-full h-full">
-                    <h3 className="font-heading font-black text-2xl md:text-3xl text-foreground mb-3 uppercase tracking-wide">
-                      {card.title}
-                    </h3>
-                    <p className="font-body text-foreground text-sm md:text-base leading-relaxed max-w-2xl">
-                      {card.description}
-                    </p>
-                  </div>
+                  <h3 className="font-heading font-bold text-xl md:text-2xl text-foreground mb-3">
+                    {card.title}
+                  </h3>
+                  <p className="font-body text-foreground text-sm md:text-base leading-relaxed max-w-2xl">
+                    {card.description}
+                  </p>
                 </ScrollStackItem>
               ))}
             </ScrollStack>

@@ -16,7 +16,7 @@ const Section11Industries = () => {
   const { ref, visible } = useScrollReveal();
 
   return (
-    <section className="py-12 md:py-20">
+    <section className="py-12 md:py-20 section-divider">
       <div ref={ref} className="container max-w-[1100px]">
         <div className="text-center mb-10">
           <SectionLabel>REAL APPLICATION</SectionLabel>

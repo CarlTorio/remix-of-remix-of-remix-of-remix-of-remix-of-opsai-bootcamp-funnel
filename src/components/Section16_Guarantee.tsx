@@ -5,7 +5,7 @@ const Section16Guarantee = () => {
   const { ref, visible } = useScrollReveal();
 
   return (
-    <section className="py-12 md:py-20 bg-background">
+    <section className="py-12 md:py-20 bg-section-alt section-divider">
       <div ref={ref} className={`container max-w-[800px] transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
         <div className="bg-card rounded-2xl border border-accent/30 p-8 md:p-12 text-center" style={{ boxShadow: "0 0 40px hsl(217 71% 68% / 0.08)" }}>
           <div className="flex justify-center mb-6">

@@ -12,7 +12,7 @@ const Section1Problem = () => {
   const { ref, visible } = useScrollReveal();
 
   return (
-    <section className="py-12 md:py-20">
+    <section className="py-12 md:py-20 section-divider">
       <div ref={ref} className="container max-w-[900px] text-center">
         <p
           className={`text-muted-foreground font-body text-lg mb-5 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
