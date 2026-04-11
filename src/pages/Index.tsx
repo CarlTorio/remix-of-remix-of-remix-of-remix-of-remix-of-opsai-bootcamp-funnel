@@ -30,7 +30,7 @@ const Index = () => (
       width: '100%',
       background: '#060608',
       padding: '20px 0 60px 0',
-      marginTop: '-20px'
+      marginTop: '-60px'
     }}>
       <div style={{ 
         height: '520px',
