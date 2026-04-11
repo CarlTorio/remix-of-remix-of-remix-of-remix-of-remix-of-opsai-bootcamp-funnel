@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import FuzzyText from "./FuzzyText";
 import LiquidEther from "./LiquidEther";
+import GradualBlur from "./GradualBlur";
 const heroBg = "https://fhgovsymhevqsjtxhiui.supabase.co/storage/v1/object/public/Bootcamp%20Funnel/Hero%20Section%20Original%20V5.png";
 import chaosBg from "@/assets/chaos-bg.png";
 const systemBg = "https://fhgovsymhevqsjtxhiui.supabase.co/storage/v1/object/public/Bootcamp%20Funnel/System.png";
