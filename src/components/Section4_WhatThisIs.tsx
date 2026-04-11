@@ -48,9 +48,6 @@ export default function Section4WhatThisIs() {
       <div className="absolute inset-0 pointer-events-none opacity-[0.015]" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")" }} />
 
       <div className="relative max-w-[780px] mx-auto text-center">
-        <RevealBlock>
-          <p className="uppercase tracking-[0.3em] text-[#ffb700] text-xs font-semibold mb-6">WHAT THIS IS</p>
-        </RevealBlock>
 
         <RevealBlock delay={80}>
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.05] mb-8">
