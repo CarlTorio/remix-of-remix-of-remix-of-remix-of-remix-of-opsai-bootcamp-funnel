@@ -45,7 +45,7 @@ const Section2Checklist = () => {
             that truly matches how your business runs —{" "}
             <span className="font-bold" style={{ color: "#fbbd23" }}>this is for you</span>.{" "}
             No developer or outsourced team will ever understand your business logic faster than{" "}
-            <span className="font-bold text-white">you, the owner</span>.{" "}
+            <span className="font-bold" style={{ color: "#fbbd23" }}>you, the owner</span>.{" "}
             And now with{" "}
             <span className="font-bold" style={{ color: "#fbbd23" }}>AI</span>,{" "}
             you no longer need to spend{" "}
