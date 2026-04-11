@@ -1,5 +1,6 @@
 import SectionLabel from "./SectionLabel";
 import CTAButton from "./CTAButton";
+import GradualBlur from "./GradualBlur";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const Section3Intro = () => {
