@@ -2,6 +2,7 @@ import HeroSection from "@/components/HeroSection";
 
 import Section2Checklist from "@/components/Section2_Checklist";
 import Section3Intro from "@/components/Section3_Intro";
+import CircularGallery from "@/components/CircularGallery";
 import Section4WhatThisIs from "@/components/Section4_WhatThisIs";
 import Section5BeforeAfter from "@/components/Section5_BeforeAfter";
 import Section6Relevant from "@/components/Section6_Relevant";
@@ -25,6 +26,36 @@ const Index = () => (
     
     <Section2Checklist />
     <Section3Intro />
+    <section style={{
+      width: '100%',
+      background: '#060608',
+      paddingTop: '0px',
+      paddingBottom: '0px'
+    }}>
+      <div style={{ 
+        height: '500px', 
+        position: 'relative',
+        width: '100%'
+      }}>
+        <CircularGallery
+          bend={1}
+          textColor="#ffffff"
+          borderRadius={0.05}
+          scrollSpeed={2}
+          scrollEase={0.05}
+          items={[
+            { image: 'https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object/public/Video%20-%20Image%20Hosting/1.png', text: '' },
+            { image: 'https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object/public/Video%20-%20Image%20Hosting/2.png', text: '' },
+            { image: 'https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object/public/Video%20-%20Image%20Hosting/3.png', text: '' },
+            { image: 'https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object/public/Video%20-%20Image%20Hosting/4.png', text: '' },
+            { image: 'https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object/public/Video%20-%20Image%20Hosting/5.png', text: '' },
+            { image: 'https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object/public/Video%20-%20Image%20Hosting/6.png', text: '' },
+            { image: 'https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object/public/Video%20-%20Image%20Hosting/7.png', text: '' },
+            { image: 'https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object/public/Video%20-%20Image%20Hosting/8.png', text: '' },
+          ]}
+        />
+      </div>
+    </section>
     <Section4WhatThisIs />
     <Section5BeforeAfter />
     <Section6Relevant />
