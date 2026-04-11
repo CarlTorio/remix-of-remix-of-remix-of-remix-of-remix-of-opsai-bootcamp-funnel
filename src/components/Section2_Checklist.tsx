@@ -80,7 +80,7 @@ const Section2Checklist = () => {
       style={{ backgroundColor: "#0A0A0F" }}
     >
       {/* Subtle radial glow */}
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at top, rgba(255,183,0,0.04), transparent 60%)" }} />
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at top, rgba(245,191,51,0.04), transparent 60%)" }} />
       {/* Noise texture */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.02]" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")" }} />
 
@@ -88,9 +88,9 @@ const Section2Checklist = () => {
         {/* ===== HEADER ===== */}
         <div className="text-center mb-14">
           <RevealBlock delay={0}>
-            <div className="inline-flex items-center gap-2 bg-[#ffb700]/10 border border-[#ffb700]/30 px-4 py-1.5 rounded-full mb-5">
-              <span className="w-2 h-2 bg-[#ffb700] rounded-full animate-pulse" />
-              <span className="text-[#ffb700] text-xs uppercase tracking-[0.25em] font-semibold">Find Your Industry</span>
+            <div className="inline-flex items-center gap-2 bg-[#f5bf33]/10 border border-[#f5bf33]/30 px-4 py-1.5 rounded-full mb-5">
+              <span className="w-2 h-2 bg-[#f5bf33] rounded-full animate-pulse" />
+              <span className="text-[#f5bf33] text-xs uppercase tracking-[0.25em] font-semibold">Find Your Industry</span>
             </div>
           </RevealBlock>
 
@@ -111,12 +111,12 @@ const Section2Checklist = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
           {industries.map((card, i) => (
             <RevealBlock key={i} delay={80 + i * 80}>
-              <div className="bg-[#13131A] border border-white/[0.06] hover:border-[#ffb700]/40 hover:bg-[#1A1A22] hover:-translate-y-1 rounded-2xl p-5 md:p-6 cursor-pointer transition-all duration-300 group h-full flex flex-col gap-4">
+              <div className="bg-[#13131A] border border-white/[0.06] hover:border-[#f5bf33]/40 hover:bg-[#1A1A22] hover:-translate-y-1 rounded-2xl p-5 md:p-6 cursor-pointer transition-all duration-300 group h-full flex flex-col gap-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 md:w-11 md:h-11 bg-[#ffb700]/10 border border-[#ffb700]/20 rounded-xl flex items-center justify-center group-hover:bg-[#ffb700]/20 transition flex-shrink-0">
-                    <card.icon className="w-4 h-4 md:w-5 md:h-5 text-[#ffb700]" />
+                  <div className="w-9 h-9 md:w-11 md:h-11 bg-[#f5bf33]/10 border border-[#f5bf33]/20 rounded-xl flex items-center justify-center group-hover:bg-[#f5bf33]/20 transition flex-shrink-0">
+                    <card.icon className="w-4 h-4 md:w-5 md:h-5 text-[#f5bf33]" />
                   </div>
-                  <span className="text-[#ffb700] text-xs uppercase tracking-wider font-bold">{card.tag}</span>
+                  <span className="text-[#f5bf33] text-xs uppercase tracking-wider font-bold">{card.tag}</span>
                 </div>
                 <h3 className="text-white text-base font-bold leading-tight">{card.title}</h3>
                 <p className="text-[#8A8A94] text-sm leading-relaxed">{card.body}</p>
@@ -127,18 +127,18 @@ const Section2Checklist = () => {
 
         {/* ===== CATCH-ALL CARD ===== */}
         <RevealBlock delay={80 + industries.length * 80} className="max-w-4xl mx-auto mb-16 mt-4">
-          <div className="bg-gradient-to-br from-[#ffb700]/10 via-[#13131A] to-[#13131A] border border-[#ffb700]/30 rounded-2xl p-6 md:p-8 shadow-[0_10px_40px_rgba(255,183,0,0.08)] flex items-start gap-4">
-            <div className="w-12 h-12 md:w-14 md:h-14 bg-[#ffb700]/15 border border-[#ffb700]/30 rounded-xl flex items-center justify-center flex-shrink-0">
-              <LayoutGrid className="w-6 h-6 md:w-7 md:h-7 text-[#ffb700]" />
+          <div className="bg-gradient-to-br from-[#f5bf33]/10 via-[#13131A] to-[#13131A] border border-[#f5bf33]/30 rounded-2xl p-6 md:p-8 shadow-[0_10px_40px_rgba(245,191,51,0.08)] flex items-start gap-4">
+            <div className="w-12 h-12 md:w-14 md:h-14 bg-[#f5bf33]/15 border border-[#f5bf33]/30 rounded-xl flex items-center justify-center flex-shrink-0">
+              <LayoutGrid className="w-6 h-6 md:w-7 md:h-7 text-[#f5bf33]" />
             </div>
             <div className="flex flex-col gap-2">
-              <span className="text-[#ffb700] text-xs uppercase tracking-wider font-bold">Or Simply…</span>
+              <span className="text-[#f5bf33] text-xs uppercase tracking-wider font-bold">Or Simply…</span>
               <h3 className="text-white text-lg md:text-xl font-bold leading-tight">You're a business owner who wants out of the chaos</h3>
               <p className="text-gray-300 text-sm md:text-base leading-relaxed">
                 Or you're simply a business owner who wants to stop depending on{" "}
-                <span className="text-[#ffb700] font-semibold">spreadsheets</span>,{" "}
-                <span className="text-[#ffb700] font-semibold">scattered tools</span>, and{" "}
-                <span className="text-[#ffb700] font-semibold">manual monitoring</span>{" "}
+                <span className="text-[#f5bf33] font-semibold">spreadsheets</span>,{" "}
+                <span className="text-[#f5bf33] font-semibold">scattered tools</span>, and{" "}
+                <span className="text-[#f5bf33] font-semibold">manual monitoring</span>{" "}
                 just to understand what's happening in the business.
               </p>
             </div>
@@ -149,23 +149,23 @@ const Section2Checklist = () => {
         <RevealBlock delay={200} className="max-w-3xl mx-auto text-center mb-10">
           <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-[1.3] mb-6">
             If you want{" "}
-            <span className="text-[#ffb700]">one internal system</span>{" "}
+            <span className="text-[#f5bf33]">one internal system</span>{" "}
             that matches your operations, connects your departments, and gives you{" "}
-            <span className="text-[#ffb700]">real visibility</span>{" "}
+            <span className="text-[#f5bf33]">real visibility</span>{" "}
             over your business —{" "}
-            <span className="text-[#ffb700]">this is for you</span>.
+            <span className="text-[#f5bf33]">this is for you</span>.
           </p>
           <p className="text-base md:text-lg text-[#8A8A94] leading-relaxed max-w-2xl mx-auto mb-10">
             Because no developer, no software company, and no outsourced team will ever understand your business logic faster than{" "}
             <span className="text-white font-semibold">you, the owner</span>. And now, with AI, you no longer need to spend{" "}
-            <span className="text-[#ffb700] font-semibold">₱500,000+</span>{" "}
+            <span className="text-[#f5bf33] font-semibold">₱500,000+</span>{" "}
             or wait months just to build the first real version of your system.
           </p>
 
           {/* CTA */}
           <a
             href="#pricing"
-            className="inline-flex items-center justify-center gap-2 bg-[#ffb700] text-black font-bold text-base md:text-lg tracking-wide px-10 py-4 rounded-full shadow-[0_10px_40px_rgba(255,183,0,0.4)] hover:bg-[#ffc733] hover:-translate-y-0.5 hover:shadow-[0_15px_50px_rgba(255,183,0,0.5)] transition-all duration-300"
+            className="inline-flex items-center justify-center gap-2 bg-[#f5bf33] text-black font-bold text-base md:text-lg tracking-wide px-10 py-4 rounded-full shadow-[0_10px_40px_rgba(245,191,51,0.4)] hover:bg-[#f9cc4d] hover:-translate-y-0.5 hover:shadow-[0_15px_50px_rgba(245,191,51,0.5)] transition-all duration-300"
           >
             RESERVE MY SLOT FOR ₱4,886
             <ArrowRight className="w-5 h-5" />
