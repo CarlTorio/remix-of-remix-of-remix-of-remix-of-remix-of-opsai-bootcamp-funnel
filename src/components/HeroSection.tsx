@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import BlurText from "./BlurText";
 import FuzzyText from "./FuzzyText";
 import LiquidEther from "./LiquidEther";
 const heroBg = "https://fhgovsymhevqsjtxhiui.supabase.co/storage/v1/object/public/Bootcamp%20Funnel/Hero%20Section%20Original%20V5.png";
@@ -203,18 +202,10 @@ const HeroSection = () => {
             </div>
             {/* Text content */}
             <div className="relative z-10 container text-center -mt-16 md:-mt-24">
-              <BlurText
-                delay={80}
-                animateBy="words"
-                direction="top"
-                className="font-heading font-black text-[26px] md:text-[44px] leading-[1.1] mb-3 max-w-4xl mx-auto"
-                stepDuration={0.3}
-              >
-                <h1 className="font-heading font-black text-[26px] md:text-[44px] leading-[1.1] max-w-4xl mx-auto">
-                  Build Your Own <span style={{ color: "#fbbd23" }}>Internal Business System</span> with{" "}
-                  <span style={{ color: "#fbbd23" }}>A.I.</span> in Less Than <span style={{ color: "#fbbd23" }}>2 Weeks</span>
-                </h1>
-              </BlurText>
+              <h1 className="font-heading font-black text-[26px] md:text-[44px] leading-[1.1] mb-3 max-w-4xl mx-auto">
+                Build Your Own <span style={{ color: "#fbbd23" }}>Internal Business System</span> with{" "}
+                <span style={{ color: "#fbbd23" }}>A.I.</span> in Less Than <span style={{ color: "#fbbd23" }}>2 Weeks</span>
+              </h1>
               <p className="font-body text-white text-base md:text-lg max-w-2xl mx-auto mb-6 leading-relaxed">
                 Without Hiring Developers, Without Coding,<br />and Without Spending ₱500,000+ on Custom Software.
               </p>
