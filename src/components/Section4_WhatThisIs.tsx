@@ -85,7 +85,7 @@ export default function Section4WhatThisIs() {
         </RevealBlock>
 
         <RevealBlock delay={100}>
-          <p className="text-2xl md:text-3xl text-[#8A8A94] font-medium italic mb-10">There's a better way.</p>
+          <p className="text-2xl md:text-3xl font-medium italic mb-10 text-primary-foreground">There's a better way.</p>
         </RevealBlock>
 
         <RevealBlock delay={120} className="max-w-2xl mx-auto mb-12">
