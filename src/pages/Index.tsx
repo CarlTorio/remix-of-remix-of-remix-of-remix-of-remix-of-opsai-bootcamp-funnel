@@ -33,7 +33,7 @@ const Index = () => (
       marginTop: '-20px'
     }}>
       <div style={{ 
-        height: '440px',
+        height: '520px',
         position: 'relative',
         width: '100%'
       }}>
