@@ -22,7 +22,7 @@ const Section2Checklist = () => {
         <h2 className="font-heading font-bold text-2xl md:text-4xl text-center mb-10">
           This is for you if…
         </h2>
-        <div className="space-y-3 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-12">
           {items.map((item, i) => (
             <div
               key={i}
