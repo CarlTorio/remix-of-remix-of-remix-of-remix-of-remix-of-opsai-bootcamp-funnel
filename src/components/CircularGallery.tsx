@@ -203,7 +203,18 @@ class Media {
           float edgeSmooth = 0.002;
           float alpha = 1.0 - smoothstep(-edgeSmooth, edgeSmooth, d);
           
-          gl_FragColor = vec4(color.rgb, alpha);
+          float strokeWidth = 0.012;
+          float strokeStart = -strokeWidth;
+          float strokeEnd = 0.0;
+          float isStroke = smoothstep(strokeStart - edgeSmooth, strokeStart + edgeSmooth, d) 
+                         - smoothstep(strokeEnd - edgeSmooth, strokeEnd + edgeSmooth, d);
+          
+          vec3 strokeColor = vec3(0.984, 0.741, 0.137);
+          
+          vec3 finalColor = mix(color.rgb, strokeColor, isStroke);
+          float finalAlpha = max(alpha, isStroke);
+          
+          gl_FragColor = vec4(finalColor, finalAlpha);
         }
       `,
       uniforms: {
