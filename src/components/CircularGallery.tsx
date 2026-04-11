@@ -286,8 +286,8 @@ class Media {
       }
     }
     this.scale = this.screen.height / 1500;
-    this.plane.scale.y = (this.viewport.height * (600 * this.scale)) / this.screen.height;
-    this.plane.scale.x = (this.viewport.width * (750 * this.scale)) / this.screen.width;
+    this.plane.scale.y = (this.viewport.height * (420 * this.scale)) / this.screen.height;
+    this.plane.scale.x = (this.viewport.width * (680 * this.scale)) / this.screen.width;
     this.plane.program.uniforms.uPlaneSizes.value = [this.plane.scale.x, this.plane.scale.y];
     this.padding = 1;
     this.width = this.plane.scale.x + this.padding;
@@ -360,7 +360,7 @@ class App {
   createCamera() {
     this.camera = new Camera(this.gl);
     this.camera.fov = 45;
-    this.camera.position.z = 20;
+    this.camera.position.z = 25;
   }
   createScene() {
     this.scene = new Transform();
