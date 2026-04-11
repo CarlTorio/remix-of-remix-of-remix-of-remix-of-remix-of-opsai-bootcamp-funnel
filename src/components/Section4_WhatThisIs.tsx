@@ -1,213 +1,165 @@
-import { XCircle, ChevronRight } from "lucide-react";
-import { useRef, useState, useEffect } from "react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { XCircle, Check } from "lucide-react";
 
-const problemItems = [
-  "Spreadsheets",
-  "Chats",
-  "Memory",
-  "Follow-ups",
-  "Generic apps",
-  "Outsourced people who don't understand the business",
-];
-
-const youKnowItems = [
-  "what slows your team down",
-  "what data you need to see",
-  "what reports matter",
-  "what approvals are annoying",
-  "what departments are disconnected",
-  "what process is broken",
-];
-
-const highlightedItem = "and what kind of system would make your business easier to run";
-
-function useStaggerReveal(count: number, stagger = 100) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visibleItems, setVisibleItems] = useState<boolean[]>(Array(count).fill(false));
-  const triggered = useRef(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !triggered.current) {
-          triggered.current = true;
-          for (let i = 0; i < count; i++) {
-            setTimeout(() => {
-              setVisibleItems((prev) => {
-                const next = [...prev];
-                next[i] = true;
-                return next;
-              });
-            }, i * stagger);
-          }
-          obs.disconnect();
-        }
-      },
-      { threshold: 0.1 }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, [count, stagger]);
-
-  return { ref, visibleItems };
+function RevealBlock({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
+  const { ref, visible } = useScrollReveal(0.15);
+  return (
+    <div
+      ref={ref}
+      className={className}
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0)" : "translateY(32px)",
+        transition: `opacity 0.7s cubic-bezier(0.16,1,0.3,1) ${delay}ms, transform 0.7s cubic-bezier(0.16,1,0.3,1) ${delay}ms`,
+      }}
+    >
+      {children}
+    </div>
+  );
 }
 
-const Section4WhatThisIs = () => {
-  const { ref: headerRef, visible: headerVisible } = useScrollReveal();
-  const { ref: cardsRef, visibleItems } = useStaggerReveal(4, 100);
+const problems = [
+  { bold: "Spreadsheets", rest: " with broken formulas" },
+  { bold: "Messenger threads", rest: " as your 'system'" },
+  { bold: "Memory", rest: " and manual follow-ups" },
+  { bold: "Generic apps", rest: " that don't fit your business" },
+  { bold: "Outsourced people", rest: " who still don't get it" },
+];
 
+const signals = [
+  "What's slowing your team down",
+  "What data you actually need",
+  "What reports matter",
+  "What approvals are wasting time",
+  "Which departments aren't connected",
+  "What process is broken",
+];
+
+const notList = ["Not a template.", "Not a demo.", "Not theory."];
+
+export default function Section4WhatThisIs() {
   return (
     <section
       id="overview"
-      className="relative py-16 md:py-24 px-4 md:px-8"
-      style={{ backgroundColor: "#06070e", marginTop: "-120px", position: "relative", zIndex: 10 }}
+      className="relative w-full py-28 px-6"
+      style={{ backgroundColor: "#0A0A0F", marginTop: "-120px", zIndex: 10 }}
     >
-      {/* Subtle grid pattern */}
-      <div
-        className="absolute inset-0 opacity-[0.02]"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h60v60H0z' fill='none'/%3E%3Cpath d='M60 0v60M0 0h60' stroke='%23fff' stroke-width='1'/%3E%3C/svg%3E")`,
-          backgroundSize: "60px 60px",
-        }}
-      />
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at top, rgba(255,183,0,0.06), transparent 60%)" }} />
+      <div className="absolute inset-0 pointer-events-none opacity-[0.015]" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")" }} />
 
-      <div className="relative max-w-[1280px] mx-auto">
-        {/* Header */}
-        <div
-          ref={headerRef}
-          className={`text-center mb-12 md:mb-16 transition-all duration-700 ${headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
-        >
-          <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-[#ffb700] mb-4">
-            WHAT THIS IS
-          </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
-            What This Is
+      <div className="relative max-w-[780px] mx-auto text-center">
+        <RevealBlock>
+          <p className="uppercase tracking-[0.3em] text-[#ffb700] text-xs font-semibold mb-6">WHAT THIS IS</p>
+        </RevealBlock>
+
+        <RevealBlock delay={80}>
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.05] mb-8">
+            Stop Running Your Business on <span className="text-[#ffb700]">Spreadsheets</span>.
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto mt-4">
-            The SME Systems Bootcamp is a live implementation bootcamp for business owners who want to stop running their operations on outdated workflows.
+        </RevealBlock>
+
+        <RevealBlock delay={160}>
+          <p className="text-lg md:text-xl text-[#C4C4CC] leading-relaxed max-w-2xl mx-auto mb-16">
+            The SME Systems Bootcamp teaches you how to build your own internal business system using{" "}
+            <span className="text-white font-semibold">AI and no-code tools</span> — in less than{" "}
+            <span className="text-[#ffb700] font-semibold">2 weeks</span>.
           </p>
-        </div>
+        </RevealBlock>
 
-        {/* Main Grid */}
-        <div ref={cardsRef} className="grid lg:grid-cols-12 gap-6 md:gap-8">
-          {/* Left Column */}
-          <div className="lg:col-span-5 lg:sticky lg:top-24 lg:self-start">
-            <div
-              className={`bg-[#0F1524] border border-[#1E2A44] rounded-2xl p-6 md:p-8 hover:-translate-y-0.5 transition-all duration-300 ${visibleItems[0] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
-            >
-              <span className="text-gray-500 text-xs uppercase tracking-widest block mb-5">
-                STOP RUNNING ON
-              </span>
+        <RevealBlock delay={200}>
+          <div className="w-16 h-px bg-[#ffb700]/40 mx-auto mb-12" />
+        </RevealBlock>
 
-              <div className="flex flex-col">
-                {problemItems.map((item, i) => (
-                  <div
-                    key={i}
-                    className={`flex items-center gap-3 py-3 ${i < problemItems.length - 1 ? "border-b border-[#1E2A44]" : ""}`}
-                  >
-                    <span className="shrink-0 flex items-center justify-center w-7 h-7 bg-red-500/10 rounded-full">
-                      <XCircle className="w-4 h-4 text-red-400" />
-                    </span>
-                    <span className="text-gray-300 text-base">{item}</span>
-                  </div>
-                ))}
-              </div>
+        <RevealBlock delay={100}>
+          <p className="text-xl md:text-2xl text-white font-medium mb-8">You're probably still running on:</p>
+        </RevealBlock>
 
-              <div className="border-t border-[#1E2A44] my-6" />
-
-              <span className="text-[#ffb700] text-xs uppercase tracking-widest block mb-3">
-                THE ALTERNATIVE
-              </span>
-              <p className="text-white text-xl font-semibold leading-snug mb-3">
-                A system based on your real business logic.
-              </p>
-              <p className="text-gray-400 text-sm leading-relaxed italic border-l-2 border-[#ffb700] pl-4">
-                No outsider will ever understand your business as fast as the owner who lives inside it every day.
-              </p>
-            </div>
-          </div>
-
-          {/* Right Column */}
-          <div className="lg:col-span-7 flex flex-col gap-6">
-            {/* Card 1 — The Approach */}
-            <div
-              className={`bg-[#0F1524] border border-[#1E2A44] rounded-2xl p-6 md:p-8 hover:-translate-y-0.5 transition-all duration-300 ${visibleItems[1] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
-            >
-              <span className="text-[#ffb700] text-xs uppercase tracking-widest block mb-4">
-                THE APPROACH
-              </span>
-              <p className="text-gray-300 text-base leading-relaxed">
-                Instead of depending on developers to slowly interpret your operations… this bootcamp shows you how to use{" "}
-                <span className="inline-flex bg-[#ffb700]/10 text-[#ffcf4d] px-2.5 py-0.5 rounded-md text-sm font-medium border border-[#ffb700]/20">
-                  AI + prompts + no-code tools
-                </span>{" "}
-                to build the first real version of{" "}
-                <span className="inline-flex bg-[#ffb700]/10 text-[#ffcf4d] px-2.5 py-0.5 rounded-md text-sm font-medium border border-[#ffb700]/20">
-                  your own internal business system yourself
+        <RevealBlock delay={150} className="max-w-xl mx-auto mb-16">
+          <div className="flex flex-col gap-4">
+            {problems.map((p, i) => (
+              <div key={i} className="flex items-start gap-4 text-left">
+                <XCircle className="w-6 h-6 text-red-400/80 flex-shrink-0 mt-0.5" />
+                <span className="text-lg md:text-xl text-[#C4C4CC] leading-snug">
+                  <span className="text-white font-semibold">{p.bold}</span>{p.rest}
                 </span>
-                .
-              </p>
-              <div className="mt-6 flex flex-col gap-2">
-                {["Not a generic template.", "Not a fake demo.", "Not \"pang-idea lang.\""].map((text, i) => (
-                  <div key={i} className="flex items-center gap-3 text-white font-semibold text-base">
-                    <span className="text-[#ffb700] font-bold">—</span>
-                    <span>{text}</span>
-                  </div>
-                ))}
               </div>
-            </div>
-
-            {/* Card 2 — You Already Know */}
-            <div
-              className={`bg-[#0F1524] border border-[#1E2A44] rounded-2xl p-6 md:p-8 hover:-translate-y-0.5 transition-all duration-300 ${visibleItems[2] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
-            >
-              <div className="flex justify-between items-center mb-5">
-                <span className="text-[#ffb700] text-xs uppercase tracking-widest">
-                  YOU ALREADY KNOW
-                </span>
-                <span className="text-gray-500 text-xs">6 signals →</span>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {youKnowItems.map((item, i) => (
-                  <div
-                    key={i}
-                    className="bg-[#131A2E] hover:bg-[#1A2238] border border-[#1E2A44] hover:border-[#ffb700]/40 rounded-lg px-4 py-3.5 flex items-center gap-3 cursor-pointer transition-all duration-200 group"
-                  >
-                    <ChevronRight className="text-[#ffb700] w-4 h-4 shrink-0 group-hover:translate-x-0.5 transition-transform" />
-                    <span className="text-gray-300 text-sm">{item}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-4 bg-gradient-to-r from-[#ffb700]/10 to-transparent border border-[#ffb700]/40 rounded-lg px-4 py-4 flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <ChevronRight className="text-[#ffb700] w-4 h-4 shrink-0" />
-                  <span className="text-[#ffcf4d] text-sm font-semibold">{highlightedItem}</span>
-                </div>
-                <span className="w-2 h-2 bg-[#ffb700] rounded-full animate-pulse shrink-0" />
-              </div>
-            </div>
-
-            {/* Card 3 — Final CTA */}
-            <div
-              className={`bg-gradient-to-br from-[#ffb700]/10 via-[#0F1524] to-[#0F1524] border border-[#ffb700]/30 rounded-2xl p-6 md:p-8 text-center hover:-translate-y-0.5 transition-all duration-300 ${visibleItems[3] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
-              style={{ boxShadow: "0 0 60px rgba(255,183,0,0.08)" }}
-            >
-              <p className="text-gray-400 text-sm mb-2">You do not need more awareness.</p>
-              <p className="text-white text-2xl md:text-3xl font-bold mb-4">You need a way to build.</p>
-              <span className="inline-flex items-center gap-2 text-[#ffb700] hover:text-[#ffcf4d] text-base font-semibold underline-offset-4 hover:underline cursor-pointer transition-colors">
-                That's what this bootcamp gives you →
-              </span>
-            </div>
+            ))}
           </div>
-        </div>
+        </RevealBlock>
+
+        <RevealBlock delay={100}>
+          <p className="text-2xl md:text-3xl text-[#8A8A94] font-medium italic mb-10">There's a better way.</p>
+        </RevealBlock>
+
+        <RevealBlock delay={120} className="max-w-2xl mx-auto mb-12">
+          <div className="bg-[#ffb700]/5 border border-[#ffb700]/25 rounded-2xl px-8 py-10 shadow-[0_0_60px_rgba(255,183,0,0.08)]">
+            <p className="text-3xl md:text-4xl font-bold text-white mb-2">
+              <span className="text-[#ffb700]">AI</span> + <span className="text-[#ffb700]">prompts</span> + <span className="text-[#ffb700]">no-code tools</span>
+            </p>
+            <p className="text-2xl text-[#8A8A94] my-2">=</p>
+            <p className="text-2xl md:text-3xl font-bold text-[#ffb700] tracking-tight">your own real business system.</p>
+          </div>
+        </RevealBlock>
+
+        <RevealBlock delay={100} className="mb-4">
+          <div className="flex flex-col gap-3 items-center">
+            {notList.map((item, i) => (
+              <p key={i} className="text-xl md:text-2xl text-[#8A8A94] font-medium">
+                <span className="text-[#ffb700] font-bold">— </span>{item}
+              </p>
+            ))}
+          </div>
+        </RevealBlock>
+
+        <RevealBlock delay={150}>
+          <p className="text-2xl md:text-3xl font-bold text-white mb-16 mt-6">
+            A system built around <span className="text-[#ffb700]">YOUR</span> business logic.
+          </p>
+        </RevealBlock>
+
+        <RevealBlock delay={100} className="max-w-2xl mx-auto mb-16 text-left md:text-center">
+          <p className="text-lg md:text-xl text-[#C4C4CC] leading-relaxed">
+            No developer will ever understand your business faster than <span className="text-white font-semibold">you, the owner</span>.
+          </p>
+          <p className="text-lg md:text-xl text-[#C4C4CC] leading-relaxed mt-4">
+            You already know what's broken. You just need a <span className="text-[#ffb700] font-semibold">way to build the fix</span>.
+          </p>
+        </RevealBlock>
+
+        <RevealBlock delay={80}>
+          <h3 className="text-2xl md:text-3xl font-bold text-white text-center mb-8">You already know:</h3>
+        </RevealBlock>
+
+        <RevealBlock delay={120} className="max-w-3xl mx-auto mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {signals.map((s, i) => (
+              <div key={i} className="bg-[#13131A] border border-white/5 hover:border-[#ffb700]/30 rounded-xl px-5 py-4 flex items-center gap-3 cursor-pointer transition-all duration-300 group">
+                <Check className="w-4 h-4 text-[#ffb700]/70 group-hover:text-[#ffb700] transition flex-shrink-0" />
+                <span className="text-sm md:text-base text-[#C4C4CC] text-left">{s}</span>
+              </div>
+            ))}
+          </div>
+          <div className="mt-3 bg-gradient-to-r from-[#ffb700]/10 to-transparent border border-[#ffb700]/40 rounded-xl px-5 py-5 flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <Check className="w-4 h-4 text-[#ffb700] flex-shrink-0" />
+              <span className="text-[#ffb700] font-semibold text-base md:text-lg text-left">What system would make your life easier</span>
+            </div>
+            <span className="w-2 h-2 bg-[#ffb700] rounded-full animate-pulse flex-shrink-0" />
+          </div>
+        </RevealBlock>
+
+        <div className="mb-20" />
+
+        <RevealBlock delay={100} className="max-w-2xl mx-auto text-center">
+          <p className="text-xl md:text-2xl text-[#8A8A94] font-medium mb-3">You don't need more awareness.</p>
+          <p className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight mb-8">
+            You need a <span className="text-[#ffb700]">way to build</span>.
+          </p>
+          <a href="#pricing" className="inline-flex text-lg md:text-xl text-[#ffb700] font-semibold hover:text-white cursor-pointer underline-offset-4 hover:underline transition-colors">
+            That's exactly what this bootcamp gives you. →
+          </a>
+        </RevealBlock>
       </div>
     </section>
   );
-};
-
-export default Section4WhatThisIs;
+}
