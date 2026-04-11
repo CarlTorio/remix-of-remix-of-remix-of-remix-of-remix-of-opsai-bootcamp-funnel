@@ -2,7 +2,7 @@
 
 export const CheckCircle = ({ className = "" }: { className?: string }) => (
   <svg className={className} width="22" height="22" viewBox="0 0 22 22" fill="none">
-    <circle cx="11" cy="11" r="11" fill="hsl(217 71% 68%)" />
+    <circle cx="11" cy="11" r="11" fill="#fbbd23" />
     <path d="M7 11l3 3 5-5" stroke="hsl(230 40% 4%)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
