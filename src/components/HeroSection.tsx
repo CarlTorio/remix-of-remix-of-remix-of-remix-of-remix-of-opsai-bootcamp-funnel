@@ -30,7 +30,7 @@ const stackCards = [
   {
     title: "Delayed Reports",
     description: "You only find out if you're profitable at month-end, when it's already too late to fix.",
-    gradient: "from-[#601414] to-[#450a0a]",
+    gradient: "from-[#450a0a] to-[#601414]",
   },
 ];
 
