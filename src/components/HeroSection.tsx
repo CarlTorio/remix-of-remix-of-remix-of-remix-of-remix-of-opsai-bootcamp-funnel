@@ -15,7 +15,7 @@ const stackCards = [
   {
     title: "Messenger Group Chats",
     description: "Critical updates and client requests buried under hundreds of unread messages.",
-    gradient: "from-[#b91c1c] to-[#991b1b]",
+    gradient: "from-[#450a0a] to-[#b91c1c]",
   },
   {
     title: "Manual Follow-ups",
