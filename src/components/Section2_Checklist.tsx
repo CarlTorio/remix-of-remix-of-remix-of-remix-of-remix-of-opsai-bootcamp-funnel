@@ -38,15 +38,21 @@ const Section2Checklist = () => {
           ))}
         </div>
 
-        <div className="max-w-[850px] mx-auto text-center space-y-4 mb-10">
-          <p className="text-foreground font-body font-medium text-lg leading-relaxed">
-            If you want one internal system that matches your operations, connects your departments, and gives you real visibility over your business this is for you.
-          </p>
-          <p className="text-muted-foreground font-body text-base leading-relaxed">
-            Because no developer, no software company, and no outsourced team will ever understand your business logic faster than you, the owner.
-          </p>
-          <p className="text-foreground font-body font-medium text-[17px] leading-relaxed">
-            And now, with AI, you no longer need to spend <span className="text-accent">₱500,000+</span> or wait months just to build the first real version of your system.
+        <div className="max-w-[680px] mx-auto text-center pt-3 pb-10">
+          <p className="font-body text-[16px] md:text-[18px] leading-[1.8] text-muted-foreground">
+            If you want{" "}
+            <span className="bg-gradient-to-r from-[#3b82f6] to-[#60a5fa] bg-clip-text text-transparent">one internal system</span>{" "}
+            that truly matches how your business runs —{" "}
+            <span className="bg-gradient-to-r from-[#3b82f6] to-[#60a5fa] bg-clip-text text-transparent font-bold">this is for you</span>.{" "}
+            No developer or outsourced team will ever understand your business logic faster than{" "}
+            <span className="text-white font-bold" style={{ textShadow: "0 0 12px rgba(59,130,246,0.5)" }}>you, the owner</span>.{" "}
+            And now with{" "}
+            <span className="bg-gradient-to-r from-[#3b82f6] to-[#60a5fa] bg-clip-text text-transparent font-bold">AI</span>,{" "}
+            you no longer need to spend{" "}
+            <span className="bg-gradient-to-r from-[#fbbd23] to-[#f59e0b] bg-clip-text text-transparent font-bold">₱500,000+</span>{" "}
+            or{" "}
+            <span className="font-semibold" style={{ color: "#EF4444" }}>wait months</span>{" "}
+            to build it.
           </p>
         </div>
 
