@@ -33,7 +33,7 @@ const Index = () => (
       paddingBottom: '0px'
     }}>
       <div style={{ 
-        height: '700px', 
+        height: '500px', 
         position: 'relative',
         width: '100%'
       }}>
