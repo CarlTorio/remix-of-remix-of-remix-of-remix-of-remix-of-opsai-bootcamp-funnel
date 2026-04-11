@@ -26,7 +26,7 @@ const Section2Checklist = () => {
           {items.map((item, i) => (
             <div
               key={i}
-              className={`relative rounded-2xl p-5 flex items-start gap-4 transition-all duration-500 hover:-translate-y-1 backdrop-blur-md bg-white/[0.04] border border-white/[0.08] shadow-[0_0_20px_rgba(0,0,0,0.3)] hover:border-accent/30 hover:shadow-[0_0_30px_rgba(251,189,35,0.08)] ${item.catchAll ? "md:col-span-2 md:max-w-[60%] md:mx-auto border-accent/20" : ""} ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+              className={`relative rounded-2xl p-5 flex items-start gap-4 transition-all duration-500 hover:-translate-y-1 backdrop-blur-md bg-white/[0.04] border border-white/[0.08] shadow-[0_0_20px_rgba(0,0,0,0.3)] hover:border-accent/30 hover:shadow-[0_0_30px_rgba(251,189,35,0.08)] ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
               style={{ transitionDelay: `${i * 80}ms` }}
             >
               <CheckCircle className="shrink-0 mt-0.5" />
