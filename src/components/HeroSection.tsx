@@ -200,6 +200,7 @@ const HeroSection = () => {
             <div className="relative w-full">
               <img src={heroBg} alt="" className="w-full h-auto" width={1920} height={1080} />
               <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-transparent to-background" />
+              <GradualBlur direction="bottom" blurLayers={8} maxBlur={16} />
             </div>
             {/* Text content */}
             <div className="relative z-10 container text-center -mt-16 md:-mt-24">
