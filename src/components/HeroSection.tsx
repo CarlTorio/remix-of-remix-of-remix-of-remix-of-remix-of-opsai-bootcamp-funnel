@@ -277,7 +277,7 @@ const HeroSection = () => {
               <FuzzyText
                 fontSize="clamp(2rem, 4vw, 2.5rem)"
                 fontWeight={800}
-                color="hsl(0, 84%, 60%)"
+                color="#fbbd23"
                 baseIntensity={0.2}
                 hoverIntensity={0.5}
                 enableHover
