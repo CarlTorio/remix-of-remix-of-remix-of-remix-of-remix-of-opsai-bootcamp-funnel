@@ -248,10 +248,29 @@ const HeroSection = () => {
       {/* SECOND SECTION — completely separate sibling, untouched */}
       <section
         ref={secondSectionRef}
-        className="relative w-full bg-cover bg-[center_30%]"
-        style={{ backgroundImage: `url('https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object/public/Video%20-%20Image%20Hosting/Background%20-%20V11.png')` }}
+        className="relative w-full"
       >
-        <div className="absolute inset-0 bg-background/90" />
+        {/* LiquidEther background */}
+        <div className="absolute inset-0 z-0">
+          <LiquidEther
+            colors={['#050505', '#f5cb6b', '#e9c307']}
+            mouseForce={20}
+            cursorSize={100}
+            isViscous
+            viscous={30}
+            iterationsViscous={32}
+            iterationsPoisson={32}
+            resolution={0.5}
+            isBounce={false}
+            autoDemo
+            autoSpeed={0.5}
+            autoIntensity={2.2}
+            takeoverDuration={0.25}
+            autoResumeDelay={3000}
+            autoRampDuration={0.6}
+          />
+        </div>
+        <div className="absolute inset-0 bg-background/80 z-[1]" />
         <div className="relative z-10">
           <div className="relative">
             <ScrollStack
