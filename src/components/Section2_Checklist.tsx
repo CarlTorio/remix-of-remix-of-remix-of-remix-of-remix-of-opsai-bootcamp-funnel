@@ -29,7 +29,7 @@ const Section2Checklist = () => {
               className={`bg-white/[0.04] backdrop-blur-md rounded-xl p-3.5 border flex items-start gap-3 transition-all duration-500 hover:border-accent/40 hover:-translate-y-0.5 hover:shadow-[0_0_20px_rgba(251,189,35,0.15)] ${item.catchAll ? "border-accent/30 shadow-[0_0_15px_rgba(251,189,35,0.1)]" : "border-white/[0.08]"} ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
               style={{ transitionDelay: `${i * 80}ms` }}
             >
-              <CheckCircle className="shrink-0 mt-0.5 w-4 h-4" />
+              <item.icon className="shrink-0 mt-0.5 w-5 h-5 text-secondary" />
               <p className="font-body text-sm leading-relaxed">
                 <span className="text-foreground font-medium">{item.biz}</span>{" "}
                 <span className="text-muted-foreground">{item.rest}</span>
