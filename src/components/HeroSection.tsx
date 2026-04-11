@@ -266,13 +266,23 @@ const HeroSection = () => {
                   key={i}
                   itemClassName={`bg-gradient-to-br ${card.gradient} border border-accent/60 shadow-[0_0_50px_rgba(251,189,35,0.4)]`}
                 >
-                  <div className="flex flex-col items-center justify-center text-center h-full">
-                    <h3 className="font-heading font-bold text-xl md:text-2xl text-foreground mb-3">
-                      {card.title}
-                    </h3>
-                    <p className="font-body text-foreground text-sm md:text-base leading-relaxed max-w-2xl">
-                      {card.description}
-                    </p>
+                  <div className="flex flex-col md:flex-row items-center gap-4 h-full p-2">
+                    <img
+                      src={card.image}
+                      alt={card.title}
+                      loading="lazy"
+                      width={800}
+                      height={512}
+                      className="w-full md:w-1/3 h-32 md:h-full object-cover rounded-lg"
+                    />
+                    <div className="flex flex-col items-center md:items-start justify-center text-center md:text-left flex-1">
+                      <h3 className="font-heading font-bold text-xl md:text-2xl text-foreground mb-3">
+                        {card.title}
+                      </h3>
+                      <p className="font-body text-foreground text-sm md:text-base leading-relaxed max-w-2xl">
+                        {card.description}
+                      </p>
+                    </div>
                   </div>
                 </ScrollStackItem>
               ))}
