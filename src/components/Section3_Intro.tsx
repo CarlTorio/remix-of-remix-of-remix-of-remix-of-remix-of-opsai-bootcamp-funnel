@@ -11,7 +11,7 @@ const Section3Intro = () => {
         <img
           src="https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object/public/Video%20-%20Image%20Hosting/Build.png"
           alt="Build"
-          className="mx-auto mb-6 max-w-[300px] md:max-w-[400px] w-full"
+          className="mx-auto mb-6 max-w-[450px] md:max-w-[600px] w-full"
         />
         <SectionLabel>THE BOOTCAMP</SectionLabel>
         <h2 className="font-heading font-bold text-2xl md:text-4xl mb-5">
