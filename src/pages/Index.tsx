@@ -29,11 +29,10 @@ const Index = () => (
     <section style={{
       width: '100%',
       background: '#060608',
-      paddingTop: '0px',
-      paddingBottom: '0px'
+      padding: '40px 0'
     }}>
       <div style={{ 
-        height: '500px', 
+        height: '420px',
         position: 'relative',
         width: '100%'
       }}>
