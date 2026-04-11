@@ -10,7 +10,7 @@ const items = [
   { biz: "You run a construction business", rest: "and you need to monitor materials, manpower, project progress, billing, approvals, and site updates in one place" },
   { biz: "You run a retail, distribution, or franchise business", rest: "and you want visibility over stocks, collections, branch performance, product movement, and operations" },
   { biz: "You run an accounting, finance, admin, or HR-heavy business", rest: "and you want your own internal system for records, approvals, workflows, employee access, and reporting" },
-  { biz: "Or you're simply a business owner who wants to stop depending on spreadsheets, scattered tools, and manual monitoring", rest: "just to understand what's happening in the business", catchAll: true },
+  { biz: "Or you're simply a business owner who wants to stop depending on spreadsheets, scattered tools, and manual monitoring", rest: "just to understand what's happening in the business" },
 ];
 
 const Section2Checklist = () => {
@@ -26,7 +26,7 @@ const Section2Checklist = () => {
           {items.map((item, i) => (
             <div
               key={i}
-              className={`relative rounded-2xl p-5 flex items-start gap-4 transition-all duration-500 hover:-translate-y-1 backdrop-blur-md bg-white/[0.04] border border-white/[0.08] shadow-[0_0_20px_rgba(0,0,0,0.3)] hover:border-accent/30 hover:shadow-[0_0_30px_rgba(251,189,35,0.08)] ${item.catchAll ? "md:col-span-2 md:max-w-[60%] md:mx-auto border-accent/20" : ""} ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+              className={`relative rounded-2xl p-5 flex items-start gap-4 transition-all duration-500 hover:-translate-y-1 backdrop-blur-md bg-white/[0.04] border border-white/[0.08] shadow-[0_0_20px_rgba(0,0,0,0.3)] hover:border-accent/30 hover:shadow-[0_0_30px_rgba(251,189,35,0.08)] ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
               style={{ transitionDelay: `${i * 80}ms` }}
             >
               <CheckCircle className="shrink-0 mt-0.5" />
