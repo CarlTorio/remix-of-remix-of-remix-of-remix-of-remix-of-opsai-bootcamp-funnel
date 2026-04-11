@@ -42,11 +42,8 @@ const Section2Checklist = () => {
           <p className="font-heading font-bold text-3xl md:text-4xl leading-relaxed text-secondary">
             If you want one internal system that matches your operations, connects your departments, and gives you real visibility over your business this is for you.
           </p>
-          <p className="text-muted-foreground font-body text-base leading-relaxed">
-            Because no developer, no software company, and no outsourced team will ever understand your business logic faster than you, the owner.
-          </p>
-          <p className="text-foreground font-body font-medium text-[17px] leading-relaxed">
-            And now, with AI, you no longer need to spend <span className="text-accent">₱500,000+</span> or wait months just to build the first real version of your system.
+          <p className="font-body text-base leading-relaxed text-primary-foreground">
+            Because no developer, no software company, and no outsourced team will ever understand your business logic faster than you, the owner. And now, with AI, you no longer need to spend <span className="text-accent">₱500,000+</span> or wait months just to build the first real version of your system.
           </p>
         </div>
 
