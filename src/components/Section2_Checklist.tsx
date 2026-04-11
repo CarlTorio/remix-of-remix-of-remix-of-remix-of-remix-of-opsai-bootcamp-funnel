@@ -39,13 +39,13 @@ const Section2Checklist = () => {
         </div>
 
         <div className="max-w-[680px] mx-auto text-center pt-3 pb-10">
-          <p className="font-body text-[16px] md:text-[18px] leading-[1.8] text-muted-foreground">
+          <p className="font-body text-[16px] md:text-[18px] leading-[1.8] text-white">
             If you want{" "}
             <span className="font-bold" style={{ color: "#fbbd23" }}>one internal system</span>{" "}
             that truly matches how your business runs —{" "}
             <span className="font-bold" style={{ color: "#fbbd23" }}>this is for you</span>.{" "}
             No developer or outsourced team will ever understand your business logic faster than{" "}
-            <span className="font-bold text-white">you, the owner</span>.{" "}
+            <span className="font-bold" style={{ color: "#fbbd23" }}>you, the owner</span>.{" "}
             And now with{" "}
             <span className="font-bold" style={{ color: "#fbbd23" }}>AI</span>,{" "}
             you no longer need to spend{" "}
