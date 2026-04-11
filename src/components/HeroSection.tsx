@@ -25,7 +25,7 @@ const stackCards = [
   {
     title: "Disconnected Tools",
     description: "Every app works in isolation, forcing you to switch tabs and re-enter the same data.",
-    gradient: "from-[#7f1d1d] to-[#601414]",
+    gradient: "from-[#450a0a] to-[#7f1d1d]",
   },
   {
     title: "Delayed Reports",
