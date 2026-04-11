@@ -5,6 +5,8 @@ const heroBg = "https://fhgovsymhevqsjtxhiui.supabase.co/storage/v1/object/publi
 import chaosBg from "@/assets/chaos-bg.png";
 const systemBg = "https://fhgovsymhevqsjtxhiui.supabase.co/storage/v1/object/public/Bootcamp%20Funnel/System.png";
 import CTAButton from "./CTAButton";
+import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 import { ScrollStack, ScrollStackItem } from "./ScrollStack";
 import cardGoogleSheets from "@/assets/card-google-sheets.jpg";
 import cardMessenger from "@/assets/card-messenger.jpg";
