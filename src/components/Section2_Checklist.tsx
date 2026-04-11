@@ -41,17 +41,17 @@ const Section2Checklist = () => {
         <div className="max-w-[680px] mx-auto text-center pt-3 pb-10">
           <p className="font-body text-[16px] md:text-[18px] leading-[1.8] text-muted-foreground">
             If you want{" "}
-            <span className="bg-gradient-to-r from-[#3b82f6] to-[#60a5fa] bg-clip-text text-transparent">one internal system</span>{" "}
+            <span className="font-bold" style={{ color: "#fbbd23" }}>one internal system</span>{" "}
             that truly matches how your business runs —{" "}
-            <span className="bg-gradient-to-r from-[#3b82f6] to-[#60a5fa] bg-clip-text text-transparent font-bold">this is for you</span>.{" "}
+            <span className="font-bold" style={{ color: "#fbbd23" }}>this is for you</span>.{" "}
             No developer or outsourced team will ever understand your business logic faster than{" "}
-            <span className="text-white font-bold" style={{ textShadow: "0 0 12px rgba(59,130,246,0.5)" }}>you, the owner</span>.{" "}
+            <span className="font-bold text-white">you, the owner</span>.{" "}
             And now with{" "}
-            <span className="bg-gradient-to-r from-[#3b82f6] to-[#60a5fa] bg-clip-text text-transparent font-bold">AI</span>,{" "}
+            <span className="font-bold" style={{ color: "#fbbd23" }}>AI</span>,{" "}
             you no longer need to spend{" "}
-            <span className="bg-gradient-to-r from-[#fbbd23] to-[#f59e0b] bg-clip-text text-transparent font-bold">₱500,000+</span>{" "}
+            <span className="font-bold" style={{ color: "#fbbd23" }}>₱500,000+</span>{" "}
             or{" "}
-            <span className="font-semibold" style={{ color: "#EF4444" }}>wait months</span>{" "}
+            <span className="font-bold" style={{ color: "#fbbd23" }}>wait months</span>{" "}
             to build it.
           </p>
         </div>
