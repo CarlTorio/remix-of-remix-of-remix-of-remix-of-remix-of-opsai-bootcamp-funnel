@@ -127,21 +127,42 @@ const Section2Checklist = () => {
 
         {/* ===== CATCH-ALL CARD ===== */}
         <RevealBlock delay={80 + industries.length * 80} className="max-w-4xl mx-auto mb-16 mt-4">
-          <div className="bg-gradient-to-br from-[#f5bf33]/10 via-[#13131A] to-[#13131A] border border-[#f5bf33]/30 rounded-2xl p-6 md:p-8 shadow-[0_10px_40px_rgba(245,191,51,0.08)] flex items-start gap-4">
-            <div className="w-12 h-12 md:w-14 md:h-14 bg-[#f5bf33]/15 border border-[#f5bf33]/30 rounded-xl flex items-center justify-center flex-shrink-0">
-              <LayoutGrid className="w-6 h-6 md:w-7 md:h-7 text-[#f5bf33]" />
+          <div className="relative overflow-hidden bg-[radial-gradient(ellipse_at_top,rgba(245,191,51,0.08),transparent_70%)] bg-[#13131A] border border-[#f5bf33]/25 rounded-3xl px-6 py-10 md:px-12 md:py-14 shadow-[0_20px_60px_rgba(245,191,51,0.08)] text-center hover:border-[#f5bf33]/40 transition-all duration-300">
+            {/* Subtle dot pattern */}
+            <div className="absolute top-0 right-0 w-full h-full opacity-[0.03] pointer-events-none" style={{ backgroundImage: "radial-gradient(circle, #f5bf33 1px, transparent 1px)", backgroundSize: "24px 24px" }} />
+
+            {/* Big icon */}
+            <div className="relative mx-auto mb-5 w-14 h-14 md:w-16 md:h-16 bg-[#f5bf33]/10 border border-[#f5bf33]/30 rounded-2xl flex items-center justify-center shadow-[0_0_30px_rgba(245,191,51,0.15)]">
+              <LayoutGrid className="w-7 h-7 md:w-8 md:h-8 text-[#f5bf33]" />
             </div>
-            <div className="flex flex-col gap-2">
-              <span className="text-[#f5bf33] text-xs uppercase tracking-wider font-bold">Or Simply…</span>
-              <h3 className="text-white text-lg md:text-xl font-bold leading-tight">You're a business owner who wants out of the chaos</h3>
-              <p className="text-gray-300 text-sm md:text-base leading-relaxed">
-                Or you're simply a business owner who wants to stop depending on{" "}
-                <span className="text-[#f5bf33] font-semibold">spreadsheets</span>,{" "}
-                <span className="text-[#f5bf33] font-semibold">scattered tools</span>, and{" "}
-                <span className="text-[#f5bf33] font-semibold">manual monitoring</span>{" "}
-                just to understand what's happening in the business.
-              </p>
+
+            {/* Eyebrow tag */}
+            <div className="relative inline-flex items-center gap-2 mb-4">
+              <span className="w-1.5 h-1.5 bg-[#f5bf33] rounded-full animate-pulse" />
+              <span className="text-[#f5bf33] text-xs uppercase tracking-[0.25em] font-bold">Or Simply…</span>
             </div>
+
+            {/* Title */}
+            <h3 className="relative text-2xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-tight max-w-2xl mx-auto mb-5">
+              You're a business owner who <span className="text-[#f5bf33]">wants out of the chaos</span>.
+            </h3>
+
+            {/* Body */}
+            <p className="relative text-base md:text-lg text-[#8A8A94] leading-relaxed max-w-2xl mx-auto mb-8">
+              You want to stop depending on{" "}
+              <span className="bg-[#f5bf33]/10 text-[#f5bf33] px-2 py-0.5 rounded-md text-sm md:text-base font-medium border border-[#f5bf33]/20">spreadsheets</span>,{" "}
+              <span className="bg-[#f5bf33]/10 text-[#f5bf33] px-2 py-0.5 rounded-md text-sm md:text-base font-medium border border-[#f5bf33]/20">scattered tools</span>, and{" "}
+              <span className="bg-[#f5bf33]/10 text-[#f5bf33] px-2 py-0.5 rounded-md text-sm md:text-base font-medium border border-[#f5bf33]/20">manual monitoring</span>{" "}
+              just to understand what's happening in your own business.
+            </p>
+
+            {/* Divider */}
+            <div className="relative w-12 h-px bg-[#f5bf33]/40 mx-auto mb-6" />
+
+            {/* Emotional close */}
+            <p className="relative text-base md:text-lg text-white font-semibold italic max-w-xl mx-auto">
+              You just want <span className="text-[#f5bf33]">clarity</span>, <span className="text-[#f5bf33]">control</span>, and a system that actually works for you.
+            </p>
           </div>
         </RevealBlock>
 
