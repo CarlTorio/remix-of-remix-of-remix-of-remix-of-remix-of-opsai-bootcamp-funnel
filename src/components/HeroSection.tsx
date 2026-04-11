@@ -254,8 +254,8 @@ const HeroSection = () => {
         <div className="absolute inset-0 z-0">
           <LiquidEther
             colors={['#050505', '#f5cb6b', '#e9c307']}
-            mouseForce={20}
-            cursorSize={100}
+            mouseForce={30}
+            cursorSize={150}
             isViscous
             viscous={30}
             iterationsViscous={32}
@@ -263,14 +263,14 @@ const HeroSection = () => {
             resolution={0.5}
             isBounce={false}
             autoDemo
-            autoSpeed={0.5}
-            autoIntensity={2.2}
+            autoSpeed={0.8}
+            autoIntensity={3.5}
             takeoverDuration={0.25}
-            autoResumeDelay={3000}
+            autoResumeDelay={1500}
             autoRampDuration={0.6}
           />
         </div>
-        <div className="absolute inset-0 bg-background/80 z-[1]" />
+        <div className="absolute inset-0 bg-background/40 z-[1]" />
         <div className="relative z-10">
           <div className="relative">
             <ScrollStack
