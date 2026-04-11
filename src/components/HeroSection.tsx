@@ -227,7 +227,7 @@ const HeroSection = () => {
               transition: "opacity 2s ease-out",
             }}
           >
-            <h2 className="text-destructive text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-center">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-center" style={{ color: "#fbbd23" }}>
               If your business is still running on
             </h2>
           </div>
