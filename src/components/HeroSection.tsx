@@ -191,9 +191,9 @@ const HeroSection = () => {
             </div>
             {/* Text content */}
             <div className="relative z-10 container text-center -mt-16 md:-mt-24">
-              <h1 className="font-heading font-black text-[26px] md:text-[44px] leading-[1.1] mb-3 max-w-4xl mx-auto drop-shadow-[0_0_25px_rgba(251,189,35,0.4)]" style={{ textShadow: "0 0 20px rgba(251,189,35,0.3), 0 0 40px rgba(251,189,35,0.15)" }}>
-                Build Your Own <span style={{ color: "#fbbd23", textShadow: "0 0 20px rgba(251,189,35,0.6), 0 0 40px rgba(251,189,35,0.3)" }}>Internal Business System</span> with{" "}
-                <span style={{ color: "#fbbd23", textShadow: "0 0 20px rgba(251,189,35,0.6), 0 0 40px rgba(251,189,35,0.3)" }}>A.I.</span> in Less Than <span style={{ color: "#fbbd23", textShadow: "0 0 20px rgba(251,189,35,0.6), 0 0 40px rgba(251,189,35,0.3)" }}>2 Weeks</span>
+              <h1 className="font-heading font-black text-[30px] md:text-[50px] leading-[1.1] mb-3 max-w-4xl mx-auto drop-shadow-[0_0_25px_rgba(251,189,35,0.25)]" style={{ textShadow: "0 0 20px rgba(251,189,35,0.2), 0 0 40px rgba(251,189,35,0.1)" }}>
+                Build Your Own <span style={{ color: "#fbbd23", textShadow: "0 0 20px rgba(251,189,35,0.4), 0 0 40px rgba(251,189,35,0.2)" }}>Internal Business System</span> with{" "}
+                <span style={{ color: "#fbbd23", textShadow: "0 0 20px rgba(251,189,35,0.4), 0 0 40px rgba(251,189,35,0.2)" }}>A.I.</span> in Less Than <span style={{ color: "#fbbd23", textShadow: "0 0 20px rgba(251,189,35,0.4), 0 0 40px rgba(251,189,35,0.2)" }}>2 Weeks</span>
               </h1>
               <p className="font-body text-foreground text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
                 Without Hiring Developers, Without Coding,<br />and Without Spending ₱500,000+ on Custom Software.
