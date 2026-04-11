@@ -5,8 +5,6 @@ const heroBg = "https://fhgovsymhevqsjtxhiui.supabase.co/storage/v1/object/publi
 import chaosBg from "@/assets/chaos-bg.png";
 const systemBg = "https://fhgovsymhevqsjtxhiui.supabase.co/storage/v1/object/public/Bootcamp%20Funnel/System.png";
 import CTAButton from "./CTAButton";
-import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
 import { ScrollStack, ScrollStackItem } from "./ScrollStack";
 import cardGoogleSheets from "@/assets/card-google-sheets.jpg";
 import cardMessenger from "@/assets/card-messenger.jpg";
@@ -197,91 +195,26 @@ const HeroSection = () => {
               transition: "filter 1.5s ease-out",
             }}
           >
-            {/* Image area — full cover */}
-            <div className="absolute inset-0">
-              <img src={heroBg} alt="" className="w-full h-full object-cover object-[center_30%]" width={1920} height={1080} />
+            {/* Image area */}
+            <div className="relative w-full">
+              <img src={heroBg} alt="" className="w-full h-auto" width={1920} height={1080} />
+              <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-transparent to-background" />
             </div>
-
-            {/* Bottom gradient overlay — transparent top, dark bottom */}
-            <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, transparent 0%, transparent 35%, rgba(0,0,0,0.5) 55%, rgba(0,0,0,0.85) 75%, rgba(0,0,0,0.95) 100%)' }} />
-
-            {/* Radial glow behind text area */}
-            <div className="absolute bottom-[20%] left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-[radial-gradient(ellipse,rgba(255,183,0,0.12),transparent_70%)] blur-3xl pointer-events-none z-0" />
-
-            {/* Text content — bottom-anchored */}
-            <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center text-center px-6 pb-12 md:pb-16 lg:pb-20 z-10">
-              {/* BLOCK 1 — Eyebrow */}
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0 }}
-                className="mb-4 md:mb-5"
-              >
-                <span className="inline-flex items-center gap-2 bg-[#ffb700]/10 border border-[#ffb700]/30 px-4 py-1.5 rounded-full">
-                  <span className="w-1.5 h-1.5 bg-[#ffb700] rounded-full animate-pulse" />
-                  <span className="text-xs md:text-sm uppercase tracking-[0.3em] text-[#ffb700] font-semibold">
-                    THE SME SYSTEMS BOOTCAMP
-                  </span>
-                </span>
-              </motion.div>
-
-              {/* BLOCK 2 — Headline */}
-              <motion.h1
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.15 }}
-                className="font-heading font-bold text-3xl md:text-5xl lg:text-6xl text-white tracking-tight leading-[1.1] mb-4 md:mb-5 max-w-4xl mx-auto drop-shadow-[0_2px_30px_rgba(0,0,0,0.8)]"
-              >
-                Build Your Own{" "}
-                <span className="text-[#ffb700]">Internal Business System</span>{" "}
-                with <span className="text-[#ffb700]">A.I.</span> in Less Than{" "}
-                <span className="text-[#ffb700]">2 Weeks</span>
-              </motion.h1>
-
-              {/* BLOCK 3 — Subtext */}
-              <motion.p
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="text-sm md:text-lg text-gray-300 leading-relaxed max-w-2xl mx-auto mb-5 md:mb-7 drop-shadow-[0_1px_10px_rgba(0,0,0,0.6)]"
-              >
-                Without Hiring Developers, Without Coding,<br className="hidden md:block" />
-                {" "}and Without Spending <span className="text-white font-semibold">₱500,000+</span> on Custom Software.
-              </motion.p>
-
-              {/* BLOCK 4 — CTA Button */}
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.45 }}
-                className="mb-4 md:mb-5"
-              >
-                <a
-                  href="#pricing"
-                  className="group inline-flex items-center justify-center gap-2 bg-[#ffb700] text-black font-bold text-base md:text-lg tracking-wide px-10 py-4 rounded-full shadow-[0_10px_40px_rgba(255,183,0,0.4)] hover:bg-[#ffc733] hover:shadow-[0_15px_50px_rgba(255,183,0,0.5)] hover:-translate-y-0.5 transition-all duration-300"
-                >
-                  ENROLL NOW — LIMITED SLOTS
-                  <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-                </a>
-              </motion.div>
-
-              {/* BLOCK 5 — Trust Row */}
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2"
-              >
-                <span className="flex items-center gap-2 text-xs md:text-sm text-gray-400 font-medium">
-                  <span className="w-2 h-2 rounded-full bg-green-500 inline-block" /> Limited to 30 Seats
-                </span>
-                <span className="flex items-center gap-2 text-xs md:text-sm text-gray-400 font-medium">
-                  <span className="w-2 h-2 rounded-full bg-green-500 inline-block" /> Starts July 2026
-                </span>
-                <span className="flex items-center gap-2 text-xs md:text-sm text-gray-400 font-medium">
-                  <span className="w-2 h-2 rounded-full bg-green-500 inline-block" /> Lifetime Access
-                </span>
-              </motion.div>
+            {/* Text content */}
+            <div className="relative z-10 container text-center -mt-16 md:-mt-24">
+              <h1 className="font-heading font-black text-[26px] md:text-[44px] leading-[1.1] mb-3 max-w-4xl mx-auto">
+                Build Your Own <span style={{ color: "#fbbd23" }}>Internal Business System</span> with{" "}
+                <span style={{ color: "#fbbd23" }}>A.I.</span> in Less Than <span style={{ color: "#fbbd23" }}>2 Weeks</span>
+              </h1>
+              <p className="font-body text-white text-base md:text-lg max-w-2xl mx-auto mb-6 leading-relaxed">
+                Without Hiring Developers, Without Coding,<br />and Without Spending ₱500,000+ on Custom Software.
+              </p>
+              <CTAButton>Enroll Now — Limited Slots</CTAButton>
+              <div className="mt-4 flex flex-wrap justify-center gap-6 text-sm text-muted-foreground font-body">
+                <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-success inline-block" /> Live Cohort</span>
+                <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-success inline-block" /> 6-Week Program</span>
+                <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-success inline-block" /> Lifetime Access</span>
+              </div>
             </div>
           </div>
 
