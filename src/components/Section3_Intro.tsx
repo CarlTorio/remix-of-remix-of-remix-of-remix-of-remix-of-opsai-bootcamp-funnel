@@ -1,6 +1,7 @@
 import SectionLabel from "./SectionLabel";
 import CTAButton from "./CTAButton";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import HeroImage from "./HeroImage";
 
 const Section3Intro = () => {
   const { ref, visible } = useScrollReveal();
