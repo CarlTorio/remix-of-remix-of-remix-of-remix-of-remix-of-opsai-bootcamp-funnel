@@ -427,7 +427,7 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
       </div>
 
       {/* MAIN AREA */}
-      <div className="col-span-12 lg:col-span-7 xl:col-span-7 flex flex-col gap-2 overflow-hidden">
+      <div className="col-span-12 lg:col-span-7 xl:col-span-7 flex flex-col gap-3">
         {/* Top bar */}
         <div className="flex items-center justify-between">
           <div>
