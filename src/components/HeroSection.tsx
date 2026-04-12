@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import FuzzyText from "./FuzzyText";
 import LiquidEther from "./LiquidEther";
-const heroBg = "https://fhgovsymhevqsjtxhiui.supabase.co/storage/v1/object/public/Bootcamp%20Funnel/Hero%20Section%20Original%20V5.png";
+const heroBgDesktop = "https://fhgovsymhevqsjtxhiui.supabase.co/storage/v1/object/public/Bootcamp%20Funnel/Hero%20Section%20Original%20V5.png";
+const heroBgMobile = "https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object/public/Video%20-%20Image%20Hosting/Hero%20Section%20Original%20-%20Portrait.png";
 import chaosBg from "@/assets/chaos-bg.png";
 const systemBg = "https://fhgovsymhevqsjtxhiui.supabase.co/storage/v1/object/public/Bootcamp%20Funnel/System.png";
 import CTAButton from "./CTAButton";
