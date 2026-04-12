@@ -17,31 +17,31 @@ const stackCards = [
   {
     title: "Google Sheets",
     description: "Endless tabs and broken formulas with no single source of truth across your team.",
-    gradient: "from-[#fbbd23] to-[#e5a910]",
+    gradient: "from-[#1a1a2e] via-[#16213e] to-[#0f3460]",
     image: cardGoogleSheets,
   },
   {
     title: "Messenger Group Chats",
     description: "Critical updates and client requests buried under hundreds of unread messages.",
-    gradient: "from-[#e5a910] to-[#c48d0a]",
+    gradient: "from-[#0f3460] via-[#1a1a3e] to-[#2a0845]",
     image: cardMessenger,
   },
   {
     title: "Manual Follow-ups",
     description: "Hours wasted every week chasing leads instead of actually growing the business.",
-    gradient: "from-[#c48d0a] to-[#9a6f08]",
+    gradient: "from-[#2a0845] via-[#1a1a2e] to-[#0d2137]",
     image: cardFollowups,
   },
   {
     title: "Disconnected Tools",
     description: "Every app works in isolation, forcing you to switch tabs and re-enter the same data.",
-    gradient: "from-[#9a6f08] to-[#705006]",
+    gradient: "from-[#0d2137] via-[#151530] to-[#1a0a2e]",
     image: cardDisconnected,
   },
   {
     title: "Delayed Reports",
     description: "You only find out if you're profitable at month-end, when it's already too late to fix.",
-    gradient: "from-[#705006] to-[#4a3504]",
+    gradient: "from-[#1a0a2e] via-[#0f1a3e] to-[#06070e]",
     image: cardReports,
   },
 ];
@@ -266,13 +266,13 @@ const HeroSection = () => {
               {stackCards.map((card, i) => (
                 <ScrollStackItem
                   key={i}
-                  itemClassName={`bg-gradient-to-br ${card.gradient} border border-accent/60 shadow-[0_0_50px_rgba(251,189,35,0.4)]`}
+                  itemClassName={`bg-gradient-to-br ${card.gradient} border border-white/10 shadow-[0_0_60px_rgba(99,102,241,0.15),0_0_30px_rgba(251,189,35,0.1)]`}
                 >
                   <div className="flex flex-col items-center justify-center text-center h-full p-2">
-                    <h3 className="font-heading font-bold text-xl md:text-2xl text-foreground mb-2">
+                    <h3 className="font-heading font-black text-2xl md:text-3xl text-white mb-2 drop-shadow-[0_0_15px_rgba(251,189,35,0.5)]" style={{ textShadow: '0 0 20px rgba(251,189,35,0.4), 0 2px 4px rgba(0,0,0,0.8)' }}>
                       {card.title}
                     </h3>
-                    <p className="font-body text-foreground text-sm md:text-base leading-relaxed max-w-2xl mb-4">
+                    <p className="font-body text-white/90 text-sm md:text-base leading-relaxed max-w-2xl mb-4">
                       {card.description}
                     </p>
                     <img
