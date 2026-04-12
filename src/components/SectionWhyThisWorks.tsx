@@ -1,8 +1,8 @@
 import { Target, Wrench, Zap, Clock, DollarSign, User, Lock, RefreshCw, Check, ArrowRight, Brain } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import whyReason01 from "@/assets/why-reason-01.jpg";
-import whyReason02 from "@/assets/why-reason-02.jpg";
-import whyReason03 from "@/assets/why-reason-03.jpg";
+const whyReason01 = "https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object/public/Video%20-%20Image%20Hosting/1111.png";
+const whyReason02 = "https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object/public/Video%20-%20Image%20Hosting/2222.png";
+const whyReason03 = "https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object/public/Video%20-%20Image%20Hosting/3333.png";
 
 const reasons = [
   {
