@@ -1395,7 +1395,7 @@ const SectionDashboardPreview = () => {
   const [graphKey, setGraphKey] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => setGraphKey(k => k + 1), 4000);
+    const interval = setInterval(() => setGraphKey(k => k + 1), 10000);
     return () => clearInterval(interval);
   }, []);
 
