@@ -709,9 +709,9 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
         </div>
 
         {/* Charts row */}
-        <div className="grid grid-cols-12 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-3">
           {/* Sales Overview */}
-          <div className={`col-span-12 md:col-span-7 p-3 ${card}`}>
+          <div className={`md:col-span-7 p-3 ${card}`}>
             <div className="flex items-center justify-between mb-2">
               <span className={`text-xs font-bold ${d ? "text-white" : "text-slate-900"}`}>Sales Overview</span>
               <MoreVertical className="w-3.5 h-3.5 text-gray-500 cursor-pointer" onClick={onDemoClick} />
@@ -747,7 +747,7 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
           </div>
 
           {/* Right mini cards */}
-          <div className="col-span-12 md:col-span-5 flex flex-col gap-2">
+          <div className="md:col-span-5 flex flex-col gap-2">
             <div className="grid grid-cols-2 gap-2">
               <div className={`p-2.5 ${card} cursor-pointer`} onClick={onDemoClick}>
                 <div className="flex items-center gap-1 mb-0.5">
