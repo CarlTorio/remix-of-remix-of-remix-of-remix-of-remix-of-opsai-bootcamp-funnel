@@ -211,7 +211,7 @@ const HeroSection = () => {
                 Without Hiring Developers, Without Coding,<br />and Without Spending ₱500,000+ on Custom Software.
               </p>
               <div style={isMobile ? { textShadow: "none" } : undefined}>
-                <CTAButton>Enroll Now Limited Slots</CTAButton>
+                <CTAButton>Enroll Now - Limited Slots</CTAButton>
               </div>
               <div className="mt-4 flex flex-wrap justify-center gap-6 text-sm text-muted-foreground font-body">
                 <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-success inline-block" /> Live Cohort</span>
