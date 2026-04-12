@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import FuzzyText from "./FuzzyText";
 import LiquidEther from "./LiquidEther";
-const heroBg = "https://fhgovsymhevqsjtxhiui.supabase.co/storage/v1/object/public/Bootcamp%20Funnel/Hero%20Section%20Original%20V5.png";
+const heroBgDesktop = "https://fhgovsymhevqsjtxhiui.supabase.co/storage/v1/object/public/Bootcamp%20Funnel/Hero%20Section%20Original%20V5.png";
+const heroBgMobile = "https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object/public/Video%20-%20Image%20Hosting/Hero%20Section%20Original%20-%20Portrait.png";
 import chaosBg from "@/assets/chaos-bg.png";
 const systemBg = "https://fhgovsymhevqsjtxhiui.supabase.co/storage/v1/object/public/Bootcamp%20Funnel/System.png";
 import CTAButton from "./CTAButton";
@@ -197,7 +198,7 @@ const HeroSection = () => {
           >
             {/* Image area */}
             <div className="relative w-full">
-              <img src={heroBg} alt="" className="w-full h-auto" width={1920} height={1080} />
+              <img src={isMobile ? heroBgMobile : heroBgDesktop} alt="" className="w-full h-auto" width={1920} height={1080} />
               <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-transparent to-background" />
             </div>
             {/* Text content */}
