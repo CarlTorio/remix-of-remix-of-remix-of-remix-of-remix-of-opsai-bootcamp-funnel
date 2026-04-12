@@ -148,11 +148,11 @@ export default function Section4WhatThisIs() {
         <div className="mb-20" />
 
         <RevealBlock delay={100} className="max-w-2xl mx-auto text-center">
-          <p className="text-xl md:text-2xl text-[#8A8A94] font-medium mb-3">You don't need more awareness.</p>
-          <p className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight mb-8">
+          <p className="text-lg md:text-xl text-[#8A8A94] font-medium mb-3">You don't need more awareness.</p>
+          <p className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight mb-8">
             You need a <span className="text-[#ffb700]">way to build</span>.
           </p>
-          <a href="#pricing" className="inline-flex text-lg md:text-xl text-[#ffb700] font-semibold hover:text-white cursor-pointer underline-offset-4 hover:underline transition-colors">
+          <a href="#pricing" className="inline-flex text-base md:text-lg text-[#ffb700] font-semibold hover:text-white cursor-pointer underline-offset-4 hover:underline transition-colors">
             That's exactly what this bootcamp gives you. →
           </a>
         </RevealBlock>
