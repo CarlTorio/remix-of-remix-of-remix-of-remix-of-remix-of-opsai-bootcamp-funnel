@@ -152,11 +152,11 @@ const HeroSection = () => {
             const t3 = window.setTimeout(() => {
               stageRef.current = 0;
               setAnimationStage(0);
-            }, 1500);
+            }, 800);
             timeoutsRef.current.push(t3);
-          }, 2000);
+          }, 800);
           timeoutsRef.current.push(t2);
-        }, 5000);
+        }, 1500);
         timeoutsRef.current.push(t1);
       } else if (currentStage === 1 || currentStage === 2) {
         e.preventDefault();
