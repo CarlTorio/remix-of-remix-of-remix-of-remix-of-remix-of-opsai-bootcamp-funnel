@@ -98,10 +98,10 @@ export default function Section4WhatThisIs() {
           </div>
         </RevealBlock>
 
-        <RevealBlock delay={100} className="mb-4">
-          <div className="flex flex-col gap-3 items-center">
+        <RevealBlock delay={100} className="mb-4 -mt-4">
+          <div className="flex flex-col gap-2 items-center">
             {notList.map((item, i) => (
-              <p key={i} className="text-lg md:text-xl text-[#8A8A94] font-medium">
+              <p key={i} className="text-base md:text-lg text-[#8A8A94] font-medium">
                 <span className="text-[#ffb700] font-bold">— </span>{item}
               </p>
             ))}
