@@ -223,7 +223,7 @@ const HeroSection = () => {
           <div
             className="absolute left-0 right-0 bottom-0 pointer-events-none"
             style={{
-              height: isMobile ? "75%" : "60%",
+              height: isMobile ? "85%" : "60%",
               background: "linear-gradient(to top, #000 0%, rgba(0,0,0,0.92) 35%, rgba(0,0,0,0.5) 70%, rgba(0,0,0,0) 100%)",
               opacity: overlayOpacity,
               transition: "opacity 1.5s ease-out",
