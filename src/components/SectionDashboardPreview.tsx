@@ -1397,7 +1397,7 @@ const SectionDashboardPreview = () => {
 
         {/* Helper text + CTA below frame */}
         <p className="mt-3 text-sm text-gray-500">
-          👆 Click any tab, button, or card above to explore. This is exactly what you'll build in Week 1 of the bootcamp.
+          This is exactly what you'll build in Week 1 of the bootcamp.
         </p>
         <div className="mt-6">
           <button
