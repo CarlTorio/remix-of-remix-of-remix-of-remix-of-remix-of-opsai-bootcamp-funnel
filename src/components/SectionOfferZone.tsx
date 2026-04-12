@@ -153,7 +153,7 @@ const SectionOfferZone = () => {
               <div className="border-t border-white/10 my-2" />
               <div className="flex items-center justify-between">
                 <span className="text-sm text-white font-bold uppercase">Total Value:</span>
-                <span className="text-base text-gray-300 line-through tabular-nums">₱22,000</span>
+                <span className="text-base text-gray-300 line-through tabular-nums">₱207,000</span>
               </div>
               <div className="flex items-center justify-between bg-[#ffb700]/10 border border-[#ffb700]/30 rounded-lg px-3 py-2.5 mt-2">
                 <span className="text-sm text-[#ffb700] font-bold uppercase">Your Price Today:</span>
