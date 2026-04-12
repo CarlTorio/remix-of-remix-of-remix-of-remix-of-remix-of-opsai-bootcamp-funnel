@@ -101,7 +101,7 @@ const SectionAboutCreator = () => {
                 className={`text-sm md:text-base text-gray-300 leading-relaxed transition-all duration-700 ${p1Reveal.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
                 style={{ transitionDelay: "450ms" }}
               >
-                I'm [Founder Name], and I built this bootcamp because I watched too many SME owners burn ₱500,000+ on custom software that didn't fit their business — only to end up still running on spreadsheets a year later.
+                I'm John Carl Torio, and I built this bootcamp because I watched too many SME owners burn ₱500,000+ on custom software that didn't fit their business — only to end up still running on spreadsheets a year later.
               </p>
               <p
                 ref={p2Reveal.ref}
