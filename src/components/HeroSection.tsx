@@ -292,7 +292,7 @@ const HeroSection = () => {
             <p className="relative z-10 text-foreground font-body text-xl md:text-3xl mb-3">
               …then your business is not "ORGANIZED ENOUGH."
             </p>
-            <p className="relative z-10 text-accent font-heading text-2xl md:text-4xl font-extrabold">
+            <p className="relative z-10 text-[#ffb700] font-heading text-2xl md:text-4xl font-extrabold">
               IT IS ONE PROBLEM AWAY FROM CHAOS.
             </p>
           </div>
