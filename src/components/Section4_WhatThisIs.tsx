@@ -68,15 +68,15 @@ export default function Section4WhatThisIs() {
         </RevealBlock>
 
         <RevealBlock delay={100}>
-          <p className="text-xl md:text-2xl text-white font-medium mb-8">You're probably still running on:</p>
+          <p className="text-lg md:text-xl text-white font-medium mb-8">You're probably still running on:</p>
         </RevealBlock>
 
         <RevealBlock delay={150} className="max-w-xl mx-auto mb-16 pl-8 md:pl-16">
           <div className="flex flex-col gap-4">
             {problems.map((p, i) => (
               <div key={i} className="flex items-start gap-4 text-left">
-                <XCircle className="w-6 h-6 text-red-400/80 flex-shrink-0 mt-0.5" />
-                <span className="text-lg md:text-xl text-[#C4C4CC] leading-snug">
+                <XCircle className="w-5 h-5 text-red-400/80 flex-shrink-0 mt-0.5" />
+                <span className="text-base md:text-lg text-[#C4C4CC] leading-snug">
                   <span className="text-white font-semibold">{p.bold}</span>{p.rest}
                 </span>
               </div>
