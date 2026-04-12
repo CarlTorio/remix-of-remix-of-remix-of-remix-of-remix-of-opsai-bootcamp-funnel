@@ -124,7 +124,7 @@ export default function Section4WhatThisIs() {
         </RevealBlock>
 
         <RevealBlock delay={80}>
-          <h3 className="text-2xl md:text-3xl font-bold text-white text-center mb-8">You already know:</h3>
+          <h3 className="text-xl md:text-2xl font-bold text-white text-center mb-8">You already know:</h3>
         </RevealBlock>
 
         <RevealBlock delay={120} className="max-w-3xl mx-auto mb-8">
@@ -132,7 +132,7 @@ export default function Section4WhatThisIs() {
             {signals.map((s, i) => (
               <div key={i} className="bg-[#13131A] border border-white/5 hover:border-[#ffb700]/30 rounded-xl px-5 py-4 flex items-center gap-3 cursor-pointer transition-all duration-300 group">
                 <Check className="w-4 h-4 text-[#ffb700]/70 group-hover:text-[#ffb700] transition flex-shrink-0" />
-                <span className="text-sm md:text-base text-[#C4C4CC] text-left">{s}</span>
+                <span className="text-xs md:text-sm text-[#C4C4CC] text-left">{s}</span>
               </div>
             ))}
           </div>
