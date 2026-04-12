@@ -1,4 +1,5 @@
 import { XCircle, Check, ArrowDown, ArrowRight } from "lucide-react";
+import CTAButton from "./CTAButton";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const beforeItems = [
@@ -149,13 +150,9 @@ const Section5BeforeAfter = () => {
 
         {/* BOTTOM CTA */}
         <div className="mt-16 text-center max-w-xl mx-auto">
-          <button
-            onClick={() => scrollTo("how-it-works")}
-            className="inline-flex items-center gap-2 bg-[#ffb700] hover:bg-[#ffc733] text-black font-bold text-sm px-6 py-3 rounded-full shadow-[0_8px_30px_rgba(255,183,0,0.3)] hover:-translate-y-0.5 transition-all duration-300"
-          >
+          <CTAButton href="#how-it-works">
             Show Me How
-            <ArrowRight className="w-4 h-4" />
-          </button>
+          </CTAButton>
           <p className="text-[10px] text-gray-500 italic mt-3">
             Built in 14 days. Owned forever.
           </p>
