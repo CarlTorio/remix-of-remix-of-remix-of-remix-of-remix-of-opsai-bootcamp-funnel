@@ -1293,9 +1293,9 @@ const AgencyDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick
         </div>
 
         {/* Calendar Grid */}
-        <div className={`flex-1 rounded-xl overflow-hidden ${d ? "bg-[#1F1418] border border-rose-900/20" : "bg-white border border-slate-200"}`}>
+        <div className={`flex-1 rounded-xl overflow-x-auto overflow-y-hidden ${d ? "bg-[#1F1418] border border-rose-900/20" : "bg-white border border-slate-200"}`}>
           {/* Day headers */}
-          <div className={`grid grid-cols-8 border-b ${d ? "border-rose-900/20" : "border-slate-200"}`}>
+          <div className={`grid grid-cols-8 border-b min-w-[500px] ${d ? "border-rose-900/20" : "border-slate-200"}`}>
             <div className="w-12" />
             {weekDays.map((day, i) => (
               <div key={i} className={`p-2 text-center border-l ${d ? "border-rose-900/20" : "border-slate-100"}`}>
@@ -1310,7 +1310,7 @@ const AgencyDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick
           </div>
 
           {/* Time grid + events */}
-          <div className="grid grid-cols-8 relative" style={{ height: "calc(100% - 56px)" }}>
+          <div className="grid grid-cols-8 relative min-w-[500px]" style={{ height: "calc(100% - 56px)" }}>
             {/* Time labels */}
             <div className={`w-12 flex flex-col justify-between py-1 border-r ${d ? "border-rose-900/20" : "border-slate-100"}`}>
               {timeLabels.map((t, i) => (
