@@ -283,6 +283,8 @@ const fnbOrders: ListItem[] = [
   { id: "Table 5", desc: "2x Coffee, 1x Cake", amount: "₱890", time: "2 min ago", status: "new" },
   { id: "Table 12", desc: "Family Meal Set", amount: "₱1,450", time: "5 min ago", status: "preparing" },
   { id: "Take-out #142", desc: "3x Iced Latte", amount: "₱540", time: "8 min ago", status: "ready" },
+  { id: "Table 3", desc: "Breakfast combo", amount: "₱680", time: "12 min ago", status: "served" },
+  { id: "Delivery #89", desc: "Lunch special x2", amount: "₱1,200", time: "15 min ago", status: "served" },
 ];
 const fnbCategoryData: DonutEntry[] = [
   { name: "Main Dishes", value: 45, color: "#a3e635" },
@@ -294,9 +296,9 @@ const FnBDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick: (
   const d = isDark;
   const accent = "#a3e635";
   return (
-    <div className="flex h-full w-full overflow-hidden">
+    <div className="flex w-full">
       <DashboardSidebar brand={{ letter: "K", name: "Kape Ni Ana", tagline: "POS System" }} nav={fnbNav} isDark={d} onDemoClick={onDemoClick} accentColor={accent} />
-      <div className="flex-1 p-3 flex flex-col gap-2 transition-colors duration-500 overflow-hidden">
+      <div className="flex-1 p-5 flex flex-col gap-4 transition-colors duration-500">
         <TopBar greeting="Good morning, Juan 👋" subtitle="Here's what's happening at your restaurant today" isDark={d} />
         <KPICards data={fnbKPIs} isDark={d} onDemoClick={onDemoClick} accentColor={accent} />
         <ChartCard title="Sales by Hour" subtitle="Today's performance" isDark={d} chartHeight="150px">
@@ -341,6 +343,7 @@ const profitData = Array.from({ length: 20 }, (_, i) => ({
 const ecomCustomers = [
   { name: "Danny Liu", email: "danny@gmail.com", orders: 1023, value: "₱37,431", avatarColor: "#f43f5e" },
   { name: "Bella Deviant", email: "bella@gmail.com", orders: 963, value: "₱30,423", avatarColor: "#f59e0b" },
+  { name: "Darrell Steward", email: "darrell@gmail.com", orders: 843, value: "₱28,549", avatarColor: "#10b981" },
 ];
 
 const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick: () => void }) => {
@@ -368,6 +371,7 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
   const notifications = [
     { icon: Users, text: "56 new users registered", time: "Just now" },
     { icon: ShoppingBag, text: "132 orders placed", time: "59 min ago" },
+    { icon: DollarSign, text: "Funds withdrawn", time: "12 hours ago" },
   ];
   const activities = [
     { icon: Palette, text: "Changed the style", time: "Just now" },
@@ -386,9 +390,9 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
   ];
 
   return (
-    <div className={`grid grid-cols-12 gap-2 h-full p-3 transition-colors duration-500 overflow-hidden ${d ? "bg-[#0A0F1A]" : "bg-[#F8FAFC]"}`}>
+    <div className={`grid grid-cols-12 gap-3 p-4 transition-colors duration-500 ${d ? "bg-[#0A0F1A]" : "bg-[#F8FAFC]"}`}>
       {/* LEFT SIDEBAR */}
-      <div className={`col-span-2 hidden lg:flex flex-col gap-1 p-2.5 rounded-xl ${card}`}>
+      <div className={`col-span-2 hidden lg:flex flex-col gap-1 p-3 rounded-xl ${card}`}>
         <div className="flex items-center gap-2 mb-3">
           <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[#ffb700] to-[#e6a500] flex items-center justify-center">
             <span className="text-black font-bold text-xs">S</span>
@@ -423,7 +427,7 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
       </div>
 
       {/* MAIN AREA */}
-      <div className="col-span-12 lg:col-span-7 xl:col-span-7 flex flex-col gap-2 overflow-hidden">
+      <div className="col-span-12 lg:col-span-7 xl:col-span-7 flex flex-col gap-3">
         {/* Top bar */}
         <div className="flex items-center justify-between">
           <div>
@@ -434,31 +438,31 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
         </div>
 
         {/* KPI Cards */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {ecomKPIs.map((kpi) => (
-            <div key={kpi.label} onClick={onDemoClick} className={`p-2.5 rounded-xl cursor-pointer hover:-translate-y-0.5 transition-all ${card} relative`}>
-              <div className={`text-[9px] uppercase tracking-wider ${d ? "text-gray-500" : "text-slate-500"}`}>{kpi.label}</div>
-              <div className={`text-lg font-bold mt-0.5 ${d ? "text-white" : "text-slate-900"}`}>
+            <div key={kpi.label} onClick={onDemoClick} className={`p-3 rounded-xl cursor-pointer hover:-translate-y-0.5 transition-all ${card} relative`}>
+              <div className={`text-[10px] uppercase tracking-wider ${d ? "text-gray-500" : "text-slate-500"}`}>{kpi.label}</div>
+              <div className={`text-xl font-bold mt-1 ${d ? "text-white" : "text-slate-900"}`}>
                 <CountUp value={kpi.value} prefix={kpi.prefix || ""} suffix={kpi.suffix || ""} />
               </div>
               {kpi.isGauge ? (
-                <svg className="absolute top-2.5 right-2.5" width="32" height="32" viewBox="0 0 40 40">
+                <svg className="absolute top-3 right-3" width="36" height="36" viewBox="0 0 40 40">
                   <circle cx="20" cy="20" r="16" stroke={d ? "#1E2A44" : "#e2e8f0"} strokeWidth={4} fill="none" />
                   <circle cx="20" cy="20" r="16" stroke="#ffb700" strokeWidth={4} fill="none" strokeDasharray={`${71 * 1.005}, 100.5`} strokeLinecap="round" transform="rotate(-90 20 20)" />
                 </svg>
               ) : (
-                <div className="flex items-center gap-1 mt-0.5">
+                <div className="flex items-center gap-1 mt-1">
                   <TrendingUp className="w-3 h-3 text-green-500" />
-                  <span className="text-[9px] text-green-500 font-medium">{kpi.trend}</span>
+                  <span className="text-[10px] text-green-500 font-medium">{kpi.trend}</span>
                 </div>
               )}
-              {kpi.subtitle && <div className="text-[8px] text-gray-500">{kpi.subtitle}</div>}
+              {kpi.subtitle && <div className="text-[9px] text-gray-500 mt-0.5">{kpi.subtitle}</div>}
             </div>
           ))}
         </div>
 
         {/* Charts row */}
-        <div className="grid grid-cols-12 gap-2">
+        <div className="grid grid-cols-12 gap-3">
           {/* Sales Overview */}
           <div className={`col-span-12 md:col-span-7 p-3 ${card}`}>
             <div className="flex items-center justify-between mb-2">
@@ -1137,7 +1141,7 @@ const SectionDashboardPreview = () => {
           <span className="text-[#ffb700] font-semibold">₱500,000+</span> software.
         </p>
 
-        <div className="max-w-6xl mx-auto relative rounded-3xl bg-gradient-to-b from-[#1a1a24] to-[#0f0f16] border border-[#ffb700]/20 shadow-[0_30px_80px_rgba(0,0,0,0.6),0_0_60px_rgba(255,183,0,0.08)] aspect-[16/7] max-h-[720px] overflow-hidden flex flex-col">
+        <div className="max-w-6xl mx-auto relative rounded-3xl bg-gradient-to-b from-[#1a1a24] to-[#0f0f16] border border-[#ffb700]/20 shadow-[0_30px_80px_rgba(0,0,0,0.6),0_0_60px_rgba(255,183,0,0.08)] aspect-video overflow-hidden flex flex-col">
           <div className="flex items-center justify-between px-4 py-2.5 border-b border-[#ffb700]/15 flex-shrink-0">
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-1.5">
@@ -1179,8 +1183,8 @@ const SectionDashboardPreview = () => {
           </div>
 
           <div className="p-2 flex-1 overflow-hidden">
-            <div className={`rounded-2xl overflow-hidden transition-colors duration-500 relative h-full ${isDark ? "bg-[#0F1420]" : "bg-[#F8FAFC]"}`}>
-              <div key={activeTab} className="animate-fadeIn h-full">
+            <div className={`rounded-2xl transition-colors duration-500 relative h-full overflow-y-auto overflow-x-hidden overscroll-contain dashboard-scroll ${isDark ? "bg-[#0F1420]" : "bg-[#F8FAFC]"}`}>
+              <div key={activeTab} className="animate-fadeIn">
                 {activeTab === 0 && <EcommerceDashboard isDark={isDark} onDemoClick={handleDemoClick} />}
                 {activeTab === 1 && <FnBDashboard isDark={isDark} onDemoClick={handleDemoClick} />}
                 {activeTab === 2 && <RetailDashboard isDark={isDark} onDemoClick={handleDemoClick} />}
