@@ -39,7 +39,7 @@ const reasons = [
 const comparisonRows = [
   { label: "TIMELINE", traditional: "6+ months", ours: "2 weeks", Icon: Clock },
   { label: "COST", traditional: "₱500,000+", ours: "₱4,886", Icon: DollarSign },
-  { label: "WHO BUILDS IT", traditional: "Outsourced devs", ours: "You, the owner", Icon: User },
+  
   { label: "UNDERSTANDING", traditional: "Generic templates", ours: "Your business logic", Icon: Brain },
   { label: "OWNERSHIP", traditional: "Vendor-locked", ours: "Owned forever", Icon: Lock },
   { label: "CHANGES LATER", traditional: "Costs more $$$", ours: "Free, anytime", Icon: RefreshCw },
