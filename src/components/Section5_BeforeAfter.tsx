@@ -1,18 +1,20 @@
-import { Clock, DollarSign, Layers, Users, Zap, Coins, Box, Crown, ArrowDown } from "lucide-react";
+import { XCircle, Check, ArrowDown, ArrowRight } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
-const beforeStats = [
-  { icon: Clock, number: "8 hrs", label: "Daily on spreadsheets", tag: "wasted" },
-  { icon: DollarSign, number: "₱500K+", label: "On custom software", tag: "lost" },
-  { icon: Layers, number: "5 tools", label: "Disconnected & messy", tag: "scattered" },
-  { icon: Users, number: "3 devs", label: "Don't get your business", tag: "frustrated" },
+const beforeItems = [
+  { bold: "Spreadsheets", rest: " for every process" },
+  { bold: "Reports that arrive late", rest: " or don't match" },
+  { bold: "Tasks that only move", rest: " when you follow up" },
+  { bold: "Approvals stuck", rest: " in chat threads" },
+  { bold: "A team that always asks you", rest: " because you're the only one who sees everything" },
 ];
 
-const afterStats = [
-  { icon: Zap, number: "30 mins", label: "Quick daily review", tag: "saved" },
-  { icon: Coins, number: "₱4,886", label: "One-time investment", tag: "earned" },
-  { icon: Box, number: "1 system", label: "All operations connected", tag: "unified" },
-  { icon: Crown, number: "Just you", label: "Built around your logic", tag: "owned" },
+const afterItems = [
+  { bold: "One real dashboard", rest: " that shows what's happening" },
+  { bold: "Cleaner workflows", rest: " between every department" },
+  { bold: "Less back-and-forth", rest: ", less manual checking" },
+  { bold: "Full visibility", rest: " over numbers, people, and processes" },
+  { bold: "Faster decisions", rest: " and fewer errors" },
 ];
 
 const Section5BeforeAfter = () => {
@@ -24,60 +26,70 @@ const Section5BeforeAfter = () => {
   };
 
   return (
-    <section id="transformation" className="w-full py-20 px-6" style={{ background: "#0A0A0F" }}>
-      <div className="max-w-[1100px] mx-auto text-center bg-[radial-gradient(ellipse_at_center,rgba(255,183,0,0.04),transparent_60%)]">
+    <section id="transformation" className="w-full py-16 md:py-20 px-6" style={{ background: "#0A0A0F" }}>
+      <div className="max-w-[800px] mx-auto text-center bg-[radial-gradient(ellipse_at_center,rgba(255,183,0,0.04),transparent_60%)]">
+
         {/* TOP HEADER */}
-        <div className="mb-12">
-          <div className="inline-flex items-center gap-2 bg-[#ffb700]/10 border border-[#ffb700]/30 px-3 py-1 rounded-full mb-4">
+        <div className="mb-16">
+          <div className="inline-flex items-center gap-2 bg-[#ffb700]/10 border border-[#ffb700]/30 px-3 py-1 rounded-full mb-5">
             <span className="w-1 h-1 bg-[#ffb700] rounded-full animate-pulse" />
             <span className="text-[#ffb700] text-[10px] uppercase tracking-[0.25em] font-semibold">
               THE TRANSFORMATION
             </span>
           </div>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-[1.2] max-w-3xl mx-auto mb-3">
-            What <span className="text-[#ffb700]">2 Weeks of Building</span> Actually Changes
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-[1.2] max-w-2xl mx-auto">
+            Two Pictures of Your Business.{" "}
+            <span className="text-[#ffb700]">You Choose Which One.</span>
           </h2>
-          <p className="text-sm md:text-base text-gray-400 max-w-xl mx-auto">
-            Real numbers from real business owners after their first internal system.
-          </p>
         </div>
 
-        {/* BEFORE ROW */}
-        <div ref={refBefore} className="max-w-5xl mx-auto mb-6">
-          <p className="text-red-400 text-[10px] uppercase tracking-[0.2em] font-bold mb-3 text-center">
-            BEFORE: RUNNING ON CHAOS
+        {/* BEFORE BLOCK */}
+        <div ref={refBefore} className="mb-20">
+          <p className="text-red-400 text-[11px] uppercase tracking-[0.3em] font-bold mb-5">BEFORE</p>
+          <h3
+            className="text-xl md:text-2xl lg:text-3xl font-bold text-white tracking-tight mb-3 transition-all duration-700"
+            style={{ opacity: visBefore ? 1 : 0, transform: visBefore ? "translateY(0)" : "translateY(16px)" }}
+          >
+            What Life Looks Like <span className="text-red-400/80">Before This</span>
+          </h3>
+          <p className="text-sm md:text-base text-gray-400 leading-relaxed max-w-xl mx-auto mb-6">
+            Your business probably looks successful from the outside. But behind the scenes?
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            {beforeStats.map((stat, i) => {
-              const Icon = stat.icon;
-              return (
-                <div
-                  key={i}
-                  className="bg-[#13131A] border border-red-500/15 rounded-xl p-3 text-center relative hover:border-red-500/30 transition-all duration-300 hover:-translate-y-0.5"
-                  style={{
-                    transitionDelay: `${i * 60}ms`,
-                    opacity: visBefore ? 1 : 0,
-                    transform: visBefore ? "translateY(0)" : "translateY(16px)",
-                  }}
-                >
-                  <div className="w-7 h-7 mx-auto mb-1.5 rounded-lg bg-red-500/10 border border-red-500/20 flex items-center justify-center">
-                    <Icon className="w-3.5 h-3.5 text-red-400" />
-                  </div>
-                  <p className="text-lg md:text-xl font-bold text-white tabular-nums mb-0.5">{stat.number}</p>
-                  <p className="text-[9px] text-gray-500 uppercase tracking-wider leading-tight">{stat.label}</p>
-                  <div className="mt-1.5">
-                    <span className="bg-red-500/10 text-red-400 text-[8px] px-1.5 py-0.5 rounded font-semibold uppercase tracking-wider">
-                      {stat.tag}
-                    </span>
-                  </div>
-                </div>
-              );
-            })}
+          <p className="text-sm text-gray-500 mb-6">It's possible you're still dealing with:</p>
+
+          <div className="flex flex-col gap-3 max-w-md mx-auto text-left mb-8">
+            {beforeItems.map((item, i) => (
+              <div
+                key={i}
+                className="flex items-start gap-3 transition-all duration-500"
+                style={{
+                  transitionDelay: `${i * 80}ms`,
+                  opacity: visBefore ? 1 : 0,
+                  transform: visBefore ? "translateY(0)" : "translateY(12px)",
+                }}
+              >
+                <XCircle className="w-4 h-4 text-red-400/70 flex-shrink-0 mt-0.5" />
+                <p className="text-sm text-gray-300 leading-snug">
+                  <strong className="text-white font-semibold">{item.bold}</strong>{item.rest}
+                </p>
+              </div>
+            ))}
           </div>
+
+          <p className="text-base md:text-lg text-gray-300 leading-relaxed italic max-w-xl mx-auto mt-8">
+            So instead of leading the business… you end up{" "}
+            <span className="text-red-400 not-italic font-semibold">babysitting the backend</span>.
+          </p>
+          <p className="text-base md:text-lg font-bold text-white mt-5">
+            That's exhausting. And dangerous.
+          </p>
+          <p className="text-sm text-gray-500 max-w-lg mx-auto mt-2">
+            Manual systems don't get manageable as you grow. They get expensive.
+          </p>
         </div>
 
         {/* TRANSITION DIVIDER */}
-        <div className="flex items-center justify-center gap-4 max-w-md mx-auto my-8">
+        <div className="flex items-center justify-center gap-4 max-w-md mx-auto my-16">
           <div className="flex-1 h-px bg-gradient-to-r from-transparent to-[#ffb700]/40" />
           <div
             className="inline-flex items-center gap-2 bg-[#ffb700]/10 border border-[#ffb700]/30 px-4 py-2 rounded-full"
@@ -85,59 +97,68 @@ const Section5BeforeAfter = () => {
           >
             <ArrowDown className="w-4 h-4 text-[#ffb700] animate-bounce" />
             <span className="text-[#ffb700] text-[10px] font-bold uppercase tracking-widest">
-              AFTER 2 WEEKS
+              BUT IT DOESN'T HAVE TO BE
             </span>
           </div>
           <div className="flex-1 h-px bg-gradient-to-l from-transparent to-[#ffb700]/40" />
         </div>
 
-        {/* AFTER ROW */}
-        <div ref={refAfter} className="max-w-5xl mx-auto mb-12">
-          <p className="text-[#ffb700] text-[10px] uppercase tracking-[0.2em] font-bold mb-3 text-center">
-            AFTER: YOUR OWN SYSTEM
+        {/* AFTER BLOCK */}
+        <div ref={refAfter}>
+          <p className="text-[#ffb700] text-[11px] uppercase tracking-[0.3em] font-bold mb-5">AFTER</p>
+          <h3
+            className="text-xl md:text-2xl lg:text-3xl font-bold text-white tracking-tight mb-3 transition-all duration-700"
+            style={{ opacity: visAfter ? 1 : 0, transform: visAfter ? "translateY(0)" : "translateY(16px)" }}
+          >
+            What Life Looks Like <span className="text-[#ffb700]">After This</span>
+          </h3>
+          <p className="text-sm md:text-base text-gray-400 leading-relaxed max-w-xl mx-auto mb-6">
+            Imagine waking up tomorrow and finally having:
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            {afterStats.map((stat, i) => {
-              const Icon = stat.icon;
-              return (
-                <div
-                  key={i}
-                  className="bg-gradient-to-br from-[#ffb700]/[0.08] via-[#13131A] to-[#13131A] border border-[#ffb700]/30 rounded-xl p-3 text-center relative hover:border-[#ffb700]/50 hover:-translate-y-0.5 transition-all duration-300"
-                  style={{
-                    boxShadow: "0 4px 20px rgba(255,183,0,0.05)",
-                    transitionDelay: `${i * 60}ms`,
-                    opacity: visAfter ? 1 : 0,
-                    transform: visAfter ? "translateY(0)" : "translateY(16px)",
-                  }}
-                >
-                  <div className="w-7 h-7 mx-auto mb-1.5 rounded-lg bg-[#ffb700]/15 border border-[#ffb700]/40 flex items-center justify-center">
-                    <Icon className="w-3.5 h-3.5 text-[#ffb700]" />
-                  </div>
-                  <p className="text-lg md:text-xl font-bold text-white tabular-nums mb-0.5">{stat.number}</p>
-                  <p className="text-[9px] text-gray-400 uppercase tracking-wider leading-tight">{stat.label}</p>
-                  <div className="mt-1.5">
-                    <span className="bg-[#ffb700]/15 text-[#ffb700] text-[8px] px-1.5 py-0.5 rounded font-semibold uppercase tracking-wider">
-                      {stat.tag}
-                    </span>
-                  </div>
-                </div>
-              );
-            })}
+
+          <div className="flex flex-col gap-3 max-w-md mx-auto text-left mb-8">
+            {afterItems.map((item, i) => (
+              <div
+                key={i}
+                className="flex items-start gap-3 transition-all duration-500"
+                style={{
+                  transitionDelay: `${i * 80}ms`,
+                  opacity: visAfter ? 1 : 0,
+                  transform: visAfter ? "translateY(0)" : "translateY(12px)",
+                }}
+              >
+                <Check className="w-4 h-4 text-[#ffb700] flex-shrink-0 mt-0.5" />
+                <p className="text-sm text-gray-300 leading-snug">
+                  <strong className="text-white font-semibold">{item.bold}</strong>{item.rest}
+                </p>
+              </div>
+            ))}
           </div>
+
+          <p className="text-base md:text-lg text-gray-300 leading-relaxed italic max-w-xl mx-auto mt-8">
+            Instead of chasing the business every day… you finally start{" "}
+            <span className="text-[#ffb700] not-italic font-semibold">seeing it clearly</span>.
+          </p>
+          <p className="text-base md:text-lg font-bold text-white mt-5">
+            You stop operating from confusion.
+          </p>
+          <p className="text-base md:text-lg font-bold text-[#ffb700] mt-1">
+            You start operating from systems.
+          </p>
         </div>
 
-        {/* BOTTOM CALLOUT */}
-        <div className="mt-12 max-w-2xl mx-auto text-center">
-          <p className="text-lg md:text-xl lg:text-2xl font-bold text-white tracking-tight leading-snug mb-4">
-            You don't need <span className="text-gray-500">more developers</span>. You need{" "}
-            <span className="text-[#ffb700]">your own system</span>.
-          </p>
+        {/* BOTTOM CTA */}
+        <div className="mt-16 text-center max-w-xl mx-auto">
           <button
-            onClick={() => scrollTo("pricing")}
-            className="inline-flex items-center gap-1.5 text-[#ffb700] text-sm font-semibold hover:text-[#ffc733] cursor-pointer underline-offset-4 hover:underline transition-colors"
+            onClick={() => scrollTo("how-it-works")}
+            className="inline-flex items-center gap-2 bg-[#ffb700] hover:bg-[#ffc733] text-black font-bold text-sm px-6 py-3 rounded-full shadow-[0_8px_30px_rgba(255,183,0,0.3)] hover:-translate-y-0.5 transition-all duration-300"
           >
-            Built in 14 days. Owned forever. →
+            Show Me How
+            <ArrowRight className="w-4 h-4" />
           </button>
+          <p className="text-[10px] text-gray-500 italic mt-3">
+            Built in 14 days. Owned forever.
+          </p>
         </div>
       </div>
     </section>
