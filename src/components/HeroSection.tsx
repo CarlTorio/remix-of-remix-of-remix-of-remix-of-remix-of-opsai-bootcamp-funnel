@@ -105,11 +105,11 @@ const HeroSection = () => {
             const t3 = window.setTimeout(() => {
               stageRef.current = 0;
               setAnimationStage(0);
-            }, 800);
+            }, 500);
             timeoutsRef.current.push(t3);
-          }, 800);
+          }, 500);
           timeoutsRef.current.push(t2);
-        }, 1500);
+        }, 800);
         timeoutsRef.current.push(t1);
       } else if (currentStage === 1 || currentStage === 2) {
         e.preventDefault();
@@ -152,11 +152,11 @@ const HeroSection = () => {
             const t3 = window.setTimeout(() => {
               stageRef.current = 0;
               setAnimationStage(0);
-            }, 800);
+            }, 500);
             timeoutsRef.current.push(t3);
-          }, 800);
+          }, 500);
           timeoutsRef.current.push(t2);
-        }, 1500);
+        }, 800);
         timeoutsRef.current.push(t1);
       } else if (currentStage === 1 || currentStage === 2) {
         e.preventDefault();
@@ -193,7 +193,7 @@ const HeroSection = () => {
             style={{
               filter: `blur(${blurAmount}px)`,
               willChange: "filter",
-              transition: "filter 0.5s ease-out",
+              transition: "filter 0.3s ease-out",
             }}
           >
             {/* Image area */}
