@@ -235,7 +235,7 @@ const HeroSection = () => {
           <div
             className="absolute left-0 right-0 flex justify-center px-4 pointer-events-none"
             style={{
-              bottom: "8vh",
+              bottom: "3vh",
               opacity: textOpacity,
               transition: "opacity 2s ease-out",
             }}
