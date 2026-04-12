@@ -51,7 +51,7 @@ const Section2Checklist = () => {
           {items.map((item, i) => (
             <div
               key={i}
-              className={`group relative rounded-2xl p-4 md:p-5 cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#17171F] hover:border-[#ffb700]/40 ${
+              className={`group relative rounded-xl p-3.5 md:p-4 cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#17171F] hover:border-[#ffb700]/40 ${
                 item.catchAll
                   ? "bg-gradient-to-br from-[#ffb700]/10 via-[#13131A] to-[#13131A] border border-[#ffb700]/35 shadow-[0_0_40px_rgba(255,183,0,0.06)]"
                   : "bg-[#13131A] border border-white/[0.06]"
