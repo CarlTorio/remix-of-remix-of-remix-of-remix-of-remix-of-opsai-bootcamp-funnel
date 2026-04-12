@@ -536,10 +536,39 @@ const ecomCustomers = [
   { name: "Darrell Steward", email: "darrell@gmail.com", orders: 843, value: "₱28,549", avatarColor: "#10b981" },
 ];
 
+const liveNotifications = [
+  { icon: ShoppingBag, text: "Maria Santos just purchased 3 items", emoji: "🛒" },
+  { icon: Truck, text: "Order #10482 delivered successfully", emoji: "✅" },
+  { icon: ShoppingCart, text: "Juan Cruz added 5 items to cart", emoji: "🛍️" },
+  { icon: Package, text: "Order #10479 shipped via J&T Express", emoji: "📦" },
+  { icon: DollarSign, text: "₱4,250 payment received from Anna Reyes", emoji: "💰" },
+  { icon: ShoppingBag, text: "Carlos Mendoza just bought a laptop", emoji: "💻" },
+  { icon: Truck, text: "Order #10477 out for delivery", emoji: "🚚" },
+  { icon: Users, text: "New customer registered: Lisa Tan", emoji: "👤" },
+  { icon: DollarSign, text: "₱12,800 payment confirmed via GCash", emoji: "💳" },
+  { icon: Package, text: "Order #10475 picked up by courier", emoji: "📬" },
+  { icon: ShoppingBag, text: "Patricia Luna purchased 2 skincare sets", emoji: "🧴" },
+  { icon: Truck, text: "Order #10471 delivered to Cebu City", emoji: "🏠" },
+];
+
 const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick: () => void }) => {
   const d = isDark;
   const card = `rounded-xl ${d ? "bg-[#131B2E] border border-[#1E2A44]" : "bg-white border border-slate-200"}`;
   const accent = "#ffb700";
+
+  const [liveNotifIndex, setLiveNotifIndex] = useState(0);
+  const [notifVisible, setNotifVisible] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setNotifVisible(false);
+      setTimeout(() => {
+        setLiveNotifIndex((prev) => (prev + 1) % liveNotifications.length);
+        setNotifVisible(true);
+      }, 400);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   const ecomNavItems = [
     { icon: LayoutDashboard, label: "Overview", active: true },
@@ -580,7 +609,7 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
   ];
 
   return (
-    <div className={`grid grid-cols-12 gap-3 p-4 transition-colors duration-500 ${d ? "bg-[#0A0F1A]" : "bg-[#F8FAFC]"}`}>
+    <div className={`relative grid grid-cols-12 gap-3 p-4 transition-colors duration-500 ${d ? "bg-[#0A0F1A]" : "bg-[#F8FAFC]"}`}>
       {/* LEFT SIDEBAR */}
       <div className={`col-span-2 hidden lg:flex flex-col gap-1 p-3 rounded-xl ${card}`}>
         <div className="flex items-center gap-2 mb-3">
@@ -825,6 +854,31 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
           </div>
         ))}
       </div>
+
+      {/* Live Notification Toast */}
+      {(() => {
+        const currentNotif = liveNotifications[liveNotifIndex];
+        const NotifIcon = currentNotif.icon;
+        return (
+          <div
+            className={`absolute bottom-4 left-4 z-20 flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl shadow-lg border transition-all duration-400 ${
+              notifVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
+            } ${d ? "bg-[#131B2E] border-[#1E2A44] shadow-[0_4px_24px_rgba(0,0,0,0.5)]" : "bg-white border-slate-200 shadow-[0_4px_24px_rgba(0,0,0,0.1)]"}`}
+            style={{ maxWidth: "320px" }}
+          >
+            <div className="w-7 h-7 rounded-full bg-[#ffb700]/20 flex items-center justify-center flex-shrink-0">
+              <NotifIcon className="w-3.5 h-3.5 text-[#ffb700]" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className={`text-[10px] font-semibold truncate ${d ? "text-white" : "text-slate-900"}`}>
+                {currentNotif.emoji} {currentNotif.text}
+              </div>
+              <div className="text-[8px] text-gray-500">Just now · Live</div>
+            </div>
+            <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse flex-shrink-0" />
+          </div>
+        );
+      })()}
     </div>
   );
 };
