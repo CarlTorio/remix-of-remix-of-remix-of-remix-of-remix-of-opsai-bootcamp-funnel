@@ -799,7 +799,7 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
         </div>
 
         {/* Customer list */}
-        <div className={`p-3 ${card} hidden md:block`}>
+        <div className={`p-3 ${card}`}>
           <div className="flex items-center justify-between mb-1">
             <span className={`text-xs font-bold ${d ? "text-white" : "text-slate-900"}`}>Customer List</span>
             <MoreVertical className="w-3.5 h-3.5 text-gray-500 cursor-pointer" onClick={onDemoClick} />
