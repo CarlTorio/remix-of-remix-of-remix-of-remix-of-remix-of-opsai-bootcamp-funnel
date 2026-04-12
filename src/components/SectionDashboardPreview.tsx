@@ -1428,7 +1428,7 @@ const SectionDashboardPreview = () => {
           <span className="text-[#ffb700] font-semibold">₱500,000+</span> software.
         </p>
 
-        <div className="max-w-6xl mx-auto relative rounded-3xl bg-gradient-to-b from-[#1a1a24] to-[#0f0f16] border border-[#ffb700]/20 shadow-[0_30px_80px_rgba(0,0,0,0.6),0_0_60px_rgba(255,183,0,0.08)] aspect-[16/11] overflow-hidden flex flex-col">
+        <div className="max-w-6xl mx-auto relative rounded-3xl bg-gradient-to-b from-[#1a1a24] to-[#0f0f16] border border-[#ffb700]/20 shadow-[0_30px_80px_rgba(0,0,0,0.6),0_0_60px_rgba(255,183,0,0.08)] md:aspect-[16/11] min-h-[520px] md:min-h-0 overflow-hidden flex flex-col">
           <div className="flex items-center justify-between px-4 py-2.5 border-b border-[#ffb700]/15 flex-shrink-0">
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-1.5">
