@@ -67,7 +67,8 @@ const SectionWhyThisWorks = () => {
             </span>
           </div>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-[1.2] max-w-3xl mx-auto mb-3">
-            The 3 Reasons This Beats <span className="text-[#ffb700]">Hiring Developers</span>
+            Why This <span className="text-[#ffb700]">Actually Works</span> for Real SME Owners
+          </h2>
           </h2>
           <p className="text-sm md:text-base text-gray-400 max-w-2xl mx-auto">
             You don't need to know how to code. You need to know your business — which you already do.
@@ -101,8 +102,10 @@ const SectionWhyThisWorks = () => {
                     <p className="text-sm md:text-base text-gray-400 leading-relaxed">{r.body}</p>
                     <div className="mt-3 pt-3 border-t border-white/[0.05]">
                       <p className="text-xs text-gray-500 italic">
-                        Kills the objection:{" "}
-                        <span className="text-[#ffb700]/80 not-italic">"{r.objection}"</span>
+                        {r.objectionLabel}{" "}
+                        <span className="text-[#ffb700]/80 not-italic font-semibold">"{r.objection}"</span>
+                      </p>
+                    </div>
                       </p>
                     </div>
                   </div>
