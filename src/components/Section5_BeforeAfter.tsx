@@ -1,97 +1,192 @@
-import SectionLabel from "./SectionLabel";
-import { WarningTriangle, CyanCheck } from "./icons";
+import { XCircle, Check, ArrowDown, LayoutDashboard } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
-const beforeItems = [
-  "multiple spreadsheets for one process",
-  "reports that arrive late",
-  "data that doesn't match",
-  "inventory you can't fully trust",
-  "tasks that only move when you follow up",
-  "approvals stuck in chat",
-  "information scattered across tools",
-  "a team that keeps asking you because you're the only one who sees the whole picture",
+const beforeData = [
+  { number: "8 hrs/day", label: "Stuck in spreadsheets", tag: "wasted" },
+  { number: "₱500,000+", label: "Spent on custom software", tag: "lost" },
+  { number: "5 tools", label: "Disconnected & messy", tag: "scattered" },
+  { number: "3 outsourced devs", label: "Don't understand your business", tag: "frustrated" },
 ];
 
-const afterItems = [
-  "one clearer backend",
-  "one real dashboard",
-  "one system that reflects how your business actually runs",
-  "cleaner workflows between departments",
-  "less manual checking",
-  "less back-and-forth",
-  "less dependency on scattered files",
-  "more visibility over the numbers, people, and processes that matter",
+const afterData = [
+  { number: "30 mins/day", label: "Quick review on your dashboard", tag: "saved" },
+  { number: "₱4,886", label: "One-time investment", tag: "earned" },
+  { number: "1 system", label: "All operations connected", tag: "unified" },
+  { number: "Just you", label: "Built around your business logic", tag: "owned" },
 ];
 
 const Section5BeforeAfter = () => {
-  const { ref: refL, visible: visL } = useScrollReveal();
-  const { ref: refR, visible: visR } = useScrollReveal();
+  const { ref: refLeft, visible: visLeft } = useScrollReveal();
+  const { ref: refRight, visible: visRight } = useScrollReveal();
+
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
-    <section className="py-12 md:py-20 section-divider">
-      <div className="container max-w-[1100px]">
+    <section className="w-full py-20 px-6" style={{ background: "#0A0A0F" }}>
+      <div
+        className="max-w-[1100px] mx-auto bg-[radial-gradient(ellipse_at_right,rgba(255,183,0,0.05),transparent_60%)]"
+      >
+        {/* TOP HEADER */}
         <div className="text-center mb-12">
-          <SectionLabel>THE TRANSFORMATION</SectionLabel>
-          <h2 className="font-heading font-bold text-2xl md:text-4xl">What Changes When You Have a System</h2>
+          <div className="inline-flex items-center gap-2 bg-[#ffb700]/10 border border-[#ffb700]/30 px-3 py-1 rounded-full mb-4">
+            <span className="w-1 h-1 bg-[#ffb700] rounded-full animate-pulse" />
+            <span className="text-[#ffb700] text-[10px] uppercase tracking-[0.25em] font-semibold">
+              THE TRANSFORMATION
+            </span>
+          </div>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-[1.2] max-w-3xl mx-auto mb-3">
+            From <span className="text-red-400/80">8 Hours of Spreadsheets</span> to{" "}
+            <span className="text-[#ffb700]">30 Minutes of Clarity</span>
+          </h2>
+          <p className="text-sm md:text-base text-gray-400 max-w-xl mx-auto">
+            Real numbers from real business owners after building their first internal system.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative">
-          {/* Vertical connector line — desktop only */}
-          <div className="hidden md:flex absolute inset-y-0 left-1/2 -translate-x-1/2 items-center z-10">
-            <div className="w-px h-full bg-border relative">
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-card border border-accent/50 flex items-center justify-center text-accent text-sm">→</div>
+        {/* MAIN GRID */}
+        <div className="grid lg:grid-cols-12 gap-6 lg:gap-10 items-start">
+          {/* LEFT COLUMN */}
+          <div ref={refLeft} className="lg:col-span-7 flex flex-col gap-4">
+            {/* BEFORE */}
+            <div>
+              <p className="text-red-400 text-[10px] uppercase tracking-widest font-bold mb-2">
+                BEFORE: Running on chaos
+              </p>
+              <div className="bg-[#13131A] border border-red-500/15 rounded-xl p-4">
+                <div className="flex flex-col gap-2.5">
+                  {beforeData.map((item, i) => (
+                    <div
+                      key={i}
+                      className="flex items-center gap-3 transition-all duration-500"
+                      style={{
+                        transitionDelay: `${i * 80}ms`,
+                        opacity: visLeft ? 1 : 0,
+                        transform: visLeft ? "translateY(0)" : "translateY(12px)",
+                      }}
+                    >
+                      <div className="w-7 h-7 rounded-md bg-red-500/10 border border-red-500/20 flex items-center justify-center flex-shrink-0">
+                        <XCircle className="w-3.5 h-3.5 text-red-400" />
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-base font-bold text-white tabular-nums">{item.number}</p>
+                        <p className="text-[11px] text-gray-500 leading-tight">{item.label}</p>
+                      </div>
+                      <span className="flex-shrink-0 bg-red-500/10 text-red-400 text-[9px] px-2 py-0.5 rounded font-semibold uppercase tracking-wider">
+                        {item.tag}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* DIVIDER */}
+            <div className="flex items-center justify-center my-1">
+              <div
+                className="w-9 h-9 rounded-full bg-[#ffb700]/10 border border-[#ffb700]/30 flex items-center justify-center animate-bounce"
+                style={{ boxShadow: "0 0 15px rgba(255,183,0,0.3)" }}
+              >
+                <ArrowDown className="w-4 h-4 text-[#ffb700]" />
+              </div>
+            </div>
+
+            {/* AFTER */}
+            <div>
+              <p className="text-[#ffb700] text-[10px] uppercase tracking-widest font-bold mb-2">
+                AFTER: Your own system
+              </p>
+              <div
+                className="bg-gradient-to-br from-[#ffb700]/[0.08] via-[#13131A] to-[#13131A] border border-[#ffb700]/30 rounded-xl p-4"
+                style={{ boxShadow: "0 8px 30px rgba(255,183,0,0.06)" }}
+              >
+                <div className="flex flex-col gap-2.5">
+                  {afterData.map((item, i) => (
+                    <div
+                      key={i}
+                      className="flex items-center gap-3 transition-all duration-500"
+                      style={{
+                        transitionDelay: `${(i + 5) * 80}ms`,
+                        opacity: visLeft ? 1 : 0,
+                        transform: visLeft ? "translateY(0)" : "translateY(12px)",
+                      }}
+                    >
+                      <div className="w-7 h-7 rounded-md bg-[#ffb700]/15 border border-[#ffb700]/40 flex items-center justify-center flex-shrink-0">
+                        <Check className="w-3.5 h-3.5 text-[#ffb700]" />
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-base font-bold text-white tabular-nums">{item.number}</p>
+                        <p className="text-[11px] text-gray-400 leading-tight">{item.label}</p>
+                      </div>
+                      <span className="flex-shrink-0 bg-[#ffb700]/15 text-[#ffb700] text-[9px] px-2 py-0.5 rounded font-semibold uppercase tracking-wider">
+                        {item.tag}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Before */}
+          {/* RIGHT COLUMN */}
           <div
-            ref={refL}
-            className={`bg-card rounded-2xl border border-destructive/20 p-6 md:p-8 transition-all duration-700 ${visL ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}
+            ref={refRight}
+            className="lg:col-span-5 relative lg:sticky lg:top-24 transition-all duration-700"
+            style={{
+              opacity: visRight ? 1 : 0,
+              transform: visRight ? "translateY(0)" : "translateY(16px)",
+              transitionDelay: "300ms",
+            }}
           >
-            <div className="h-[3px] w-full bg-gradient-to-r from-destructive/80 to-destructive/20 rounded-full mb-6" />
-            <h3 className="font-heading font-bold text-xl text-destructive mb-2">What Life Looks Like Before This</h3>
-            <p className="text-muted-foreground font-body text-sm mb-6">Your business probably looks successful from the outside. But behind the scenes?</p>
-            <div className="space-y-3 mb-6">
-              {beforeItems.map((item, i) => (
-                <div key={i} className="flex items-start gap-3" style={{ transitionDelay: `${i * 60}ms` }}>
-                  <WarningTriangle className="shrink-0 mt-0.5" />
-                  <span className="font-body text-sm text-muted-foreground">{item}</span>
-                </div>
-              ))}
-            </div>
-            <p className="font-body text-sm text-muted-foreground mb-2">
-              So instead of leading the business… you end up <span className="text-destructive">babysitting the backend</span>.
-            </p>
-            <p className="text-destructive font-body text-sm font-medium">That is exhausting. And dangerous.</p>
-          </div>
+            <div
+              className="relative rounded-xl bg-gradient-to-br from-[#1a1a24] to-[#0f0f16] border border-[#ffb700]/25 p-2.5"
+              style={{ boxShadow: "0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(255,183,0,0.08)" }}
+            >
+              {/* Browser bar */}
+              <div className="flex items-center gap-2 px-2.5 py-1.5 border-b border-[#ffb700]/15">
+                <div className="w-2 h-2 rounded-full bg-red-500" />
+                <div className="w-2 h-2 rounded-full bg-yellow-500" />
+                <div className="w-2 h-2 rounded-full bg-green-500" />
+                <span className="text-gray-500 text-[8px] font-mono ml-1">your-business.system</span>
+              </div>
 
-          {/* After */}
-          <div
-            ref={refR}
-            className={`bg-card rounded-2xl border border-accent/20 p-6 md:p-8 transition-all duration-700 ${visR ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}`}
-            style={{ boxShadow: "0 0 40px hsl(217 71% 68% / 0.08)" }}
-          >
-            <div className="h-[3px] w-full bg-gradient-to-r from-accent/80 to-accent/20 rounded-full mb-6" />
-            <h3 className="font-heading font-bold text-xl text-accent mb-2">What Life Looks Like After This</h3>
-            <p className="text-muted-foreground font-body text-sm mb-6">Imagine having:</p>
-            <div className="space-y-3 mb-6">
-              {afterItems.map((item, i) => (
-                <div key={i} className="flex items-start gap-3">
-                  <CyanCheck className="shrink-0 mt-0.5" />
-                  <span className="font-body text-sm text-muted-foreground">{item}</span>
-                </div>
-              ))}
+              {/* Placeholder */}
+              <div className="aspect-video rounded-lg bg-[#0F1420] relative overflow-hidden flex flex-col items-center justify-center gap-2">
+                <LayoutDashboard className="w-12 h-12 text-[#ffb700]/30" />
+                <span className="text-gray-500 text-[10px]">[Dashboard preview]</span>
+                <span className="text-gray-600 text-[9px]">Replace with screenshot</span>
+              </div>
             </div>
-            <p className="font-body text-sm text-muted-foreground mb-3">
-              That changes everything: <span className="text-accent">faster decisions • better delegation • fewer errors • stronger accountability • more control • more peace of mind</span>
-            </p>
-            <p className="text-accent font-body text-sm font-semibold">You stop operating from confusion.</p>
-            <p className="text-accent font-body text-sm font-semibold" style={{ textShadow: "0 0 15px hsl(217 71% 68% / 0.3)" }}>
-              You start operating from <span className="font-bold">systems</span>.
-            </p>
-            <p className="text-accent font-body text-sm mt-2">That changes everything.</p>
+
+            {/* Below preview */}
+            <div className="mt-4 text-center">
+              <p className="text-xs text-gray-400 italic mb-3">
+                This is what 6 weeks of building looks like.
+              </p>
+              <button
+                onClick={() => scrollTo("dashboard-showcase")}
+                className="inline-flex items-center gap-1.5 bg-[#ffb700]/10 hover:bg-[#ffb700]/20 border border-[#ffb700]/40 px-3 py-1.5 rounded-full text-[#ffb700] text-[11px] font-semibold cursor-pointer transition-all"
+              >
+                See Live Examples
+                <ArrowDown className="w-3 h-3" />
+              </button>
+            </div>
           </div>
+        </div>
+
+        {/* BOTTOM CALLOUT */}
+        <div className="mt-12 max-w-2xl mx-auto text-center">
+          <p className="text-lg md:text-xl lg:text-2xl font-bold text-white tracking-tight leading-snug mb-4">
+            You don't need <span className="text-gray-500">more developers</span>. You need{" "}
+            <span className="text-[#ffb700]">your own system</span>.
+          </p>
+          <button
+            onClick={() => scrollTo("pricing")}
+            className="inline-flex items-center gap-1.5 text-[#ffb700] text-sm font-semibold hover:text-[#ffc733] cursor-pointer underline-offset-4 hover:underline transition-colors"
+          >
+            Built in 6 weeks. Owned forever. →
+          </button>
         </div>
       </div>
     </section>
