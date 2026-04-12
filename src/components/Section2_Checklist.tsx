@@ -47,7 +47,7 @@ const Section2Checklist = () => {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 md:gap-3 mb-8 md:mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-2.5 mb-8 md:mb-10">
           {items.map((item, i) => (
             <div
               key={i}
