@@ -1321,9 +1321,6 @@ const SectionDashboardPreview = () => {
           </span>
         </div>
 
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-4">
-          Real Systems, <span className="text-[#ffb700]">Built By Owners</span> Like You
-        </h2>
 
         <p className="text-base md:text-lg text-gray-400 max-w-2xl mx-auto mb-12">
           Click through 4 sample dashboards built inside the bootcamp. This is the kind of system you'll build yourself — no developers, no{" "}
