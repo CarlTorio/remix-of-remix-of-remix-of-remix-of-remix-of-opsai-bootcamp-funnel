@@ -1448,7 +1448,7 @@ const SectionDashboardPreview = () => {
             </button>
           </div>
 
-          <div className="flex gap-2 px-4 pt-7 pb-3 border-b border-[#ffb700]/15 overflow-x-auto overflow-y-visible flex-shrink-0 justify-start md:justify-center items-end no-scrollbar">
+          <div className="flex flex-wrap md:flex-nowrap gap-2 px-4 pt-7 pb-3 border-b border-[#ffb700]/15 overflow-visible flex-shrink-0 justify-center items-end">
             {tabs.map((tab, index) => {
               const Icon = tab.icon;
               const isActive = tab.id === activeTab;
@@ -1456,7 +1456,7 @@ const SectionDashboardPreview = () => {
                 <div key={tab.id} className="relative flex flex-col items-center">
                   <button
                     onClick={() => setActiveTab(tab.id)}
-                    className={`relative flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-300 cursor-pointer whitespace-nowrap ${
+                    className={`relative flex items-center gap-1.5 px-2.5 py-1.5 md:px-4 md:py-2 rounded-xl text-[10px] md:text-xs font-semibold transition-all duration-300 cursor-pointer whitespace-nowrap ${
                       isActive
                         ? `${tabColors[tab.id].bg} ${[1,2,3,4].includes(tab.id) ? "text-white" : "text-black"} ${tabColors[tab.id].shadow} scale-105`
                         : `bg-white/5 text-gray-400 hover:text-white hover:bg-white/10 border border-white/10 ${tabColors[tab.id].hoverBorder}`
