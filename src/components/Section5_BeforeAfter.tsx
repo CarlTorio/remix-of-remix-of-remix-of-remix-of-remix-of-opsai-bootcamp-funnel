@@ -95,8 +95,8 @@ const Section5BeforeAfter = () => {
             className="inline-flex items-center gap-2 bg-[#ffb700]/10 border border-[#ffb700]/30 px-4 py-2 rounded-full"
             style={{ boxShadow: "0 0 30px rgba(255,183,0,0.15)" }}
           >
-            <ArrowDown className="w-4 h-4 text-[#ffb700] animate-bounce" />
-            <span className="text-[#ffb700] text-[10px] font-bold uppercase tracking-widest">
+            <ArrowDown className="w-5 h-5 text-[#ffb700] animate-bounce" />
+            <span className="text-[#ffb700] text-xs md:text-sm font-bold uppercase tracking-widest">
               BUT IT DOESN'T HAVE TO BE
             </span>
           </div>
