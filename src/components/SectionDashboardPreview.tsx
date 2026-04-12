@@ -1355,7 +1355,7 @@ const SectionDashboardPreview = () => {
                 <div key={tab.id} className="relative flex flex-col items-center">
                   {!isActive && (
                     <span className={`absolute -top-5 text-[10px] font-bold tracking-wide text-[#ffb700] animate-bounce`} style={{ animationDelay: `${index * 0.15}s` }}>
-                      👆 Click
+                      Click Here
                     </span>
                   )}
                   <button
