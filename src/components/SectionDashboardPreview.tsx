@@ -1365,8 +1365,8 @@ const tabColors: Record<number, { bg: string; shadow: string; hoverBorder: strin
 
 const tabs = [
   { id: 0, icon: ShoppingCart, label: "E-commerce" },
-  { id: 4, icon: Users, label: "HR / People" },
   { id: 2, icon: Store, label: "Retail / Distribution" },
+  { id: 4, icon: Users, label: "HR / People" },
   { id: 1, icon: UtensilsCrossed, label: "F&B / Restaurant" },
   { id: 3, icon: Briefcase, label: "Service / Agency" },
 ];
