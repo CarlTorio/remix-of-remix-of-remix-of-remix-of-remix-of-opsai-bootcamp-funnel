@@ -1,17 +1,22 @@
 import { useRef } from "react";
 import { useScrollBlur } from "@/hooks/useScrollBlur";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const HeroImage = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const scrollProgress = useScrollBlur(sectionRef);
+  const isMobile = useIsMobile();
 
+  const imageSrc = isMobile
+    ? "https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object/public/Video%20-%20Image%20Hosting/Gemini_Generated_Image_a0yfqca0yfqca0yf.png"
+    : "https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object/public/Video%20-%20Image%20Hosting/Build%20V2.png";
   return (
     <div
       ref={sectionRef}
       style={{ position: 'relative', width: '100%', overflow: 'hidden', lineHeight: 0 }}
     >
       <img
-        src="https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object/public/Video%20-%20Image%20Hosting/Build%20V2.png"
+        src={imageSrc}
         alt="SME Systems Bootcamp"
         className="w-full h-auto block object-cover rounded-2xl border-2 border-secondary/40"
       />
