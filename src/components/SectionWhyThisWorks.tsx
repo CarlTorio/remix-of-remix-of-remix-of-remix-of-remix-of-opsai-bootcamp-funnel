@@ -1,5 +1,8 @@
 import { Brain, Sparkles, Crown, Clock, DollarSign, User, Lock, RefreshCw, Check, ArrowRight } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import whyReason01 from "@/assets/why-reason-01.jpg";
+import whyReason02 from "@/assets/why-reason-02.jpg";
+import whyReason03 from "@/assets/why-reason-03.jpg";
 
 const reasons = [
   {
@@ -8,6 +11,8 @@ const reasons = [
     title: "You know your business better than any developer",
     body: "No outsourced team will ever understand your operations, your customers, your edge cases, or your business logic faster than you, the owner who lives inside it every day.",
     objection: "I should hire experts",
+    image: whyReason01,
+    imagePosition: "right" as const,
   },
   {
     num: "02",
@@ -15,6 +20,8 @@ const reasons = [
     title: "AI does the technical heavy lifting",
     body: "You don't need to write code. AI + no-code tools handle the technical work — you bring the business knowledge. The bootcamp teaches you exactly which prompts and tools to use.",
     objection: "I'm not technical enough",
+    image: whyReason02,
+    imagePosition: "left" as const,
   },
   {
     num: "03",
@@ -22,6 +29,8 @@ const reasons = [
     title: "You own the system forever",
     body: "No monthly subscriptions. No vendor lock-in. No per-user fees. Build it once, modify it anytime, and never lose access. Your system, your rules.",
     objection: "What if I want to change it later?",
+    image: whyReason03,
+    imagePosition: "right" as const,
   },
 ];
 
