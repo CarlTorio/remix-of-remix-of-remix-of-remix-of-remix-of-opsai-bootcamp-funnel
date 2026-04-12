@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import CTAButton from "./CTAButton";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const SectionFinalCTA = () => {
@@ -35,13 +36,9 @@ const SectionFinalCTA = () => {
 
         {/* CTA */}
         <div className="flex flex-col items-center gap-3 mb-6">
-          <button
-            onClick={() => document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" })}
-            className="inline-flex items-center justify-center gap-3 bg-[#ffb700] hover:bg-[#ffc733] text-black font-bold text-base md:text-lg px-10 md:px-14 py-5 rounded-full shadow-[0_15px_50px_rgba(255,183,0,0.5)] hover:shadow-[0_20px_60px_rgba(255,183,0,0.6)] hover:-translate-y-1 transition-all duration-300 tracking-wide"
-          >
+          <CTAButton href="#pricing">
             RESERVE MY SLOT FOR ₱4,886
-            <ArrowRight className="w-5 h-5" />
-          </button>
+          </CTAButton>
           <p className="text-[11px] text-gray-500 leading-relaxed mt-4 text-center">
             🔒 Secure payment  •  ✓ 7-day money-back guarantee  •  ✓ Lifetime access
           </p>
