@@ -102,11 +102,6 @@ const HeroSection = () => {
             if (secondSectionRef.current) {
               secondSectionRef.current.scrollIntoView({ behavior: "smooth" });
             }
-            const t3 = window.setTimeout(() => {
-              stageRef.current = 0;
-              setAnimationStage(0);
-            }, 500);
-            timeoutsRef.current.push(t3);
           }, 500);
           timeoutsRef.current.push(t2);
         }, 5000);
@@ -149,11 +144,6 @@ const HeroSection = () => {
             if (secondSectionRef.current) {
               secondSectionRef.current.scrollIntoView({ behavior: "smooth" });
             }
-            const t3 = window.setTimeout(() => {
-              stageRef.current = 0;
-              setAnimationStage(0);
-            }, 500);
-            timeoutsRef.current.push(t3);
           }, 500);
           timeoutsRef.current.push(t2);
         }, 5000);
