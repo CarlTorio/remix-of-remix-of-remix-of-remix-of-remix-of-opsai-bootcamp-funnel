@@ -21,7 +21,7 @@ const Section3Intro = () => {
         <div className="mb-8">
           <p className="text-muted-foreground font-body text-sm mb-1">Price Today:</p>
           <p className="font-heading font-semibold text-2xl md:text-3xl text-muted-foreground line-through mb-1">
-            ₱15,000
+            ₱200,000
           </p>
           <p className="font-heading font-extrabold text-5xl md:text-6xl text-secondary" style={{ textShadow: "0 0 30px hsl(43 96% 56% / 0.3)" }}>
             ₱4,886
