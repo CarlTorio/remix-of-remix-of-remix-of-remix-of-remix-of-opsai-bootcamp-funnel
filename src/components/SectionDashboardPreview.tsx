@@ -674,7 +674,7 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
       </div>
 
       {/* MAIN AREA */}
-      <div className="col-span-12 lg:col-span-7 xl:col-span-7 flex flex-col gap-3">
+      <div className="w-full md:col-span-12 lg:col-span-7 xl:col-span-7 flex flex-col gap-3">
         {/* Top bar */}
         <div className="flex items-center justify-between">
           <div>
@@ -685,11 +685,11 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
         </div>
 
         {/* KPI Cards */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 gap-2 md:gap-3">
           {ecomKPIs.map((kpi) => (
-            <div key={kpi.label} onClick={onDemoClick} className={`p-3 rounded-xl cursor-pointer hover:-translate-y-0.5 transition-all ${card} relative`}>
-              <div className={`text-[10px] uppercase tracking-wider ${d ? "text-gray-500" : "text-slate-500"}`}>{kpi.label}</div>
-              <div className={`text-xl font-bold mt-1 ${d ? "text-white" : "text-slate-900"}`}>
+            <div key={kpi.label} onClick={onDemoClick} className={`p-2.5 md:p-3 rounded-xl cursor-pointer hover:-translate-y-0.5 transition-all ${card} relative`}>
+              <div className={`text-[8px] md:text-[10px] uppercase tracking-wider ${d ? "text-gray-500" : "text-slate-500"}`}>{kpi.label}</div>
+              <div className={`text-base md:text-xl font-bold mt-1 ${d ? "text-white" : "text-slate-900"}`}>
                 <CountUp value={kpi.value} prefix={kpi.prefix || ""} suffix={kpi.suffix || ""} />
               </div>
               {kpi.isGauge ? (
