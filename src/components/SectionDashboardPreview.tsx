@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
 import HRDashboard from "./HRDashboard";
 import {
   Sun, Moon,
@@ -1393,11 +1394,46 @@ const SectionDashboardPreview = () => {
   const [showToast, setShowToast] = useState(false);
   const toastTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const [graphKey, setGraphKey] = useState(0);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
+  const touchStartY = useRef(0);
 
   useEffect(() => {
     const interval = setInterval(() => setGraphKey(k => k + 1), 10000);
     return () => clearInterval(interval);
   }, []);
+
+  // Mobile touch scroll: trap scroll inside dashboard until it hits top/bottom
+  useEffect(() => {
+    if (!isMobile) return;
+    const el = scrollContainerRef.current;
+    if (!el) return;
+
+    const onTouchStart = (e: TouchEvent) => {
+      touchStartY.current = e.touches[0].clientY;
+    };
+
+    const onTouchMove = (e: TouchEvent) => {
+      const currentY = e.touches[0].clientY;
+      const deltaY = touchStartY.current - currentY; // positive = scrolling down
+      const { scrollTop, scrollHeight, clientHeight } = el;
+      const atTop = scrollTop <= 0;
+      const atBottom = scrollTop + clientHeight >= scrollHeight - 1;
+
+      // If we can scroll in the swipe direction, prevent page scroll
+      if ((deltaY > 0 && !atBottom) || (deltaY < 0 && !atTop)) {
+        e.stopPropagation();
+      }
+    };
+
+    el.addEventListener('touchstart', onTouchStart, { passive: true });
+    el.addEventListener('touchmove', onTouchMove, { passive: true });
+
+    return () => {
+      el.removeEventListener('touchstart', onTouchStart);
+      el.removeEventListener('touchmove', onTouchMove);
+    };
+  }, [isMobile]);
 
   const handleDemoClick = () => {
     if (toastTimeoutRef.current) clearTimeout(toastTimeoutRef.current);
@@ -1471,7 +1507,7 @@ const SectionDashboardPreview = () => {
           </div>
 
           <div className="p-2 flex-1 overflow-hidden min-h-0">
-            <div className={`rounded-2xl transition-colors duration-500 relative h-full overflow-y-auto overflow-x-hidden overscroll-contain dashboard-scroll ${isDark ? "bg-[#0F1420]" : "bg-[#F8FAFC]"}`} style={{ WebkitOverflowScrolling: 'touch', touchAction: 'pan-y' }}>
+            <div ref={scrollContainerRef} className={`rounded-2xl transition-colors duration-500 relative h-full overflow-y-auto overflow-x-hidden overscroll-contain dashboard-scroll ${isDark ? "bg-[#0F1420]" : "bg-[#F8FAFC]"}`} style={{ WebkitOverflowScrolling: 'touch', touchAction: 'pan-y' }}>
               <div key={`${activeTab}-${graphKey}`} className="animate-fadeIn">
                 {activeTab === 0 && <EcommerceDashboard isDark={isDark} onDemoClick={handleDemoClick} />}
                 {activeTab === 1 && <FnBDashboard isDark={isDark} onDemoClick={handleDemoClick} />}
