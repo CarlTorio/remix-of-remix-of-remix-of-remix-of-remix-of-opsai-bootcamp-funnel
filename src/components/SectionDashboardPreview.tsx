@@ -884,7 +884,7 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
       </div>
 
       {/* Live Notification Toasts */}
-      <div className="absolute bottom-16 right-4 z-20 flex flex-col-reverse gap-2" style={{ maxWidth: "320px" }}>
+      <div className="absolute bottom-16 right-4 z-20 hidden md:flex flex-col-reverse gap-2" style={{ maxWidth: "320px" }}>
         {visibleNotifs.map((notif) => {
           const currentNotif = liveNotifications[notif.index];
           const NotifIcon = currentNotif.icon;
