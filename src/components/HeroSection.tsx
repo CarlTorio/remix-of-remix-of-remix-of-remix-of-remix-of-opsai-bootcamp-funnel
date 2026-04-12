@@ -296,7 +296,9 @@ const HeroSection = () => {
               …then your business is not "ORGANIZED ENOUGH."
             </p>
             <p className="relative z-10 text-[#ffb700] font-heading text-lg md:text-2xl font-extrabold">
-              IT IS ONE PROBLEM AWAY FROM CHAOS.
+              IT IS ONE PROBLEM AWAY{' '}
+              <br className="md:hidden" />
+              FROM CHAOS.
             </p>
           </div>
         </div>
