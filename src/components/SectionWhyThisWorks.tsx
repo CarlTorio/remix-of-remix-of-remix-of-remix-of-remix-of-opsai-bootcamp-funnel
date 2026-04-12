@@ -127,77 +127,8 @@ const SectionWhyThisWorks = () => {
           })}
         </div>
 
-        {/* Comparison Table — Desktop */}
-        <div
-          className={`max-w-4xl mx-auto bg-[#13131A] border border-white/[0.06] rounded-2xl overflow-hidden mb-16 transition-all duration-700 hidden md:block ${
-            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          }`}
-          style={{ transitionDelay: "400ms" }}
-        >
-          {/* Table Header */}
-          <div className="grid grid-cols-3 border-b border-white/[0.06]">
-            <div className="p-4 bg-[#0F0F14]">
-              <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">COMPARE</span>
-            </div>
-            <div className="p-4 text-center bg-[#0F0F14] flex flex-col items-center justify-center gap-1">
-              <span className="text-red-400 text-base">✕</span>
-              <span className="text-red-400 text-xs uppercase tracking-widest font-bold">TRADITIONAL WAY</span>
-            </div>
-            <div className="p-4 text-center flex flex-col items-center justify-center gap-1" style={{ background: "linear-gradient(to bottom, rgba(255,183,0,0.1), transparent)" }}>
-              <Check className="w-4 h-4 text-[#ffb700]" />
-              <span className="text-[#ffb700] text-xs uppercase tracking-widest font-bold">THE SME SYSTEMS WAY</span>
-            </div>
-          </div>
-          {/* Rows */}
-          {comparisonRows.map((row, i) => (
-            <div
-              key={i}
-              className={`grid grid-cols-3 border-b border-white/[0.04] last:border-0 hover:bg-white/[0.02] transition-colors`}
-            >
-              <div className="p-4 flex items-center gap-2">
-                <row.Icon className="w-3.5 h-3.5 text-gray-500" />
-                <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">{row.label}</span>
-              </div>
-              <div className="p-4 text-center">
-                <span className="text-red-400/70 text-sm font-medium">{row.traditional}</span>
-              </div>
-              <div className="p-4 text-center flex items-center justify-center gap-1.5">
-                <Check className="w-3 h-3 text-[#ffb700]" />
-                <span className="text-sm text-white font-bold">{row.ours}</span>
-              </div>
-            </div>
-          ))}
-        </div>
 
-        {/* Comparison Table — Mobile (stacked) */}
-        <div
-          className={`md:hidden space-y-3 mb-16 transition-all duration-700 ${
-            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          }`}
-          style={{ transitionDelay: "400ms" }}
-        >
-          {comparisonRows.map((row, i) => (
-            <div key={i} className="bg-[#13131A] border border-white/[0.06] rounded-xl p-4">
-              <div className="flex items-center gap-2 mb-3">
-                <row.Icon className="w-3.5 h-3.5 text-gray-500" />
-                <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">{row.label}</span>
-              </div>
-              <div className="grid grid-cols-2 gap-3">
-                <div className="text-center">
-                  <span className="text-[9px] text-red-400 uppercase tracking-widest font-bold block mb-1">Traditional</span>
-                  <span className="text-red-400/70 text-sm font-medium">{row.traditional}</span>
-                </div>
-                <div className="text-center">
-                  <span className="text-[9px] text-[#ffb700] uppercase tracking-widest font-bold block mb-1">SME Systems</span>
-                  <div className="flex items-center justify-center gap-1">
-                    <Check className="w-3 h-3 text-[#ffb700]" />
-                    <span className="text-sm text-white font-bold">{row.ours}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+
 
         {/* Bottom CTA */}
         <div className="text-center">
