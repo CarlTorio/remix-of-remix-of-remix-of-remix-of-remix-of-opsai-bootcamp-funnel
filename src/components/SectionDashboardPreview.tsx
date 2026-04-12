@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import StarBorder from "./StarBorder";
 import HRDashboard from "./HRDashboard";
 import {
   Sun, Moon,
