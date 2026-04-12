@@ -255,6 +255,10 @@ const HeroSection = () => {
       >
         <div className="relative z-10">
           <div className="relative">
+            {/* Radial gradient background effect */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-[radial-gradient(circle,hsl(var(--primary)/0.15)_0%,transparent_70%)] blur-2xl" />
+            </div>
             <ScrollStack
               useWindowScroll={true}
               itemScale={0.03}
