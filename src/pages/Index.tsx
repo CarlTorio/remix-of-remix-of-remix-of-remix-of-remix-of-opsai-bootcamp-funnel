@@ -7,8 +7,7 @@ import Section4WhatThisIs from "@/components/Section4_WhatThisIs";
 import SectionDashboardPreview from "@/components/SectionDashboardPreview";
 import Section5BeforeAfter from "@/components/Section5_BeforeAfter";
 import SectionWhyThisWorks from "@/components/SectionWhyThisWorks";
-import Section9HowItWorks from "@/components/Section9_HowItWorks";
-import Section10Curriculum from "@/components/Section10_Curriculum";
+import SectionRoadmap from "@/components/SectionRoadmap";
 import Section11Industries from "@/components/Section11_Industries";
 import Section13Pricing from "@/components/Section13_Pricing";
 import Section14Bonuses from "@/components/Section14_Bonuses";
@@ -58,8 +57,7 @@ const Index = () => (
     <SectionDashboardPreview />
     <Section5BeforeAfter />
     <SectionWhyThisWorks />
-    <Section9HowItWorks />
-    <Section10Curriculum />
+    <SectionRoadmap />
     <Section11Industries />
     <Section13Pricing />
     <Section14Bonuses />
