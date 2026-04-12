@@ -31,19 +31,18 @@ const Section2Checklist = () => {
           {/* Divider */}
           <div className="w-12 h-px bg-[#ffb700]/40 mx-auto mb-4" />
 
-          {/* Bridge line */}
-          <p className="text-lg md:text-xl lg:text-2xl font-bold text-white tracking-tight leading-tight">
-            This is exactly the problem the <span className="text-[#ffb700]">SME Systems Bootcamp</span> was built to solve.
-          </p>
-
-
           {/* Headline */}
-          <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight mb-3 mt-6">
+          <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight mb-3">
             This Is For You If…
           </h2>
 
           {/* Subhead */}
-          <p className="text-base text-gray-400">Check the one that sounds like you.</p>
+          <p className="text-base text-gray-400 mb-5">Check the one that sounds like you.</p>
+
+          {/* Bridge line */}
+          <p className="text-sm md:text-base lg:text-lg font-medium text-gray-400 leading-relaxed">
+            This is exactly the problem the <span className="text-[#ffb700] font-bold">SME Systems Bootcamp</span> was built to solve.
+          </p>
         </div>
 
         {/* Cards Grid */}
