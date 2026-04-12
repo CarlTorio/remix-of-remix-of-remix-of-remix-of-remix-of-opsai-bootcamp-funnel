@@ -1497,13 +1497,18 @@ const SectionDashboardPreview = () => {
           This is exactly what you'll build in Week 1 of the bootcamp.
         </p>
         <div className="mt-6">
-          <button
-            onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
-            className="inline-flex items-center justify-center gap-2 bg-[#ffb700] text-black font-bold text-base md:text-lg tracking-wide px-10 py-4 rounded-full shadow-[0_10px_40px_rgba(255,183,0,0.4)] hover:bg-[#ffc733] hover:-translate-y-0.5 hover:shadow-[0_15px_50px_rgba(255,183,0,0.5)] transition-all duration-300 cursor-pointer"
+          <StarBorder
+            as="a"
+            href="#pricing"
+            color="hsl(43, 96%, 56%)"
+            speed="5s"
+            className="animate-slow-pulse"
           >
-            I WANT TO BUILD THIS
-            <ArrowRight className="w-5 h-5" />
-          </button>
+            <span className="inline-flex items-center gap-2 bg-gradient-to-r from-secondary via-[hsl(45,100%,75%)] to-secondary bg-[length:200%_auto] animate-[gradient-shift_3s_ease-in-out_infinite] text-secondary-foreground font-heading font-bold text-sm md:text-lg uppercase px-6 py-3 md:px-10 md:py-4 tracking-wide">
+              I WANT TO BUILD THIS
+              <ArrowRight className="w-5 h-5" />
+            </span>
+          </StarBorder>
         </div>
       </div>
     </section>
