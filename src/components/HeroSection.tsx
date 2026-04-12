@@ -203,11 +203,11 @@ const HeroSection = () => {
             </div>
             {/* Text content */}
             <div className="relative z-10 container text-center -mt-80 md:-mt-24">
-              <h1 className="font-heading font-black text-[26px] md:text-[44px] leading-[1.1] mb-3 max-w-4xl mx-auto">
+              <h1 className="font-heading font-black text-[26px] md:text-[44px] leading-[1.1] mb-3 max-w-4xl mx-auto" style={{ textShadow: "0 2px 12px rgba(0,0,0,0.7), 0 1px 4px rgba(0,0,0,0.5)" }}>
                 Build Your Own <span style={{ color: "#fbbd23" }}>Internal Business System</span> with{" "}
                 <span style={{ color: "#fbbd23" }}>A.I.</span> in Less Than <span style={{ color: "#fbbd23" }}>2 Weeks</span>
               </h1>
-              <p className="font-body text-white text-base md:text-lg max-w-2xl mx-auto mb-6 leading-relaxed">
+              <p className="font-body text-white text-base md:text-lg max-w-2xl mx-auto mb-6 leading-relaxed" style={{ textShadow: "0 2px 10px rgba(0,0,0,0.7), 0 1px 3px rgba(0,0,0,0.5)" }}>
                 Without Hiring Developers, Without Coding,<br />and Without Spending ₱500,000+ on Custom Software.
               </p>
               <CTAButton>Enroll Now — Limited Slots</CTAButton>
