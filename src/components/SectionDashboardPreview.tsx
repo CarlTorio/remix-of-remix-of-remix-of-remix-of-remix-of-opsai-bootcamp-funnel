@@ -1323,7 +1323,7 @@ const SectionDashboardPreview = () => {
 
 
         <p className="text-base md:text-lg text-gray-400 max-w-2xl mx-auto mb-12">
-          Click through 4 sample dashboards built inside the bootcamp. This is the kind of system you'll build yourself — no developers, no{" "}
+          Click through 5 sample dashboards built inside the bootcamp. This is the kind of system you'll build yourself — no developers, no{" "}
           <span className="text-[#ffb700] font-semibold">₱500,000+</span> software.
         </p>
 
