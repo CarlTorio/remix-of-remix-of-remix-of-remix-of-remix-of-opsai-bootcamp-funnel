@@ -218,12 +218,12 @@ const HeroSection = () => {
                 <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-success inline-block" /> 14-Day Program</span>
                 <span className="hidden md:flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-success inline-block" /> Lifetime Access</span>
               </div>
-              {/* Scroll indicator */}
-              <div className="mt-8 flex flex-col items-center gap-1 animate-bounce">
-                <span className="text-muted-foreground text-xs font-body tracking-widest uppercase">Scroll</span>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="text-muted-foreground">
-                  <path d="M10 4v10m0 0l-4-4m4 4l4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+              {/* Scroll indicator - mouse shape */}
+              <div className="mt-10 flex flex-col items-center gap-2">
+                <div className="w-6 h-10 rounded-full border-2 border-white/30 flex items-start justify-center pt-2">
+                  <div className="w-1 h-2.5 rounded-full bg-[#ffb700] animate-[scrollDot_1.8s_ease-in-out_infinite]" />
+                </div>
+                <span className="text-white/30 text-[10px] font-body tracking-[0.25em] uppercase">Scroll down</span>
               </div>
             </div>
           </div>
