@@ -55,7 +55,7 @@ const CustomTooltip = ({ active, payload, label, isDark }: any) => {
   return (
     <div className={`${isDark ? "bg-[#1E2A44] border-[#2A3A5C]" : "bg-white border-slate-200"} border rounded-lg px-3 py-2 shadow-lg`}>
       <p className={`text-xs font-semibold ${isDark ? "text-white" : "text-slate-900"}`}>{label}</p>
-      <p className="text-xs text-[#ffb700] font-bold">₱{val.toLocaleString()}</p>
+      <p className="text-xs font-bold" style={{ color: "#a3e635" }}>₱{val.toLocaleString()}</p>
     </div>
   );
 };
@@ -63,26 +63,26 @@ const CustomTooltip = ({ active, payload, label, isDark }: any) => {
 interface NavItem { icon: LucideIcon; label: string; active: boolean }
 interface BrandInfo { letter: string; name: string; tagline: string }
 
-const DashboardSidebar = ({ brand, nav, isDark, onDemoClick }: { brand: BrandInfo; nav: NavItem[]; isDark: boolean; onDemoClick: () => void }) => {
+const DashboardSidebar = ({ brand, nav, isDark, onDemoClick, accentColor = "#a3e635" }: { brand: BrandInfo; nav: NavItem[]; isDark: boolean; onDemoClick: () => void; accentColor?: string }) => {
   const d = isDark;
   return (
-    <div className={`w-48 p-4 hidden md:flex flex-col gap-1 transition-colors duration-500 ${d ? "bg-[#131A2E] border-r border-[#1E2A44]" : "bg-white border-r border-slate-200"}`}>
-      <div className="flex items-center gap-2 mb-6">
-        <div className="w-8 h-8 bg-[#ffb700] rounded-lg flex items-center justify-center">
-          <span className="text-black font-bold text-lg">{brand.letter}</span>
+    <div className={`w-44 p-3 hidden md:flex flex-col gap-1 transition-colors duration-500 ${d ? "bg-[#131A2E] border-r border-[#1E2A44]" : "bg-white border-r border-slate-200"}`}>
+      <div className="flex items-center gap-2 mb-4">
+        <div className="w-7 h-7 rounded-lg flex items-center justify-center" style={{ background: `linear-gradient(135deg, ${accentColor}, ${accentColor}cc)` }}>
+          <span className="text-black font-bold text-sm">{brand.letter}</span>
         </div>
         <div>
-          <div className={`text-sm font-bold ${d ? "text-white" : "text-slate-900"}`}>{brand.name}</div>
-          <div className={`text-[10px] ${d ? "text-gray-500" : "text-slate-400"}`}>{brand.tagline}</div>
+          <div className={`text-xs font-bold ${d ? "text-white" : "text-slate-900"}`}>{brand.name}</div>
+          <div className={`text-[9px] ${d ? "text-gray-500" : "text-slate-400"}`}>{brand.tagline}</div>
         </div>
       </div>
       {nav.map((item) => {
         const Icon = item.icon;
         return (
-          <button key={item.label} onClick={onDemoClick} className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-left transition-colors cursor-pointer ${
-            item.active ? "bg-[#ffb700]/15 text-[#ffb700] font-semibold" : d ? "text-gray-500 hover:bg-[#1A2238]" : "text-slate-500 hover:bg-slate-100"
-          }`}>
-            <Icon className="w-4 h-4" /> {item.label}
+          <button key={item.label} onClick={onDemoClick} className={`flex items-center gap-2 px-2 py-2 rounded-lg text-xs text-left transition-colors cursor-pointer ${
+            item.active ? "font-semibold" : d ? "text-gray-500 hover:bg-[#1A2238]" : "text-slate-500 hover:bg-slate-100"
+          }`} style={item.active ? { backgroundColor: `${accentColor}22`, color: accentColor } : undefined}>
+            <Icon className="w-3.5 h-3.5" /> {item.label}
           </button>
         );
       })}
@@ -92,29 +92,28 @@ const DashboardSidebar = ({ brand, nav, isDark, onDemoClick }: { brand: BrandInf
 
 interface KPIData { icon: LucideIcon; label: string; value: number; prefix?: string; suffix?: string; displayStatic?: string; trend: string; trendColor: string }
 
-const KPICards = ({ data, isDark, onDemoClick }: { data: KPIData[]; isDark: boolean; onDemoClick: () => void }) => {
+const KPICards = ({ data, isDark, onDemoClick, accentColor = "#a3e635" }: { data: KPIData[]; isDark: boolean; onDemoClick: () => void; accentColor?: string }) => {
   const d = isDark;
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
       {data.map((kpi) => {
         const Icon = kpi.icon;
         const isRed = kpi.trendColor === "red";
         const isNeutral = kpi.trendColor === "neutral";
         return (
-          <div key={kpi.label} onClick={onDemoClick} className={`p-4 rounded-xl border cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg ${
-            d ? "bg-[#131A2E] border-[#1E2A44] hover:border-[#ffb700]/40" : "bg-white border-slate-200 hover:border-[#ffb700]/40"
+          <div key={kpi.label} onClick={onDemoClick} className={`p-2.5 rounded-xl border cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg ${
+            d ? "bg-[#131A2E] border-[#1E2A44]" : "bg-white border-slate-200"
           }`}>
-            <div className="w-9 h-9 rounded-lg bg-[#ffb700]/10 flex items-center justify-center mb-3">
-              <Icon className="w-4 h-4 text-[#ffb700]" />
+            <div className="w-7 h-7 rounded-lg flex items-center justify-center mb-2" style={{ backgroundColor: `${accentColor}1a` }}>
+              <Icon className="w-3.5 h-3.5" style={{ color: accentColor }} />
             </div>
-            <div className={`uppercase tracking-wider text-[10px] ${d ? "text-gray-500" : "text-slate-500"}`}>{kpi.label}</div>
-            <div className={`text-2xl font-bold ${d ? "text-white" : "text-slate-900"}`}>
+            <div className={`uppercase tracking-wider text-[9px] ${d ? "text-gray-500" : "text-slate-500"}`}>{kpi.label}</div>
+            <div className={`text-lg font-bold ${d ? "text-white" : "text-slate-900"}`}>
               {kpi.displayStatic ? kpi.displayStatic : <CountUp value={kpi.value} prefix={kpi.prefix || ""} suffix={kpi.suffix || ""} />}
             </div>
-            <div className="flex items-center gap-1 mt-1">
+            <div className="flex items-center gap-1 mt-0.5">
               {isRed ? <TrendingDown className="w-3 h-3 text-red-500" /> : isNeutral ? <Minus className="w-3 h-3 text-slate-500" /> : <TrendingUp className="w-3 h-3 text-green-500" />}
-              <span className={`text-[11px] font-medium ${isRed ? "text-red-500" : isNeutral ? (d ? "text-gray-400" : "text-slate-500") : "text-green-500"}`}>{kpi.trend}</span>
-              {!isNeutral && <span className={`text-[10px] ${d ? "text-gray-600" : "text-slate-400"}`}>vs yesterday</span>}
+              <span className={`text-[10px] font-medium ${isRed ? "text-red-500" : isNeutral ? (d ? "text-gray-400" : "text-slate-500") : "text-green-500"}`}>{kpi.trend}</span>
             </div>
           </div>
         );
@@ -142,29 +141,29 @@ const statusMap: Record<string, { light: string; dark: string }> = {
   renewed: { light: "bg-purple-100 text-purple-700", dark: "bg-purple-500/20 text-purple-400" },
 };
 
-const DataList = ({ title, items, isDark, amountRedStatuses = [], onDemoClick }: { title: string; items: ListItem[]; isDark: boolean; amountRedStatuses?: string[]; onDemoClick: () => void }) => {
+const DataList = ({ title, items, isDark, amountRedStatuses = [], onDemoClick, accentColor = "#a3e635" }: { title: string; items: ListItem[]; isDark: boolean; amountRedStatuses?: string[]; onDemoClick: () => void; accentColor?: string }) => {
   const d = isDark;
   return (
-    <div className={`col-span-1 md:col-span-2 p-5 rounded-xl border ${d ? "bg-[#131A2E] border-[#1E2A44]" : "bg-white border-slate-200"}`}>
-      <div className="flex items-center justify-between mb-4">
-        <div className={`text-sm font-bold ${d ? "text-white" : "text-slate-900"}`}>{title}</div>
-        <span onClick={onDemoClick} className="text-xs text-[#ffb700] cursor-pointer hover:underline">View all →</span>
+    <div className={`col-span-1 md:col-span-2 p-3 rounded-xl border ${d ? "bg-[#131A2E] border-[#1E2A44]" : "bg-white border-slate-200"}`}>
+      <div className="flex items-center justify-between mb-2">
+        <div className={`text-xs font-bold ${d ? "text-white" : "text-slate-900"}`}>{title}</div>
+        <span onClick={onDemoClick} className="text-[10px] cursor-pointer hover:underline" style={{ color: accentColor }}>View all →</span>
       </div>
       {items.map((item, i) => {
         const st = statusMap[item.status] || statusMap.new;
         const isRedAmount = amountRedStatuses.includes(item.status);
         return (
-          <div key={i} onClick={onDemoClick} className={`flex items-center justify-between py-2.5 px-2 -mx-2 rounded-lg cursor-pointer transition-colors ${
+          <div key={i} onClick={onDemoClick} className={`flex items-center justify-between py-2 px-2 -mx-2 rounded-lg cursor-pointer transition-colors ${
             i < items.length - 1 ? (d ? "border-b border-[#1E2A44]" : "border-b border-slate-100") : ""
           } ${d ? "hover:bg-[#1A2238]" : "hover:bg-slate-50"}`}>
             <div>
-              <div className={`text-sm font-semibold ${d ? "text-white" : "text-slate-900"}`}>{item.id}</div>
-              <div className={`text-xs ${d ? "text-gray-500" : "text-slate-500"}`}>{item.desc}</div>
+              <div className={`text-xs font-semibold ${d ? "text-white" : "text-slate-900"}`}>{item.id}</div>
+              <div className={`text-[10px] ${d ? "text-gray-500" : "text-slate-500"}`}>{item.desc}</div>
             </div>
-            <div className="text-right flex flex-col items-end gap-1">
-              <div className={`text-sm font-bold ${isRedAmount ? "text-red-500" : "text-[#ffb700]"}`} style={{ fontVariantNumeric: "tabular-nums" }}>{item.amount}</div>
-              <div className={`text-[10px] ${d ? "text-gray-600" : "text-slate-400"}`}>{item.time}</div>
-              <span className={`px-2 py-0.5 rounded-full text-[9px] font-semibold uppercase ${d ? st.dark : st.light}`}>{item.status}</span>
+            <div className="text-right flex flex-col items-end gap-0.5">
+              <div className={`text-xs font-bold ${isRedAmount ? "text-red-500" : ""}`} style={!isRedAmount ? { color: accentColor, fontVariantNumeric: "tabular-nums" } : { fontVariantNumeric: "tabular-nums" }}>{item.amount}</div>
+              <div className={`text-[9px] ${d ? "text-gray-600" : "text-slate-400"}`}>{item.time}</div>
+              <span className={`px-1.5 py-0.5 rounded-full text-[8px] font-semibold uppercase ${d ? st.dark : st.light}`}>{item.status}</span>
             </div>
           </div>
         );
@@ -175,29 +174,29 @@ const DataList = ({ title, items, isDark, amountRedStatuses = [], onDemoClick }:
 
 interface DonutEntry { name: string; value: number; color: string }
 
-const DonutCard = ({ title, subtitle, data, isDark }: { title: string; subtitle: string; data: DonutEntry[]; isDark: boolean }) => {
+const DonutCard = ({ title, subtitle, data, isDark, accentColor = "#a3e635" }: { title: string; subtitle: string; data: DonutEntry[]; isDark: boolean; accentColor?: string }) => {
   const d = isDark;
   return (
-    <div className={`p-5 rounded-xl border ${d ? "bg-[#131A2E] border-[#1E2A44]" : "bg-white border-slate-200"}`}>
-      <div className={`text-sm font-bold ${d ? "text-white" : "text-slate-900"}`}>{title}</div>
-      <div className={`text-xs mb-3 ${d ? "text-gray-500" : "text-slate-500"}`}>{subtitle}</div>
-      <div className="w-full h-[180px]">
+    <div className={`p-3 rounded-xl border ${d ? "bg-[#131A2E] border-[#1E2A44]" : "bg-white border-slate-200"}`}>
+      <div className={`text-xs font-bold ${d ? "text-white" : "text-slate-900"}`}>{title}</div>
+      <div className={`text-[10px] mb-2 ${d ? "text-gray-500" : "text-slate-500"}`}>{subtitle}</div>
+      <div className="w-full h-[130px]">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
-            <Pie data={data} innerRadius={50} outerRadius={75} paddingAngle={2} dataKey="value" isAnimationActive={true}>
+            <Pie data={data} innerRadius={38} outerRadius={58} paddingAngle={2} dataKey="value" isAnimationActive={true}>
               {data.map((entry, index) => <Cell key={index} fill={entry.color} />)}
             </Pie>
           </PieChart>
         </ResponsiveContainer>
       </div>
-      <div className="flex flex-col gap-2 mt-3">
+      <div className="flex flex-col gap-1 mt-1">
         {data.map((cat) => (
           <div key={cat.name} className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full" style={{ backgroundColor: cat.color }} />
-              <span className={`text-xs ${d ? "text-gray-400" : "text-slate-600"}`}>{cat.name}</span>
+              <span className={`text-[10px] ${d ? "text-gray-400" : "text-slate-600"}`}>{cat.name}</span>
             </div>
-            <span className="text-xs font-bold text-[#ffb700]">{cat.value}%</span>
+            <span className="text-[10px] font-bold" style={{ color: accentColor }}>{cat.value}%</span>
           </div>
         ))}
       </div>
@@ -207,17 +206,17 @@ const DonutCard = ({ title, subtitle, data, isDark }: { title: string; subtitle:
 
 interface ActionBtn { label: string; icon: LucideIcon; primary?: boolean }
 
-const ActionButtons = ({ buttons, isDark, onDemoClick }: { buttons: ActionBtn[]; isDark: boolean; onDemoClick: () => void }) => {
+const ActionButtons = ({ buttons, isDark, onDemoClick, accentColor = "#a3e635" }: { buttons: ActionBtn[]; isDark: boolean; onDemoClick: () => void; accentColor?: string }) => {
   const d = isDark;
   return (
     <div className="flex flex-wrap gap-2">
       {buttons.map((btn) => {
         const Icon = btn.icon;
         return (
-          <button key={btn.label} onClick={onDemoClick} className={`flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 cursor-pointer hover:-translate-y-0.5 ${
-            btn.primary ? "bg-[#ffb700] text-black" : d ? "bg-[#1E2A44] text-gray-300 border border-[#2A3A5C]" : "bg-white text-slate-700 border border-slate-200"
-          }`}>
-            <Icon className="w-4 h-4" /> {btn.label}
+          <button key={btn.label} onClick={onDemoClick} className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold transition-all duration-300 cursor-pointer hover:-translate-y-0.5 ${
+            btn.primary ? "text-black" : d ? "bg-[#1E2A44] text-gray-300 border border-[#2A3A5C]" : "bg-white text-slate-700 border border-slate-200"
+          }`} style={btn.primary ? { backgroundColor: accentColor } : undefined}>
+            <Icon className="w-3.5 h-3.5" /> {btn.label}
           </button>
         );
       })}
@@ -225,18 +224,18 @@ const ActionButtons = ({ buttons, isDark, onDemoClick }: { buttons: ActionBtn[];
   );
 };
 
-const ChartCard = ({ title, subtitle, isDark, children }: { title: string; subtitle: string; isDark: boolean; children: React.ReactNode }) => {
+const ChartCard = ({ title, subtitle, isDark, children, chartHeight = "180px" }: { title: string; subtitle: string; isDark: boolean; children: React.ReactNode; chartHeight?: string }) => {
   const d = isDark;
   return (
-    <div className={`p-5 rounded-xl border ${d ? "bg-[#131A2E] border-[#1E2A44]" : "bg-white border-slate-200"}`}>
-      <div className="flex items-center justify-between mb-4">
+    <div className={`p-3 rounded-xl border ${d ? "bg-[#131A2E] border-[#1E2A44]" : "bg-white border-slate-200"}`}>
+      <div className="flex items-center justify-between mb-2">
         <div>
-          <div className={`text-sm font-bold ${d ? "text-white" : "text-slate-900"}`}>{title}</div>
-          <div className={`text-xs ${d ? "text-gray-500" : "text-slate-500"}`}>{subtitle}</div>
+          <div className={`text-xs font-bold ${d ? "text-white" : "text-slate-900"}`}>{title}</div>
+          <div className={`text-[10px] ${d ? "text-gray-500" : "text-slate-500"}`}>{subtitle}</div>
         </div>
-        <div className={`px-2.5 py-1 rounded-full text-[10px] ${d ? "bg-[#1E2A44] text-gray-400" : "bg-slate-100 text-slate-500"}`}>Last updated: now</div>
+        <div className={`px-2 py-0.5 rounded-full text-[9px] ${d ? "bg-[#1E2A44] text-gray-400" : "bg-slate-100 text-slate-500"}`}>Live</div>
       </div>
-      <div className="w-full h-[220px]">{children}</div>
+      <div className="w-full" style={{ height: chartHeight }}>{children}</div>
     </div>
   );
 };
@@ -246,11 +245,11 @@ const TopBar = ({ greeting, subtitle, isDark }: { greeting: string; subtitle: st
   return (
     <div className="flex items-center justify-between">
       <div>
-        <div className={`text-lg font-semibold ${d ? "text-white" : "text-slate-900"}`}>{greeting}</div>
-        <div className={`text-xs ${d ? "text-gray-500" : "text-slate-500"}`}>{subtitle}</div>
+        <div className={`text-sm font-semibold ${d ? "text-white" : "text-slate-900"}`}>{greeting}</div>
+        <div className={`text-[10px] ${d ? "text-gray-500" : "text-slate-500"}`}>{subtitle}</div>
       </div>
-      <div className={`px-3 py-1.5 rounded-full text-xs ${d ? "bg-[#1E2A44] text-gray-400" : "bg-slate-100 text-slate-600"}`}>
-        📅 Today — {new Date().toLocaleDateString()}
+      <div className={`px-2 py-1 rounded-full text-[10px] ${d ? "bg-[#1E2A44] text-gray-400" : "bg-slate-100 text-slate-600"}`}>
+        📅 {new Date().toLocaleDateString()}
       </div>
     </div>
   );
@@ -284,55 +283,54 @@ const fnbOrders: ListItem[] = [
   { id: "Table 5", desc: "2x Coffee, 1x Cake", amount: "₱890", time: "2 min ago", status: "new" },
   { id: "Table 12", desc: "Family Meal Set", amount: "₱1,450", time: "5 min ago", status: "preparing" },
   { id: "Take-out #142", desc: "3x Iced Latte", amount: "₱540", time: "8 min ago", status: "ready" },
-  { id: "Table 3", desc: "Breakfast combo", amount: "₱680", time: "12 min ago", status: "served" },
-  { id: "Delivery #89", desc: "Lunch special x2", amount: "₱1,200", time: "15 min ago", status: "served" },
 ];
 const fnbCategoryData: DonutEntry[] = [
-  { name: "Main Dishes", value: 45, color: "#ffb700" },
-  { name: "Drinks", value: 30, color: "#fcd34d" },
-  { name: "Desserts", value: 25, color: "#fde68a" },
+  { name: "Main Dishes", value: 45, color: "#a3e635" },
+  { name: "Drinks", value: 30, color: "#84cc16" },
+  { name: "Desserts", value: 25, color: "#d9f99d" },
 ];
 
 const FnBDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick: () => void }) => {
   const d = isDark;
+  const accent = "#a3e635";
   return (
-    <div className="flex min-h-[600px] w-full">
-      <DashboardSidebar brand={{ letter: "K", name: "Kape Ni Ana", tagline: "POS System" }} nav={fnbNav} isDark={d} onDemoClick={onDemoClick} />
-      <div className="flex-1 p-6 flex flex-col gap-5 transition-colors duration-500">
+    <div className="flex h-full w-full overflow-hidden">
+      <DashboardSidebar brand={{ letter: "K", name: "Kape Ni Ana", tagline: "POS System" }} nav={fnbNav} isDark={d} onDemoClick={onDemoClick} accentColor={accent} />
+      <div className="flex-1 p-3 flex flex-col gap-2 transition-colors duration-500 overflow-hidden">
         <TopBar greeting="Good morning, Juan 👋" subtitle="Here's what's happening at your restaurant today" isDark={d} />
-        <KPICards data={fnbKPIs} isDark={d} onDemoClick={onDemoClick} />
-        <ChartCard title="Sales by Hour" subtitle="Today's performance" isDark={d}>
+        <KPICards data={fnbKPIs} isDark={d} onDemoClick={onDemoClick} accentColor={accent} />
+        <ChartCard title="Sales by Hour" subtitle="Today's performance" isDark={d} chartHeight="150px">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={fnbHourlyData}>
               <CartesianGrid strokeDasharray="3 3" stroke={d ? "#1E2A44" : "#e2e8f0"} />
-              <XAxis dataKey="hour" stroke={d ? "#6B7280" : "#94a3b8"} fontSize={11} />
-              <YAxis stroke={d ? "#6B7280" : "#94a3b8"} fontSize={11} tickFormatter={(v) => `₱${v / 1000}k`} />
+              <XAxis dataKey="hour" stroke={d ? "#6B7280" : "#94a3b8"} fontSize={9} />
+              <YAxis stroke={d ? "#6B7280" : "#94a3b8"} fontSize={9} tickFormatter={(v) => `₱${v / 1000}k`} />
               <Tooltip content={<CustomTooltip isDark={d} />} />
-              <Bar dataKey="sales" fill="#ffb700" radius={[6, 6, 0, 0]} isAnimationActive={true} />
+              <Bar dataKey="sales" fill="#a3e635" radius={[4, 4, 0, 0]} isAnimationActive={true} />
             </BarChart>
           </ResponsiveContainer>
         </ChartCard>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          <DataList title="Recent Orders" items={fnbOrders} isDark={d} onDemoClick={onDemoClick} />
-          <DonutCard title="Menu Categories" subtitle="Today's sales mix" data={fnbCategoryData} isDark={d} />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+          <DataList title="Recent Orders" items={fnbOrders} isDark={d} onDemoClick={onDemoClick} accentColor={accent} />
+          <DonutCard title="Menu Categories" subtitle="Today's sales mix" data={fnbCategoryData} isDark={d} accentColor={accent} />
         </div>
         <ActionButtons buttons={[
           { label: "New Order", icon: Plus, primary: true },
           { label: "Add Menu Item", icon: PlusCircle },
           { label: "Print Report", icon: Printer },
-        ]} isDark={d} onDemoClick={onDemoClick} />
+        ]} isDark={d} onDemoClick={onDemoClick} accentColor={accent} />
       </div>
     </div>
   );
 };
 
-// ─── E-commerce Dashboard (Green Theme) ───
+// ─── E-commerce Dashboard (Yellow Theme) ───
 
 const ecomDonutData: DonutEntry[] = [
-  { name: "Shopee", value: 55, color: "#a3e635" },
-  { name: "Lazada", value: 25, color: "#84cc16" },
-  { name: "Website", value: 12, color: "#d9f99d" },
-  { name: "TikTok", value: 8, color: "#ecfccb" },
+  { name: "Shopee", value: 55, color: "#ffb700" },
+  { name: "Lazada", value: 25, color: "#facc15" },
+  { name: "Website", value: 12, color: "#fde68a" },
+  { name: "TikTok", value: 8, color: "#fef3c7" },
 ];
 
 const profitData = Array.from({ length: 20 }, (_, i) => ({
@@ -343,12 +341,12 @@ const profitData = Array.from({ length: 20 }, (_, i) => ({
 const ecomCustomers = [
   { name: "Danny Liu", email: "danny@gmail.com", orders: 1023, value: "₱37,431", avatarColor: "#f43f5e" },
   { name: "Bella Deviant", email: "bella@gmail.com", orders: 963, value: "₱30,423", avatarColor: "#f59e0b" },
-  { name: "Darrell Steward", email: "darrell@gmail.com", orders: 843, value: "₱28,549", avatarColor: "#10b981" },
 ];
 
 const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick: () => void }) => {
   const d = isDark;
   const card = `rounded-xl ${d ? "bg-[#131B2E] border border-[#1E2A44]" : "bg-white border border-slate-200"}`;
+  const accent = "#ffb700";
 
   const ecomNavItems = [
     { icon: LayoutDashboard, label: "Overview", active: true },
@@ -369,128 +367,127 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
   ];
   const notifications = [
     { icon: Users, text: "56 new users registered", time: "Just now" },
-    { icon: ShoppingBag, text: "132 orders placed", time: "59 minutes ago" },
-    { icon: DollarSign, text: "Funds withdrawn", time: "12 hours ago" },
+    { icon: ShoppingBag, text: "132 orders placed", time: "59 min ago" },
   ];
   const activities = [
     { icon: Palette, text: "Changed the style", time: "Just now" },
-    { icon: Plus, text: "177 products added", time: "47 minutes ago" },
+    { icon: Plus, text: "177 products added", time: "47 min ago" },
   ];
   const contacts = [
     { name: "Sarah Kim", color: "#f43f5e", highlight: false },
     { name: "James Cruz", color: "#3b82f6", highlight: false },
-    { name: "Nataniel Donowan", color: "#a3e635", highlight: true },
+    { name: "Nataniel Donowan", color: "#ffb700", highlight: true },
   ];
   const salesBreakdown = [
-    { label: "Shopee", value: "₱55,640", color: "#a3e635" },
-    { label: "Lazada", value: "₱11,420", color: "#84cc16" },
-    { label: "Website", value: "₱1,840", color: "#d9f99d" },
-    { label: "TikTok", value: "₱2,120", color: "#ecfccb" },
+    { label: "Shopee", value: "₱55,640", color: "#ffb700" },
+    { label: "Lazada", value: "₱11,420", color: "#facc15" },
+    { label: "Website", value: "₱1,840", color: "#fde68a" },
+    { label: "TikTok", value: "₱2,120", color: "#fef3c7" },
   ];
 
   return (
-    <div className={`grid grid-cols-12 gap-3 h-full p-4 transition-colors duration-500 ${d ? "bg-[#0A0F1A]" : "bg-[#F8FAFC]"}`}>
+    <div className={`grid grid-cols-12 gap-2 h-full p-3 transition-colors duration-500 overflow-hidden ${d ? "bg-[#0A0F1A]" : "bg-[#F8FAFC]"}`}>
       {/* LEFT SIDEBAR */}
-      <div className={`col-span-2 hidden lg:flex flex-col gap-1 p-3 rounded-xl ${card}`}>
-        <div className="flex items-center gap-2 mb-4">
-          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-lime-400 to-lime-600 flex items-center justify-center">
-            <span className="text-black font-bold text-sm">S</span>
+      <div className={`col-span-2 hidden lg:flex flex-col gap-1 p-2.5 rounded-xl ${card}`}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[#ffb700] to-[#e6a500] flex items-center justify-center">
+            <span className="text-black font-bold text-xs">S</span>
           </div>
-          <span className={`text-xs font-bold ${d ? "text-white" : "text-slate-900"}`}>ShopHub PH</span>
+          <span className={`text-[10px] font-bold ${d ? "text-white" : "text-slate-900"}`}>ShopHub PH</span>
         </div>
-        <div className={`flex items-center gap-2 rounded-lg px-2 py-1.5 mb-3 ${d ? "bg-[#1E2A44]" : "bg-slate-100"}`}>
+        <div className={`flex items-center gap-2 rounded-lg px-2 py-1 mb-2 ${d ? "bg-[#1E2A44]" : "bg-slate-100"}`}>
           <Search className="w-3 h-3 text-gray-500" />
-          <span className="text-[10px] text-gray-500 flex-1">Search...</span>
-          <span className={`text-[9px] px-1 rounded ${d ? "bg-[#2A3A5C] text-gray-500" : "bg-slate-200 text-slate-500"}`}>⌘K</span>
+          <span className="text-[9px] text-gray-500 flex-1">Search...</span>
+          <span className={`text-[8px] px-1 rounded ${d ? "bg-[#2A3A5C] text-gray-500" : "bg-slate-200 text-slate-500"}`}>⌘K</span>
         </div>
-        <div className="text-[9px] uppercase tracking-widest text-gray-500 mb-1 mt-2">Dashboards</div>
+        <div className="text-[8px] uppercase tracking-widest text-gray-500 mb-1 mt-1">Dashboards</div>
         {ecomNavItems.map((item) => {
           const Icon = item.icon;
           return (
-            <button key={item.label} onClick={onDemoClick} className={`flex items-center gap-2 px-2 py-1.5 rounded-md text-[11px] cursor-pointer transition-colors ${
-              item.active ? "bg-lime-400 text-black font-semibold shadow-[0_0_20px_rgba(163,230,53,0.3)]" : d ? "text-gray-500 hover:bg-[#1E2A44]" : "text-slate-500 hover:bg-slate-100"
+            <button key={item.label} onClick={onDemoClick} className={`flex items-center gap-2 px-2 py-1 rounded-md text-[10px] cursor-pointer transition-colors ${
+              item.active ? "bg-[#ffb700] text-black font-semibold shadow-[0_0_20px_rgba(255,183,0,0.3)]" : d ? "text-gray-500 hover:bg-[#1E2A44]" : "text-slate-500 hover:bg-slate-100"
             }`}>
-              <Icon className="w-3.5 h-3.5" /> {item.label}
+              <Icon className="w-3 h-3" /> {item.label}
             </button>
           );
         })}
-        <div className="text-[9px] uppercase tracking-widest text-gray-500 mb-1 mt-3">Settings</div>
+        <div className="text-[8px] uppercase tracking-widest text-gray-500 mb-1 mt-2">Settings</div>
         {ecomSettingsNav.map((item) => {
           const Icon = item.icon;
           return (
-            <button key={item.label} onClick={onDemoClick} className={`flex items-center gap-2 px-2 py-1.5 rounded-md text-[11px] cursor-pointer transition-colors ${d ? "text-gray-500 hover:bg-[#1E2A44]" : "text-slate-500 hover:bg-slate-100"}`}>
-              <Icon className="w-3.5 h-3.5" /> {item.label}
+            <button key={item.label} onClick={onDemoClick} className={`flex items-center gap-2 px-2 py-1 rounded-md text-[10px] cursor-pointer transition-colors ${d ? "text-gray-500 hover:bg-[#1E2A44]" : "text-slate-500 hover:bg-slate-100"}`}>
+              <Icon className="w-3 h-3" /> {item.label}
             </button>
           );
         })}
       </div>
 
       {/* MAIN AREA */}
-      <div className="col-span-12 lg:col-span-7 xl:col-span-7 flex flex-col gap-3">
+      <div className="col-span-12 lg:col-span-7 xl:col-span-7 flex flex-col gap-2 overflow-hidden">
         {/* Top bar */}
         <div className="flex items-center justify-between">
           <div>
-            <div className={`text-base font-bold ${d ? "text-white" : "text-slate-900"}`}>Overview</div>
-            <div className="text-[10px] text-gray-500">Dashboards / Overview</div>
+            <div className={`text-sm font-bold ${d ? "text-white" : "text-slate-900"}`}>Overview</div>
+            <div className="text-[9px] text-gray-500">Dashboards / Overview</div>
           </div>
-          <div className={`px-2 py-1 rounded-md text-[10px] ${d ? "bg-[#1E2A44] text-gray-400" : "bg-slate-100 text-slate-600"}`}>Today ▾</div>
+          <div className={`px-2 py-0.5 rounded-md text-[9px] ${d ? "bg-[#1E2A44] text-gray-400" : "bg-slate-100 text-slate-600"}`}>Today ▾</div>
         </div>
 
         {/* KPI Cards */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
           {ecomKPIs.map((kpi) => (
-            <div key={kpi.label} onClick={onDemoClick} className={`p-3 rounded-xl cursor-pointer hover:-translate-y-0.5 transition-all ${card} relative`}>
-              <div className={`text-[10px] uppercase tracking-wider ${d ? "text-gray-500" : "text-slate-500"}`}>{kpi.label}</div>
-              <div className={`text-xl font-bold mt-1 ${d ? "text-white" : "text-slate-900"}`}>
+            <div key={kpi.label} onClick={onDemoClick} className={`p-2.5 rounded-xl cursor-pointer hover:-translate-y-0.5 transition-all ${card} relative`}>
+              <div className={`text-[9px] uppercase tracking-wider ${d ? "text-gray-500" : "text-slate-500"}`}>{kpi.label}</div>
+              <div className={`text-lg font-bold mt-0.5 ${d ? "text-white" : "text-slate-900"}`}>
                 <CountUp value={kpi.value} prefix={kpi.prefix || ""} suffix={kpi.suffix || ""} />
               </div>
               {kpi.isGauge ? (
-                <svg className="absolute top-3 right-3" width="36" height="36" viewBox="0 0 40 40">
+                <svg className="absolute top-2.5 right-2.5" width="32" height="32" viewBox="0 0 40 40">
                   <circle cx="20" cy="20" r="16" stroke={d ? "#1E2A44" : "#e2e8f0"} strokeWidth={4} fill="none" />
-                  <circle cx="20" cy="20" r="16" stroke="#a3e635" strokeWidth={4} fill="none" strokeDasharray={`${71 * 1.005}, 100.5`} strokeLinecap="round" transform="rotate(-90 20 20)" />
+                  <circle cx="20" cy="20" r="16" stroke="#ffb700" strokeWidth={4} fill="none" strokeDasharray={`${71 * 1.005}, 100.5`} strokeLinecap="round" transform="rotate(-90 20 20)" />
                 </svg>
               ) : (
-                <div className="flex items-center gap-1 mt-1">
-                  <TrendingUp className="w-3 h-3 text-lime-400" />
-                  <span className="text-[10px] text-lime-400 font-medium">{kpi.trend}</span>
+                <div className="flex items-center gap-1 mt-0.5">
+                  <TrendingUp className="w-3 h-3 text-green-500" />
+                  <span className="text-[9px] text-green-500 font-medium">{kpi.trend}</span>
                 </div>
               )}
-              {kpi.subtitle && <div className="text-[9px] text-gray-500 mt-0.5">{kpi.subtitle}</div>}
+              {kpi.subtitle && <div className="text-[8px] text-gray-500">{kpi.subtitle}</div>}
             </div>
           ))}
         </div>
 
         {/* Charts row */}
-        <div className="grid grid-cols-12 gap-3">
+        <div className="grid grid-cols-12 gap-2">
           {/* Sales Overview */}
-          <div className={`col-span-12 md:col-span-7 p-4 ${card}`}>
-            <div className="flex items-center justify-between mb-3">
-              <span className={`text-sm font-bold ${d ? "text-white" : "text-slate-900"}`}>Sales Overview</span>
-              <MoreVertical className="w-4 h-4 text-gray-500 cursor-pointer" onClick={onDemoClick} />
+          <div className={`col-span-12 md:col-span-7 p-3 ${card}`}>
+            <div className="flex items-center justify-between mb-2">
+              <span className={`text-xs font-bold ${d ? "text-white" : "text-slate-900"}`}>Sales Overview</span>
+              <MoreVertical className="w-3.5 h-3.5 text-gray-500 cursor-pointer" onClick={onDemoClick} />
             </div>
-            <div className="flex gap-4">
-              <div className="w-[120px] h-[120px] relative flex-shrink-0">
+            <div className="flex gap-3">
+              <div className="w-[100px] h-[100px] relative flex-shrink-0">
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
-                    <Pie data={ecomDonutData} innerRadius={42} outerRadius={58} paddingAngle={2} dataKey="value" isAnimationActive>
+                    <Pie data={ecomDonutData} innerRadius={35} outerRadius={48} paddingAngle={2} dataKey="value" isAnimationActive>
                       {ecomDonutData.map((e, i) => <Cell key={i} fill={e.color} />)}
                     </Pie>
                   </PieChart>
                 </ResponsiveContainer>
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <span className={`text-base font-bold ${d ? "text-white" : "text-slate-900"}`}>102k</span>
-                  <span className="text-[9px] text-gray-500">Weekly Visits</span>
+                  <span className={`text-sm font-bold ${d ? "text-white" : "text-slate-900"}`}>102k</span>
+                  <span className="text-[8px] text-gray-500">Visits</span>
                 </div>
               </div>
               <div className="flex-1">
-                <div className="text-[10px] text-gray-500">Number of Sales</div>
-                <div className={`text-lg font-bold mb-2 ${d ? "text-white" : "text-slate-900"}`} style={{ fontVariantNumeric: "tabular-nums" }}>₱71,020</div>
-                <div className="grid grid-cols-2 gap-2">
+                <div className="text-[9px] text-gray-500">Number of Sales</div>
+                <div className={`text-base font-bold mb-1.5 ${d ? "text-white" : "text-slate-900"}`} style={{ fontVariantNumeric: "tabular-nums" }}>₱71,020</div>
+                <div className="grid grid-cols-2 gap-1.5">
                   {salesBreakdown.map((s) => (
-                    <div key={s.label} className="flex items-center gap-1.5">
-                      <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: s.color }} />
-                      <span className="text-[10px] text-gray-500">{s.label}</span>
-                      <span className={`text-[11px] font-bold ml-auto ${d ? "text-white" : "text-slate-900"}`} style={{ fontVariantNumeric: "tabular-nums" }}>{s.value}</span>
+                    <div key={s.label} className="flex items-center gap-1">
+                      <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: s.color }} />
+                      <span className="text-[9px] text-gray-500">{s.label}</span>
+                      <span className={`text-[9px] font-bold ml-auto ${d ? "text-white" : "text-slate-900"}`} style={{ fontVariantNumeric: "tabular-nums" }}>{s.value}</span>
                     </div>
                   ))}
                 </div>
@@ -499,50 +496,50 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
           </div>
 
           {/* Right mini cards */}
-          <div className="col-span-12 md:col-span-5 flex flex-col gap-3">
+          <div className="col-span-12 md:col-span-5 flex flex-col gap-2">
             <div className="grid grid-cols-2 gap-2">
-              <div className={`p-3 ${card} cursor-pointer`} onClick={onDemoClick}>
-                <div className="flex items-center gap-1 mb-1">
-                  <TrendingUp className="w-3 h-3 text-lime-400" />
-                  <span className="text-[9px] text-gray-500">New customers</span>
+              <div className={`p-2.5 ${card} cursor-pointer`} onClick={onDemoClick}>
+                <div className="flex items-center gap-1 mb-0.5">
+                  <TrendingUp className="w-3 h-3 text-[#ffb700]" />
+                  <span className="text-[8px] text-gray-500">New customers</span>
                 </div>
-                <div className={`text-lg font-bold ${d ? "text-white" : "text-slate-900"}`}><CountUp value={862} /></div>
+                <div className={`text-base font-bold ${d ? "text-white" : "text-slate-900"}`}><CountUp value={862} /></div>
                 <div className="flex items-center gap-1">
-                  <span className="text-[9px] text-red-400 font-medium">-8%</span>
-                  <span className="text-[9px] text-gray-500">Last Week</span>
+                  <span className="text-[8px] text-red-400 font-medium">-8%</span>
+                  <span className="text-[8px] text-gray-500">Last Week</span>
                 </div>
               </div>
-              <div className={`p-3 ${card} cursor-pointer`} onClick={onDemoClick}>
-                <div className="flex items-center gap-1 mb-1">
-                  <BarChart3 className="w-3 h-3 text-lime-400" />
-                  <span className="text-[9px] text-gray-500">Total profit</span>
+              <div className={`p-2.5 ${card} cursor-pointer`} onClick={onDemoClick}>
+                <div className="flex items-center gap-1 mb-0.5">
+                  <BarChart3 className="w-3 h-3 text-[#ffb700]" />
+                  <span className="text-[8px] text-gray-500">Total profit</span>
                 </div>
-                <div className={`text-lg font-bold ${d ? "text-white" : "text-slate-900"}`}>₱25.6k</div>
+                <div className={`text-base font-bold ${d ? "text-white" : "text-slate-900"}`}>₱25.6k</div>
                 <div className="flex items-center gap-1">
-                  <span className="text-[9px] text-green-400 font-medium">+42%</span>
-                  <span className="text-[9px] text-gray-500">Weekly Profit</span>
+                  <span className="text-[8px] text-green-400 font-medium">+42%</span>
+                  <span className="text-[8px] text-gray-500">Weekly Profit</span>
                 </div>
               </div>
             </div>
             {/* Profit chart */}
-            <div className={`p-3 flex-1 ${card}`}>
+            <div className={`p-2.5 flex-1 ${card}`}>
               <div className="flex items-center justify-between">
                 <div>
-                  <div className={`text-xs font-semibold ${d ? "text-white" : "text-slate-900"}`}>Total Profit</div>
-                  <div className="text-[9px] text-gray-500">February 2024</div>
+                  <div className={`text-[10px] font-semibold ${d ? "text-white" : "text-slate-900"}`}>Total Profit</div>
+                  <div className="text-[8px] text-gray-500">February 2024</div>
                 </div>
-                <span className="text-base font-bold text-lime-400" style={{ fontVariantNumeric: "tabular-nums" }}>₱136,755.77</span>
+                <span className="text-sm font-bold text-[#ffb700]" style={{ fontVariantNumeric: "tabular-nums" }}>₱136,755</span>
               </div>
-              <div className="w-full h-[70px] mt-1" style={{ filter: "drop-shadow(0 0 8px rgba(163,230,53,0.4))" }}>
+              <div className="w-full h-[55px] mt-1" style={{ filter: "drop-shadow(0 0 8px rgba(255,183,0,0.4))" }}>
                 <ResponsiveContainer width="100%" height="100%">
                   <AreaChart data={profitData}>
                     <defs>
-                      <linearGradient id="greenGlow" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stopColor="#a3e635" stopOpacity={0.6} />
-                        <stop offset="100%" stopColor="#a3e635" stopOpacity={0} />
+                      <linearGradient id="yellowGlow" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stopColor="#ffb700" stopOpacity={0.6} />
+                        <stop offset="100%" stopColor="#ffb700" stopOpacity={0} />
                       </linearGradient>
                     </defs>
-                    <Area type="monotone" dataKey="value" stroke="#a3e635" strokeWidth={2} fill="url(#greenGlow)" isAnimationActive />
+                    <Area type="monotone" dataKey="value" stroke="#ffb700" strokeWidth={2} fill="url(#yellowGlow)" isAnimationActive />
                   </AreaChart>
                 </ResponsiveContainer>
               </div>
@@ -551,100 +548,86 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
         </div>
 
         {/* Customer list */}
-        <div className={`p-4 ${card} hidden md:block`}>
-          <div className="flex items-center justify-between mb-2">
-            <span className={`text-sm font-bold ${d ? "text-white" : "text-slate-900"}`}>Customer List</span>
-            <MoreVertical className="w-4 h-4 text-gray-500 cursor-pointer" onClick={onDemoClick} />
+        <div className={`p-3 ${card} hidden md:block`}>
+          <div className="flex items-center justify-between mb-1">
+            <span className={`text-xs font-bold ${d ? "text-white" : "text-slate-900"}`}>Customer List</span>
+            <MoreVertical className="w-3.5 h-3.5 text-gray-500 cursor-pointer" onClick={onDemoClick} />
           </div>
-          <div className="flex items-center text-[10px] text-gray-500 uppercase tracking-wider mb-1 px-1">
+          <div className="flex items-center text-[9px] text-gray-500 uppercase tracking-wider mb-1 px-1">
             <span className="flex-1">Name</span>
-            <span className="w-16 text-center">Orders</span>
-            <span className="w-20 text-right">Total Value</span>
+            <span className="w-14 text-center">Orders</span>
+            <span className="w-16 text-right">Value</span>
           </div>
           {ecomCustomers.map((c, i) => (
-            <div key={i} onClick={onDemoClick} className={`flex items-center py-2 px-1 rounded-lg cursor-pointer transition-colors ${
+            <div key={i} onClick={onDemoClick} className={`flex items-center py-1.5 px-1 rounded-lg cursor-pointer transition-colors ${
               i < ecomCustomers.length - 1 ? (d ? "border-b border-[#1E2A44]" : "border-b border-slate-100") : ""
             } ${d ? "hover:bg-[#1A2238]" : "hover:bg-slate-50"}`}>
               <div className="flex items-center gap-2 flex-1">
-                <div className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold text-white" style={{ backgroundColor: c.avatarColor }}>
+                <div className="w-5 h-5 rounded-full flex items-center justify-center text-[9px] font-bold text-white" style={{ backgroundColor: c.avatarColor }}>
                   {c.name[0]}
                 </div>
                 <div>
-                  <div className={`text-[11px] font-semibold ${d ? "text-white" : "text-slate-900"}`}>{c.name}</div>
-                  <div className="text-[9px] text-gray-500">{c.email}</div>
+                  <div className={`text-[10px] font-semibold ${d ? "text-white" : "text-slate-900"}`}>{c.name}</div>
+                  <div className="text-[8px] text-gray-500">{c.email}</div>
                 </div>
               </div>
-              <span className="w-16 text-center text-[11px]" style={{ fontVariantNumeric: "tabular-nums", color: d ? "#e2e8f0" : "#334155" }}>{c.orders.toLocaleString()}</span>
-              <span className={`w-20 text-right text-[11px] font-bold ${d ? "text-white" : "text-slate-900"}`} style={{ fontVariantNumeric: "tabular-nums" }}>{c.value}</span>
+              <span className="w-14 text-center text-[10px]" style={{ fontVariantNumeric: "tabular-nums", color: d ? "#e2e8f0" : "#334155" }}>{c.orders.toLocaleString()}</span>
+              <span className={`w-16 text-right text-[10px] font-bold ${d ? "text-white" : "text-slate-900"}`} style={{ fontVariantNumeric: "tabular-nums" }}>{c.value}</span>
             </div>
           ))}
-        </div>
-
-        {/* Premium CTA */}
-        <div className="p-3 rounded-xl bg-lime-400 relative overflow-hidden cursor-pointer" onClick={onDemoClick}>
-          <div className="absolute -right-4 -top-4 w-12 h-12 bg-lime-300 rounded-full opacity-50" />
-          <div className="absolute -right-1 -bottom-3 w-8 h-8 bg-lime-300 rounded-full opacity-30" />
-          <div className="relative">
-            <div className="text-[10px] font-semibold text-black">💎 Premium Plan</div>
-            <div className="flex items-center justify-between">
-              <span className="text-lg font-bold text-black">₱30/month</span>
-              <span className="bg-black text-lime-400 text-[10px] px-3 py-1 rounded-full font-bold">Get Started →</span>
-            </div>
-            <div className="text-[9px] text-black/70">Upgrade your dashboard</div>
-          </div>
         </div>
       </div>
 
       {/* RIGHT SIDEBAR */}
-      <div className={`col-span-3 hidden xl:flex flex-col gap-3 p-3 rounded-xl ${card}`}>
+      <div className={`col-span-3 hidden xl:flex flex-col gap-2 p-2.5 rounded-xl ${card}`}>
         {/* Notifications */}
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className={`text-xs font-bold ${d ? "text-white" : "text-slate-900"}`}>Notifications</span>
-            <span className="bg-lime-400 text-black text-[9px] font-bold px-1.5 py-0.5 rounded-full">5</span>
+          <div className="flex items-center gap-1.5">
+            <span className={`text-[10px] font-bold ${d ? "text-white" : "text-slate-900"}`}>Notifications</span>
+            <span className="bg-[#ffb700] text-black text-[8px] font-bold px-1.5 py-0.5 rounded-full">5</span>
           </div>
-          <ChevronRight className="w-3.5 h-3.5 text-gray-500" />
+          <ChevronRight className="w-3 h-3 text-gray-500" />
         </div>
         {notifications.map((n, i) => {
           const Icon = n.icon;
           return (
-            <div key={i} className={`flex items-start gap-2 py-2 ${i < notifications.length - 1 ? (d ? "border-b border-[#1E2A44]" : "border-b border-slate-100") : ""}`}>
-              <div className="w-6 h-6 rounded-full bg-lime-400/20 flex items-center justify-center flex-shrink-0">
-                <Icon className="w-3 h-3 text-lime-400" />
+            <div key={i} className={`flex items-start gap-2 py-1.5 ${i < notifications.length - 1 ? (d ? "border-b border-[#1E2A44]" : "border-b border-slate-100") : ""}`}>
+              <div className="w-5 h-5 rounded-full bg-[#ffb700]/20 flex items-center justify-center flex-shrink-0">
+                <Icon className="w-2.5 h-2.5 text-[#ffb700]" />
               </div>
               <div>
-                <div className={`text-[10px] ${d ? "text-gray-300" : "text-slate-700"}`}>{n.text}</div>
-                <div className="text-[9px] text-gray-500">{n.time}</div>
+                <div className={`text-[9px] ${d ? "text-gray-300" : "text-slate-700"}`}>{n.text}</div>
+                <div className="text-[8px] text-gray-500">{n.time}</div>
               </div>
             </div>
           );
         })}
 
         {/* Activities */}
-        <div className={`text-xs font-bold mt-2 ${d ? "text-white" : "text-slate-900"}`}>Activities</div>
+        <div className={`text-[10px] font-bold mt-1 ${d ? "text-white" : "text-slate-900"}`}>Activities</div>
         {activities.map((a, i) => {
           const Icon = a.icon;
           return (
-            <div key={i} className="flex items-start gap-2 py-1.5">
-              <div className="w-6 h-6 rounded-full bg-lime-400/20 flex items-center justify-center flex-shrink-0">
-                <Icon className="w-3 h-3 text-lime-400" />
+            <div key={i} className="flex items-start gap-2 py-1">
+              <div className="w-5 h-5 rounded-full bg-[#ffb700]/20 flex items-center justify-center flex-shrink-0">
+                <Icon className="w-2.5 h-2.5 text-[#ffb700]" />
               </div>
               <div>
-                <div className={`text-[10px] ${d ? "text-gray-300" : "text-slate-700"}`}>{a.text}</div>
-                <div className="text-[9px] text-gray-500">{a.time}</div>
+                <div className={`text-[9px] ${d ? "text-gray-300" : "text-slate-700"}`}>{a.text}</div>
+                <div className="text-[8px] text-gray-500">{a.time}</div>
               </div>
             </div>
           );
         })}
 
         {/* Contacts */}
-        <div className={`text-xs font-bold mt-2 ${d ? "text-white" : "text-slate-900"}`}>Contacts</div>
+        <div className={`text-[10px] font-bold mt-1 ${d ? "text-white" : "text-slate-900"}`}>Contacts</div>
         {contacts.map((c) => (
-          <div key={c.name} className={`flex items-center gap-2 py-1.5 px-1 rounded ${c.highlight ? "bg-lime-400/10" : ""}`}>
-            <div className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold text-white" style={{ backgroundColor: c.color }}>
+          <div key={c.name} className={`flex items-center gap-2 py-1 px-1 rounded ${c.highlight ? "bg-[#ffb700]/10" : ""}`}>
+            <div className="w-5 h-5 rounded-full flex items-center justify-center text-[9px] font-bold text-white" style={{ backgroundColor: c.color }}>
               {c.name[0]}
             </div>
-            <span className={`text-[10px] ${d ? "text-gray-300" : "text-slate-700"}`}>{c.name}</span>
+            <span className={`text-[9px] ${d ? "text-gray-300" : "text-slate-700"}`}>{c.name}</span>
           </div>
         ))}
       </div>
@@ -1111,8 +1094,8 @@ const AgencyDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick
 // ─── Main Section ───
 
 const tabs = [
-  { id: 0, icon: UtensilsCrossed, label: "F&B / Restaurant" },
-  { id: 1, icon: ShoppingCart, label: "E-commerce" },
+  { id: 0, icon: ShoppingCart, label: "E-commerce" },
+  { id: 1, icon: UtensilsCrossed, label: "F&B / Restaurant" },
   { id: 2, icon: Store, label: "Retail / Distribution" },
   { id: 3, icon: Briefcase, label: "Service / Agency" },
 ];
@@ -1154,8 +1137,8 @@ const SectionDashboardPreview = () => {
           <span className="text-[#ffb700] font-semibold">₱500,000+</span> software.
         </p>
 
-        <div className="max-w-5xl mx-auto relative rounded-3xl bg-gradient-to-b from-[#1a1a24] to-[#0f0f16] border border-[#ffb700]/20 shadow-[0_30px_80px_rgba(0,0,0,0.6),0_0_60px_rgba(255,183,0,0.08)]">
-          <div className="flex items-center justify-between px-4 py-3 border-b border-[#ffb700]/15">
+        <div className="max-w-6xl mx-auto relative rounded-3xl bg-gradient-to-b from-[#1a1a24] to-[#0f0f16] border border-[#ffb700]/20 shadow-[0_30px_80px_rgba(0,0,0,0.6),0_0_60px_rgba(255,183,0,0.08)] aspect-[16/7] max-h-[720px] overflow-hidden flex flex-col">
+          <div className="flex items-center justify-between px-4 py-2.5 border-b border-[#ffb700]/15 flex-shrink-0">
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-1.5">
                 <span className="w-3 h-3 rounded-full bg-red-500" />
@@ -1174,7 +1157,7 @@ const SectionDashboardPreview = () => {
             </button>
           </div>
 
-          <div className="flex flex-wrap gap-2 p-4 border-b border-[#ffb700]/15 overflow-x-auto">
+          <div className="flex flex-wrap gap-2 px-4 py-2.5 border-b border-[#ffb700]/15 overflow-x-auto flex-shrink-0">
             {tabs.map((tab) => {
               const Icon = tab.icon;
               const isActive = tab.id === activeTab;
@@ -1182,32 +1165,32 @@ const SectionDashboardPreview = () => {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 cursor-pointer whitespace-nowrap ${
+                  className={`flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold transition-all duration-300 cursor-pointer whitespace-nowrap ${
                     isActive
                       ? "bg-[#ffb700] text-black shadow-[0_4px_20px_rgba(255,183,0,0.4)]"
                       : "bg-transparent text-gray-500 hover:text-white hover:bg-white/5"
                   }`}
                 >
-                  <Icon className="w-4 h-4" />
+                  <Icon className="w-3.5 h-3.5" />
                   {tab.label}
                 </button>
               );
             })}
           </div>
 
-          <div className="p-2 md:p-3">
-            <div className={`rounded-2xl overflow-hidden transition-colors duration-500 relative ${isDark ? "bg-[#0F1420]" : "bg-[#F8FAFC]"}`}>
-              <div key={activeTab} className="animate-fadeIn">
-                {activeTab === 0 && <FnBDashboard isDark={isDark} onDemoClick={handleDemoClick} />}
-                {activeTab === 1 && <EcommerceDashboard isDark={isDark} onDemoClick={handleDemoClick} />}
+          <div className="p-2 flex-1 overflow-hidden">
+            <div className={`rounded-2xl overflow-hidden transition-colors duration-500 relative h-full ${isDark ? "bg-[#0F1420]" : "bg-[#F8FAFC]"}`}>
+              <div key={activeTab} className="animate-fadeIn h-full">
+                {activeTab === 0 && <EcommerceDashboard isDark={isDark} onDemoClick={handleDemoClick} />}
+                {activeTab === 1 && <FnBDashboard isDark={isDark} onDemoClick={handleDemoClick} />}
                 {activeTab === 2 && <RetailDashboard isDark={isDark} onDemoClick={handleDemoClick} />}
                 {activeTab === 3 && <AgencyDashboard isDark={isDark} onDemoClick={handleDemoClick} />}
               </div>
 
               {showToast && (
-                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-50 animate-slideUp">
-                  <div className="flex items-center gap-2 bg-[#ffb700] text-black px-5 py-3 rounded-full shadow-[0_8px_30px_rgba(255,183,0,0.5)] text-sm font-semibold whitespace-nowrap">
-                    <Sparkles className="w-4 h-4" />
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-50 animate-slideUp">
+                  <div className="flex items-center gap-2 bg-[#ffb700] text-black px-4 py-2.5 rounded-full shadow-[0_8px_30px_rgba(255,183,0,0.5)] text-xs font-semibold whitespace-nowrap">
+                    <Sparkles className="w-3.5 h-3.5" />
                     This is a live demo — build your own inside the bootcamp
                   </div>
                 </div>
