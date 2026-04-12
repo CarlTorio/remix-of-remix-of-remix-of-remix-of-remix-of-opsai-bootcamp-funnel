@@ -38,7 +38,7 @@ const Section2Checklist = () => {
 
 
           {/* Headline */}
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-3 mt-6">
+          <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight mb-3 mt-6">
             This Is For You If…
           </h2>
 
