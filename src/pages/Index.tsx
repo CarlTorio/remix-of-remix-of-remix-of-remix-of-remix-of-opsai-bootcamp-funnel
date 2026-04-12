@@ -54,9 +54,9 @@ const Index = () => (
     <Section4WhatThisIs />
     <SectionDashboardPreview />
     <Section5BeforeAfter />
+    <Section11Industries />
     <SectionWhyThisWorks />
     <SectionRoadmap />
-    <Section11Industries />
     <SectionAboutCreator />
     <SectionOfferZone />
     <SectionFAQ />

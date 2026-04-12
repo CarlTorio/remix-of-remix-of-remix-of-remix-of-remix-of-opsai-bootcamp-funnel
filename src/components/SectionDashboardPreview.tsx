@@ -1407,6 +1407,7 @@ const SectionDashboardPreview = () => {
 
   return (
     <section
+      id="dashboard-showcase"
       className="w-full py-24 px-6 -mt-12 relative"
       style={{
         background: "#0A0A0F",
