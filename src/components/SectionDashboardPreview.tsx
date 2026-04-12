@@ -174,29 +174,29 @@ const DataList = ({ title, items, isDark, amountRedStatuses = [], onDemoClick, a
 
 interface DonutEntry { name: string; value: number; color: string }
 
-const DonutCard = ({ title, subtitle, data, isDark }: { title: string; subtitle: string; data: DonutEntry[]; isDark: boolean }) => {
+const DonutCard = ({ title, subtitle, data, isDark, accentColor = "#a3e635" }: { title: string; subtitle: string; data: DonutEntry[]; isDark: boolean; accentColor?: string }) => {
   const d = isDark;
   return (
-    <div className={`p-5 rounded-xl border ${d ? "bg-[#131A2E] border-[#1E2A44]" : "bg-white border-slate-200"}`}>
-      <div className={`text-sm font-bold ${d ? "text-white" : "text-slate-900"}`}>{title}</div>
-      <div className={`text-xs mb-3 ${d ? "text-gray-500" : "text-slate-500"}`}>{subtitle}</div>
-      <div className="w-full h-[180px]">
+    <div className={`p-3 rounded-xl border ${d ? "bg-[#131A2E] border-[#1E2A44]" : "bg-white border-slate-200"}`}>
+      <div className={`text-xs font-bold ${d ? "text-white" : "text-slate-900"}`}>{title}</div>
+      <div className={`text-[10px] mb-2 ${d ? "text-gray-500" : "text-slate-500"}`}>{subtitle}</div>
+      <div className="w-full h-[130px]">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
-            <Pie data={data} innerRadius={50} outerRadius={75} paddingAngle={2} dataKey="value" isAnimationActive={true}>
+            <Pie data={data} innerRadius={38} outerRadius={58} paddingAngle={2} dataKey="value" isAnimationActive={true}>
               {data.map((entry, index) => <Cell key={index} fill={entry.color} />)}
             </Pie>
           </PieChart>
         </ResponsiveContainer>
       </div>
-      <div className="flex flex-col gap-2 mt-3">
+      <div className="flex flex-col gap-1 mt-1">
         {data.map((cat) => (
           <div key={cat.name} className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full" style={{ backgroundColor: cat.color }} />
-              <span className={`text-xs ${d ? "text-gray-400" : "text-slate-600"}`}>{cat.name}</span>
+              <span className={`text-[10px] ${d ? "text-gray-400" : "text-slate-600"}`}>{cat.name}</span>
             </div>
-            <span className="text-xs font-bold text-[#ffb700]">{cat.value}%</span>
+            <span className="text-[10px] font-bold" style={{ color: accentColor }}>{cat.value}%</span>
           </div>
         ))}
       </div>
@@ -206,17 +206,17 @@ const DonutCard = ({ title, subtitle, data, isDark }: { title: string; subtitle:
 
 interface ActionBtn { label: string; icon: LucideIcon; primary?: boolean }
 
-const ActionButtons = ({ buttons, isDark, onDemoClick }: { buttons: ActionBtn[]; isDark: boolean; onDemoClick: () => void }) => {
+const ActionButtons = ({ buttons, isDark, onDemoClick, accentColor = "#a3e635" }: { buttons: ActionBtn[]; isDark: boolean; onDemoClick: () => void; accentColor?: string }) => {
   const d = isDark;
   return (
     <div className="flex flex-wrap gap-2">
       {buttons.map((btn) => {
         const Icon = btn.icon;
         return (
-          <button key={btn.label} onClick={onDemoClick} className={`flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 cursor-pointer hover:-translate-y-0.5 ${
-            btn.primary ? "bg-[#ffb700] text-black" : d ? "bg-[#1E2A44] text-gray-300 border border-[#2A3A5C]" : "bg-white text-slate-700 border border-slate-200"
-          }`}>
-            <Icon className="w-4 h-4" /> {btn.label}
+          <button key={btn.label} onClick={onDemoClick} className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold transition-all duration-300 cursor-pointer hover:-translate-y-0.5 ${
+            btn.primary ? "text-black" : d ? "bg-[#1E2A44] text-gray-300 border border-[#2A3A5C]" : "bg-white text-slate-700 border border-slate-200"
+          }`} style={btn.primary ? { backgroundColor: accentColor } : undefined}>
+            <Icon className="w-3.5 h-3.5" /> {btn.label}
           </button>
         );
       })}
@@ -224,18 +224,18 @@ const ActionButtons = ({ buttons, isDark, onDemoClick }: { buttons: ActionBtn[];
   );
 };
 
-const ChartCard = ({ title, subtitle, isDark, children }: { title: string; subtitle: string; isDark: boolean; children: React.ReactNode }) => {
+const ChartCard = ({ title, subtitle, isDark, children, chartHeight = "180px" }: { title: string; subtitle: string; isDark: boolean; children: React.ReactNode; chartHeight?: string }) => {
   const d = isDark;
   return (
-    <div className={`p-5 rounded-xl border ${d ? "bg-[#131A2E] border-[#1E2A44]" : "bg-white border-slate-200"}`}>
-      <div className="flex items-center justify-between mb-4">
+    <div className={`p-3 rounded-xl border ${d ? "bg-[#131A2E] border-[#1E2A44]" : "bg-white border-slate-200"}`}>
+      <div className="flex items-center justify-between mb-2">
         <div>
-          <div className={`text-sm font-bold ${d ? "text-white" : "text-slate-900"}`}>{title}</div>
-          <div className={`text-xs ${d ? "text-gray-500" : "text-slate-500"}`}>{subtitle}</div>
+          <div className={`text-xs font-bold ${d ? "text-white" : "text-slate-900"}`}>{title}</div>
+          <div className={`text-[10px] ${d ? "text-gray-500" : "text-slate-500"}`}>{subtitle}</div>
         </div>
-        <div className={`px-2.5 py-1 rounded-full text-[10px] ${d ? "bg-[#1E2A44] text-gray-400" : "bg-slate-100 text-slate-500"}`}>Last updated: now</div>
+        <div className={`px-2 py-0.5 rounded-full text-[9px] ${d ? "bg-[#1E2A44] text-gray-400" : "bg-slate-100 text-slate-500"}`}>Live</div>
       </div>
-      <div className="w-full h-[220px]">{children}</div>
+      <div className="w-full" style={{ height: chartHeight }}>{children}</div>
     </div>
   );
 };
