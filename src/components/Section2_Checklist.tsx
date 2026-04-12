@@ -17,7 +17,7 @@ const Section2Checklist = () => {
 
   return (
     <section
-      className="py-16 md:py-24 px-6 relative overflow-hidden"
+      className="py-12 md:py-16 px-6 relative overflow-hidden"
       style={{ backgroundColor: "#0A0A0F" }}
     >
       {/* Radial glow */}
@@ -27,9 +27,9 @@ const Section2Checklist = () => {
 
       <div ref={ref} className="max-w-[1200px] mx-auto relative z-10">
         {/* Bridge Intro */}
-        <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
+        <div className="max-w-3xl mx-auto text-center mb-8 md:mb-10">
           {/* Divider */}
-          <div className="w-12 h-px bg-[#ffb700]/40 mx-auto mb-6" />
+          <div className="w-12 h-px bg-[#ffb700]/40 mx-auto mb-4" />
 
           {/* Bridge line */}
           <p className="text-xl md:text-2xl lg:text-3xl font-bold text-white tracking-tight leading-tight">
@@ -38,7 +38,7 @@ const Section2Checklist = () => {
 
 
           {/* Headline */}
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-4">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-3 mt-6">
             This Is For You If…
           </h2>
 
@@ -47,11 +47,11 @@ const Section2Checklist = () => {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 mb-12 md:mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 md:gap-3 mb-8 md:mb-10">
           {items.map((item, i) => (
             <div
               key={i}
-              className={`group relative rounded-2xl p-5 md:p-6 cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#17171F] hover:border-[#ffb700]/40 ${
+              className={`group relative rounded-2xl p-4 md:p-5 cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#17171F] hover:border-[#ffb700]/40 ${
                 item.catchAll
                   ? "bg-gradient-to-br from-[#ffb700]/10 via-[#13131A] to-[#13131A] border border-[#ffb700]/35 shadow-[0_0_40px_rgba(255,183,0,0.06)]"
                   : "bg-[#13131A] border border-white/[0.06]"
@@ -78,8 +78,8 @@ const Section2Checklist = () => {
         </div>
 
         {/* Closing Callout */}
-        <div className="max-w-3xl mx-auto text-center mb-10">
-          <h3 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-[1.2] mb-8">
+        <div className="max-w-3xl mx-auto text-center mb-6">
+          <h3 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-[1.2] mb-5">
             If you want <span className="text-[#ffb700]">one internal system</span> that matches your operations, connects your departments, and gives you <span className="text-[#ffb700]">real visibility</span> over your business — <span className="text-[#ffb700]">this is for you</span>.
           </h3>
           <p className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto mb-5">
