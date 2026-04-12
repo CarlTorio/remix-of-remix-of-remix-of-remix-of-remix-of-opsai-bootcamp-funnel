@@ -129,7 +129,7 @@
 .star-border-container .inner-content {
   position: relative;
   border: 1px solid hsl(var(--muted));
-  background: hsl(var(--background));
+  background: transparent;
   border-radius: 9999px;
   z-index: 1;
 }
