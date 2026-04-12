@@ -8,7 +8,9 @@ import {
   Warehouse, Truck, RotateCcw, Boxes, Wallet, Minus,
   ArrowRightLeft, FolderKanban, CheckSquare, FileText,
   UserCircle, UserPlus, FilePlus, Clock,
-  Sparkles, ArrowRight
+  Sparkles, ArrowRight,
+  Search, MessageSquare, Star, Settings, MoreVertical,
+  Palette, ChevronRight
 } from "lucide-react";
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip,
