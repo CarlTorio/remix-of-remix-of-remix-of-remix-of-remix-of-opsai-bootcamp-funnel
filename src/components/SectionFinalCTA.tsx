@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
-import CTAButton from "./CTAButton";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import CTAButton from "@/components/CTAButton";
 
 const SectionFinalCTA = () => {
   const { ref, visible } = useScrollReveal(0.1);
