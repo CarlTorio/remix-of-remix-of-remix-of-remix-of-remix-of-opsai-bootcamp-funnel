@@ -196,7 +196,7 @@ const HeroSection = () => {
             style={{
               filter: `blur(${blurAmount}px)`,
               willChange: "filter",
-              transition: "filter 0.3s ease-out",
+              transition: `filter ${isResetting ? '0.15s' : '0.3s'} ease-out`,
             }}
           >
             {/* Image area */}
@@ -235,7 +235,7 @@ const HeroSection = () => {
               height: isMobile ? "85%" : "60%",
               background: "linear-gradient(to top, #000 0%, rgba(0,0,0,0.92) 35%, rgba(0,0,0,0.5) 70%, rgba(0,0,0,0) 100%)",
               opacity: overlayOpacity,
-              transition: "opacity 1.5s ease-out",
+              transition: `opacity ${isResetting ? '0.15s' : '1.5s'} ease-out`,
             }}
           />
 
@@ -245,7 +245,7 @@ const HeroSection = () => {
             style={{
               bottom: "8vh",
               opacity: textOpacity,
-              transition: "opacity 2s ease-out",
+              transition: `opacity ${isResetting ? '0.15s' : '2s'} ease-out`,
             }}
           >
             <h2 className="text-xl md:text-2xl lg:text-3xl font-heading font-bold text-center" style={{ color: "#fbbd23" }}>
