@@ -53,20 +53,20 @@ const Section5BeforeAfter = () => {
               return (
                 <div
                   key={i}
-                  className="bg-[#13131A] border border-red-500/15 rounded-xl p-4 text-center relative hover:border-red-500/30 transition-all duration-300 hover:-translate-y-0.5"
+                  className="bg-[#13131A] border border-red-500/15 rounded-xl p-3 text-center relative hover:border-red-500/30 transition-all duration-300 hover:-translate-y-0.5"
                   style={{
                     transitionDelay: `${i * 60}ms`,
                     opacity: visBefore ? 1 : 0,
                     transform: visBefore ? "translateY(0)" : "translateY(16px)",
                   }}
                 >
-                  <div className="w-8 h-8 mx-auto mb-2 rounded-lg bg-red-500/10 border border-red-500/20 flex items-center justify-center">
-                    <Icon className="w-4 h-4 text-red-400" />
+                  <div className="w-7 h-7 mx-auto mb-1.5 rounded-lg bg-red-500/10 border border-red-500/20 flex items-center justify-center">
+                    <Icon className="w-3.5 h-3.5 text-red-400" />
                   </div>
-                  <p className="text-xl md:text-2xl font-bold text-white tabular-nums mb-1">{stat.number}</p>
-                  <p className="text-[10px] text-gray-500 uppercase tracking-wider leading-tight">{stat.label}</p>
-                  <div className="mt-2">
-                    <span className="bg-red-500/10 text-red-400 text-[9px] px-2 py-0.5 rounded font-semibold uppercase tracking-wider">
+                  <p className="text-lg md:text-xl font-bold text-white tabular-nums mb-0.5">{stat.number}</p>
+                  <p className="text-[9px] text-gray-500 uppercase tracking-wider leading-tight">{stat.label}</p>
+                  <div className="mt-1.5">
+                    <span className="bg-red-500/10 text-red-400 text-[8px] px-1.5 py-0.5 rounded font-semibold uppercase tracking-wider">
                       {stat.tag}
                     </span>
                   </div>
@@ -102,7 +102,7 @@ const Section5BeforeAfter = () => {
               return (
                 <div
                   key={i}
-                  className="bg-gradient-to-br from-[#ffb700]/[0.08] via-[#13131A] to-[#13131A] border border-[#ffb700]/30 rounded-xl p-4 text-center relative hover:border-[#ffb700]/50 hover:-translate-y-0.5 transition-all duration-300"
+                  className="bg-gradient-to-br from-[#ffb700]/[0.08] via-[#13131A] to-[#13131A] border border-[#ffb700]/30 rounded-xl p-3 text-center relative hover:border-[#ffb700]/50 hover:-translate-y-0.5 transition-all duration-300"
                   style={{
                     boxShadow: "0 4px 20px rgba(255,183,0,0.05)",
                     transitionDelay: `${i * 60}ms`,
@@ -110,13 +110,13 @@ const Section5BeforeAfter = () => {
                     transform: visAfter ? "translateY(0)" : "translateY(16px)",
                   }}
                 >
-                  <div className="w-8 h-8 mx-auto mb-2 rounded-lg bg-[#ffb700]/15 border border-[#ffb700]/40 flex items-center justify-center">
-                    <Icon className="w-4 h-4 text-[#ffb700]" />
+                  <div className="w-7 h-7 mx-auto mb-1.5 rounded-lg bg-[#ffb700]/15 border border-[#ffb700]/40 flex items-center justify-center">
+                    <Icon className="w-3.5 h-3.5 text-[#ffb700]" />
                   </div>
-                  <p className="text-xl md:text-2xl font-bold text-white tabular-nums mb-1">{stat.number}</p>
-                  <p className="text-[10px] text-gray-400 uppercase tracking-wider leading-tight">{stat.label}</p>
-                  <div className="mt-2">
-                    <span className="bg-[#ffb700]/15 text-[#ffb700] text-[9px] px-2 py-0.5 rounded font-semibold uppercase tracking-wider">
+                  <p className="text-lg md:text-xl font-bold text-white tabular-nums mb-0.5">{stat.number}</p>
+                  <p className="text-[9px] text-gray-400 uppercase tracking-wider leading-tight">{stat.label}</p>
+                  <div className="mt-1.5">
+                    <span className="bg-[#ffb700]/15 text-[#ffb700] text-[8px] px-1.5 py-0.5 rounded font-semibold uppercase tracking-wider">
                       {stat.tag}
                     </span>
                   </div>
