@@ -9,6 +9,7 @@ import Section5BeforeAfter from "@/components/Section5_BeforeAfter";
 import SectionWhyThisWorks from "@/components/SectionWhyThisWorks";
 import SectionRoadmap from "@/components/SectionRoadmap";
 import Section11Industries from "@/components/Section11_Industries";
+import SectionAboutCreator from "@/components/SectionAboutCreator";
 import Section13Pricing from "@/components/Section13_Pricing";
 import Section14Bonuses from "@/components/Section14_Bonuses";
 import Section15FAQ from "@/components/Section15_FAQ";
@@ -59,6 +60,7 @@ const Index = () => (
     <SectionWhyThisWorks />
     <SectionRoadmap />
     <Section11Industries />
+    <SectionAboutCreator />
     <Section13Pricing />
     <Section14Bonuses />
     <Section15FAQ />
