@@ -289,10 +289,10 @@ const HeroSection = () => {
           {/* Problem statement below stacks */}
           <div className="relative w-full text-center py-12 md:py-20">
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent rounded-lg pointer-events-none -z-0" />
-            <p className="relative z-10 text-foreground font-body text-xl md:text-3xl mb-3">
+            <p className="relative z-10 text-foreground font-body text-base md:text-xl mb-2">
               …then your business is not "ORGANIZED ENOUGH."
             </p>
-            <p className="relative z-10 text-[#ffb700] font-heading text-2xl md:text-4xl font-extrabold">
+            <p className="relative z-10 text-[#ffb700] font-heading text-lg md:text-2xl font-extrabold">
               IT IS ONE PROBLEM AWAY FROM CHAOS.
             </p>
           </div>
