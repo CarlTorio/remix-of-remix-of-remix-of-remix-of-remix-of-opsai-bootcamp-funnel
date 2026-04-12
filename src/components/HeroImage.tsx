@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { useScrollBlur } from "@/hooks/useScrollBlur";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const HeroImage = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
