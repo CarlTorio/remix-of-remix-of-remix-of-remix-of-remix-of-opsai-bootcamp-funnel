@@ -109,7 +109,7 @@ const SectionWhyThisWorks = () => {
                 </div>
 
                 {/* Image Side */}
-                <div className="flex-1 w-full max-w-[400px] md:max-w-none">
+                <div className="flex-1 w-full max-w-[300px] md:max-w-[320px]">
                   <div className="relative rounded-2xl overflow-hidden border border-white/[0.06] shadow-[0_8px_30px_rgba(0,0,0,0.4)]">
                     <img
                       src={r.image}
