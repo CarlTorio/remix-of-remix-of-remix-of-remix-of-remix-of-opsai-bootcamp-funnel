@@ -28,27 +28,6 @@ const SectionFinalCTA = () => {
           </p>
         </div>
 
-        {/* Urgency Bar */}
-        <div className="max-w-xl mx-auto mt-8 mb-8 relative">
-          <div className="absolute -inset-0.5 bg-[#ffb700]/15 blur-xl rounded-2xl opacity-50 -z-10" />
-          <div className="bg-[#13131A] border border-[#ffb700]/30 rounded-2xl p-5 relative">
-            <div className="flex items-center justify-between mb-3">
-              <span className="text-[#ffb700] text-[10px] uppercase tracking-widest font-bold">Founding Cohort Filling Up</span>
-              <span className="inline-flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
-                <span className="text-red-400 text-[10px] font-bold">LIVE</span>
-              </span>
-            </div>
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-xs text-gray-400">Slots remaining</span>
-              <span className="text-sm font-bold text-white tabular-nums">37 / 100</span>
-            </div>
-            <div className="w-full h-2 rounded-full bg-[#0F0F14] border border-white/[0.05] overflow-hidden">
-              <div className="w-[63%] h-full bg-gradient-to-r from-[#ffb700] to-[#ffc733] rounded-full shadow-[0_0_15px_rgba(255,183,0,0.5)]" />
-            </div>
-            <p className="mt-3 text-center text-[10px] text-gray-500">63 owners have already reserved their slot</p>
-          </div>
-        </div>
 
         {/* CTA */}
         <div className="flex flex-col items-center gap-3 mb-6">
