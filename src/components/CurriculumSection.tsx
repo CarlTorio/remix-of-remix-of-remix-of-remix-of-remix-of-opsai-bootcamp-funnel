@@ -15,7 +15,7 @@ const CurriculumSection = () => (
       <div className="text-center mb-12">
         <SectionLabel>What You'll Learn</SectionLabel>
         <h2 className="font-heading font-bold text-2xl md:text-4xl">
-          6 Weeks to a <span className="text-accent">Systemized</span> Business
+          14 Days to a <span className="text-accent">Systemized</span> Business
         </h2>
       </div>
       <div className="max-w-3xl mx-auto space-y-4">
