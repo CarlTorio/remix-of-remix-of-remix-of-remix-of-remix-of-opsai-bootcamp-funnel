@@ -198,7 +198,7 @@ const HeroSection = () => {
           >
             {/* Image area */}
             <div className="relative w-full">
-              <img src={heroBg} alt="" className="w-full h-auto" width={1920} height={1080} />
+              <img src={isMobile ? heroBgMobile : heroBgDesktop} alt="" className="w-full h-auto" width={1920} height={1080} />
               <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-transparent to-background" />
             </div>
             {/* Text content */}
