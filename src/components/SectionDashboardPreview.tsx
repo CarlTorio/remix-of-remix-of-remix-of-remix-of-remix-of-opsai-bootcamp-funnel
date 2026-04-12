@@ -1288,8 +1288,8 @@ const AgencyDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick
 
 const tabs = [
   { id: 0, icon: ShoppingCart, label: "E-commerce" },
-  { id: 1, icon: UtensilsCrossed, label: "F&B / Restaurant" },
   { id: 2, icon: Store, label: "Retail / Distribution" },
+  { id: 1, icon: UtensilsCrossed, label: "F&B / Restaurant" },
   { id: 3, icon: Briefcase, label: "Service / Agency" },
 ];
 
