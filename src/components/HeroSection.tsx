@@ -261,7 +261,7 @@ const HeroSection = () => {
               itemStackDistance={30}
               stackPosition="15%"
               baseScale={0.88}
-              className="max-w-5xl mx-auto px-4 md:px-8 pt-4 md:pt-8 -mt-16 md:mt-0"
+              className="max-w-5xl mx-auto px-4 md:px-8 pt-4 md:pt-8"
             >
               {stackCards.map((card, i) => (
                 <ScrollStackItem
