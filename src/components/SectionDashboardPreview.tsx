@@ -10,7 +10,8 @@ import {
   UserCircle, UserPlus, FilePlus, Clock,
   Sparkles, ArrowRight,
   Search, MessageSquare, Star, Settings, MoreVertical,
-  Palette, ChevronRight, RefreshCw, Bell, ChevronDown, ArrowUpDown
+  Palette, ChevronRight, RefreshCw, Bell, ChevronDown, ArrowUpDown,
+  ChevronLeft, CalendarCheck
 } from "lucide-react";
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip,
@@ -891,69 +892,217 @@ const RetailDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick
   );
 };
 
-// ─── Agency Dashboard ───
-
-const agencyNav: NavItem[] = [
-  { icon: LayoutDashboard, label: "Dashboard", active: true },
-  { icon: Users, label: "Clients", active: false },
-  { icon: FolderKanban, label: "Projects", active: false },
-  { icon: CheckSquare, label: "Tasks", active: false },
-  { icon: FileText, label: "Invoices", active: false },
-  { icon: UserCircle, label: "Team", active: false },
-];
-const agencyKPIs: KPIData[] = [
-  { icon: TrendingUp, label: "MONTHLY REVENUE", value: 385000, prefix: "₱", trend: "+9.4%", trendColor: "green" },
-  { icon: FolderKanban, label: "ACTIVE PROJECTS", value: 18, trend: "3 due this week", trendColor: "neutral" },
-  { icon: FileText, label: "PENDING INVOICES", value: 124500, prefix: "₱", trend: "5 clients", trendColor: "neutral" },
-  { icon: Users, label: "CLIENT RETENTION", value: 87, suffix: "%", trend: "+3%", trendColor: "green" },
-];
-const agencyRevenueData = [
-  { month: "Nov", revenue: 245000 }, { month: "Dec", revenue: 268000 },
-  { month: "Jan", revenue: 285000 }, { month: "Feb", revenue: 312000 },
-  { month: "Mar", revenue: 348000 }, { month: "Apr", revenue: 385000 },
-];
-const agencyActivity: ListItem[] = [
-  { id: "ABC Corp", desc: "Invoice paid in full", amount: "₱85,000", time: "30 min ago", status: "paid" },
-  { id: "XYZ Brand", desc: "New project kicked off", amount: "₱120,000", time: "2 hours ago", status: "new" },
-  { id: "TechStart PH", desc: "Milestone 2 delivered", amount: "₱45,000", time: "4 hours ago", status: "delivered" },
-  { id: "GreenLeaf Co", desc: "Pending client review", amount: "₱28,500", time: "1 day ago", status: "review" },
-  { id: "FoodMart", desc: "Contract renewed", amount: "₱65,000", time: "2 days ago", status: "renewed" },
-];
-const agencyServiceData: DonutEntry[] = [
-  { name: "Branding", value: 40, color: "#ffb700" },
-  { name: "Web Dev", value: 30, color: "#fcd34d" },
-  { name: "Marketing", value: 20, color: "#fde68a" },
-  { name: "Other", value: 10, color: "#fef3c7" },
-];
+// ─── Agency Dashboard (Calendar View) ───
 
 const AgencyDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick: () => void }) => {
   const d = isDark;
+
+  const team = [
+    { name: "Paolo R.", role: "Creative Director", color: "#f43f5e", online: true },
+    { name: "Mika S.", role: "Designer", color: "#fb7185", online: true },
+    { name: "Jaypee L.", role: "Developer", color: "#fda4af", online: true },
+    { name: "Trisha M.", role: "Copywriter", color: "#f97316", online: false },
+    { name: "Kenji T.", role: "Project Mgr", color: "#fdba74", online: true },
+  ];
+
+  const weekDays = [
+    { name: "MON", date: 15, isToday: true },
+    { name: "TUE", date: 16, isToday: false },
+    { name: "WED", date: 17, isToday: false },
+    { name: "THU", date: 18, isToday: false },
+    { name: "FRI", date: 19, isToday: false },
+    { name: "SAT", date: 20, isToday: false },
+    { name: "SUN", date: 21, isToday: false },
+  ];
+
+  const events = [
+    { day: 0, top: "8%", height: "18%", title: "Client Kickoff", client: "ABC Corp", color: "rose" as const, attendees: 3 },
+    { day: 0, top: "38%", height: "22%", title: "Brand Review", client: "XYZ Brand", color: "peach" as const, attendees: 2 },
+    { day: 1, top: "6%", height: "15%", title: "Team Standup", client: "Internal", color: "amber" as const, attendees: 5 },
+    { day: 1, top: "33%", height: "25%", title: "Logo Concepts", client: "TechStart", color: "rose" as const, attendees: 2 },
+    { day: 2, top: "12%", height: "30%", title: "Website Design", client: "GreenLeaf", color: "peach" as const, attendees: 3 },
+    { day: 3, top: "4%", height: "20%", title: "Pitch Deck", client: "FoodMart", color: "amber" as const, attendees: 4 },
+    { day: 3, top: "48%", height: "18%", title: "Client Call", client: "ABC Corp", color: "rose" as const, attendees: 2 },
+    { day: 4, top: "18%", height: "28%", title: "Milestone 2", client: "TechStart", color: "peach" as const, attendees: 3 },
+    { day: 4, top: "58%", height: "15%", title: "Final Review", client: "GreenLeaf", color: "rose" as const, attendees: 4 },
+    { day: 5, top: "22%", height: "20%", title: "Design Sprint", client: "Internal", color: "amber" as const, attendees: 5 },
+    { day: 6, top: "14%", height: "12%", title: "Coffee Chat", client: "New Lead", color: "rose" as const, attendees: 2 },
+  ];
+
+  const eventColors = {
+    rose: { bg: "bg-rose-500/15", border: "border-rose-500", text: d ? "text-rose-300" : "text-rose-700" },
+    peach: { bg: "bg-orange-400/15", border: "border-orange-400", text: d ? "text-orange-300" : "text-orange-700" },
+    amber: { bg: "bg-amber-400/15", border: "border-amber-400", text: d ? "text-amber-300" : "text-amber-700" },
+  };
+
+  const timeLabels = ["8 AM", "10 AM", "12 PM", "2 PM", "4 PM", "6 PM"];
+  const calDays = Array.from({ length: 35 }, (_, i) => i - 1); // starts from Aug 31 → Sept days
+  const eventDays = new Set([8, 12, 15, 18, 22, 25, 28]);
+
   return (
-    <div className="flex min-h-[600px] w-full">
-      <DashboardSidebar brand={{ letter: "C", name: "Craft Digital", tagline: "Agency OS" }} nav={agencyNav} isDark={d} onDemoClick={onDemoClick} />
-      <div className="flex-1 p-6 flex flex-col gap-5 transition-colors duration-500">
-        <TopBar greeting="Good morning, Paolo 👋" subtitle="Here's your agency pipeline today" isDark={d} />
-        <KPICards data={agencyKPIs} isDark={d} onDemoClick={onDemoClick} />
-        <ChartCard title="Revenue Trend" subtitle="Last 6 months" isDark={d}>
-          <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={agencyRevenueData}>
-              <CartesianGrid strokeDasharray="3 3" stroke={d ? "#1E2A44" : "#e2e8f0"} />
-              <XAxis dataKey="month" stroke={d ? "#6B7280" : "#94a3b8"} fontSize={11} />
-              <YAxis stroke={d ? "#6B7280" : "#94a3b8"} fontSize={11} tickFormatter={(v) => `₱${v / 1000}k`} />
-              <Tooltip content={<CustomTooltip isDark={d} />} />
-              <Line type="monotone" dataKey="revenue" stroke="#ffb700" strokeWidth={3} dot={{ fill: "#ffb700", r: 5 }} activeDot={{ r: 7 }} isAnimationActive={true} />
-            </LineChart>
-          </ResponsiveContainer>
-        </ChartCard>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          <DataList title="Recent Activity" items={agencyActivity} isDark={d} onDemoClick={onDemoClick} />
-          <DonutCard title="Revenue by Service" subtitle="This month" data={agencyServiceData} isDark={d} />
+    <div className={`flex gap-3 h-full p-4 transition-colors duration-500 ${d ? "bg-[#1A0F14]" : "bg-[#FFF1F2]"}`}>
+      {/* Left Sidebar */}
+      <div className={`w-56 flex-shrink-0 hidden md:flex flex-col gap-3 p-3 rounded-xl ${d ? "bg-[#1F1418] border border-rose-900/20" : "bg-white border border-slate-200"}`}>
+        {/* Brand */}
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-rose-500 to-rose-700 flex items-center justify-center">
+            <span className="text-white font-bold text-sm">C</span>
+          </div>
+          <div>
+            <div className={`text-xs font-bold ${d ? "text-white" : "text-slate-900"}`}>Craft Digital</div>
+            <div className="text-[9px] text-gray-500">Agency OS</div>
+          </div>
         </div>
-        <ActionButtons buttons={[
-          { label: "New Client", icon: UserPlus, primary: true },
-          { label: "Create Invoice", icon: FilePlus },
-          { label: "Log Time", icon: Clock },
-        ]} isDark={d} onDemoClick={onDemoClick} />
+
+        {/* Mini Calendar */}
+        <div className="mt-1">
+          <div className="text-[9px] uppercase tracking-widest text-rose-500 font-bold mb-2">September 2026</div>
+          <div className="grid grid-cols-7 gap-0.5">
+            {["S","M","T","W","T","F","S"].map((h, i) => (
+              <div key={i} className="text-[8px] text-gray-500 text-center">{h}</div>
+            ))}
+            {calDays.map((dayOffset, i) => {
+              const day = dayOffset + 1;
+              const isValid = day >= 1 && day <= 30;
+              const isToday = day === 15;
+              const hasEvent = eventDays.has(day);
+              return (
+                <button
+                  key={i}
+                  onClick={isValid ? onDemoClick : undefined}
+                  className={`w-full aspect-square flex flex-col items-center justify-center text-[9px] rounded relative cursor-pointer transition-colors
+                    ${!isValid ? "text-transparent pointer-events-none" : ""}
+                    ${isToday ? "bg-rose-500 text-white font-bold" : isValid ? (d ? "text-gray-400 hover:bg-rose-900/30" : "text-gray-600 hover:bg-rose-100") : ""}
+                  `}
+                >
+                  {isValid ? day : ""}
+                  {hasEvent && !isToday && <span className="absolute bottom-0 w-1 h-1 rounded-full bg-rose-400" />}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Team */}
+        <div className="mt-2">
+          <div className="text-[9px] uppercase tracking-widest text-gray-500 mb-2">TEAM (5 online)</div>
+          {team.map((t, i) => (
+            <button key={i} onClick={onDemoClick} className={`flex items-center gap-2 py-1.5 rounded-md px-2 w-full text-left cursor-pointer transition-colors ${d ? "hover:bg-rose-950/30" : "hover:bg-rose-50"}`}>
+              <div className="relative">
+                <div className="w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold text-white" style={{ background: t.color }}>
+                  {t.name[0]}
+                </div>
+                {t.online && <span className="absolute -bottom-0.5 -right-0.5 w-2 h-2 rounded-full bg-green-500 border-2 border-white" />}
+              </div>
+              <div>
+                <div className={`text-[10px] font-semibold ${d ? "text-white" : "text-slate-900"}`}>{t.name}</div>
+                <div className="text-[8px] text-gray-500">{t.role}</div>
+              </div>
+            </button>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <button onClick={onDemoClick} className="mt-auto w-full py-2.5 rounded-lg bg-rose-500 hover:bg-rose-600 text-white font-semibold text-[11px] flex items-center justify-center gap-2 cursor-pointer transition-colors">
+          <Plus className="w-3 h-3" /> New Project
+        </button>
+      </div>
+
+      {/* Main Calendar */}
+      <div className="flex-1 flex flex-col gap-2 min-w-0">
+        {/* Top bar */}
+        <div className="flex items-center justify-between">
+          <div>
+            <div className={`text-lg font-bold ${d ? "text-white" : "text-slate-900"}`}>This Week</div>
+            <div className="text-[10px] text-gray-500">Sep 15 – Sep 21, 2026 · 12 events scheduled</div>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className={`flex items-center gap-0.5 p-0.5 rounded-lg ${d ? "bg-[#1F1418]" : "bg-slate-100"}`}>
+              {["Day", "Week", "Month"].map((v) => (
+                <button key={v} onClick={onDemoClick} className={`text-[10px] px-3 py-1 rounded cursor-pointer transition-colors ${v === "Week" ? "bg-rose-500 text-white font-semibold" : "text-gray-500"}`}>{v}</button>
+              ))}
+            </div>
+            <button onClick={onDemoClick} className="p-1.5 rounded-md cursor-pointer transition-colors hover:bg-rose-100 dark:hover:bg-rose-900/30"><ChevronLeft className="w-3.5 h-3.5 text-gray-500" /></button>
+            <button onClick={onDemoClick} className="p-1.5 rounded-md cursor-pointer transition-colors hover:bg-rose-100 dark:hover:bg-rose-900/30"><ChevronRight className="w-3.5 h-3.5 text-gray-500" /></button>
+            <button onClick={onDemoClick} className={`text-[10px] px-2.5 py-1 rounded-md border cursor-pointer transition-colors ${d ? "border-rose-900/30 text-gray-400" : "border-slate-200 text-gray-600"}`}>Today</button>
+            <button onClick={onDemoClick} className="bg-rose-500 text-white text-[10px] px-3 py-1.5 rounded-md font-semibold flex items-center gap-1 cursor-pointer hover:bg-rose-600 transition-colors">
+              <Plus className="w-3 h-3" /> Event
+            </button>
+          </div>
+        </div>
+
+        {/* Calendar Grid */}
+        <div className={`flex-1 rounded-xl overflow-hidden ${d ? "bg-[#1F1418] border border-rose-900/20" : "bg-white border border-slate-200"}`}>
+          {/* Day headers */}
+          <div className={`grid grid-cols-8 border-b ${d ? "border-rose-900/20" : "border-slate-200"}`}>
+            <div className="w-12" />
+            {weekDays.map((day, i) => (
+              <div key={i} className={`p-2 text-center border-l ${d ? "border-rose-900/20" : "border-slate-100"}`}>
+                <div className="text-[9px] uppercase text-gray-500">{day.name}</div>
+                <div className={`text-sm font-bold mt-0.5 ${day.isToday ? "text-rose-500" : d ? "text-white" : "text-slate-900"}`}>
+                  {day.isToday ? (
+                    <span className={`inline-flex w-7 h-7 rounded-full items-center justify-center ${d ? "bg-rose-900/40" : "bg-rose-100"}`}>{day.date}</span>
+                  ) : day.date}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Time grid + events */}
+          <div className="grid grid-cols-8 relative" style={{ height: "calc(100% - 56px)" }}>
+            {/* Time labels */}
+            <div className={`w-12 flex flex-col justify-between py-1 border-r ${d ? "border-rose-900/20" : "border-slate-100"}`}>
+              {timeLabels.map((t, i) => (
+                <div key={i} className="text-[8px] text-gray-500 text-right pr-2">{t}</div>
+              ))}
+            </div>
+
+            {/* Day columns */}
+            {weekDays.map((_, dayIdx) => (
+              <div key={dayIdx} className={`relative border-l ${d ? "border-rose-900/20" : "border-slate-100"}`}>
+                {/* Horizontal grid lines */}
+                {timeLabels.map((_, li) => (
+                  <div key={li} className={`absolute w-full border-t ${d ? "border-rose-900/10" : "border-slate-100"}`} style={{ top: `${(li / timeLabels.length) * 100}%` }} />
+                ))}
+
+                {/* Events */}
+                {events.filter(e => e.day === dayIdx).map((ev, ei) => {
+                  const c = eventColors[ev.color];
+                  return (
+                    <button
+                      key={ei}
+                      onClick={onDemoClick}
+                      className={`absolute left-1 right-1 rounded-md p-1.5 cursor-pointer hover:-translate-y-0.5 hover:shadow-lg transition-all border-l-2 text-left ${c.bg} ${c.border} ${c.text}`}
+                      style={{ top: ev.top, height: ev.height }}
+                    >
+                      <div className="text-[9px] font-bold truncate">{ev.title}</div>
+                      <div className="text-[8px] opacity-70 truncate">{ev.client}</div>
+                    </button>
+                  );
+                })}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom info strip */}
+        <div className="grid grid-cols-3 gap-2 hidden sm:grid">
+          {[
+            { icon: Clock, color: "text-rose-500", bgc: "bg-rose-500/10", title: "Next: Client Kickoff", sub: "in 45 minutes · ABC Corp" },
+            { icon: CalendarCheck, color: "text-orange-500", bgc: "bg-orange-500/10", title: "5 events today", sub: "2 client calls, 3 internal" },
+            { icon: AlertCircle, color: "text-amber-500", bgc: "bg-amber-500/10", title: "Due tomorrow", sub: "TechStart Milestone 2" },
+          ].map((card, i) => (
+            <button key={i} onClick={onDemoClick} className={`p-2.5 rounded-lg flex items-center gap-2 cursor-pointer text-left transition-colors ${d ? "bg-[#1F1418] border border-rose-900/20 hover:bg-rose-950/30" : "bg-white border border-slate-200 hover:bg-rose-50"}`}>
+              <div className={`${card.bgc} rounded p-1.5`}>
+                <card.icon className={`w-3.5 h-3.5 ${card.color}`} />
+              </div>
+              <div>
+                <div className={`text-[10px] font-semibold ${d ? "text-white" : "text-slate-900"}`}>{card.title}</div>
+                <div className="text-[9px] text-gray-500">{card.sub}</div>
+              </div>
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );
