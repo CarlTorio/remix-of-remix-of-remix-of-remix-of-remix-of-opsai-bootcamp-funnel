@@ -58,11 +58,8 @@ const Index = () => (
     <SectionRoadmap />
     <Section11Industries />
     <SectionAboutCreator />
-    <Section13Pricing />
-    <Section14Bonuses />
+    <SectionOfferZone />
     <Section15FAQ />
-    <Section16Guarantee />
-    <Section17EmotionalPush />
     <Section18FinalCTA />
     <NewFooter />
   </main>
