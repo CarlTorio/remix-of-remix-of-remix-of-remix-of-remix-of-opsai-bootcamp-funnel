@@ -81,7 +81,7 @@ const SectionOfferZone = () => {
             {/* Price */}
             <div className="text-center mb-6">
               <div className="inline-flex items-center gap-2 mb-1">
-                <span className="text-lg text-gray-500 line-through font-medium tabular-nums">₱15,000</span>
+                <span className="text-lg text-gray-500 line-through font-medium tabular-nums">₱200,000</span>
                 <span className="text-[10px] bg-red-500/15 text-red-400 border border-red-500/30 px-2 py-0.5 rounded-full font-bold">SAVE ₱17,114</span>
               </div>
               <p className="text-5xl md:text-6xl font-bold text-[#ffb700] tracking-tight leading-none drop-shadow-[0_0_40px_rgba(255,183,0,0.4)] tabular-nums">
