@@ -59,18 +59,18 @@ const Section2Checklist = () => {
               style={{ transitionDelay: `${i * 80}ms` }}
               aria-label={`${item.tag}: ${item.biz}`}
             >
-              <div className="flex items-start gap-3 md:gap-4">
+              <div className="flex items-start gap-2.5 md:gap-3">
                 {/* Check icon */}
-                <div className={`w-9 h-9 md:w-10 md:h-10 rounded-xl flex items-center justify-center flex-shrink-0 border transition-all duration-300 group-hover:scale-105 group-hover:bg-[#ffb700]/20 group-hover:border-[#ffb700]/50 ${
+                <div className={`w-7 h-7 md:w-8 md:h-8 rounded-lg flex items-center justify-center flex-shrink-0 border transition-all duration-300 group-hover:scale-105 group-hover:bg-[#ffb700]/20 group-hover:border-[#ffb700]/50 ${
                   item.catchAll ? "bg-[#ffb700]/20 border-[#ffb700]/40" : "bg-[#ffb700]/10 border-[#ffb700]/25"
                 }`}>
-                  <Check className="w-5 h-5 text-[#ffb700]" strokeWidth={2.5} />
+                  <Check className="w-4 h-4 text-[#ffb700]" strokeWidth={2.5} />
                 </div>
                 {/* Content */}
-                <div className="flex-1 flex flex-col gap-1.5 md:gap-2">
-                  <span className="text-[#ffb700] text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-bold mb-0.5">{item.tag}</span>
-                  <h3 className="text-white text-[15px] md:text-base font-bold leading-snug">{item.biz}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed mt-1 md:mt-1.5">{item.rest}</p>
+                <div className="flex-1 flex flex-col gap-1 md:gap-1.5">
+                  <span className="text-[#ffb700] text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold">{item.tag}</span>
+                  <h3 className="text-white text-[13px] md:text-sm font-bold leading-snug">{item.biz}</h3>
+                  <p className="text-gray-400 text-xs leading-relaxed mt-0.5">{item.rest}</p>
                 </div>
               </div>
             </div>
