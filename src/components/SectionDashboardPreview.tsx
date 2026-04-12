@@ -1094,8 +1094,8 @@ const AgencyDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick
 // ─── Main Section ───
 
 const tabs = [
-  { id: 0, icon: UtensilsCrossed, label: "F&B / Restaurant" },
-  { id: 1, icon: ShoppingCart, label: "E-commerce" },
+  { id: 0, icon: ShoppingCart, label: "E-commerce" },
+  { id: 1, icon: UtensilsCrossed, label: "F&B / Restaurant" },
   { id: 2, icon: Store, label: "Retail / Distribution" },
   { id: 3, icon: Briefcase, label: "Service / Agency" },
 ];
@@ -1137,8 +1137,8 @@ const SectionDashboardPreview = () => {
           <span className="text-[#ffb700] font-semibold">₱500,000+</span> software.
         </p>
 
-        <div className="max-w-5xl mx-auto relative rounded-3xl bg-gradient-to-b from-[#1a1a24] to-[#0f0f16] border border-[#ffb700]/20 shadow-[0_30px_80px_rgba(0,0,0,0.6),0_0_60px_rgba(255,183,0,0.08)]">
-          <div className="flex items-center justify-between px-4 py-3 border-b border-[#ffb700]/15">
+        <div className="max-w-6xl mx-auto relative rounded-3xl bg-gradient-to-b from-[#1a1a24] to-[#0f0f16] border border-[#ffb700]/20 shadow-[0_30px_80px_rgba(0,0,0,0.6),0_0_60px_rgba(255,183,0,0.08)] aspect-[16/7] max-h-[720px] overflow-hidden flex flex-col">
+          <div className="flex items-center justify-between px-4 py-2.5 border-b border-[#ffb700]/15 flex-shrink-0">
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-1.5">
                 <span className="w-3 h-3 rounded-full bg-red-500" />
@@ -1157,7 +1157,7 @@ const SectionDashboardPreview = () => {
             </button>
           </div>
 
-          <div className="flex flex-wrap gap-2 p-4 border-b border-[#ffb700]/15 overflow-x-auto">
+          <div className="flex flex-wrap gap-2 px-4 py-2.5 border-b border-[#ffb700]/15 overflow-x-auto flex-shrink-0">
             {tabs.map((tab) => {
               const Icon = tab.icon;
               const isActive = tab.id === activeTab;
@@ -1165,32 +1165,32 @@ const SectionDashboardPreview = () => {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 cursor-pointer whitespace-nowrap ${
+                  className={`flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold transition-all duration-300 cursor-pointer whitespace-nowrap ${
                     isActive
                       ? "bg-[#ffb700] text-black shadow-[0_4px_20px_rgba(255,183,0,0.4)]"
                       : "bg-transparent text-gray-500 hover:text-white hover:bg-white/5"
                   }`}
                 >
-                  <Icon className="w-4 h-4" />
+                  <Icon className="w-3.5 h-3.5" />
                   {tab.label}
                 </button>
               );
             })}
           </div>
 
-          <div className="p-2 md:p-3">
-            <div className={`rounded-2xl overflow-hidden transition-colors duration-500 relative ${isDark ? "bg-[#0F1420]" : "bg-[#F8FAFC]"}`}>
-              <div key={activeTab} className="animate-fadeIn">
-                {activeTab === 0 && <FnBDashboard isDark={isDark} onDemoClick={handleDemoClick} />}
-                {activeTab === 1 && <EcommerceDashboard isDark={isDark} onDemoClick={handleDemoClick} />}
+          <div className="p-2 flex-1 overflow-hidden">
+            <div className={`rounded-2xl overflow-hidden transition-colors duration-500 relative h-full ${isDark ? "bg-[#0F1420]" : "bg-[#F8FAFC]"}`}>
+              <div key={activeTab} className="animate-fadeIn h-full">
+                {activeTab === 0 && <EcommerceDashboard isDark={isDark} onDemoClick={handleDemoClick} />}
+                {activeTab === 1 && <FnBDashboard isDark={isDark} onDemoClick={handleDemoClick} />}
                 {activeTab === 2 && <RetailDashboard isDark={isDark} onDemoClick={handleDemoClick} />}
                 {activeTab === 3 && <AgencyDashboard isDark={isDark} onDemoClick={handleDemoClick} />}
               </div>
 
               {showToast && (
-                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-50 animate-slideUp">
-                  <div className="flex items-center gap-2 bg-[#ffb700] text-black px-5 py-3 rounded-full shadow-[0_8px_30px_rgba(255,183,0,0.5)] text-sm font-semibold whitespace-nowrap">
-                    <Sparkles className="w-4 h-4" />
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-50 animate-slideUp">
+                  <div className="flex items-center gap-2 bg-[#ffb700] text-black px-4 py-2.5 rounded-full shadow-[0_8px_30px_rgba(255,183,0,0.5)] text-xs font-semibold whitespace-nowrap">
+                    <Sparkles className="w-3.5 h-3.5" />
                     This is a live demo — build your own inside the bootcamp
                   </div>
                 </div>
