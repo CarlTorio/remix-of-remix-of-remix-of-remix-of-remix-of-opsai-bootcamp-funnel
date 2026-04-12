@@ -193,7 +193,7 @@ const HeroSection = () => {
             style={{
               filter: `blur(${blurAmount}px)`,
               willChange: "filter",
-              transition: "filter 1.5s ease-out",
+              transition: "filter 0.5s ease-out",
             }}
           >
             {/* Image area */}
