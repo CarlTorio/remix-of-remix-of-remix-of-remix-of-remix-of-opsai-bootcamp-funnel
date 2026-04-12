@@ -438,25 +438,25 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
         </div>
 
         {/* KPI Cards */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {ecomKPIs.map((kpi) => (
-            <div key={kpi.label} onClick={onDemoClick} className={`p-2.5 rounded-xl cursor-pointer hover:-translate-y-0.5 transition-all ${card} relative`}>
-              <div className={`text-[9px] uppercase tracking-wider ${d ? "text-gray-500" : "text-slate-500"}`}>{kpi.label}</div>
-              <div className={`text-lg font-bold mt-0.5 ${d ? "text-white" : "text-slate-900"}`}>
+            <div key={kpi.label} onClick={onDemoClick} className={`p-3 rounded-xl cursor-pointer hover:-translate-y-0.5 transition-all ${card} relative`}>
+              <div className={`text-[10px] uppercase tracking-wider ${d ? "text-gray-500" : "text-slate-500"}`}>{kpi.label}</div>
+              <div className={`text-xl font-bold mt-1 ${d ? "text-white" : "text-slate-900"}`}>
                 <CountUp value={kpi.value} prefix={kpi.prefix || ""} suffix={kpi.suffix || ""} />
               </div>
               {kpi.isGauge ? (
-                <svg className="absolute top-2.5 right-2.5" width="32" height="32" viewBox="0 0 40 40">
+                <svg className="absolute top-3 right-3" width="36" height="36" viewBox="0 0 40 40">
                   <circle cx="20" cy="20" r="16" stroke={d ? "#1E2A44" : "#e2e8f0"} strokeWidth={4} fill="none" />
                   <circle cx="20" cy="20" r="16" stroke="#ffb700" strokeWidth={4} fill="none" strokeDasharray={`${71 * 1.005}, 100.5`} strokeLinecap="round" transform="rotate(-90 20 20)" />
                 </svg>
               ) : (
-                <div className="flex items-center gap-1 mt-0.5">
+                <div className="flex items-center gap-1 mt-1">
                   <TrendingUp className="w-3 h-3 text-green-500" />
-                  <span className="text-[9px] text-green-500 font-medium">{kpi.trend}</span>
+                  <span className="text-[10px] text-green-500 font-medium">{kpi.trend}</span>
                 </div>
               )}
-              {kpi.subtitle && <div className="text-[8px] text-gray-500">{kpi.subtitle}</div>}
+              {kpi.subtitle && <div className="text-[9px] text-gray-500 mt-0.5">{kpi.subtitle}</div>}
             </div>
           ))}
         </div>
