@@ -67,7 +67,7 @@ const SectionAboutCreator = () => {
                   Founder, SME Systems Bootcamp
                 </p>
                 <div className="flex flex-wrap gap-1.5 mt-2.5">
-                  {["Filipino Operator", "Systems Builder"].map((pill) => (
+                  {["AI System Coach"].map((pill) => (
                     <span
                       key={pill}
                       className="bg-white/5 border border-white/10 rounded-full px-2.5 py-1 text-[9px] text-gray-400 uppercase tracking-wider font-semibold"
