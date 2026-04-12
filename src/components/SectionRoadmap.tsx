@@ -72,10 +72,6 @@ const SectionRoadmap = () => {
       <div className="max-w-[1200px] mx-auto">
         {/* Header */}
         <div ref={ref} className={`text-center mb-0 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
-          <span className="inline-flex items-center gap-2 bg-[#ffb700]/10 border border-[#ffb700]/30 px-3 py-1 rounded-full text-[#ffb700] text-[10px] uppercase tracking-[0.25em] font-semibold mb-4">
-            <span className="w-1 h-1 rounded-full bg-[#ffb700] animate-pulse" />
-            HOW IT WORKS
-          </span>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-[1.2] max-w-3xl mx-auto mb-3">
             How This <span className="text-[#ffb700]">Bootcamp</span> Actually Works
           </h2>
