@@ -1,16 +1,15 @@
 import { Target, Wrench, Zap, Clock, DollarSign, User, Lock, RefreshCw, Check, ArrowRight, Brain } from "lucide-react";
-import StarBorder from "./StarBorder";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-const whyReason01 = "https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object/public/Video%20-%20Image%20Hosting/1111.png";
-const whyReason02 = "https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object/public/Video%20-%20Image%20Hosting/2222.png";
-const whyReason03 = "https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object/public/Video%20-%20Image%20Hosting/3333.png";
+import whyReason01 from "@/assets/why-reason-01.jpg";
+import whyReason02 from "@/assets/why-reason-02.jpg";
+import whyReason03 from "@/assets/why-reason-03.jpg";
 
 const reasons = [
   {
     num: "01",
     Icon: Target,
     title: "Why This Is So Relevant To Real SME Owners?",
-    body: "This isn't a 'learn tech for fun' offer. It's for business owners who keep saying things like 'ang dami naming tools pero ang gulo pa rin' or 'pag wala ako, bumabagal lahat.' If that sounds familiar, this wasn't built for everyone — it was built for you.",
+    body: "This isn't a 'learn tech for fun' offer. It's for business owners who keep saying things like 'ang dami naming tools pero ang gulo pa rin' or 'pag wala ako, bumabagal lahat.' If that sounds familiar, this wasn't built for everyone it was built for you.",
     objectionLabel: "Sounds like:",
     objection: "Is this really for me?",
     image: whyReason01,
@@ -20,7 +19,7 @@ const reasons = [
     num: "02",
     Icon: Wrench,
     title: "Why Trust This Method?",
-    body: "This method wasn't pulled from generic software advice. It comes from real internal systems built for real business operations — workflows, monitoring, departments, visibility. And the reason it actually works isn't the trainer. It's that the business logic already lives with you. AI just makes the translation finally possible.",
+    body: "This method wasn't pulled from generic software advice. It comes from real internal systems built for real business operations workflows, monitoring, departments, visibility. And the reason it actually works isn't the trainer. It's that the business logic already lives with you. AI just makes the translation finally possible.",
     objectionLabel: "Sounds like:",
     objection: "How do I know this works?",
     image: whyReason02,
@@ -71,7 +70,7 @@ const SectionWhyThisWorks = () => {
             Why This <span className="text-[#ffb700]">Actually Works</span> for Real SME Owners
           </h2>
           <p className="text-sm md:text-base text-gray-400 max-w-2xl mx-auto">
-            You don't need to know how to code. You need to know your business — which you already do.
+            You don't need to know how to code. You need to know your business which you already do.
           </p>
         </div>
 
@@ -136,18 +135,13 @@ const SectionWhyThisWorks = () => {
           <p className="text-lg md:text-xl font-bold text-white tracking-tight mb-5">
             This isn't theory. It's <span className="text-[#ffb700]">a different way to build</span>.
           </p>
-          <StarBorder
-            as="button"
+          <button
             onClick={() => document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" })}
-            color="hsl(43, 96%, 56%)"
-            speed="5s"
-            className="animate-slow-pulse"
+            className="inline-flex items-center gap-2 bg-[#ffb700] hover:bg-[#ffc733] text-black font-bold text-sm px-6 py-3 rounded-full shadow-[0_8px_30px_rgba(255,183,0,0.3)] hover:shadow-[0_12px_40px_rgba(255,183,0,0.4)] hover:-translate-y-0.5 transition-all duration-300"
           >
-            <span className="inline-flex items-center gap-2 bg-gradient-to-r from-secondary via-[hsl(45,100%,75%)] to-secondary bg-[length:200%_auto] animate-[gradient-shift_3s_ease-in-out_infinite] text-secondary-foreground font-heading font-bold text-sm md:text-lg uppercase px-6 py-3 md:px-10 md:py-4 tracking-wide">
-              See How It Works
-              <ArrowRight className="w-4 h-4" />
-            </span>
-          </StarBorder>
+            See How It Works
+            <ArrowRight className="w-4 h-4" />
+          </button>
         </div>
       </div>
     </section>

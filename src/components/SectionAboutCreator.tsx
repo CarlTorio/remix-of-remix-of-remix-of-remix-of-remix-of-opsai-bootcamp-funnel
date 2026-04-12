@@ -45,29 +45,29 @@ const SectionAboutCreator = () => {
 
         {/* Main Grid */}
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          {/* Left Column — Photo */}
+          {/* Left Column Photo */}
           <div className="lg:col-span-5 relative lg:sticky lg:top-24">
             <div
               ref={photoReveal.ref}
               className={`relative rounded-2xl bg-gradient-to-br from-[#1a1a24] to-[#0f0f16] border border-[#ffb700]/25 p-2.5 shadow-[0_20px_60px_rgba(0,0,0,0.5),0_0_50px_rgba(255,183,0,0.08)] transition-all duration-700 ${photoReveal.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
               style={{ transitionDelay: "100ms" }}
             >
-              <div className="aspect-[4/5] max-md:aspect-square rounded-xl relative overflow-hidden border border-[#ffb700]/10">
+              <div className="aspect-[4/5] max-md:aspect-square rounded-xl relative overflow-hidden">
                 <img
                   src="https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object/public/Video%20-%20Image%20Hosting/hf_20260409_085727_886e4939-933e-479d-922b-93bbee78dbd8.png"
-                  alt="Founder"
-                  className="absolute inset-0 w-full h-full object-cover"
+                  alt="John Carl Torio"
+                  className="w-full h-full object-cover"
                 />
               </div>
 
               {/* Name card */}
               <div className="bg-[#0F0F14] border-t border-[#ffb700]/15 px-4 py-3 rounded-b-xl mt-0">
-                <p className="text-base font-bold text-white tracking-tight">[FOUNDER NAME]</p>
+                <p className="text-base font-bold text-white tracking-tight">John Carl Torio</p>
                 <p className="text-[11px] text-[#ffb700] font-semibold mt-0.5">
                   Founder, SME Systems Bootcamp
                 </p>
                 <div className="flex flex-wrap gap-1.5 mt-2.5">
-                  {["Filipino Operator", "Systems Builder"].map((pill) => (
+                  {["AI System Coach"].map((pill) => (
                     <span
                       key={pill}
                       className="bg-white/5 border border-white/10 rounded-full px-2.5 py-1 text-[9px] text-gray-400 uppercase tracking-wider font-semibold"
@@ -80,7 +80,7 @@ const SectionAboutCreator = () => {
             </div>
           </div>
 
-          {/* Right Column — Bio */}
+          {/* Right Column Bio */}
           <div className="lg:col-span-7 flex flex-col gap-5">
             {/* Quote */}
             <div
@@ -101,7 +101,7 @@ const SectionAboutCreator = () => {
                 className={`text-sm md:text-base text-gray-300 leading-relaxed transition-all duration-700 ${p1Reveal.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
                 style={{ transitionDelay: "450ms" }}
               >
-                I'm [Founder Name], and I built this bootcamp because I watched too many SME owners burn ₱500,000+ on custom software that didn't fit their business — only to end up still running on spreadsheets a year later.
+                I'm John Carl Torio, and I built this bootcamp because I watched too many SME owners burn ₱500,000+ on custom software that didn't fit their business only to end up still running on spreadsheets a year later.
               </p>
               <p
                 ref={p2Reveal.ref}
@@ -115,7 +115,7 @@ const SectionAboutCreator = () => {
                 className={`text-sm md:text-base text-gray-300 leading-relaxed transition-all duration-700 ${p3Reveal.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
                 style={{ transitionDelay: "750ms" }}
               >
-                So I built a method that puts the building back in your hands — using AI as your technical co-pilot, no-code as your foundation, and{" "}
+                So I built a method that puts the building back in your hands using AI as your technical co-pilot, no-code as your foundation, and{" "}
                 <span className="text-[#ffb700] font-semibold">your own business knowledge</span>{" "}
                 as the edge no developer can replicate.
               </p>

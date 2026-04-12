@@ -67,7 +67,7 @@ const StatusPill = ({ status, isDark }: { status: string; isDark: boolean }) => 
 };
 
 const TableHeaders = ({ isDark }: { isDark: boolean }) => (
-  <div className={`grid grid-cols-12 gap-2 px-2 py-2 border-b ${isDark ? "border-violet-900/20" : "border-slate-200"}`}>
+  <div className={`grid grid-cols-12 gap-2 px-2 py-2 border-b min-w-[500px] ${isDark ? "border-violet-900/20" : "border-slate-200"}`}>
     {["Name", "Position", "Status", "Salary", "Hire Date", ""].map((h, i) => (
       <div
         key={h || "menu"}
@@ -94,7 +94,7 @@ const EmployeeRow = ({
 }) => (
   <div
     onClick={onClick}
-    className={`grid grid-cols-12 gap-2 px-2 py-2 cursor-pointer group rounded transition-colors ${
+    className={`grid grid-cols-12 gap-2 px-2 py-2 cursor-pointer group rounded transition-colors min-w-[500px] ${
       !isLast ? `border-b ${isDark ? "border-violet-900/10" : "border-slate-100"}` : ""
     } ${isDark ? "hover:bg-violet-900/10" : "hover:bg-violet-50"}`}
   >
@@ -152,7 +152,7 @@ const HRDashboard = ({ isDark, onDemoClick }: HRDashboardProps) => {
   return (
     <div className={`flex flex-col h-full w-full transition-colors duration-500 ${isDark ? "bg-[#0F0A1A]" : "bg-[#FAFAFA]"}`}>
       {/* ROW 1: TOP BAR */}
-      <div className={`flex items-center justify-between px-5 py-3 border-b ${isDark ? "border-violet-900/20" : "border-slate-200"}`}>
+      <div className={`flex items-center justify-between px-3 md:px-5 py-3 border-b ${isDark ? "border-violet-900/20" : "border-slate-200"}`}>
         <div>
           <div className="flex items-center gap-1">
             <Users className="w-5 h-5 text-violet-500 mr-2" />
@@ -164,7 +164,7 @@ const HRDashboard = ({ isDark, onDemoClick }: HRDashboardProps) => {
           </div>
           <h2 className={`text-lg font-bold mt-1 ${isDark ? "text-white" : "text-slate-900"}`}>Employee Database 👥</h2>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 flex-shrink-0">
           <div className={`flex items-center gap-2 px-2.5 py-1.5 rounded-md ${isDark ? "bg-[#1A1428]" : "bg-slate-100"}`}>
             <Search className="w-3 h-3 text-gray-500" />
             <span className="text-[10px] text-gray-500">Search employees...</span>
@@ -183,7 +183,7 @@ const HRDashboard = ({ isDark, onDemoClick }: HRDashboardProps) => {
       </div>
 
       {/* ROW 2: VIEW TABS */}
-      <div className={`flex items-center gap-4 px-5 py-2 border-b ${isDark ? "border-violet-900/20" : "border-slate-200"}`}>
+      <div className={`flex items-center gap-3 md:gap-4 px-3 md:px-5 py-2 border-b overflow-x-auto no-scrollbar ${isDark ? "border-violet-900/20" : "border-slate-200"}`}>
         {hrViews.map((v) => {
           const VIcon = v.icon;
           return (
@@ -207,7 +207,7 @@ const HRDashboard = ({ isDark, onDemoClick }: HRDashboardProps) => {
       </div>
 
       {/* ROW 3: FILTER BAR */}
-      <div className={`flex items-center justify-between px-5 py-2 border-b ${isDark ? "border-violet-900/20" : "border-slate-200"}`}>
+      <div className={`flex items-center justify-between px-3 md:px-5 py-2 border-b overflow-x-auto no-scrollbar ${isDark ? "border-violet-900/20" : "border-slate-200"}`}>
         <div className="flex items-center gap-1.5">
           {filters.map((f) => {
             const FIcon = f.icon;
@@ -242,7 +242,7 @@ const HRDashboard = ({ isDark, onDemoClick }: HRDashboardProps) => {
       </div>
 
       {/* ROW 4: TABLE GROUPS */}
-      <div className="flex-1 overflow-y-auto px-5 py-3 flex flex-col gap-3 dashboard-scroll">
+      <div className="flex-1 overflow-y-auto overflow-x-auto px-3 md:px-5 py-3 flex flex-col gap-3 dashboard-scroll">
         <EmployeeGroup
           label="Engineering"
           dotColor="#8b5cf6"

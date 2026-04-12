@@ -1,5 +1,4 @@
 import { XCircle, Check, ArrowDown, ArrowRight } from "lucide-react";
-import StarBorder from "./StarBorder";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const beforeItems = [
@@ -150,18 +149,13 @@ const Section5BeforeAfter = () => {
 
         {/* BOTTOM CTA */}
         <div className="mt-16 text-center max-w-xl mx-auto">
-          <StarBorder
-            as="button"
+          <button
             onClick={() => scrollTo("how-it-works")}
-            color="hsl(43, 96%, 56%)"
-            speed="5s"
-            className="animate-slow-pulse"
+            className="inline-flex items-center gap-2 bg-[#ffb700] hover:bg-[#ffc733] text-black font-bold text-sm px-6 py-3 rounded-full shadow-[0_8px_30px_rgba(255,183,0,0.3)] hover:-translate-y-0.5 transition-all duration-300"
           >
-            <span className="inline-flex items-center gap-2 bg-gradient-to-r from-secondary via-[hsl(45,100%,75%)] to-secondary bg-[length:200%_auto] animate-[gradient-shift_3s_ease-in-out_infinite] text-secondary-foreground font-heading font-bold text-sm md:text-lg uppercase px-6 py-3 md:px-10 md:py-4 tracking-wide">
-              Show Me How
-              <ArrowRight className="w-4 h-4" />
-            </span>
-          </StarBorder>
+            Show Me How
+            <ArrowRight className="w-4 h-4" />
+          </button>
           <p className="text-[10px] text-gray-500 italic mt-3">
             Built in 14 days. Owned forever.
           </p>
