@@ -536,10 +536,39 @@ const ecomCustomers = [
   { name: "Darrell Steward", email: "darrell@gmail.com", orders: 843, value: "₱28,549", avatarColor: "#10b981" },
 ];
 
+const liveNotifications = [
+  { icon: ShoppingBag, text: "Maria Santos just purchased 3 items", emoji: "🛒" },
+  { icon: Truck, text: "Order #10482 delivered successfully", emoji: "✅" },
+  { icon: ShoppingCart, text: "Juan Cruz added 5 items to cart", emoji: "🛍️" },
+  { icon: Package, text: "Order #10479 shipped via J&T Express", emoji: "📦" },
+  { icon: DollarSign, text: "₱4,250 payment received from Anna Reyes", emoji: "💰" },
+  { icon: ShoppingBag, text: "Carlos Mendoza just bought a laptop", emoji: "💻" },
+  { icon: Truck, text: "Order #10477 out for delivery", emoji: "🚚" },
+  { icon: Users, text: "New customer registered: Lisa Tan", emoji: "👤" },
+  { icon: DollarSign, text: "₱12,800 payment confirmed via GCash", emoji: "💳" },
+  { icon: Package, text: "Order #10475 picked up by courier", emoji: "📬" },
+  { icon: ShoppingBag, text: "Patricia Luna purchased 2 skincare sets", emoji: "🧴" },
+  { icon: Truck, text: "Order #10471 delivered to Cebu City", emoji: "🏠" },
+];
+
 const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick: () => void }) => {
   const d = isDark;
   const card = `rounded-xl ${d ? "bg-[#131B2E] border border-[#1E2A44]" : "bg-white border border-slate-200"}`;
   const accent = "#ffb700";
+
+  const [liveNotifIndex, setLiveNotifIndex] = useState(0);
+  const [notifVisible, setNotifVisible] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setNotifVisible(false);
+      setTimeout(() => {
+        setLiveNotifIndex((prev) => (prev + 1) % liveNotifications.length);
+        setNotifVisible(true);
+      }, 400);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   const ecomNavItems = [
     { icon: LayoutDashboard, label: "Overview", active: true },
