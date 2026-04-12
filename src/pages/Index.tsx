@@ -12,7 +12,7 @@ import Section11Industries from "@/components/Section11_Industries";
 import SectionAboutCreator from "@/components/SectionAboutCreator";
 import SectionOfferZone from "@/components/SectionOfferZone";
 import SectionFAQ from "@/components/SectionFAQ";
-import Section18FinalCTA from "@/components/Section18_FinalCTA";
+import SectionFinalCTA from "@/components/SectionFinalCTA";
 import NewFooter from "@/components/NewFooter";
 
 const Index = () => (
@@ -60,7 +60,7 @@ const Index = () => (
     <SectionAboutCreator />
     <SectionOfferZone />
     <SectionFAQ />
-    <Section18FinalCTA />
+    <SectionFinalCTA />
     <NewFooter />
   </main>
 );
