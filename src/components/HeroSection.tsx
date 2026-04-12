@@ -202,7 +202,7 @@ const HeroSection = () => {
               <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-transparent to-background" />
             </div>
             {/* Text content */}
-            <div className="relative z-10 container text-center -mt-16 md:-mt-24">
+            <div className="relative z-10 container text-center -mt-32 md:-mt-24">
               <h1 className="font-heading font-black text-[26px] md:text-[44px] leading-[1.1] mb-3 max-w-4xl mx-auto">
                 Build Your Own <span style={{ color: "#fbbd23" }}>Internal Business System</span> with{" "}
                 <span style={{ color: "#fbbd23" }}>A.I.</span> in Less Than <span style={{ color: "#fbbd23" }}>2 Weeks</span>
