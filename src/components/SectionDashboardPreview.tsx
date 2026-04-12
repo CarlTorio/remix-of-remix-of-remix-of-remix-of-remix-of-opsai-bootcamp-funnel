@@ -1353,11 +1353,6 @@ const SectionDashboardPreview = () => {
               const isActive = tab.id === activeTab;
               return (
                 <div key={tab.id} className="relative flex flex-col items-center">
-                  {!isActive && (
-                    <span className={`absolute -top-5 text-[10px] font-bold tracking-wide text-[#ffb700] animate-bounce`} style={{ animationDelay: `${index * 0.15}s` }}>
-                      Click Here
-                    </span>
-                  )}
                   <button
                     onClick={() => setActiveTab(tab.id)}
                     className={`relative flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-300 cursor-pointer whitespace-nowrap ${
