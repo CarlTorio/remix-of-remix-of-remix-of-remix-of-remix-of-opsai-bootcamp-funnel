@@ -1,4 +1,5 @@
 import { User, Quote, Check, ArrowRight } from "lucide-react";
+import CTAButton from "./CTAButton";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const beliefs = [
@@ -154,15 +155,9 @@ const SectionAboutCreator = () => {
             This is your invitation to{" "}
             <span className="text-[#ffb700]">build it with me</span>.
           </p>
-          <button
-            onClick={() =>
-              document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" })
-            }
-            className="inline-flex items-center gap-2 bg-[#ffb700] hover:bg-[#ffc733] text-black font-bold text-sm px-6 py-3 rounded-full shadow-[0_8px_30px_rgba(255,183,0,0.3)] hover:shadow-[0_12px_40px_rgba(255,183,0,0.4)] hover:-translate-y-0.5 transition-all duration-300"
-          >
+          <CTAButton href="#pricing">
             Join the Next Cohort
-            <ArrowRight className="w-4 h-4" />
-          </button>
+          </CTAButton>
         </div>
       </div>
     </section>
