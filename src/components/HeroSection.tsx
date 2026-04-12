@@ -210,7 +210,9 @@ const HeroSection = () => {
               <p className="font-body text-white text-base md:text-lg max-w-2xl mx-auto mb-6 leading-relaxed">
                 Without Hiring Developers, Without Coding,<br />and Without Spending ₱500,000+ on Custom Software.
               </p>
-              <CTAButton>Enroll Now — Limited Slots</CTAButton>
+              <div style={isMobile ? { textShadow: "none" } : undefined}>
+                <CTAButton>Enroll Now — Limited Slots</CTAButton>
+              </div>
               <div className="mt-4 flex flex-wrap justify-center gap-6 text-sm text-muted-foreground font-body">
                 <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-success inline-block" /> Live Cohort</span>
                 <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-success inline-block" /> 14-Day Program</span>
