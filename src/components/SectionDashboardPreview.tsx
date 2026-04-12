@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   Sun, Moon,
   UtensilsCrossed, ShoppingCart, Store, Briefcase,
@@ -7,7 +7,8 @@ import {
   Plus, PlusCircle, Printer,
   Warehouse, Truck, RotateCcw, Boxes, Wallet, Minus,
   ArrowRightLeft, FolderKanban, CheckSquare, FileText,
-  UserCircle, UserPlus, FilePlus, Clock
+  UserCircle, UserPlus, FilePlus, Clock,
+  Sparkles, ArrowRight
 } from "lucide-react";
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip,
@@ -16,16 +17,42 @@ import {
 } from "recharts";
 import type { LucideIcon } from "lucide-react";
 
+// ─── CountUp Component ───
+
+function CountUp({ value, prefix = "", suffix = "", duration = 1500 }: { value: number; prefix?: string; suffix?: string; duration?: number }) {
+  const [displayValue, setDisplayValue] = useState(0);
+
+  useEffect(() => {
+    if (value <= 0) { setDisplayValue(value); return; }
+    let startTime: number;
+    let animationFrame: number;
+    const animate = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setDisplayValue(Math.floor(eased * value));
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(animate);
+      } else {
+        setDisplayValue(value);
+      }
+    };
+    animationFrame = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationFrame);
+  }, [value, duration]);
+
+  return <span style={{ fontVariantNumeric: "tabular-nums" }}>{prefix}{displayValue.toLocaleString()}{suffix}</span>;
+}
+
 // ─── Shared Sub-Components ───
 
-const CustomTooltip = ({ active, payload, label, isDark, prefix = "₱" }: any) => {
+const CustomTooltip = ({ active, payload, label, isDark }: any) => {
   if (!active || !payload?.length) return null;
   const val = payload[0].value;
-  const formatted = prefix === "₱" ? `₱${val.toLocaleString()}` : val;
   return (
     <div className={`${isDark ? "bg-[#1E2A44] border-[#2A3A5C]" : "bg-white border-slate-200"} border rounded-lg px-3 py-2 shadow-lg`}>
       <p className={`text-xs font-semibold ${isDark ? "text-white" : "text-slate-900"}`}>{label}</p>
-      <p className="text-xs text-[#ffb700] font-bold">{formatted}</p>
+      <p className="text-xs text-[#ffb700] font-bold">₱{val.toLocaleString()}</p>
     </div>
   );
 };
@@ -33,7 +60,7 @@ const CustomTooltip = ({ active, payload, label, isDark, prefix = "₱" }: any) 
 interface NavItem { icon: LucideIcon; label: string; active: boolean }
 interface BrandInfo { letter: string; name: string; tagline: string }
 
-const DashboardSidebar = ({ brand, nav, isDark }: { brand: BrandInfo; nav: NavItem[]; isDark: boolean }) => {
+const DashboardSidebar = ({ brand, nav, isDark, onDemoClick }: { brand: BrandInfo; nav: NavItem[]; isDark: boolean; onDemoClick: () => void }) => {
   const d = isDark;
   return (
     <div className={`w-48 p-4 hidden md:flex flex-col gap-1 transition-colors duration-500 ${d ? "bg-[#131A2E] border-r border-[#1E2A44]" : "bg-white border-r border-slate-200"}`}>
@@ -49,7 +76,7 @@ const DashboardSidebar = ({ brand, nav, isDark }: { brand: BrandInfo; nav: NavIt
       {nav.map((item) => {
         const Icon = item.icon;
         return (
-          <button key={item.label} className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-left transition-colors cursor-pointer ${
+          <button key={item.label} onClick={onDemoClick} className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-left transition-colors cursor-pointer ${
             item.active ? "bg-[#ffb700]/15 text-[#ffb700] font-semibold" : d ? "text-gray-500 hover:bg-[#1A2238]" : "text-slate-500 hover:bg-slate-100"
           }`}>
             <Icon className="w-4 h-4" /> {item.label}
@@ -60,9 +87,9 @@ const DashboardSidebar = ({ brand, nav, isDark }: { brand: BrandInfo; nav: NavIt
   );
 };
 
-interface KPIData { icon: LucideIcon; label: string; value: string; trend: string; trendColor: string }
+interface KPIData { icon: LucideIcon; label: string; value: number; prefix?: string; suffix?: string; displayStatic?: string; trend: string; trendColor: string }
 
-const KPICards = ({ data, isDark }: { data: KPIData[]; isDark: boolean }) => {
+const KPICards = ({ data, isDark, onDemoClick }: { data: KPIData[]; isDark: boolean; onDemoClick: () => void }) => {
   const d = isDark;
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -71,14 +98,16 @@ const KPICards = ({ data, isDark }: { data: KPIData[]; isDark: boolean }) => {
         const isRed = kpi.trendColor === "red";
         const isNeutral = kpi.trendColor === "neutral";
         return (
-          <div key={kpi.label} className={`p-4 rounded-xl border cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg ${
+          <div key={kpi.label} onClick={onDemoClick} className={`p-4 rounded-xl border cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg ${
             d ? "bg-[#131A2E] border-[#1E2A44] hover:border-[#ffb700]/40" : "bg-white border-slate-200 hover:border-[#ffb700]/40"
           }`}>
             <div className="w-9 h-9 rounded-lg bg-[#ffb700]/10 flex items-center justify-center mb-3">
               <Icon className="w-4 h-4 text-[#ffb700]" />
             </div>
             <div className={`uppercase tracking-wider text-[10px] ${d ? "text-gray-500" : "text-slate-500"}`}>{kpi.label}</div>
-            <div className={`text-2xl font-bold ${d ? "text-white" : "text-slate-900"}`} style={{ fontVariantNumeric: "tabular-nums" }}>{kpi.value}</div>
+            <div className={`text-2xl font-bold ${d ? "text-white" : "text-slate-900"}`}>
+              {kpi.displayStatic ? kpi.displayStatic : <CountUp value={kpi.value} prefix={kpi.prefix || ""} suffix={kpi.suffix || ""} />}
+            </div>
             <div className="flex items-center gap-1 mt-1">
               {isRed ? <TrendingDown className="w-3 h-3 text-red-500" /> : isNeutral ? <Minus className="w-3 h-3 text-slate-500" /> : <TrendingUp className="w-3 h-3 text-green-500" />}
               <span className={`text-[11px] font-medium ${isRed ? "text-red-500" : isNeutral ? (d ? "text-gray-400" : "text-slate-500") : "text-green-500"}`}>{kpi.trend}</span>
@@ -110,19 +139,19 @@ const statusMap: Record<string, { light: string; dark: string }> = {
   renewed: { light: "bg-purple-100 text-purple-700", dark: "bg-purple-500/20 text-purple-400" },
 };
 
-const DataList = ({ title, items, isDark, amountRedStatuses = [] }: { title: string; items: ListItem[]; isDark: boolean; amountRedStatuses?: string[] }) => {
+const DataList = ({ title, items, isDark, amountRedStatuses = [], onDemoClick }: { title: string; items: ListItem[]; isDark: boolean; amountRedStatuses?: string[]; onDemoClick: () => void }) => {
   const d = isDark;
   return (
     <div className={`col-span-1 md:col-span-2 p-5 rounded-xl border ${d ? "bg-[#131A2E] border-[#1E2A44]" : "bg-white border-slate-200"}`}>
       <div className="flex items-center justify-between mb-4">
         <div className={`text-sm font-bold ${d ? "text-white" : "text-slate-900"}`}>{title}</div>
-        <span className="text-xs text-[#ffb700] cursor-pointer hover:underline">View all →</span>
+        <span onClick={onDemoClick} className="text-xs text-[#ffb700] cursor-pointer hover:underline">View all →</span>
       </div>
       {items.map((item, i) => {
         const st = statusMap[item.status] || statusMap.new;
         const isRedAmount = amountRedStatuses.includes(item.status);
         return (
-          <div key={i} className={`flex items-center justify-between py-2.5 px-2 -mx-2 rounded-lg cursor-pointer transition-colors ${
+          <div key={i} onClick={onDemoClick} className={`flex items-center justify-between py-2.5 px-2 -mx-2 rounded-lg cursor-pointer transition-colors ${
             i < items.length - 1 ? (d ? "border-b border-[#1E2A44]" : "border-b border-slate-100") : ""
           } ${d ? "hover:bg-[#1A2238]" : "hover:bg-slate-50"}`}>
             <div>
@@ -175,14 +204,14 @@ const DonutCard = ({ title, subtitle, data, isDark }: { title: string; subtitle:
 
 interface ActionBtn { label: string; icon: LucideIcon; primary?: boolean }
 
-const ActionButtons = ({ buttons, isDark }: { buttons: ActionBtn[]; isDark: boolean }) => {
+const ActionButtons = ({ buttons, isDark, onDemoClick }: { buttons: ActionBtn[]; isDark: boolean; onDemoClick: () => void }) => {
   const d = isDark;
   return (
     <div className="flex flex-wrap gap-2">
       {buttons.map((btn) => {
         const Icon = btn.icon;
         return (
-          <button key={btn.label} className={`flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 cursor-pointer hover:-translate-y-0.5 ${
+          <button key={btn.label} onClick={onDemoClick} className={`flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 cursor-pointer hover:-translate-y-0.5 ${
             btn.primary ? "bg-[#ffb700] text-black" : d ? "bg-[#1E2A44] text-gray-300 border border-[#2A3A5C]" : "bg-white text-slate-700 border border-slate-200"
           }`}>
             <Icon className="w-4 h-4" /> {btn.label}
@@ -224,7 +253,7 @@ const TopBar = ({ greeting, subtitle, isDark }: { greeting: string; subtitle: st
   );
 };
 
-// ─── F&B Dashboard ───
+// ─── Dashboard Data ───
 
 const fnbNav: NavItem[] = [
   { icon: LayoutDashboard, label: "Dashboard", active: true },
@@ -235,10 +264,10 @@ const fnbNav: NavItem[] = [
   { icon: BarChart3, label: "Reports", active: false },
 ];
 const fnbKPIs: KPIData[] = [
-  { icon: DollarSign, label: "TODAY'S SALES", value: "₱47,850", trend: "+12.5%", trendColor: "green" },
-  { icon: ShoppingBag, label: "ORDERS", value: "143", trend: "+8.2%", trendColor: "green" },
-  { icon: Receipt, label: "AVG TICKET", value: "₱335", trend: "+4.1%", trendColor: "green" },
-  { icon: AlertCircle, label: "LOW STOCK", value: "7 items", trend: "-2 items", trendColor: "red" },
+  { icon: DollarSign, label: "TODAY'S SALES", value: 47850, prefix: "₱", trend: "+12.5%", trendColor: "green" },
+  { icon: ShoppingBag, label: "ORDERS", value: 143, trend: "+8.2%", trendColor: "green" },
+  { icon: Receipt, label: "AVG TICKET", value: 335, prefix: "₱", trend: "+4.1%", trendColor: "green" },
+  { icon: AlertCircle, label: "LOW STOCK", value: 7, suffix: " items", trend: "-2 items", trendColor: "red" },
 ];
 const fnbHourlyData = [
   { hour: "7AM", sales: 2400 }, { hour: "8AM", sales: 3800 }, { hour: "9AM", sales: 2900 },
@@ -261,14 +290,14 @@ const fnbCategoryData: DonutEntry[] = [
   { name: "Desserts", value: 25, color: "#fde68a" },
 ];
 
-const FnBDashboard = ({ isDark }: { isDark: boolean }) => {
+const FnBDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick: () => void }) => {
   const d = isDark;
   return (
     <div className="flex min-h-[600px] w-full">
-      <DashboardSidebar brand={{ letter: "K", name: "Kape Ni Ana", tagline: "POS System" }} nav={fnbNav} isDark={d} />
+      <DashboardSidebar brand={{ letter: "K", name: "Kape Ni Ana", tagline: "POS System" }} nav={fnbNav} isDark={d} onDemoClick={onDemoClick} />
       <div className="flex-1 p-6 flex flex-col gap-5 transition-colors duration-500">
         <TopBar greeting="Good morning, Juan 👋" subtitle="Here's what's happening at your restaurant today" isDark={d} />
-        <KPICards data={fnbKPIs} isDark={d} />
+        <KPICards data={fnbKPIs} isDark={d} onDemoClick={onDemoClick} />
         <ChartCard title="Sales by Hour" subtitle="Today's performance" isDark={d}>
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={fnbHourlyData}>
@@ -281,14 +310,14 @@ const FnBDashboard = ({ isDark }: { isDark: boolean }) => {
           </ResponsiveContainer>
         </ChartCard>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          <DataList title="Recent Orders" items={fnbOrders} isDark={d} />
+          <DataList title="Recent Orders" items={fnbOrders} isDark={d} onDemoClick={onDemoClick} />
           <DonutCard title="Menu Categories" subtitle="Today's sales mix" data={fnbCategoryData} isDark={d} />
         </div>
         <ActionButtons buttons={[
           { label: "New Order", icon: Plus, primary: true },
           { label: "Add Menu Item", icon: PlusCircle },
           { label: "Print Report", icon: Printer },
-        ]} isDark={d} />
+        ]} isDark={d} onDemoClick={onDemoClick} />
       </div>
     </div>
   );
@@ -305,10 +334,10 @@ const ecomNav: NavItem[] = [
   { icon: BarChart3, label: "Analytics", active: false },
 ];
 const ecomKPIs: KPIData[] = [
-  { icon: DollarSign, label: "REVENUE TODAY", value: "₱128,450", trend: "+18.3%", trendColor: "green" },
-  { icon: Package, label: "ORDERS", value: "287", trend: "+22.1%", trendColor: "green" },
-  { icon: Truck, label: "PENDING SHIP", value: "34", trend: "+5 orders", trendColor: "green" },
-  { icon: RotateCcw, label: "RETURN RATE", value: "2.1%", trend: "-0.5%", trendColor: "green" },
+  { icon: DollarSign, label: "REVENUE TODAY", value: 128450, prefix: "₱", trend: "+18.3%", trendColor: "green" },
+  { icon: Package, label: "ORDERS", value: 287, trend: "+22.1%", trendColor: "green" },
+  { icon: Truck, label: "PENDING SHIP", value: 34, trend: "+5 orders", trendColor: "green" },
+  { icon: RotateCcw, label: "RETURN RATE", value: 2, suffix: ".1%", trend: "-0.5%", trendColor: "green" },
 ];
 const ecomRevenueData = [
   { day: "1", revenue: 85000 }, { day: "2", revenue: 92000 }, { day: "3", revenue: 78000 },
@@ -336,14 +365,14 @@ const ecomChannelData: DonutEntry[] = [
   { name: "TikTok Shop", value: 10, color: "#fef3c7" },
 ];
 
-const EcommerceDashboard = ({ isDark }: { isDark: boolean }) => {
+const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick: () => void }) => {
   const d = isDark;
   return (
     <div className="flex min-h-[600px] w-full">
-      <DashboardSidebar brand={{ letter: "S", name: "ShopHub PH", tagline: "E-commerce Hub" }} nav={ecomNav} isDark={d} />
+      <DashboardSidebar brand={{ letter: "S", name: "ShopHub PH", tagline: "E-commerce Hub" }} nav={ecomNav} isDark={d} onDemoClick={onDemoClick} />
       <div className="flex-1 p-6 flex flex-col gap-5 transition-colors duration-500">
         <TopBar greeting="Good morning, Maria 👋" subtitle="Here's your store performance today" isDark={d} />
-        <KPICards data={ecomKPIs} isDark={d} />
+        <KPICards data={ecomKPIs} isDark={d} onDemoClick={onDemoClick} />
         <ChartCard title="Revenue - Last 30 Days" subtitle="Trending upward 📈" isDark={d}>
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={ecomRevenueData}>
@@ -362,14 +391,14 @@ const EcommerceDashboard = ({ isDark }: { isDark: boolean }) => {
           </ResponsiveContainer>
         </ChartCard>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          <DataList title="Recent Orders" items={ecomOrders} isDark={d} amountRedStatuses={["return"]} />
+          <DataList title="Recent Orders" items={ecomOrders} isDark={d} amountRedStatuses={["return"]} onDemoClick={onDemoClick} />
           <DonutCard title="Sales by Channel" subtitle="Last 30 days" data={ecomChannelData} isDark={d} />
         </div>
         <ActionButtons buttons={[
           { label: "New Product", icon: Plus, primary: true },
           { label: "Process Orders", icon: Package },
           { label: "View Inventory", icon: Warehouse },
-        ]} isDark={d} />
+        ]} isDark={d} onDemoClick={onDemoClick} />
       </div>
     </div>
   );
@@ -386,10 +415,10 @@ const retailNav: NavItem[] = [
   { icon: Users, label: "Team", active: false },
 ];
 const retailKPIs: KPIData[] = [
-  { icon: BarChart3, label: "TOTAL SALES", value: "₱892,450", trend: "+15.2%", trendColor: "green" },
-  { icon: Store, label: "BRANCHES", value: "12", trend: "11 active", trendColor: "neutral" },
-  { icon: Wallet, label: "COLLECTIONS", value: "₱654,200", trend: "73% of target", trendColor: "green" },
-  { icon: Boxes, label: "STOCK VALUE", value: "₱2.4M", trend: "Stable", trendColor: "neutral" },
+  { icon: BarChart3, label: "TOTAL SALES", value: 892450, prefix: "₱", trend: "+15.2%", trendColor: "green" },
+  { icon: Store, label: "BRANCHES", value: 12, trend: "11 active", trendColor: "neutral" },
+  { icon: Wallet, label: "COLLECTIONS", value: 654200, prefix: "₱", trend: "73% of target", trendColor: "green" },
+  { icon: Boxes, label: "STOCK VALUE", value: 0, displayStatic: "₱2.4M", trend: "Stable", trendColor: "neutral" },
 ];
 const retailBranchData = [
   { branch: "SM North", sales: 145000 }, { branch: "BGC", sales: 132000 },
@@ -413,14 +442,14 @@ const retailTopData: DonutEntry[] = [
   { name: "Others (9)", value: 35, color: "#fef3c7" },
 ];
 
-const RetailDashboard = ({ isDark }: { isDark: boolean }) => {
+const RetailDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick: () => void }) => {
   const d = isDark;
   return (
     <div className="flex min-h-[600px] w-full">
-      <DashboardSidebar brand={{ letter: "B", name: "BranchMaster", tagline: "Multi-Branch Ops" }} nav={retailNav} isDark={d} />
+      <DashboardSidebar brand={{ letter: "B", name: "BranchMaster", tagline: "Multi-Branch Ops" }} nav={retailNav} isDark={d} onDemoClick={onDemoClick} />
       <div className="flex-1 p-6 flex flex-col gap-5 transition-colors duration-500">
         <TopBar greeting="Good morning, Rodel 👋" subtitle="Here's your branch network overview" isDark={d} />
-        <KPICards data={retailKPIs} isDark={d} />
+        <KPICards data={retailKPIs} isDark={d} onDemoClick={onDemoClick} />
         <ChartCard title="Sales per Branch" subtitle="This month's performance" isDark={d}>
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={retailBranchData}>
@@ -433,14 +462,14 @@ const RetailDashboard = ({ isDark }: { isDark: boolean }) => {
           </ResponsiveContainer>
         </ChartCard>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          <DataList title="Recent Collections" items={retailCollections} isDark={d} />
+          <DataList title="Recent Collections" items={retailCollections} isDark={d} onDemoClick={onDemoClick} />
           <DonutCard title="Top Performing Branches" subtitle="Revenue share" data={retailTopData} isDark={d} />
         </div>
         <ActionButtons buttons={[
           { label: "Add Stock", icon: Plus, primary: true },
           { label: "Transfer Items", icon: ArrowRightLeft },
           { label: "Generate Report", icon: FileText },
-        ]} isDark={d} />
+        ]} isDark={d} onDemoClick={onDemoClick} />
       </div>
     </div>
   );
@@ -457,10 +486,10 @@ const agencyNav: NavItem[] = [
   { icon: UserCircle, label: "Team", active: false },
 ];
 const agencyKPIs: KPIData[] = [
-  { icon: TrendingUp, label: "MONTHLY REVENUE", value: "₱385,000", trend: "+9.4%", trendColor: "green" },
-  { icon: FolderKanban, label: "ACTIVE PROJECTS", value: "18", trend: "3 due this week", trendColor: "neutral" },
-  { icon: FileText, label: "PENDING INVOICES", value: "₱124,500", trend: "5 clients", trendColor: "neutral" },
-  { icon: Users, label: "CLIENT RETENTION", value: "87%", trend: "+3%", trendColor: "green" },
+  { icon: TrendingUp, label: "MONTHLY REVENUE", value: 385000, prefix: "₱", trend: "+9.4%", trendColor: "green" },
+  { icon: FolderKanban, label: "ACTIVE PROJECTS", value: 18, trend: "3 due this week", trendColor: "neutral" },
+  { icon: FileText, label: "PENDING INVOICES", value: 124500, prefix: "₱", trend: "5 clients", trendColor: "neutral" },
+  { icon: Users, label: "CLIENT RETENTION", value: 87, suffix: "%", trend: "+3%", trendColor: "green" },
 ];
 const agencyRevenueData = [
   { month: "Nov", revenue: 245000 }, { month: "Dec", revenue: 268000 },
@@ -481,14 +510,14 @@ const agencyServiceData: DonutEntry[] = [
   { name: "Other", value: 10, color: "#fef3c7" },
 ];
 
-const AgencyDashboard = ({ isDark }: { isDark: boolean }) => {
+const AgencyDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick: () => void }) => {
   const d = isDark;
   return (
     <div className="flex min-h-[600px] w-full">
-      <DashboardSidebar brand={{ letter: "C", name: "Craft Digital", tagline: "Agency OS" }} nav={agencyNav} isDark={d} />
+      <DashboardSidebar brand={{ letter: "C", name: "Craft Digital", tagline: "Agency OS" }} nav={agencyNav} isDark={d} onDemoClick={onDemoClick} />
       <div className="flex-1 p-6 flex flex-col gap-5 transition-colors duration-500">
         <TopBar greeting="Good morning, Paolo 👋" subtitle="Here's your agency pipeline today" isDark={d} />
-        <KPICards data={agencyKPIs} isDark={d} />
+        <KPICards data={agencyKPIs} isDark={d} onDemoClick={onDemoClick} />
         <ChartCard title="Revenue Trend" subtitle="Last 6 months" isDark={d}>
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={agencyRevenueData}>
@@ -501,14 +530,14 @@ const AgencyDashboard = ({ isDark }: { isDark: boolean }) => {
           </ResponsiveContainer>
         </ChartCard>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          <DataList title="Recent Activity" items={agencyActivity} isDark={d} />
+          <DataList title="Recent Activity" items={agencyActivity} isDark={d} onDemoClick={onDemoClick} />
           <DonutCard title="Revenue by Service" subtitle="This month" data={agencyServiceData} isDark={d} />
         </div>
         <ActionButtons buttons={[
           { label: "New Client", icon: UserPlus, primary: true },
           { label: "Create Invoice", icon: FilePlus },
           { label: "Log Time", icon: Clock },
-        ]} isDark={d} />
+        ]} isDark={d} onDemoClick={onDemoClick} />
       </div>
     </div>
   );
@@ -526,6 +555,14 @@ const tabs = [
 const SectionDashboardPreview = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [isDark, setIsDark] = useState(false);
+  const [showToast, setShowToast] = useState(false);
+  const toastTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleDemoClick = () => {
+    if (toastTimeoutRef.current) clearTimeout(toastTimeoutRef.current);
+    setShowToast(true);
+    toastTimeoutRef.current = setTimeout(() => setShowToast(false), 2500);
+  };
 
   return (
     <section
@@ -594,13 +631,38 @@ const SectionDashboardPreview = () => {
           </div>
 
           <div className="p-2 md:p-3">
-            <div className={`rounded-2xl overflow-hidden transition-colors duration-500 ${isDark ? "bg-[#0F1420]" : "bg-[#F8FAFC]"}`}>
-              {activeTab === 0 && <FnBDashboard isDark={isDark} />}
-              {activeTab === 1 && <EcommerceDashboard isDark={isDark} />}
-              {activeTab === 2 && <RetailDashboard isDark={isDark} />}
-              {activeTab === 3 && <AgencyDashboard isDark={isDark} />}
+            <div className={`rounded-2xl overflow-hidden transition-colors duration-500 relative ${isDark ? "bg-[#0F1420]" : "bg-[#F8FAFC]"}`}>
+              <div key={activeTab} className="animate-fadeIn">
+                {activeTab === 0 && <FnBDashboard isDark={isDark} onDemoClick={handleDemoClick} />}
+                {activeTab === 1 && <EcommerceDashboard isDark={isDark} onDemoClick={handleDemoClick} />}
+                {activeTab === 2 && <RetailDashboard isDark={isDark} onDemoClick={handleDemoClick} />}
+                {activeTab === 3 && <AgencyDashboard isDark={isDark} onDemoClick={handleDemoClick} />}
+              </div>
+
+              {showToast && (
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-50 animate-slideUp">
+                  <div className="flex items-center gap-2 bg-[#ffb700] text-black px-5 py-3 rounded-full shadow-[0_8px_30px_rgba(255,183,0,0.5)] text-sm font-semibold whitespace-nowrap">
+                    <Sparkles className="w-4 h-4" />
+                    This is a live demo — build your own inside the bootcamp
+                  </div>
+                </div>
+              )}
             </div>
           </div>
+        </div>
+
+        {/* Helper text + CTA below frame */}
+        <p className="mt-8 text-sm text-gray-500">
+          👆 Click any tab, button, or card above to explore. This is exactly what you'll build in Week 1 of the bootcamp.
+        </p>
+        <div className="mt-6">
+          <button
+            onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
+            className="inline-flex items-center justify-center gap-2 bg-[#ffb700] text-black font-bold text-base md:text-lg tracking-wide px-10 py-4 rounded-full shadow-[0_10px_40px_rgba(255,183,0,0.4)] hover:bg-[#ffc733] hover:-translate-y-0.5 hover:shadow-[0_15px_50px_rgba(255,183,0,0.5)] transition-all duration-300 cursor-pointer"
+          >
+            I WANT TO BUILD THIS
+            <ArrowRight className="w-5 h-5" />
+          </button>
         </div>
       </div>
     </section>
