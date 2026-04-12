@@ -465,7 +465,7 @@ const FnBDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick: (
         </div>
 
         {/* ROW 3 — INGREDIENT PORTFOLIO TABLE */}
-        <div className={`p-3 flex flex-col gap-2 ${card}`}>
+        <div className={`p-3 flex flex-col gap-2 ${card} overflow-x-auto`}>
           <div className="flex items-center justify-between">
             <span className={`text-[12px] font-bold ${d ? "text-white" : "text-slate-900"}`}>Ingredient Portfolio</span>
             <div className="flex items-center gap-1.5">
@@ -478,7 +478,7 @@ const FnBDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick: (
             </div>
           </div>
           {/* Header */}
-          <div className="grid grid-cols-12 gap-2 px-2 py-1.5 text-[9px] uppercase tracking-widest text-gray-500">
+          <div className="grid grid-cols-12 gap-2 px-2 py-1.5 text-[9px] uppercase tracking-widest text-gray-500 min-w-[400px]">
             <span className="col-span-3">Ingredient</span>
             <span className="col-span-2">Stock</span>
             <span className="col-span-2">Value</span>
@@ -487,7 +487,7 @@ const FnBDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick: (
           </div>
           {/* Rows */}
           {ingredients.map((ing) => (
-            <div key={ing.name} onClick={onDemoClick} className={`grid grid-cols-12 gap-2 px-2 py-2 cursor-pointer transition-colors rounded-md ${d ? "border-t border-lime-900/20 hover:bg-lime-900/20" : "border-t border-slate-100 hover:bg-lime-50"}`}>
+            <div key={ing.name} onClick={onDemoClick} className={`grid grid-cols-12 gap-2 px-2 py-2 cursor-pointer transition-colors rounded-md min-w-[400px] ${d ? "border-t border-lime-900/20 hover:bg-lime-900/20" : "border-t border-slate-100 hover:bg-lime-50"}`}>
               <div className="col-span-3 flex items-center gap-2">
                 <div className="w-6 h-6 rounded-md bg-[#a3e635]/15 flex items-center justify-center">
                   <span className="text-[10px] text-lime-700 dark:text-lime-400 font-bold">{ing.name[0]}</span>
@@ -637,7 +637,7 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
   ];
 
   return (
-    <div ref={containerRef} className={`relative grid grid-cols-12 gap-3 p-4 transition-colors duration-500 ${d ? "bg-[#0A0F1A]" : "bg-[#F8FAFC]"}`}>
+    <div ref={containerRef} className={`relative flex flex-col md:grid md:grid-cols-12 gap-3 p-3 md:p-4 transition-colors duration-500 ${d ? "bg-[#0A0F1A]" : "bg-[#F8FAFC]"}`}>
       {/* LEFT SIDEBAR */}
       <div className={`col-span-2 hidden lg:flex flex-col gap-1 p-3 rounded-xl ${card}`}>
         <div className="flex items-center gap-2 mb-3">
@@ -674,7 +674,7 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
       </div>
 
       {/* MAIN AREA */}
-      <div className="col-span-12 lg:col-span-7 xl:col-span-7 flex flex-col gap-3">
+      <div className="w-full md:col-span-12 lg:col-span-7 xl:col-span-7 flex flex-col gap-3">
         {/* Top bar */}
         <div className="flex items-center justify-between">
           <div>
@@ -685,11 +685,11 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
         </div>
 
         {/* KPI Cards */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 gap-2 md:gap-3">
           {ecomKPIs.map((kpi) => (
-            <div key={kpi.label} onClick={onDemoClick} className={`p-3 rounded-xl cursor-pointer hover:-translate-y-0.5 transition-all ${card} relative`}>
-              <div className={`text-[10px] uppercase tracking-wider ${d ? "text-gray-500" : "text-slate-500"}`}>{kpi.label}</div>
-              <div className={`text-xl font-bold mt-1 ${d ? "text-white" : "text-slate-900"}`}>
+            <div key={kpi.label} onClick={onDemoClick} className={`p-2.5 md:p-3 rounded-xl cursor-pointer hover:-translate-y-0.5 transition-all ${card} relative`}>
+              <div className={`text-[8px] md:text-[10px] uppercase tracking-wider ${d ? "text-gray-500" : "text-slate-500"}`}>{kpi.label}</div>
+              <div className={`text-base md:text-xl font-bold mt-1 ${d ? "text-white" : "text-slate-900"}`}>
                 <CountUp value={kpi.value} prefix={kpi.prefix || ""} suffix={kpi.suffix || ""} />
               </div>
               {kpi.isGauge ? (
@@ -709,9 +709,9 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
         </div>
 
         {/* Charts row */}
-        <div className="grid grid-cols-12 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-3">
           {/* Sales Overview */}
-          <div className={`col-span-12 md:col-span-7 p-3 ${card}`}>
+          <div className={`md:col-span-7 p-3 ${card}`}>
             <div className="flex items-center justify-between mb-2">
               <span className={`text-xs font-bold ${d ? "text-white" : "text-slate-900"}`}>Sales Overview</span>
               <MoreVertical className="w-3.5 h-3.5 text-gray-500 cursor-pointer" onClick={onDemoClick} />
@@ -747,7 +747,7 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
           </div>
 
           {/* Right mini cards */}
-          <div className="col-span-12 md:col-span-5 flex flex-col gap-2">
+          <div className="md:col-span-5 flex flex-col gap-2">
             <div className="grid grid-cols-2 gap-2">
               <div className={`p-2.5 ${card} cursor-pointer`} onClick={onDemoClick}>
                 <div className="flex items-center gap-1 mb-0.5">
@@ -799,7 +799,7 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
         </div>
 
         {/* Customer list */}
-        <div className={`p-3 ${card} hidden md:block`}>
+        <div className={`p-3 ${card}`}>
           <div className="flex items-center justify-between mb-1">
             <span className={`text-xs font-bold ${d ? "text-white" : "text-slate-900"}`}>Customer List</span>
             <MoreVertical className="w-3.5 h-3.5 text-gray-500 cursor-pointer" onClick={onDemoClick} />
@@ -830,7 +830,7 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
       </div>
 
       {/* RIGHT SIDEBAR */}
-      <div className={`col-span-3 hidden xl:flex flex-col gap-2 p-2.5 rounded-xl ${card}`}>
+      <div className={`w-full md:col-span-3 md:hidden xl:flex flex-col gap-2 p-2.5 rounded-xl ${card}`}>
         {/* Notifications */}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-1.5">
@@ -984,12 +984,12 @@ const RetailDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick
       {/* MAIN AREA */}
       <div className="flex-1 flex flex-col gap-3 min-w-0">
         {/* Top bar */}
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between flex-wrap gap-2">
           <div>
             <div className={`text-lg font-bold ${d ? "text-white" : "text-slate-900"}`}>Branch Network Overview</div>
             <div className="text-[10px] text-gray-500">Last update: 2 min ago</div>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 md:gap-2 flex-wrap">
             <button onClick={onDemoClick} className={`w-8 h-8 rounded-md flex items-center justify-center ${d ? "bg-[#1E2A44] border border-[#2A3A5C]" : "bg-white border border-slate-200"} cursor-pointer`}>
               <RefreshCw className={`w-4 h-4 ${d ? "text-gray-400" : "text-slate-500"}`} />
             </button>
@@ -1272,12 +1272,12 @@ const AgencyDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick
       {/* Main Calendar */}
       <div className="flex-1 flex flex-col gap-2 min-w-0">
         {/* Top bar */}
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between flex-wrap gap-2">
           <div>
             <div className={`text-lg font-bold ${d ? "text-white" : "text-slate-900"}`}>This Week</div>
             <div className="text-[10px] text-gray-500">Sep 15 – Sep 21, 2026 · 12 events scheduled</div>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 flex-wrap">
             <div className={`flex items-center gap-0.5 p-0.5 rounded-lg ${d ? "bg-[#1F1418]" : "bg-slate-100"}`}>
               {["Day", "Week", "Month"].map((v) => (
                 <button key={v} onClick={onDemoClick} className={`text-[10px] px-3 py-1 rounded cursor-pointer transition-colors ${v === "Week" ? "bg-rose-500 text-white font-semibold" : "text-gray-500"}`}>{v}</button>
@@ -1293,9 +1293,9 @@ const AgencyDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick
         </div>
 
         {/* Calendar Grid */}
-        <div className={`flex-1 rounded-xl overflow-hidden ${d ? "bg-[#1F1418] border border-rose-900/20" : "bg-white border border-slate-200"}`}>
+        <div className={`flex-1 rounded-xl overflow-x-auto overflow-y-hidden ${d ? "bg-[#1F1418] border border-rose-900/20" : "bg-white border border-slate-200"}`}>
           {/* Day headers */}
-          <div className={`grid grid-cols-8 border-b ${d ? "border-rose-900/20" : "border-slate-200"}`}>
+          <div className={`grid grid-cols-8 border-b min-w-[500px] ${d ? "border-rose-900/20" : "border-slate-200"}`}>
             <div className="w-12" />
             {weekDays.map((day, i) => (
               <div key={i} className={`p-2 text-center border-l ${d ? "border-rose-900/20" : "border-slate-100"}`}>
@@ -1310,7 +1310,7 @@ const AgencyDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick
           </div>
 
           {/* Time grid + events */}
-          <div className="grid grid-cols-8 relative" style={{ height: "calc(100% - 56px)" }}>
+          <div className="grid grid-cols-8 relative min-w-[500px]" style={{ height: "calc(100% - 56px)" }}>
             {/* Time labels */}
             <div className={`w-12 flex flex-col justify-between py-1 border-r ${d ? "border-rose-900/20" : "border-slate-100"}`}>
               {timeLabels.map((t, i) => (
@@ -1470,8 +1470,8 @@ const SectionDashboardPreview = () => {
             })}
           </div>
 
-          <div className="p-2 flex-1 overflow-hidden">
-            <div className={`rounded-2xl transition-colors duration-500 relative h-full overflow-y-auto overflow-x-hidden overscroll-contain dashboard-scroll ${isDark ? "bg-[#0F1420]" : "bg-[#F8FAFC]"}`}>
+          <div className="p-2 flex-1 overflow-hidden min-h-0">
+            <div className={`rounded-2xl transition-colors duration-500 relative h-full overflow-y-auto overflow-x-hidden overscroll-contain dashboard-scroll ${isDark ? "bg-[#0F1420]" : "bg-[#F8FAFC]"}`} style={{ WebkitOverflowScrolling: 'touch', touchAction: 'pan-y' }}>
               <div key={`${activeTab}-${graphKey}`} className="animate-fadeIn">
                 {activeTab === 0 && <EcommerceDashboard isDark={isDark} onDemoClick={handleDemoClick} />}
                 {activeTab === 1 && <FnBDashboard isDark={isDark} onDemoClick={handleDemoClick} />}
