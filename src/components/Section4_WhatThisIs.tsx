@@ -50,7 +50,7 @@ export default function Section4WhatThisIs() {
       <div className="relative max-w-[780px] mx-auto text-center">
 
         <RevealBlock delay={80}>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.05] mb-8">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-[1.05] mb-8">
             Stop Running Your Business on <span className="text-[#ffb700]">Spreadsheets</span>.
           </h2>
         </RevealBlock>
