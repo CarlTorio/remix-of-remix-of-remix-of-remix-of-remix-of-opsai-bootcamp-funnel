@@ -96,67 +96,6 @@ const SectionRoadmap = () => {
           </p>
         </div>
 
-        {/* Main Grid */}
-        <div className="grid lg:grid-cols-12 gap-8 items-start">
-          {/* Left — Photo Placeholder */}
-          <div className={`lg:col-span-5 relative lg:sticky lg:top-24 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
-            <div className="relative rounded-2xl bg-gradient-to-br from-[#1a1a24] to-[#0f0f16] border border-[#ffb700]/25 p-2.5 shadow-[0_20px_60px_rgba(0,0,0,0.5),0_0_50px_rgba(255,183,0,0.08)]">
-              <div className="aspect-[4/5] md:aspect-[4/5] max-lg:aspect-video rounded-xl bg-gradient-to-br from-[#1a1a24] to-[#13131A] relative overflow-hidden flex flex-col items-center justify-center gap-3 border border-[#ffb700]/10">
-                {/* Grid pattern */}
-                <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)", backgroundSize: "20px 20px" }} />
-                <div className="relative z-10 flex flex-col items-center gap-3">
-                  <div className="w-16 h-16 rounded-2xl bg-[#ffb700]/10 border border-[#ffb700]/30 flex items-center justify-center">
-                    <Image className="w-7 h-7 text-[#ffb700]/60" />
-                  </div>
-                  <span className="text-[#ffb700]/70 text-[11px] uppercase tracking-widest font-bold">REPLACE WITH PHOTO</span>
-                  <span className="text-gray-500 text-[10px] text-center px-4">Instructor or live session photo</span>
-                </div>
-              </div>
-            </div>
-            <p className="mt-4 text-center text-xs text-gray-500 italic">Live cohort sessions · Implementation-driven · No theory dumps</p>
-            <div className="mt-3 flex justify-center">
-              <span className="inline-flex items-center gap-1.5 bg-green-500/10 border border-green-500/30 px-3 py-1 rounded-full">
-                <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
-                <span className="text-green-400 text-[10px] font-semibold">Next cohort starts soon</span>
-              </span>
-            </div>
-          </div>
-
-          {/* Right — Schedule */}
-          <div ref={ref2} className="lg:col-span-7 flex flex-col gap-6">
-            {/* Week 1 */}
-            <div>
-              <div className="flex items-center justify-between mb-3">
-                <div className="flex items-center gap-2">
-                  <span className="bg-[#ffb700]/10 border border-[#ffb700]/30 px-2.5 py-0.5 rounded-md text-[#ffb700] text-[10px] font-bold uppercase tracking-wider">WEEK 1</span>
-                  <span className="text-base font-bold text-white tracking-tight">Clarity Before Build</span>
-                </div>
-                <span className="text-[10px] text-gray-500">3 sessions</span>
-              </div>
-              <div className="flex flex-col gap-3">
-                {week1Sessions.map((s, i) => (
-                  <SessionCard key={s.num} {...s} index={i} visible={visible2} sessionNum={i + 1} />
-                ))}
-              </div>
-            </div>
-
-            {/* Week 2 */}
-            <div>
-              <div className="flex items-center justify-between mb-3">
-                <div className="flex items-center gap-2">
-                  <span className="bg-[#ffb700]/10 border border-[#ffb700]/30 px-2.5 py-0.5 rounded-md text-[#ffb700] text-[10px] font-bold uppercase tracking-wider">WEEK 2</span>
-                  <span className="text-base font-bold text-white tracking-tight">AI-Powered Buildout</span>
-                </div>
-                <span className="text-[10px] text-gray-500">3 sessions</span>
-              </div>
-              <div className="flex flex-col gap-3">
-                {week2Sessions.map((s, i) => (
-                  <SessionCard key={s.num} {...s} index={i + 3} visible={visible2} sessionNum={i + 4} />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
 
         {/* Outcome Strip */}
         <div ref={ref3} className={`mt-12 max-w-4xl mx-auto bg-gradient-to-br from-[#ffb700]/10 via-[#13131A] to-[#13131A] border border-[#ffb700]/30 rounded-2xl p-6 shadow-[0_10px_40px_rgba(255,183,0,0.08)] relative overflow-hidden transition-all duration-700 ${visible3 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
