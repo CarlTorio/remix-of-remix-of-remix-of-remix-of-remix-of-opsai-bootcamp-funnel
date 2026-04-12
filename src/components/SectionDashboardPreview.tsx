@@ -1347,7 +1347,7 @@ const SectionDashboardPreview = () => {
             </button>
           </div>
 
-          <div className="flex flex-wrap gap-2 px-4 py-3 border-b border-[#ffb700]/15 overflow-x-auto flex-shrink-0 justify-center items-end">
+          <div className="flex flex-wrap gap-2 px-4 pt-7 pb-3 border-b border-[#ffb700]/15 overflow-visible flex-shrink-0 justify-center items-end">
             {tabs.map((tab, index) => {
               const Icon = tab.icon;
               const isActive = tab.id === activeTab;
