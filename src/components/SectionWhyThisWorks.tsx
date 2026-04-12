@@ -1,4 +1,4 @@
-import { Brain, Sparkles, Crown, Clock, DollarSign, User, Lock, RefreshCw, Check, ArrowRight } from "lucide-react";
+import { Target, Wrench, Zap, Clock, DollarSign, User, Lock, RefreshCw, Check, ArrowRight, Brain } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import whyReason01 from "@/assets/why-reason-01.jpg";
 import whyReason02 from "@/assets/why-reason-02.jpg";
@@ -7,33 +7,35 @@ import whyReason03 from "@/assets/why-reason-03.jpg";
 const reasons = [
   {
     num: "01",
-    Icon: Brain,
-    title: "You know your business better than any developer",
-    body: "No outsourced team will ever understand your operations, your customers, your edge cases, or your business logic faster than you, the owner who lives inside it every day.",
-    objection: "I should hire experts",
+    Icon: Target,
+    title: "Built for owners who already feel the pain",
+    body: "This isn't a 'learn tech for fun' offer. It's for business owners who keep saying things like 'ang dami naming tools pero ang gulo pa rin' or 'pag wala ako, bumabagal lahat.' If that sounds familiar, this wasn't built for everyone — it was built for you.",
+    objectionLabel: "Sounds like:",
+    objection: "Is this really for me?",
     image: whyReason01,
     imagePosition: "right" as const,
   },
   {
     num: "02",
-    Icon: Sparkles,
-    title: "AI does the technical heavy lifting",
-    body: "You don't need to write code. AI + no-code tools handle the technical work — you bring the business knowledge. The bootcamp teaches you exactly which prompts and tools to use.",
-    objection: "I'm not technical enough",
+    Icon: Wrench,
+    title: "Built from real operations, not theory",
+    body: "This method wasn't pulled from generic software advice. It comes from real internal systems built for real business operations — workflows, monitoring, departments, visibility. And the reason it actually works isn't the trainer. It's that the business logic already lives with you. AI just makes the translation finally possible.",
+    objectionLabel: "Sounds like:",
+    objection: "How do I know this works?",
     image: whyReason02,
     imagePosition: "left" as const,
   },
   {
     num: "03",
-    Icon: Crown,
-    title: "You own the system forever",
-    body: "No monthly subscriptions. No vendor lock-in. No per-user fees. Build it once, modify it anytime, and never lose access. Your system, your rules.",
-    objection: "What if I want to change it later?",
+    Icon: Zap,
+    title: "The unfair advantage that wasn't possible 2 years ago",
+    body: "A few years ago, building a real internal system meant ₱500K+ on developers and months of waiting. Today, AI changed the game. If you know how your business runs, you can build the first version faster and cheaper than ever. The owners who move on this now will operate better than the ones still stuck in manual mode.",
+    objectionLabel: "Sounds like:",
+    objection: "I'll figure it out later.",
     image: whyReason03,
     imagePosition: "right" as const,
   },
 ];
-
 const comparisonRows = [
   { label: "TIMELINE", traditional: "6+ months", ours: "2 weeks", Icon: Clock },
   { label: "COST", traditional: "₱500,000+", ours: "₱4,886", Icon: DollarSign },
@@ -65,7 +67,7 @@ const SectionWhyThisWorks = () => {
             </span>
           </div>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-[1.2] max-w-3xl mx-auto mb-3">
-            The 3 Reasons This Beats <span className="text-[#ffb700]">Hiring Developers</span>
+            Why This <span className="text-[#ffb700]">Actually Works</span> for Real SME Owners
           </h2>
           <p className="text-sm md:text-base text-gray-400 max-w-2xl mx-auto">
             You don't need to know how to code. You need to know your business — which you already do.
@@ -99,8 +101,8 @@ const SectionWhyThisWorks = () => {
                     <p className="text-sm md:text-base text-gray-400 leading-relaxed">{r.body}</p>
                     <div className="mt-3 pt-3 border-t border-white/[0.05]">
                       <p className="text-xs text-gray-500 italic">
-                        Kills the objection:{" "}
-                        <span className="text-[#ffb700]/80 not-italic">"{r.objection}"</span>
+                        {r.objectionLabel}{" "}
+                        <span className="text-[#ffb700]/80 not-italic font-semibold">"{r.objection}"</span>
                       </p>
                     </div>
                   </div>
