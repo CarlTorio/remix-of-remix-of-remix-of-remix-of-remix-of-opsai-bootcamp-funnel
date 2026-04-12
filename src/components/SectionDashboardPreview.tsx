@@ -10,7 +10,7 @@ import {
   UserCircle, UserPlus, FilePlus, Clock,
   Sparkles, ArrowRight,
   Search, MessageSquare, Star, Settings, MoreVertical,
-  Palette, ChevronRight
+  Palette, ChevronRight, RefreshCw, Bell, ChevronDown, ArrowUpDown
 } from "lucide-react";
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip,
@@ -651,72 +651,241 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
   );
 };
 
-// ─── Retail Dashboard ───
+// ─── Retail Dashboard (Blue Theme) ───
 
-const retailNav: NavItem[] = [
-  { icon: LayoutDashboard, label: "Dashboard", active: true },
-  { icon: Store, label: "Branches", active: false },
-  { icon: Boxes, label: "Stock", active: false },
-  { icon: Wallet, label: "Collections", active: false },
-  { icon: BarChart3, label: "Reports", active: false },
-  { icon: Users, label: "Team", active: false },
+const salesWaveData = Array.from({ length: 20 }, (_, i) => ({
+  point: i,
+  value: 80 + Math.sin(i * 0.6) * 20 + i * 1.5 + (i % 3) * 4,
+}));
+
+const weeklyTrend = [
+  { week: "W1", sales: 1800000 },
+  { week: "W2", sales: 2100000 },
+  { week: "W3", sales: 1950000 },
+  { week: "W4", sales: 2400000 },
+  { week: "W5", sales: 2650000 },
+  { week: "W6", sales: 2847560 },
 ];
-const retailKPIs: KPIData[] = [
-  { icon: BarChart3, label: "TOTAL SALES", value: 892450, prefix: "₱", trend: "+15.2%", trendColor: "green" },
-  { icon: Store, label: "BRANCHES", value: 12, trend: "11 active", trendColor: "neutral" },
-  { icon: Wallet, label: "COLLECTIONS", value: 654200, prefix: "₱", trend: "73% of target", trendColor: "green" },
-  { icon: Boxes, label: "STOCK VALUE", value: 0, displayStatic: "₱2.4M", trend: "Stable", trendColor: "neutral" },
-];
-const retailBranchData = [
-  { branch: "SM North", sales: 145000 }, { branch: "BGC", sales: 132000 },
-  { branch: "Makati", sales: 118000 }, { branch: "Ortigas", sales: 98000 },
-  { branch: "Alabang", sales: 92000 }, { branch: "QC", sales: 85000 },
-  { branch: "Cebu", sales: 78000 }, { branch: "Davao", sales: 65000 },
-  { branch: "Iloilo", sales: 52000 }, { branch: "Cagayan", sales: 48000 },
-  { branch: "Baguio", sales: 42000 }, { branch: "Pampanga", sales: 37000 },
-];
-const retailCollections: ListItem[] = [
-  { id: "SM North Branch", desc: "Daily collection", amount: "₱45,200", time: "1 hour ago", status: "received" },
-  { id: "BGC Branch", desc: "Sales remittance", amount: "₱38,900", time: "2 hours ago", status: "received" },
-  { id: "Stock Transfer", desc: "QC → Makati", amount: "₱12,400", time: "3 hours ago", status: "in-transit" },
-  { id: "Makati Branch", desc: "Pending deposit", amount: "₱28,500", time: "4 hours ago", status: "pending" },
-  { id: "Ortigas Branch", desc: "Daily collection", amount: "₱32,100", time: "5 hours ago", status: "received" },
-];
-const retailTopData: DonutEntry[] = [
-  { name: "SM North", value: 25, color: "#ffb700" },
-  { name: "BGC", value: 22, color: "#fcd34d" },
-  { name: "Makati", value: 18, color: "#fde68a" },
-  { name: "Others (9)", value: 35, color: "#fef3c7" },
+
+const branchList = [
+  { name: "SM North", location: "Quezon City", sales: "₱145,200", change: "+8.4%", up: true },
+  { name: "BGC Central", location: "Taguig", sales: "₱132,800", change: "+12.1%", up: true },
+  { name: "Makati Hub", location: "Makati", sales: "₱118,450", change: "-2.3%", up: false },
+  { name: "Ortigas", location: "Pasig", sales: "₱98,320", change: "+5.7%", up: true },
 ];
 
 const RetailDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick: () => void }) => {
   const d = isDark;
+  const card = `rounded-xl ${d ? "bg-[#131B2E] border border-[#1E2A44]" : "bg-white border border-slate-200"}`;
+
+  const retailNavItems = [
+    { icon: LayoutDashboard, active: true, label: "Dashboard" },
+    { icon: Store, active: false, label: "Branches" },
+    { icon: Boxes, active: false, label: "Stock" },
+    { icon: Wallet, active: false, label: "Collections" },
+    { icon: BarChart3, active: false, label: "Reports" },
+    { icon: Users, active: false, label: "Team" },
+  ];
+
+  const BlueTooltip = ({ active, payload, label }: any) => {
+    if (!active || !payload?.length) return null;
+    return (
+      <div className={`${d ? "bg-[#1E2A44] border-[#2A3A5C]" : "bg-white border-slate-200"} border rounded-lg px-3 py-2 shadow-lg`}>
+        <p className={`text-xs font-semibold ${d ? "text-white" : "text-slate-900"}`}>{label}</p>
+        <p className="text-xs text-blue-500 font-bold">₱{payload[0].value.toLocaleString()}</p>
+      </div>
+    );
+  };
+
   return (
-    <div className="flex min-h-[600px] w-full">
-      <DashboardSidebar brand={{ letter: "B", name: "BranchMaster", tagline: "Multi-Branch Ops" }} nav={retailNav} isDark={d} onDemoClick={onDemoClick} />
-      <div className="flex-1 p-6 flex flex-col gap-5 transition-colors duration-500">
-        <TopBar greeting="Good morning, Rodel 👋" subtitle="Here's your branch network overview" isDark={d} />
-        <KPICards data={retailKPIs} isDark={d} onDemoClick={onDemoClick} />
-        <ChartCard title="Sales per Branch" subtitle="This month's performance" isDark={d}>
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={retailBranchData}>
-              <CartesianGrid strokeDasharray="3 3" stroke={d ? "#1E2A44" : "#e2e8f0"} />
-              <XAxis dataKey="branch" stroke={d ? "#6B7280" : "#94a3b8"} fontSize={9} />
-              <YAxis stroke={d ? "#6B7280" : "#94a3b8"} fontSize={11} tickFormatter={(v) => `₱${v / 1000}k`} />
-              <Tooltip content={<CustomTooltip isDark={d} />} />
-              <Bar dataKey="sales" fill="#ffb700" radius={[6, 6, 0, 0]} isAnimationActive={true} />
-            </BarChart>
-          </ResponsiveContainer>
-        </ChartCard>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          <DataList title="Recent Collections" items={retailCollections} isDark={d} onDemoClick={onDemoClick} />
-          <DonutCard title="Top Performing Branches" subtitle="Revenue share" data={retailTopData} isDark={d} />
+    <div className={`flex gap-3 h-full p-4 transition-colors duration-500 ${d ? "bg-[#0B0F1A]" : "bg-[#F1F5F9]"}`}>
+      {/* THIN ICON SIDEBAR */}
+      <div className={`w-14 flex-shrink-0 hidden md:flex flex-col items-center gap-1 p-2 rounded-xl ${card}`}>
+        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center mb-3">
+          <span className="text-white font-bold text-sm">B</span>
         </div>
-        <ActionButtons buttons={[
-          { label: "Add Stock", icon: Plus, primary: true },
-          { label: "Transfer Items", icon: ArrowRightLeft },
-          { label: "Generate Report", icon: FileText },
-        ]} isDark={d} onDemoClick={onDemoClick} />
+        {retailNavItems.map((item) => {
+          const Icon = item.icon;
+          return (
+            <button key={item.label} title={item.label} onClick={onDemoClick} className={`w-10 h-10 rounded-lg flex items-center justify-center cursor-pointer transition-all ${
+              item.active ? "bg-blue-500 text-white shadow-[0_0_20px_rgba(59,130,246,0.4)]" : d ? "text-gray-500 hover:bg-[#1E2A44] hover:text-blue-400" : "text-slate-500 hover:bg-slate-100 hover:text-blue-600"
+            }`}>
+              <Icon className="w-4 h-4" />
+            </button>
+          );
+        })}
+        <button title="Settings" onClick={onDemoClick} className={`w-10 h-10 rounded-lg flex items-center justify-center cursor-pointer transition-all mt-auto ${d ? "text-gray-500 hover:bg-[#1E2A44] hover:text-blue-400" : "text-slate-500 hover:bg-slate-100 hover:text-blue-600"}`}>
+          <Settings className="w-4 h-4" />
+        </button>
+      </div>
+
+      {/* MAIN AREA */}
+      <div className="flex-1 flex flex-col gap-3 min-w-0">
+        {/* Top bar */}
+        <div className="flex items-center justify-between">
+          <div>
+            <div className={`text-lg font-bold ${d ? "text-white" : "text-slate-900"}`}>Branch Network Overview</div>
+            <div className="text-[10px] text-gray-500">Last update: 2 min ago</div>
+          </div>
+          <div className="flex items-center gap-2">
+            <button onClick={onDemoClick} className={`w-8 h-8 rounded-md flex items-center justify-center ${d ? "bg-[#1E2A44] border border-[#2A3A5C]" : "bg-white border border-slate-200"} cursor-pointer`}>
+              <RefreshCw className={`w-4 h-4 ${d ? "text-gray-400" : "text-slate-500"}`} />
+            </button>
+            <button onClick={onDemoClick} className={`w-8 h-8 rounded-md flex items-center justify-center relative ${d ? "bg-[#1E2A44] border border-[#2A3A5C]" : "bg-white border border-slate-200"} cursor-pointer`}>
+              <Bell className={`w-4 h-4 ${d ? "text-gray-400" : "text-slate-500"}`} />
+              <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full" />
+            </button>
+            <button onClick={onDemoClick} className="bg-blue-500 text-white text-[10px] px-3 py-1.5 rounded-md font-semibold cursor-pointer hover:bg-blue-600 transition-colors">+ Add Branch</button>
+            <div className="w-7 h-7 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+              <span className="text-white text-[10px] font-bold">R</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Middle row: 3 cards */}
+        <div className="grid grid-cols-12 gap-3">
+          {/* Total Sales */}
+          <div className={`col-span-12 md:col-span-5 p-4 ${card} relative overflow-hidden`}>
+            <div className="text-[9px] uppercase tracking-widest text-gray-500">Total Sales (All Branches)</div>
+            <div className={`text-3xl font-bold mt-1 ${d ? "text-white" : "text-slate-900"}`}>
+              <CountUp value={892450} prefix="₱" />
+            </div>
+            <div className="flex items-center gap-2 mt-1">
+              <span className="bg-green-500/20 text-green-500 px-1.5 py-0.5 rounded text-[10px] font-semibold">+15.2%</span>
+              <span className="text-[9px] text-gray-500">vs last week</span>
+            </div>
+            <div className="w-full h-[120px] mt-3" style={{ filter: "drop-shadow(0 0 6px rgba(59,130,246,0.5))" }}>
+              <ResponsiveContainer width="100%" height="100%">
+                <AreaChart data={salesWaveData}>
+                  <defs>
+                    <linearGradient id="blueGlow" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#3b82f6" stopOpacity={0.6} />
+                      <stop offset="100%" stopColor="#3b82f6" stopOpacity={0} />
+                    </linearGradient>
+                  </defs>
+                  <Area type="monotone" dataKey="value" stroke="#3b82f6" strokeWidth={2.5} fill="url(#blueGlow)" isAnimationActive />
+                </AreaChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+
+          {/* Branch Performance */}
+          <div className={`col-span-12 md:col-span-4 p-4 ${card}`}>
+            <div className="flex items-center justify-between mb-3">
+              <span className={`text-xs font-bold ${d ? "text-white" : "text-slate-900"}`}>Branch Performance</span>
+              <span className="text-[9px] text-gray-500">This Week ▾</span>
+            </div>
+            {branchList.map((b, i) => (
+              <div key={i} onClick={onDemoClick} className={`flex items-center justify-between py-2 px-2 -mx-2 rounded cursor-pointer transition-colors ${
+                i < branchList.length - 1 ? (d ? "border-b border-[#1E2A44]" : "border-b border-slate-100") : ""
+              } ${d ? "hover:bg-[#1A2238]" : "hover:bg-slate-50"}`}>
+                <div className="flex items-center gap-2">
+                  <div className="w-7 h-7 rounded-lg bg-blue-500/10 flex items-center justify-center">
+                    <Store className="w-3.5 h-3.5 text-blue-500" />
+                  </div>
+                  <div>
+                    <div className={`text-[11px] font-semibold ${d ? "text-white" : "text-slate-900"}`}>{b.name}</div>
+                    <div className="text-[9px] text-gray-500">{b.location}</div>
+                  </div>
+                </div>
+                <div className="flex flex-col items-end">
+                  <span className={`text-[11px] font-bold ${d ? "text-white" : "text-slate-900"}`} style={{ fontVariantNumeric: "tabular-nums" }}>{b.sales}</span>
+                  <span className={`flex items-center gap-0.5 text-[9px] ${b.up ? "text-green-500" : "text-red-500"}`}>
+                    {b.up ? <TrendingUp className="w-2.5 h-2.5" /> : <TrendingDown className="w-2.5 h-2.5" />}
+                    {b.change}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Quick Actions */}
+          <div className={`col-span-12 md:col-span-3 p-4 ${card}`}>
+            <div className={`text-xs font-bold mb-3 ${d ? "text-white" : "text-slate-900"}`}>Quick Actions</div>
+            <div className={`flex gap-1 p-1 rounded-lg mb-3 ${d ? "bg-[#0B0F1A]" : "bg-slate-100"}`}>
+              <button className="bg-blue-500 text-white text-[10px] px-3 py-1.5 rounded-md font-semibold flex-1">Transfer</button>
+              <button onClick={onDemoClick} className="text-gray-500 text-[10px] px-3 py-1.5 flex-1 cursor-pointer">Restock</button>
+              <button onClick={onDemoClick} className="text-gray-500 text-[10px] px-3 py-1.5 flex-1 cursor-pointer">Report</button>
+            </div>
+            <div className="text-[9px] text-gray-500 uppercase tracking-wider mb-1">From Branch</div>
+            <div className={`flex items-center justify-between p-2 rounded-lg mb-3 ${d ? "bg-[#0B0F1A] border border-[#1E2A44]" : "bg-slate-50 border border-slate-200"}`}>
+              <div className="flex items-center gap-1.5">
+                <Store className="w-3 h-3 text-blue-500" />
+                <div>
+                  <div className={`text-[11px] font-semibold ${d ? "text-white" : "text-slate-900"}`}>SM North</div>
+                  <div className="text-[8px] text-gray-500">Available: ₱145,200</div>
+                </div>
+              </div>
+              <ChevronDown className="w-3 h-3 text-gray-500" />
+            </div>
+            <div className="flex justify-center mb-3">
+              <div className="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center">
+                <ArrowUpDown className="w-3 h-3 text-blue-500" />
+              </div>
+            </div>
+            <div className="text-[9px] text-gray-500 uppercase tracking-wider mb-1">To Branch</div>
+            <div className={`flex items-center justify-between p-2 rounded-lg ${d ? "bg-[#0B0F1A] border border-[#1E2A44]" : "bg-slate-50 border border-slate-200"}`}>
+              <div className="flex items-center gap-1.5">
+                <Store className="w-3 h-3 text-blue-500" />
+                <div>
+                  <div className={`text-[11px] font-semibold ${d ? "text-white" : "text-slate-900"}`}>Makati Hub</div>
+                  <div className="text-[8px] text-gray-500">Available: ₱118,450</div>
+                </div>
+              </div>
+              <ChevronDown className="w-3 h-3 text-gray-500" />
+            </div>
+            <button onClick={onDemoClick} className="w-full mt-3 py-2.5 rounded-lg bg-blue-500 hover:bg-blue-600 text-white text-[11px] font-bold flex items-center justify-center gap-2 cursor-pointer transition-colors">
+              Transfer Now <RefreshCw className="w-3 h-3" />
+            </button>
+          </div>
+        </div>
+
+        {/* Bottom row */}
+        <div className="grid grid-cols-12 gap-3">
+          {/* Weekly Sales Trend */}
+          <div className={`col-span-12 md:col-span-8 p-4 ${card}`}>
+            <div className="flex items-center justify-between mb-3">
+              <div>
+                <div className="text-[9px] text-gray-500 uppercase tracking-wider">Total Weekly Sales</div>
+                <div className="flex items-center gap-2">
+                  <span className={`text-xl font-bold ${d ? "text-white" : "text-slate-900"}`} style={{ fontVariantNumeric: "tabular-nums" }}>₱2,847,560</span>
+                  <span className="bg-green-500/20 text-green-500 text-[9px] px-1.5 py-0.5 rounded font-semibold">+12.4%</span>
+                </div>
+              </div>
+              <div className={`flex gap-1 p-1 rounded-lg ${d ? "bg-[#0B0F1A]" : "bg-slate-100"}`}>
+                <button onClick={onDemoClick} className="text-gray-500 text-[9px] px-2 py-1 cursor-pointer">Day</button>
+                <button className="bg-blue-500 text-white text-[9px] px-2 py-1 rounded-md font-semibold">Week</button>
+                <button onClick={onDemoClick} className="text-gray-500 text-[9px] px-2 py-1 cursor-pointer">Month</button>
+              </div>
+            </div>
+            <div className="w-full h-[140px]">
+              <ResponsiveContainer width="100%" height="100%">
+                <LineChart data={weeklyTrend}>
+                  <CartesianGrid strokeDasharray="3 3" stroke={d ? "#1E2A44" : "#e2e8f0"} />
+                  <XAxis dataKey="week" fontSize={9} stroke={d ? "#6B7280" : "#94a3b8"} />
+                  <YAxis fontSize={9} stroke={d ? "#6B7280" : "#94a3b8"} tickFormatter={(v) => `₱${(v / 1000000).toFixed(1)}M`} />
+                  <Tooltip content={<BlueTooltip />} />
+                  <Line type="monotone" dataKey="sales" stroke="#3b82f6" strokeWidth={2.5} dot={{ fill: "#3b82f6", r: 3 }} activeDot={{ r: 5 }} isAnimationActive />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+
+          {/* Featured Alert */}
+          <div className="col-span-12 md:col-span-4 p-4 rounded-xl bg-gradient-to-br from-blue-600 to-blue-800 relative overflow-hidden cursor-pointer" onClick={onDemoClick}>
+            <div className="absolute -right-4 -top-4 w-20 h-20 bg-white/10 rounded-full" />
+            <div className="absolute -right-2 -bottom-6 w-14 h-14 bg-white/5 rounded-full" />
+            <div className="relative">
+              <span className="bg-white/20 text-white text-[9px] px-2 py-0.5 rounded-full font-bold">📊 LIVE</span>
+              <div className="text-3xl font-bold text-white mt-2">11/12</div>
+              <div className="text-[10px] text-blue-100">Branches Active</div>
+              <div className="text-[9px] text-blue-100 leading-relaxed mt-2">⚠️ Pampanga branch offline since 3PM</div>
+              <button onClick={onDemoClick} className="w-full mt-3 py-2 rounded-lg bg-white text-blue-600 font-bold text-[10px] flex items-center justify-center gap-2 cursor-pointer hover:bg-blue-50 transition-colors">
+                View Branch Status <ArrowRight className="w-3 h-3" />
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
