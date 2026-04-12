@@ -8,7 +8,7 @@ const HeroImage = () => {
   const isMobile = useIsMobile();
 
   const imageSrc = isMobile
-    ? "https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object/public/Video%20-%20Image%20Hosting/Gemini_Generated_Image_a0yfqca0yfqca0yf.png"
+    ? "https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object/public/Video%20-%20Image%20Hosting/mobile%20-%20poster.png"
     : "https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object/public/Video%20-%20Image%20Hosting/Build%20V2.png";
   return (
     <div
