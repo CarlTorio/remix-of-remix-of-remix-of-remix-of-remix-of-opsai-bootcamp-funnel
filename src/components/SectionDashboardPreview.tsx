@@ -558,18 +558,32 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
 
   const [visibleNotifs, setVisibleNotifs] = useState<{id: number; index: number; visible: boolean}[]>([]);
   const notifCounter = useRef(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isInView, setIsInView] = useState(false);
 
+  // Track when dashboard is fully visible
   useEffect(() => {
-    // Add a new notification every 2.5 seconds
-    const addInterval = setInterval(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsInView(entry.isIntersecting),
+      { threshold: 0.6 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // Add notifications only when in view, every 4 seconds
+  useEffect(() => {
+    if (!isInView) return;
+    // Add first one immediately when coming into view
+    const addNotif = () => {
       const newId = notifCounter.current++;
       const newIndex = newId % liveNotifications.length;
       setVisibleNotifs((prev) => {
-        // Keep max 4, remove oldest immediately if at cap
         const updated = prev.length >= 4 ? prev.slice(1) : prev;
         return [...updated, { id: newId, index: newIndex, visible: true }];
       });
-      // Each notification stays for 10 seconds before fading out
       setTimeout(() => {
         setVisibleNotifs((prev) =>
           prev.map((n) => (n.id === newId ? { ...n, visible: false } : n))
@@ -577,10 +591,12 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
         setTimeout(() => {
           setVisibleNotifs((prev) => prev.filter((n) => n.id !== newId));
         }, 400);
-      }, 10000);
-    }, 2500);
-    return () => clearInterval(addInterval);
-  }, []);
+      }, 16000);
+    };
+    addNotif();
+    const interval = setInterval(addNotif, 4000);
+    return () => clearInterval(interval);
+  }, [isInView]);
 
   const ecomNavItems = [
     { icon: LayoutDashboard, label: "Overview", active: true },
@@ -621,7 +637,7 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
   ];
 
   return (
-    <div className={`relative grid grid-cols-12 gap-3 p-4 transition-colors duration-500 ${d ? "bg-[#0A0F1A]" : "bg-[#F8FAFC]"}`}>
+    <div ref={containerRef} className={`relative grid grid-cols-12 gap-3 p-4 transition-colors duration-500 ${d ? "bg-[#0A0F1A]" : "bg-[#F8FAFC]"}`}>
       {/* LEFT SIDEBAR */}
       <div className={`col-span-2 hidden lg:flex flex-col gap-1 p-3 rounded-xl ${card}`}>
         <div className="flex items-center gap-2 mb-3">
