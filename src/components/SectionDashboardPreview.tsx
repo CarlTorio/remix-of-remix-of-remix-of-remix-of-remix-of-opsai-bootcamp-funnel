@@ -1507,7 +1507,7 @@ const SectionDashboardPreview = () => {
           </div>
 
           <div className="p-2 flex-1 overflow-hidden min-h-0">
-            <div className={`rounded-2xl transition-colors duration-500 relative h-full overflow-y-auto overflow-x-hidden overscroll-contain dashboard-scroll ${isDark ? "bg-[#0F1420]" : "bg-[#F8FAFC]"}`} style={{ WebkitOverflowScrolling: 'touch', touchAction: 'pan-y' }}>
+            <div ref={scrollContainerRef} className={`rounded-2xl transition-colors duration-500 relative h-full overflow-y-auto overflow-x-hidden overscroll-contain dashboard-scroll ${isDark ? "bg-[#0F1420]" : "bg-[#F8FAFC]"}`} style={{ WebkitOverflowScrolling: 'touch', touchAction: 'pan-y' }}>
               <div key={`${activeTab}-${graphKey}`} className="animate-fadeIn">
                 {activeTab === 0 && <EcommerceDashboard isDark={isDark} onDemoClick={handleDemoClick} />}
                 {activeTab === 1 && <FnBDashboard isDark={isDark} onDemoClick={handleDemoClick} />}
