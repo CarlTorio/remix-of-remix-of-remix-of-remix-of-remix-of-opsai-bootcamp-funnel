@@ -1,4 +1,5 @@
 import { Target, Wrench, Zap, Clock, DollarSign, User, Lock, RefreshCw, Check, ArrowRight, Brain } from "lucide-react";
+import StarBorder from "./StarBorder";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 const whyReason01 = "https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object/public/Video%20-%20Image%20Hosting/1111.png";
 const whyReason02 = "https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object/public/Video%20-%20Image%20Hosting/2222.png";
@@ -135,13 +136,18 @@ const SectionWhyThisWorks = () => {
           <p className="text-lg md:text-xl font-bold text-white tracking-tight mb-5">
             This isn't theory. It's <span className="text-[#ffb700]">a different way to build</span>.
           </p>
-          <button
+          <StarBorder
+            as="button"
             onClick={() => document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" })}
-            className="inline-flex items-center gap-2 bg-[#ffb700] hover:bg-[#ffc733] text-black font-bold text-sm px-6 py-3 rounded-full shadow-[0_8px_30px_rgba(255,183,0,0.3)] hover:shadow-[0_12px_40px_rgba(255,183,0,0.4)] hover:-translate-y-0.5 transition-all duration-300"
+            color="hsl(43, 96%, 56%)"
+            speed="5s"
+            className="animate-slow-pulse"
           >
-            See How It Works
-            <ArrowRight className="w-4 h-4" />
-          </button>
+            <span className="inline-flex items-center gap-2 bg-gradient-to-r from-secondary via-[hsl(45,100%,75%)] to-secondary bg-[length:200%_auto] animate-[gradient-shift_3s_ease-in-out_infinite] text-secondary-foreground font-heading font-bold text-sm md:text-lg uppercase px-6 py-3 md:px-10 md:py-4 tracking-wide">
+              See How It Works
+              <ArrowRight className="w-4 h-4" />
+            </span>
+          </StarBorder>
         </div>
       </div>
     </section>
