@@ -1392,6 +1392,12 @@ const SectionDashboardPreview = () => {
   const [isDark, setIsDark] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const toastTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const [graphKey, setGraphKey] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => setGraphKey(k => k + 1), 4000);
+    return () => clearInterval(interval);
+  }, []);
 
   const handleDemoClick = () => {
     if (toastTimeoutRef.current) clearTimeout(toastTimeoutRef.current);
