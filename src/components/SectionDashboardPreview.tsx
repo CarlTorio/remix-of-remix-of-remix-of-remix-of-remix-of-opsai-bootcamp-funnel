@@ -465,7 +465,7 @@ const FnBDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick: (
         </div>
 
         {/* ROW 3 — INGREDIENT PORTFOLIO TABLE */}
-        <div className={`p-3 flex flex-col gap-2 ${card}`}>
+        <div className={`p-3 flex flex-col gap-2 ${card} overflow-x-auto`}>
           <div className="flex items-center justify-between">
             <span className={`text-[12px] font-bold ${d ? "text-white" : "text-slate-900"}`}>Ingredient Portfolio</span>
             <div className="flex items-center gap-1.5">
@@ -478,7 +478,7 @@ const FnBDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick: (
             </div>
           </div>
           {/* Header */}
-          <div className="grid grid-cols-12 gap-2 px-2 py-1.5 text-[9px] uppercase tracking-widest text-gray-500">
+          <div className="grid grid-cols-12 gap-2 px-2 py-1.5 text-[9px] uppercase tracking-widest text-gray-500 min-w-[400px]">
             <span className="col-span-3">Ingredient</span>
             <span className="col-span-2">Stock</span>
             <span className="col-span-2">Value</span>
@@ -487,7 +487,7 @@ const FnBDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick: (
           </div>
           {/* Rows */}
           {ingredients.map((ing) => (
-            <div key={ing.name} onClick={onDemoClick} className={`grid grid-cols-12 gap-2 px-2 py-2 cursor-pointer transition-colors rounded-md ${d ? "border-t border-lime-900/20 hover:bg-lime-900/20" : "border-t border-slate-100 hover:bg-lime-50"}`}>
+            <div key={ing.name} onClick={onDemoClick} className={`grid grid-cols-12 gap-2 px-2 py-2 cursor-pointer transition-colors rounded-md min-w-[400px] ${d ? "border-t border-lime-900/20 hover:bg-lime-900/20" : "border-t border-slate-100 hover:bg-lime-50"}`}>
               <div className="col-span-3 flex items-center gap-2">
                 <div className="w-6 h-6 rounded-md bg-[#a3e635]/15 flex items-center justify-center">
                   <span className="text-[10px] text-lime-700 dark:text-lime-400 font-bold">{ing.name[0]}</span>
@@ -830,7 +830,7 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
       </div>
 
       {/* RIGHT SIDEBAR */}
-      <div className={`col-span-3 hidden xl:flex flex-col gap-2 p-2.5 rounded-xl ${card}`}>
+      <div className={`w-full md:col-span-3 md:hidden xl:flex flex-col gap-2 p-2.5 rounded-xl ${card}`}>
         {/* Notifications */}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-1.5">
