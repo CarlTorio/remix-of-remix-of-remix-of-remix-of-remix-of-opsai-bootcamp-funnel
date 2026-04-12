@@ -861,7 +861,7 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
         const NotifIcon = currentNotif.icon;
         return (
           <div
-            className={`absolute bottom-4 right-4 z-20 flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl shadow-lg border transition-all duration-400 ${
+            className={`absolute bottom-16 right-4 z-20 flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl shadow-lg border transition-all duration-400 ${
               notifVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
             } ${d ? "bg-[#131B2E] border-[#1E2A44] shadow-[0_4px_24px_rgba(0,0,0,0.5)]" : "bg-white border-slate-200 shadow-[0_4px_24px_rgba(0,0,0,0.1)]"}`}
             style={{ maxWidth: "320px" }}
