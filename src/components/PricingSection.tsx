@@ -2,7 +2,7 @@ import SectionLabel from "./SectionLabel";
 import CTAButton from "./CTAButton";
 
 const included = [
-  "6 weeks of live coaching sessions",
+  "14 days of live coaching sessions",
   "Done-for-you SOP templates (50+)",
   "Private community access",
   "Hiring & onboarding toolkit",

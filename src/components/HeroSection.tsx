@@ -212,7 +212,7 @@ const HeroSection = () => {
               <CTAButton>Enroll Now — Limited Slots</CTAButton>
               <div className="mt-4 flex flex-wrap justify-center gap-6 text-sm text-muted-foreground font-body">
                 <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-success inline-block" /> Live Cohort</span>
-                <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-success inline-block" /> 6-Week Program</span>
+                <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-success inline-block" /> 14-Day Program</span>
                 <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-success inline-block" /> Lifetime Access</span>
               </div>
             </div>

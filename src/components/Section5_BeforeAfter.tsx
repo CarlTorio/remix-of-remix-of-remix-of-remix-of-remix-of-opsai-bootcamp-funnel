@@ -136,7 +136,7 @@ const Section5BeforeAfter = () => {
             onClick={() => scrollTo("pricing")}
             className="inline-flex items-center gap-1.5 text-[#ffb700] text-sm font-semibold hover:text-[#ffc733] cursor-pointer underline-offset-4 hover:underline transition-colors"
           >
-            Built in 6 weeks. Owned forever. →
+            Built in 14 days. Owned forever. →
           </button>
         </div>
       </div>
