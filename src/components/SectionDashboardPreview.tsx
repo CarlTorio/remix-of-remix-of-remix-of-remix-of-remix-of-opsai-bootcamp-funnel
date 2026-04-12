@@ -1471,7 +1471,7 @@ const SectionDashboardPreview = () => {
 
           <div className="p-2 flex-1 overflow-hidden">
             <div className={`rounded-2xl transition-colors duration-500 relative h-full overflow-y-auto overflow-x-hidden overscroll-contain dashboard-scroll ${isDark ? "bg-[#0F1420]" : "bg-[#F8FAFC]"}`}>
-              <div key={activeTab} className="animate-fadeIn">
+              <div key={`${activeTab}-${graphKey}`} className="animate-fadeIn">
                 {activeTab === 0 && <EcommerceDashboard isDark={isDark} onDemoClick={handleDemoClick} />}
                 {activeTab === 1 && <FnBDashboard isDark={isDark} onDemoClick={handleDemoClick} />}
                 {activeTab === 2 && <RetailDashboard isDark={isDark} onDemoClick={handleDemoClick} />}
