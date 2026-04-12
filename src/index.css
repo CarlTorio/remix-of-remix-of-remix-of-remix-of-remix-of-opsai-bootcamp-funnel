@@ -102,6 +102,10 @@
   overflow: hidden;
 }
 
+.star-border-container.w-full {
+  display: block;
+}
+
 .border-gradient-bottom {
   position: absolute;
   width: 300%;
