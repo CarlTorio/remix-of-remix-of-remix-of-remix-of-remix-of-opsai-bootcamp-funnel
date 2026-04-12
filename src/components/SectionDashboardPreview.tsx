@@ -1203,8 +1203,8 @@ const AgencyDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick
   const eventDays = new Set([8, 12, 15, 18, 22, 25, 28]);
 
   return (
-    <div className={`flex gap-3 h-full p-4 transition-colors duration-500 ${d ? "bg-[#1A0F14]" : "bg-[#FFF1F2]"}`}>
-      {/* Left Sidebar */}
+    <div className={`flex flex-col md:flex-row gap-3 h-full p-3 md:p-4 transition-colors duration-500 ${d ? "bg-[#1A0F14]" : "bg-[#FFF1F2]"}`}>
+      {/* Left Sidebar - hidden on mobile */}
       <div className={`w-56 flex-shrink-0 hidden md:flex flex-col gap-3 p-3 rounded-xl ${d ? "bg-[#1F1418] border border-rose-900/20" : "bg-white border border-slate-200"}`}>
         {/* Brand */}
         <div className="flex items-center gap-2">
@@ -1271,40 +1271,69 @@ const AgencyDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick
         </button>
       </div>
 
+      {/* Mobile Header Bar - visible only on mobile */}
+      <div className="flex md:hidden items-center justify-between gap-2">
+        <div className="flex items-center gap-2">
+          <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-rose-500 to-rose-700 flex items-center justify-center">
+            <span className="text-white font-bold text-xs">C</span>
+          </div>
+          <div>
+            <div className={`text-xs font-bold ${d ? "text-white" : "text-slate-900"}`}>Craft Digital</div>
+            <div className="text-[8px] text-gray-500">Agency OS</div>
+          </div>
+        </div>
+        <div className="flex items-center gap-1.5">
+          {/* Team avatars on mobile */}
+          <div className="flex -space-x-2">
+            {team.slice(0, 4).map((t, i) => (
+              <div key={i} className="w-6 h-6 rounded-full flex items-center justify-center text-[8px] font-bold text-white border-2 border-[#1A0F14]" style={{ background: t.color, zIndex: 4 - i }}>
+                {t.name[0]}
+              </div>
+            ))}
+            <div className={`w-6 h-6 rounded-full flex items-center justify-center text-[8px] font-bold border-2 ${d ? "border-[#1A0F14] bg-rose-900/50 text-rose-300" : "border-[#FFF1F2] bg-rose-100 text-rose-600"}`}>
+              +1
+            </div>
+          </div>
+          <button onClick={onDemoClick} className="bg-rose-500 text-white text-[10px] px-2.5 py-1.5 rounded-md font-semibold flex items-center gap-1 cursor-pointer hover:bg-rose-600 transition-colors">
+            <Plus className="w-3 h-3" /> New
+          </button>
+        </div>
+      </div>
+
       {/* Main Calendar */}
-      <div className="flex-1 flex flex-col gap-2 min-w-0">
+      <div className="flex-1 flex flex-col gap-2 min-w-0 min-h-0">
         {/* Top bar */}
         <div className="flex items-center justify-between flex-wrap gap-2">
           <div>
-            <div className={`text-lg font-bold ${d ? "text-white" : "text-slate-900"}`}>This Week</div>
-            <div className="text-[10px] text-gray-500">Sep 15 – Sep 21, 2026 · 12 events scheduled</div>
+            <div className={`text-base md:text-lg font-bold ${d ? "text-white" : "text-slate-900"}`}>This Week</div>
+            <div className="text-[9px] md:text-[10px] text-gray-500">Sep 15 – Sep 21, 2026 · 12 events scheduled</div>
           </div>
           <div className="flex items-center gap-1.5 flex-wrap">
             <div className={`flex items-center gap-0.5 p-0.5 rounded-lg ${d ? "bg-[#1F1418]" : "bg-slate-100"}`}>
               {["Day", "Week", "Month"].map((v) => (
-                <button key={v} onClick={onDemoClick} className={`text-[10px] px-3 py-1 rounded cursor-pointer transition-colors ${v === "Week" ? "bg-rose-500 text-white font-semibold" : "text-gray-500"}`}>{v}</button>
+                <button key={v} onClick={onDemoClick} className={`text-[10px] px-2 md:px-3 py-1 rounded cursor-pointer transition-colors ${v === "Week" ? "bg-rose-500 text-white font-semibold" : "text-gray-500"}`}>{v}</button>
               ))}
             </div>
-            <button onClick={onDemoClick} className="p-1.5 rounded-md cursor-pointer transition-colors hover:bg-rose-100 dark:hover:bg-rose-900/30"><ChevronLeft className="w-3.5 h-3.5 text-gray-500" /></button>
-            <button onClick={onDemoClick} className="p-1.5 rounded-md cursor-pointer transition-colors hover:bg-rose-100 dark:hover:bg-rose-900/30"><ChevronRight className="w-3.5 h-3.5 text-gray-500" /></button>
+            <button onClick={onDemoClick} className="hidden sm:block p-1.5 rounded-md cursor-pointer transition-colors hover:bg-rose-100 dark:hover:bg-rose-900/30"><ChevronLeft className="w-3.5 h-3.5 text-gray-500" /></button>
+            <button onClick={onDemoClick} className="hidden sm:block p-1.5 rounded-md cursor-pointer transition-colors hover:bg-rose-100 dark:hover:bg-rose-900/30"><ChevronRight className="w-3.5 h-3.5 text-gray-500" /></button>
             <button onClick={onDemoClick} className={`text-[10px] px-2.5 py-1 rounded-md border cursor-pointer transition-colors ${d ? "border-rose-900/30 text-gray-400" : "border-slate-200 text-gray-600"}`}>Today</button>
-            <button onClick={onDemoClick} className="bg-rose-500 text-white text-[10px] px-3 py-1.5 rounded-md font-semibold flex items-center gap-1 cursor-pointer hover:bg-rose-600 transition-colors">
+            <button onClick={onDemoClick} className="hidden sm:flex bg-rose-500 text-white text-[10px] px-3 py-1.5 rounded-md font-semibold items-center gap-1 cursor-pointer hover:bg-rose-600 transition-colors">
               <Plus className="w-3 h-3" /> Event
             </button>
           </div>
         </div>
 
-        {/* Calendar Grid */}
-        <div className={`flex-1 rounded-xl overflow-x-auto overflow-y-hidden ${d ? "bg-[#1F1418] border border-rose-900/20" : "bg-white border border-slate-200"}`}>
+        {/* Calendar Grid - scrollable on mobile */}
+        <div className={`flex-1 rounded-xl overflow-x-auto overflow-y-hidden min-h-0 ${d ? "bg-[#1F1418] border border-rose-900/20" : "bg-white border border-slate-200"}`}>
           {/* Day headers */}
           <div className={`grid grid-cols-8 border-b min-w-[500px] ${d ? "border-rose-900/20" : "border-slate-200"}`}>
             <div className="w-12" />
             {weekDays.map((day, i) => (
-              <div key={i} className={`p-2 text-center border-l ${d ? "border-rose-900/20" : "border-slate-100"}`}>
-                <div className="text-[9px] uppercase text-gray-500">{day.name}</div>
-                <div className={`text-sm font-bold mt-0.5 ${day.isToday ? "text-rose-500" : d ? "text-white" : "text-slate-900"}`}>
+              <div key={i} className={`p-1.5 md:p-2 text-center border-l ${d ? "border-rose-900/20" : "border-slate-100"}`}>
+                <div className="text-[8px] md:text-[9px] uppercase text-gray-500">{day.name}</div>
+                <div className={`text-xs md:text-sm font-bold mt-0.5 ${day.isToday ? "text-rose-500" : d ? "text-white" : "text-slate-900"}`}>
                   {day.isToday ? (
-                    <span className={`inline-flex w-7 h-7 rounded-full items-center justify-center ${d ? "bg-rose-900/40" : "bg-rose-100"}`}>{day.date}</span>
+                    <span className={`inline-flex w-6 h-6 md:w-7 md:h-7 rounded-full items-center justify-center ${d ? "bg-rose-900/40" : "bg-rose-100"}`}>{day.date}</span>
                   ) : day.date}
                 </div>
               </div>
@@ -1335,11 +1364,11 @@ const AgencyDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick
                     <button
                       key={ei}
                       onClick={onDemoClick}
-                      className={`absolute left-1 right-1 rounded-md p-1.5 cursor-pointer hover:-translate-y-0.5 hover:shadow-lg transition-all border-l-2 text-left ${c.bg} ${c.border} ${c.text}`}
+                      className={`absolute left-0.5 right-0.5 md:left-1 md:right-1 rounded-md p-1 md:p-1.5 cursor-pointer hover:-translate-y-0.5 hover:shadow-lg transition-all border-l-2 text-left ${c.bg} ${c.border} ${c.text}`}
                       style={{ top: ev.top, height: ev.height }}
                     >
-                      <div className="text-[9px] font-bold truncate">{ev.title}</div>
-                      <div className="text-[8px] opacity-70 truncate">{ev.client}</div>
+                      <div className="text-[8px] md:text-[9px] font-bold truncate">{ev.title}</div>
+                      <div className="text-[7px] md:text-[8px] opacity-70 truncate">{ev.client}</div>
                     </button>
                   );
                 })}
@@ -1349,13 +1378,13 @@ const AgencyDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick
         </div>
 
         {/* Bottom info strip */}
-        <div className="grid grid-cols-3 gap-2 hidden sm:grid">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
           {[
             { icon: Clock, color: "text-rose-500", bgc: "bg-rose-500/10", title: "Next: Client Kickoff", sub: "in 45 minutes · ABC Corp" },
             { icon: CalendarCheck, color: "text-orange-500", bgc: "bg-orange-500/10", title: "5 events today", sub: "2 client calls, 3 internal" },
             { icon: AlertCircle, color: "text-amber-500", bgc: "bg-amber-500/10", title: "Due tomorrow", sub: "TechStart Milestone 2" },
           ].map((card, i) => (
-            <button key={i} onClick={onDemoClick} className={`p-2.5 rounded-lg flex items-center gap-2 cursor-pointer text-left transition-colors ${d ? "bg-[#1F1418] border border-rose-900/20 hover:bg-rose-950/30" : "bg-white border border-slate-200 hover:bg-rose-50"}`}>
+            <button key={i} onClick={onDemoClick} className={`p-2 md:p-2.5 rounded-lg flex items-center gap-2 cursor-pointer text-left transition-colors ${d ? "bg-[#1F1418] border border-rose-900/20 hover:bg-rose-950/30" : "bg-white border border-slate-200 hover:bg-rose-50"}`}>
               <div className={`${card.bgc} rounded p-1.5`}>
                 <card.icon className={`w-3.5 h-3.5 ${card.color}`} />
               </div>
