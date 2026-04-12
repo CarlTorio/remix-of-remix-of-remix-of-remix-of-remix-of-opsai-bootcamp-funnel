@@ -6,22 +6,22 @@ const faqs = [
   {
     num: "01",
     question: "Is this really for non-technical business owners?",
-    answer: "Yes — that's exactly who it's built for. You don't need to know how to code, build apps, or understand technical jargon. You bring the business knowledge, and we teach you how to use AI and no-code tools to translate that into a real working system. If you can describe how your business works, you can build this."
+    answer: "Yes that's exactly who it's built for. You don't need to know how to code, build apps, or understand technical jargon. You bring the business knowledge, and we teach you how to use AI and no-code tools to translate that into a real working system. If you can describe how your business works, you can build this."
   },
   {
     num: "02",
     question: "What if I don't have time for live sessions?",
-    answer: "Live sessions run 3 times a week (Mon/Wed/Fri) for 2 weeks — that's 6 sessions total. Each session is 2 hours. If you miss one, every session is recorded and you get lifetime access to the replays. Many students rewatch sessions while implementing on their own time."
+    answer: "Live sessions run 3 times a week (Mon/Wed/Fri) for 2 weeks that's 6 sessions total. Each session is 2 hours. If you miss one, every session is recorded and you get lifetime access to the replays. Many students rewatch sessions while implementing on their own time."
   },
   {
     num: "03",
     question: "What kind of system will I actually build?",
-    answer: "Your own internal business system — tailored to your operations. This could include dashboards, workflows, forms, role-based access, employee logins, reporting views, and approval flows. The exact system depends on your business, but every student walks away with a working build (not a tutorial, not a template)."
+    answer: "Your own internal business system tailored to your operations. This could include dashboards, workflows, forms, role-based access, employee logins, reporting views, and approval flows. The exact system depends on your business, but every student walks away with a working build (not a tutorial, not a template)."
   },
   {
     num: "04",
     question: "Do I need to buy any software or tools?",
-    answer: "No — most of the tools we use are free or have generous free tiers. We'll guide you through the no-code stack and show you exactly which tools to use for which business type. The bootcamp price covers everything you need to learn and build."
+    answer: "No most of the tools we use are free or have generous free tiers. We'll guide you through the no-code stack and show you exactly which tools to use for which business type. The bootcamp price covers everything you need to learn and build."
   },
   {
     num: "05",
@@ -31,7 +31,7 @@ const faqs = [
   {
     num: "06",
     question: "How is this different from free YouTube tutorials?",
-    answer: "YouTube teaches you tools. This bootcamp teaches you how to build a system around your specific business. You'll learn the operator's framework — how to map workflows, design system logic, and use AI as your co-pilot — not just how to use a no-code app. Plus, you get live guidance, a structured curriculum, and bonus resources."
+    answer: "YouTube teaches you tools. This bootcamp teaches you how to build a system around your specific business. You'll learn the operator's framework how to map workflows, design system logic, and use AI as your co-pilot not just how to use a no-code app. Plus, you get live guidance, a structured curriculum, and bonus resources."
   },
   {
     num: "07",
@@ -41,7 +41,7 @@ const faqs = [
   {
     num: "08",
     question: "When does the next cohort start?",
-    answer: "The next cohort starts soon — and we limit it to 100 students per cohort to keep the live sessions intimate and high-quality. Once those slots fill, the next cohort won't be until later. Reserving your slot now locks in the founding cohort price."
+    answer: "The next cohort starts soon and we limit it to 100 students per cohort to keep the live sessions intimate and high-quality. Once those slots fill, the next cohort won't be until later. Reserving your slot now locks in the founding cohort price."
   },
 ];
 

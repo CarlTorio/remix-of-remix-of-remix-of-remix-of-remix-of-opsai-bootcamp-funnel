@@ -4,7 +4,7 @@ const painPoints = [
   {
     icon: "🔥",
     title: "You ARE the system",
-    desc: "Every decision, every task, every fire — it all goes through you. Your business can't function without you.",
+    desc: "Every decision, every task, every fire it all goes through you. Your business can't function without you.",
   },
   {
     icon: "⏰",

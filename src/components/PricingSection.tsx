@@ -29,7 +29,7 @@ const PricingSection = () => (
             <span className="text-muted-foreground line-through text-xl font-body">₱29,997</span>
             <span className="font-heading font-extrabold text-5xl text-foreground">₱14,997</span>
           </div>
-          <p className="text-success font-body text-sm mt-2 font-medium">Save ₱15,000 — Early Bird Price</p>
+          <p className="text-success font-body text-sm mt-2 font-medium">Save ₱15,000 Early Bird Price</p>
         </div>
         <ul className="space-y-3 mb-8">
           {included.map((item, i) => (

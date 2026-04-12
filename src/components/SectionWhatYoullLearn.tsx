@@ -42,7 +42,7 @@ const SectionWhatYoullLearn = () => {
             The Skills You'll <span className="text-[#ffb700]">Build</span> (Not Just Watch)
           </h2>
           <p className="text-sm md:text-base text-gray-400 max-w-2xl mx-auto">
-            By the end of 2 weeks, you'll have done the work — not just sat through lessons. Here's what each week unlocks.
+            By the end of 2 weeks, you'll have done the work not just sat through lessons. Here's what each week unlocks.
           </p>
         </div>
 
@@ -90,7 +90,7 @@ const SectionWhatYoullLearn = () => {
             </div>
             <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight leading-tight mb-3">Build Your Real System</h3>
             <p className="text-sm text-gray-400 leading-relaxed mb-5">
-              Now you build. Using AI, prompts, and guided implementation — you turn the blueprint into something real.
+              Now you build. Using AI, prompts, and guided implementation you turn the blueprint into something real.
             </p>
             <div className="w-12 h-px bg-[#ffb700]/40 mb-4" />
             <span className="text-[#ffb700] text-[10px] uppercase tracking-widest font-bold mb-3 block">YOU'LL CREATE:</span>

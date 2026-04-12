@@ -24,7 +24,7 @@ const SectionFinalCTA = () => {
             You've Read Enough. Now <span className="text-[#ffb700]">Build It</span>.
           </h2>
           <p className="text-base md:text-lg text-gray-400 leading-relaxed max-w-2xl mx-auto">
-            In 14 days, you'll either have a working internal business system — or you'll still be running on spreadsheets, wondering what could've been.
+            In 14 days, you'll either have a working internal business system or you'll still be running on spreadsheets, wondering what could've been.
           </p>
         </div>
 
@@ -82,7 +82,7 @@ const SectionFinalCTA = () => {
           <p className="text-sm md:text-base text-gray-500 italic leading-relaxed">
             The best time to build your system was yesterday. The second best time is right now.
           </p>
-          <p className="mt-3 text-[11px] text-[#ffb700] font-semibold">— [Founder Name], SME Systems Bootcamp</p>
+          <p className="mt-3 text-[11px] text-[#ffb700] font-semibold">[Founder Name], SME Systems Bootcamp</p>
         </div>
       </div>
     </section>

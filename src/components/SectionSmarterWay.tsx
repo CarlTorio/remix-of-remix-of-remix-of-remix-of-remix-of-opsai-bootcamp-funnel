@@ -111,7 +111,7 @@ const SectionSmarterWay = () => {
 
         {/* Bottom Hook */}
         <p className="mt-10 text-sm md:text-base text-gray-300 leading-relaxed max-w-lg mx-auto">
-          If your business feels more manual than it should — <span className="text-white font-bold">this isn't just another course</span>.
+          If your business feels more manual than it should <span className="text-white font-bold">this isn't just another course</span>.
         </p>
 
         {/* CTA */}

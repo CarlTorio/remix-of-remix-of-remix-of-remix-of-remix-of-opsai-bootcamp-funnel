@@ -12,7 +12,7 @@ const Section18FinalCTA = () => {
           <span className="text-secondary" style={{ textShadow: "0 0 25px hsl(43 96% 56% / 0.3)" }}>₱4,886</span>
         </h2>
         <p className="text-muted-foreground font-body text-base leading-relaxed mb-4 max-w-[700px] mx-auto">
-          Build your own internal business system with AI in less than 2 weeks — without hiring developers, without coding, and without spending ₱500,000+ on custom software.
+          Build your own internal business system with AI in less than 2 weeks without hiring developers, without coding, and without spending ₱500,000+ on custom software.
         </p>
         <p className="text-muted-foreground font-body text-sm mb-8">Limited to 100 slots only.</p>
 

@@ -64,7 +64,7 @@ const Section11Industries = () => {
         </div>
 
         <p className="text-center font-body text-base text-muted-foreground">
-          This is why the offer is so strong: you are not buying information — you are buying <span className="text-accent font-semibold" style={{ textShadow: "0 0 15px hsl(217 71% 68% / 0.3)" }}>operational leverage</span>.
+          This is why the offer is so strong: you are not buying information you are buying <span className="text-accent font-semibold" style={{ textShadow: "0 0 15px hsl(217 71% 68% / 0.3)" }}>operational leverage</span>.
         </p>
       </div>
     </section>

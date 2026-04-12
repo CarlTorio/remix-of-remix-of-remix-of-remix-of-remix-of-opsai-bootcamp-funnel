@@ -366,7 +366,7 @@ const FnBDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick: (
 
       {/* MAIN AREA */}
       <div className="flex-1 flex flex-col gap-3 overflow-hidden min-w-0">
-        {/* ROW 1 — TICKER */}
+        {/* ROW 1 TICKER */}
         <div className={`relative overflow-hidden rounded-xl h-12 flex items-center ${card}`}>
           <div className="absolute left-3 z-10 bg-[#a3e635] text-black text-[9px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
             <span className="w-1.5 h-1.5 bg-black rounded-full animate-pulse" />LIVE
@@ -384,7 +384,7 @@ const FnBDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick: (
           </div>
         </div>
 
-        {/* ROW 2 — MAIN GRID */}
+        {/* ROW 2 MAIN GRID */}
         <div className="flex-1 grid grid-cols-12 gap-3 overflow-hidden">
           {/* Usage Trend Chart */}
           <div className={`col-span-12 md:col-span-8 p-4 flex flex-col ${card}`}>
@@ -419,7 +419,7 @@ const FnBDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick: (
             </div>
           </div>
 
-          {/* Right column — Alerts & Stats */}
+          {/* Right column Alerts & Stats */}
           <div className="col-span-12 md:col-span-4 flex flex-col gap-3">
             {/* Mini stat cards */}
             <div className="grid grid-cols-2 gap-2">
@@ -465,7 +465,7 @@ const FnBDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick: (
           </div>
         </div>
 
-        {/* ROW 3 — INGREDIENT PORTFOLIO TABLE */}
+        {/* ROW 3 INGREDIENT PORTFOLIO TABLE */}
         <div className={`p-3 flex flex-col gap-2 ${card} overflow-x-auto`}>
           <div className="flex items-center justify-between">
             <span className={`text-[12px] font-bold ${d ? "text-white" : "text-slate-900"}`}>Ingredient Portfolio</span>
@@ -1460,7 +1460,7 @@ const SectionDashboardPreview = () => {
 
 
         <p className="text-base md:text-lg text-gray-400 max-w-2xl mx-auto mb-12">
-          Click through 5 sample dashboards built inside the bootcamp. This is the kind of system you'll build yourself — no developers, no{" "}
+          Click through 5 sample dashboards built inside the bootcamp. This is the kind of system you'll build yourself no developers, no{" "}
           <span className="text-[#ffb700] font-semibold">₱500,000+</span> software.
         </p>
 
@@ -1520,7 +1520,7 @@ const SectionDashboardPreview = () => {
                 <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-50 animate-slideUp">
                   <div className="flex items-center gap-2 bg-[#ffb700] text-black px-4 py-2.5 rounded-full shadow-[0_8px_30px_rgba(255,183,0,0.5)] text-xs font-semibold whitespace-nowrap">
                     <Sparkles className="w-3.5 h-3.5" />
-                    This is a live demo — build your own inside the bootcamp
+                    This is a live demo build your own inside the bootcamp
                   </div>
                 </div>
               )}
