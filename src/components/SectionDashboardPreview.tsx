@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import HRDashboard from "./HRDashboard";
+import CTAButton from "./CTAButton";
 import {
   Sun, Moon,
   UtensilsCrossed, ShoppingCart, Store, Briefcase,
@@ -1533,13 +1534,9 @@ const SectionDashboardPreview = () => {
           This is exactly what you'll build in Week 1 of the bootcamp.
         </p>
         <div className="mt-6">
-          <button
-            onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
-            className="inline-flex items-center justify-center gap-2 bg-[#ffb700] text-black font-bold text-base md:text-lg tracking-wide px-10 py-4 rounded-full shadow-[0_10px_40px_rgba(255,183,0,0.4)] hover:bg-[#ffc733] hover:-translate-y-0.5 hover:shadow-[0_15px_50px_rgba(255,183,0,0.5)] transition-all duration-300 cursor-pointer"
-          >
+          <CTAButton href="#pricing">
             I WANT TO BUILD THIS
-            <ArrowRight className="w-5 h-5" />
-          </button>
+          </CTAButton>
         </div>
       </div>
     </section>
