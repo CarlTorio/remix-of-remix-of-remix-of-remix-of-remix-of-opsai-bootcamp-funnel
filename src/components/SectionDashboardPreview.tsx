@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import HRDashboard from "./HRDashboard";
 import {
   Sun, Moon,
   UtensilsCrossed, ShoppingCart, Store, Briefcase,
@@ -1291,6 +1292,7 @@ const tabs = [
   { id: 2, icon: Store, label: "Retail / Distribution" },
   { id: 1, icon: UtensilsCrossed, label: "F&B / Restaurant" },
   { id: 3, icon: Briefcase, label: "Service / Agency" },
+  { id: 4, icon: Users, label: "HR / People" },
 ];
 
 const SectionDashboardPreview = () => {
@@ -1357,8 +1359,10 @@ const SectionDashboardPreview = () => {
                     onClick={() => setActiveTab(tab.id)}
                     className={`relative flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-300 cursor-pointer whitespace-nowrap ${
                       isActive
-                        ? "bg-[#ffb700] text-black shadow-[0_4px_20px_rgba(255,183,0,0.4)] scale-105"
-                        : "bg-white/5 text-gray-400 hover:text-white hover:bg-white/10 border border-white/10 hover:border-[#ffb700]/30"
+                        ? tab.id === 4
+                          ? "bg-[#8b5cf6] text-white shadow-[0_4px_20px_rgba(139,92,246,0.4)] scale-105"
+                          : "bg-[#ffb700] text-black shadow-[0_4px_20px_rgba(255,183,0,0.4)] scale-105"
+                        : `bg-white/5 text-gray-400 hover:text-white hover:bg-white/10 border border-white/10 ${tab.id === 4 ? "hover:border-[#8b5cf6]/30" : "hover:border-[#ffb700]/30"}`
                     }`}
                   >
                     <Icon className="w-3.5 h-3.5" />
@@ -1376,6 +1380,7 @@ const SectionDashboardPreview = () => {
                 {activeTab === 1 && <FnBDashboard isDark={isDark} onDemoClick={handleDemoClick} />}
                 {activeTab === 2 && <RetailDashboard isDark={isDark} onDemoClick={handleDemoClick} />}
                 {activeTab === 3 && <AgencyDashboard isDark={isDark} onDemoClick={handleDemoClick} />}
+                {activeTab === 4 && <HRDashboard isDark={isDark} onDemoClick={handleDemoClick} />}
               </div>
 
               {showToast && (
