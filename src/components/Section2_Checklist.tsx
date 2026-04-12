@@ -85,7 +85,7 @@ const Section2Checklist = () => {
           <p className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto mb-5">
             Because no developer, no software company, and no outsourced team will ever understand your business logic faster than <span className="text-white font-bold">you, the owner</span>.
           </p>
-          <p className="text-base md:text-lg text-gray-400 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-base leading-relaxed max-w-2xl mx-auto text-primary-foreground md:text-lg">
             And now, with AI, you no longer need to spend <span className="text-[#ffb700] font-semibold">₱500,000+</span> or wait months just to build the first real version of your system.
           </p>
         </div>
