@@ -12,7 +12,7 @@ const faqs = [
   },
   {
     q: "Do I need technical skills?",
-    a: "Not at all. We use simple, practical tools Google Sheets, Notion, free CRMs. No coding or technical knowledge required.",
+    a: "Not at all. We use simple, practical tools — Google Sheets, Notion, free CRMs. No coding or technical knowledge required.",
   },
   {
     q: "What's the time commitment?",

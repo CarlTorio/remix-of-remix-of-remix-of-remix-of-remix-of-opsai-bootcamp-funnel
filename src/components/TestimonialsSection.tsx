@@ -9,7 +9,7 @@ const testimonials = [
   {
     name: "Jerome Reyes",
     role: "CEO, BuildRight Construction",
-    quote: "We went from 3 projects a month to 8 without hiring more managers. The systems framework changed everything.",
+    quote: "We went from 3 projects a month to 8 — without hiring more managers. The systems framework changed everything.",
   },
   {
     name: "Kat Villanueva",

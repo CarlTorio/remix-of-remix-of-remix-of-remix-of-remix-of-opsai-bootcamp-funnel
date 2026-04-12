@@ -25,7 +25,7 @@ const Section9HowItWorks = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10 relative">
-          {/* Connecting line desktop only */}
+          {/* Connecting line — desktop only */}
           <div className="hidden md:block absolute top-[22px] left-[16.67%] right-[16.67%] h-px bg-accent/30" />
           {stats.map((s, i) => (
             <div key={i} className="bg-card rounded-2xl border border-border p-6 text-center relative">

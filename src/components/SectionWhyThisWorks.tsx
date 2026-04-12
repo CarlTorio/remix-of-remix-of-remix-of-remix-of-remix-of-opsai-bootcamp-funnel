@@ -9,7 +9,7 @@ const reasons = [
     num: "01",
     Icon: Target,
     title: "Why This Is So Relevant To Real SME Owners?",
-    body: "This isn't a 'learn tech for fun' offer. It's for business owners who keep saying things like 'ang dami naming tools pero ang gulo pa rin' or 'pag wala ako, bumabagal lahat.' If that sounds familiar, this wasn't built for everyone it was built for you.",
+    body: "This isn't a 'learn tech for fun' offer. It's for business owners who keep saying things like 'ang dami naming tools pero ang gulo pa rin' or 'pag wala ako, bumabagal lahat.' If that sounds familiar, this wasn't built for everyone — it was built for you.",
     objectionLabel: "Sounds like:",
     objection: "Is this really for me?",
     image: whyReason01,
@@ -19,7 +19,7 @@ const reasons = [
     num: "02",
     Icon: Wrench,
     title: "Why Trust This Method?",
-    body: "This method wasn't pulled from generic software advice. It comes from real internal systems built for real business operations workflows, monitoring, departments, visibility. And the reason it actually works isn't the trainer. It's that the business logic already lives with you. AI just makes the translation finally possible.",
+    body: "This method wasn't pulled from generic software advice. It comes from real internal systems built for real business operations — workflows, monitoring, departments, visibility. And the reason it actually works isn't the trainer. It's that the business logic already lives with you. AI just makes the translation finally possible.",
     objectionLabel: "Sounds like:",
     objection: "How do I know this works?",
     image: whyReason02,
@@ -70,7 +70,7 @@ const SectionWhyThisWorks = () => {
             Why This <span className="text-[#ffb700]">Actually Works</span> for Real SME Owners
           </h2>
           <p className="text-sm md:text-base text-gray-400 max-w-2xl mx-auto">
-            You don't need to know how to code. You need to know your business which you already do.
+            You don't need to know how to code. You need to know your business — which you already do.
           </p>
         </div>
 
