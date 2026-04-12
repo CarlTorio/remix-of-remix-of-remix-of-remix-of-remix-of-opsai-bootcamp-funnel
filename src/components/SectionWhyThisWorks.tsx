@@ -28,7 +28,7 @@ const reasons = [
   {
     num: "03",
     Icon: Zap,
-    title: "The unfair advantage that wasn't possible 2 years ago",
+    title: "Why This Matters Right Now?",
     body: "A few years ago, building a real internal system meant ₱500K+ on developers and months of waiting. Today, AI changed the game. If you know how your business runs, you can build the first version faster and cheaper than ever. The owners who move on this now will operate better than the ones still stuck in manual mode.",
     objectionLabel: "Sounds like:",
     objection: "I'll figure it out later.",
