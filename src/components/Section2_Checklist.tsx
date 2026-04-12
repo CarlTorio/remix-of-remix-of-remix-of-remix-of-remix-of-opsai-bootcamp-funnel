@@ -78,8 +78,8 @@ const Section2Checklist = () => {
         </div>
 
         {/* Closing Callout */}
-        <div className="max-w-3xl mx-auto text-center mb-10">
-          <h3 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-[1.2] mb-8">
+        <div className="max-w-3xl mx-auto text-center mb-6">
+          <h3 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-[1.2] mb-5">
             If you want <span className="text-[#ffb700]">one internal system</span> that matches your operations, connects your departments, and gives you <span className="text-[#ffb700]">real visibility</span> over your business — <span className="text-[#ffb700]">this is for you</span>.
           </h3>
           <p className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto mb-5">
