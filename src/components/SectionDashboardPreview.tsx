@@ -55,7 +55,7 @@ const CustomTooltip = ({ active, payload, label, isDark }: any) => {
   return (
     <div className={`${isDark ? "bg-[#1E2A44] border-[#2A3A5C]" : "bg-white border-slate-200"} border rounded-lg px-3 py-2 shadow-lg`}>
       <p className={`text-xs font-semibold ${isDark ? "text-white" : "text-slate-900"}`}>{label}</p>
-      <p className="text-xs text-[#ffb700] font-bold">₱{val.toLocaleString()}</p>
+      <p className="text-xs font-bold" style={{ color: "#a3e635" }}>₱{val.toLocaleString()}</p>
     </div>
   );
 };
@@ -63,26 +63,26 @@ const CustomTooltip = ({ active, payload, label, isDark }: any) => {
 interface NavItem { icon: LucideIcon; label: string; active: boolean }
 interface BrandInfo { letter: string; name: string; tagline: string }
 
-const DashboardSidebar = ({ brand, nav, isDark, onDemoClick }: { brand: BrandInfo; nav: NavItem[]; isDark: boolean; onDemoClick: () => void }) => {
+const DashboardSidebar = ({ brand, nav, isDark, onDemoClick, accentColor = "#a3e635" }: { brand: BrandInfo; nav: NavItem[]; isDark: boolean; onDemoClick: () => void; accentColor?: string }) => {
   const d = isDark;
   return (
-    <div className={`w-48 p-4 hidden md:flex flex-col gap-1 transition-colors duration-500 ${d ? "bg-[#131A2E] border-r border-[#1E2A44]" : "bg-white border-r border-slate-200"}`}>
-      <div className="flex items-center gap-2 mb-6">
-        <div className="w-8 h-8 bg-[#ffb700] rounded-lg flex items-center justify-center">
-          <span className="text-black font-bold text-lg">{brand.letter}</span>
+    <div className={`w-44 p-3 hidden md:flex flex-col gap-1 transition-colors duration-500 ${d ? "bg-[#131A2E] border-r border-[#1E2A44]" : "bg-white border-r border-slate-200"}`}>
+      <div className="flex items-center gap-2 mb-4">
+        <div className="w-7 h-7 rounded-lg flex items-center justify-center" style={{ background: `linear-gradient(135deg, ${accentColor}, ${accentColor}cc)` }}>
+          <span className="text-black font-bold text-sm">{brand.letter}</span>
         </div>
         <div>
-          <div className={`text-sm font-bold ${d ? "text-white" : "text-slate-900"}`}>{brand.name}</div>
-          <div className={`text-[10px] ${d ? "text-gray-500" : "text-slate-400"}`}>{brand.tagline}</div>
+          <div className={`text-xs font-bold ${d ? "text-white" : "text-slate-900"}`}>{brand.name}</div>
+          <div className={`text-[9px] ${d ? "text-gray-500" : "text-slate-400"}`}>{brand.tagline}</div>
         </div>
       </div>
       {nav.map((item) => {
         const Icon = item.icon;
         return (
-          <button key={item.label} onClick={onDemoClick} className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-left transition-colors cursor-pointer ${
-            item.active ? "bg-[#ffb700]/15 text-[#ffb700] font-semibold" : d ? "text-gray-500 hover:bg-[#1A2238]" : "text-slate-500 hover:bg-slate-100"
-          }`}>
-            <Icon className="w-4 h-4" /> {item.label}
+          <button key={item.label} onClick={onDemoClick} className={`flex items-center gap-2 px-2 py-2 rounded-lg text-xs text-left transition-colors cursor-pointer ${
+            item.active ? "font-semibold" : d ? "text-gray-500 hover:bg-[#1A2238]" : "text-slate-500 hover:bg-slate-100"
+          }`} style={item.active ? { backgroundColor: `${accentColor}22`, color: accentColor } : undefined}>
+            <Icon className="w-3.5 h-3.5" /> {item.label}
           </button>
         );
       })}
@@ -92,29 +92,28 @@ const DashboardSidebar = ({ brand, nav, isDark, onDemoClick }: { brand: BrandInf
 
 interface KPIData { icon: LucideIcon; label: string; value: number; prefix?: string; suffix?: string; displayStatic?: string; trend: string; trendColor: string }
 
-const KPICards = ({ data, isDark, onDemoClick }: { data: KPIData[]; isDark: boolean; onDemoClick: () => void }) => {
+const KPICards = ({ data, isDark, onDemoClick, accentColor = "#a3e635" }: { data: KPIData[]; isDark: boolean; onDemoClick: () => void; accentColor?: string }) => {
   const d = isDark;
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
       {data.map((kpi) => {
         const Icon = kpi.icon;
         const isRed = kpi.trendColor === "red";
         const isNeutral = kpi.trendColor === "neutral";
         return (
-          <div key={kpi.label} onClick={onDemoClick} className={`p-4 rounded-xl border cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg ${
-            d ? "bg-[#131A2E] border-[#1E2A44] hover:border-[#ffb700]/40" : "bg-white border-slate-200 hover:border-[#ffb700]/40"
+          <div key={kpi.label} onClick={onDemoClick} className={`p-2.5 rounded-xl border cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg ${
+            d ? "bg-[#131A2E] border-[#1E2A44]" : "bg-white border-slate-200"
           }`}>
-            <div className="w-9 h-9 rounded-lg bg-[#ffb700]/10 flex items-center justify-center mb-3">
-              <Icon className="w-4 h-4 text-[#ffb700]" />
+            <div className="w-7 h-7 rounded-lg flex items-center justify-center mb-2" style={{ backgroundColor: `${accentColor}1a` }}>
+              <Icon className="w-3.5 h-3.5" style={{ color: accentColor }} />
             </div>
-            <div className={`uppercase tracking-wider text-[10px] ${d ? "text-gray-500" : "text-slate-500"}`}>{kpi.label}</div>
-            <div className={`text-2xl font-bold ${d ? "text-white" : "text-slate-900"}`}>
+            <div className={`uppercase tracking-wider text-[9px] ${d ? "text-gray-500" : "text-slate-500"}`}>{kpi.label}</div>
+            <div className={`text-lg font-bold ${d ? "text-white" : "text-slate-900"}`}>
               {kpi.displayStatic ? kpi.displayStatic : <CountUp value={kpi.value} prefix={kpi.prefix || ""} suffix={kpi.suffix || ""} />}
             </div>
-            <div className="flex items-center gap-1 mt-1">
+            <div className="flex items-center gap-1 mt-0.5">
               {isRed ? <TrendingDown className="w-3 h-3 text-red-500" /> : isNeutral ? <Minus className="w-3 h-3 text-slate-500" /> : <TrendingUp className="w-3 h-3 text-green-500" />}
-              <span className={`text-[11px] font-medium ${isRed ? "text-red-500" : isNeutral ? (d ? "text-gray-400" : "text-slate-500") : "text-green-500"}`}>{kpi.trend}</span>
-              {!isNeutral && <span className={`text-[10px] ${d ? "text-gray-600" : "text-slate-400"}`}>vs yesterday</span>}
+              <span className={`text-[10px] font-medium ${isRed ? "text-red-500" : isNeutral ? (d ? "text-gray-400" : "text-slate-500") : "text-green-500"}`}>{kpi.trend}</span>
             </div>
           </div>
         );
@@ -142,29 +141,29 @@ const statusMap: Record<string, { light: string; dark: string }> = {
   renewed: { light: "bg-purple-100 text-purple-700", dark: "bg-purple-500/20 text-purple-400" },
 };
 
-const DataList = ({ title, items, isDark, amountRedStatuses = [], onDemoClick }: { title: string; items: ListItem[]; isDark: boolean; amountRedStatuses?: string[]; onDemoClick: () => void }) => {
+const DataList = ({ title, items, isDark, amountRedStatuses = [], onDemoClick, accentColor = "#a3e635" }: { title: string; items: ListItem[]; isDark: boolean; amountRedStatuses?: string[]; onDemoClick: () => void; accentColor?: string }) => {
   const d = isDark;
   return (
-    <div className={`col-span-1 md:col-span-2 p-5 rounded-xl border ${d ? "bg-[#131A2E] border-[#1E2A44]" : "bg-white border-slate-200"}`}>
-      <div className="flex items-center justify-between mb-4">
-        <div className={`text-sm font-bold ${d ? "text-white" : "text-slate-900"}`}>{title}</div>
-        <span onClick={onDemoClick} className="text-xs text-[#ffb700] cursor-pointer hover:underline">View all →</span>
+    <div className={`col-span-1 md:col-span-2 p-3 rounded-xl border ${d ? "bg-[#131A2E] border-[#1E2A44]" : "bg-white border-slate-200"}`}>
+      <div className="flex items-center justify-between mb-2">
+        <div className={`text-xs font-bold ${d ? "text-white" : "text-slate-900"}`}>{title}</div>
+        <span onClick={onDemoClick} className="text-[10px] cursor-pointer hover:underline" style={{ color: accentColor }}>View all →</span>
       </div>
       {items.map((item, i) => {
         const st = statusMap[item.status] || statusMap.new;
         const isRedAmount = amountRedStatuses.includes(item.status);
         return (
-          <div key={i} onClick={onDemoClick} className={`flex items-center justify-between py-2.5 px-2 -mx-2 rounded-lg cursor-pointer transition-colors ${
+          <div key={i} onClick={onDemoClick} className={`flex items-center justify-between py-2 px-2 -mx-2 rounded-lg cursor-pointer transition-colors ${
             i < items.length - 1 ? (d ? "border-b border-[#1E2A44]" : "border-b border-slate-100") : ""
           } ${d ? "hover:bg-[#1A2238]" : "hover:bg-slate-50"}`}>
             <div>
-              <div className={`text-sm font-semibold ${d ? "text-white" : "text-slate-900"}`}>{item.id}</div>
-              <div className={`text-xs ${d ? "text-gray-500" : "text-slate-500"}`}>{item.desc}</div>
+              <div className={`text-xs font-semibold ${d ? "text-white" : "text-slate-900"}`}>{item.id}</div>
+              <div className={`text-[10px] ${d ? "text-gray-500" : "text-slate-500"}`}>{item.desc}</div>
             </div>
-            <div className="text-right flex flex-col items-end gap-1">
-              <div className={`text-sm font-bold ${isRedAmount ? "text-red-500" : "text-[#ffb700]"}`} style={{ fontVariantNumeric: "tabular-nums" }}>{item.amount}</div>
-              <div className={`text-[10px] ${d ? "text-gray-600" : "text-slate-400"}`}>{item.time}</div>
-              <span className={`px-2 py-0.5 rounded-full text-[9px] font-semibold uppercase ${d ? st.dark : st.light}`}>{item.status}</span>
+            <div className="text-right flex flex-col items-end gap-0.5">
+              <div className={`text-xs font-bold ${isRedAmount ? "text-red-500" : ""}`} style={!isRedAmount ? { color: accentColor, fontVariantNumeric: "tabular-nums" } : { fontVariantNumeric: "tabular-nums" }}>{item.amount}</div>
+              <div className={`text-[9px] ${d ? "text-gray-600" : "text-slate-400"}`}>{item.time}</div>
+              <span className={`px-1.5 py-0.5 rounded-full text-[8px] font-semibold uppercase ${d ? st.dark : st.light}`}>{item.status}</span>
             </div>
           </div>
         );
