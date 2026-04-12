@@ -17,7 +17,7 @@ const Section2Checklist = () => {
 
   return (
     <section
-      className="py-16 md:py-24 px-6 relative overflow-hidden"
+      className="py-12 md:py-16 px-6 relative overflow-hidden"
       style={{ backgroundColor: "#0A0A0F" }}
     >
       {/* Radial glow */}
@@ -27,9 +27,9 @@ const Section2Checklist = () => {
 
       <div ref={ref} className="max-w-[1200px] mx-auto relative z-10">
         {/* Bridge Intro */}
-        <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
+        <div className="max-w-3xl mx-auto text-center mb-8 md:mb-10">
           {/* Divider */}
-          <div className="w-12 h-px bg-[#ffb700]/40 mx-auto mb-6" />
+          <div className="w-12 h-px bg-[#ffb700]/40 mx-auto mb-4" />
 
           {/* Bridge line */}
           <p className="text-xl md:text-2xl lg:text-3xl font-bold text-white tracking-tight leading-tight">
@@ -38,7 +38,7 @@ const Section2Checklist = () => {
 
 
           {/* Headline */}
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-4">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-3 mt-6">
             This Is For You If…
           </h2>
 
@@ -47,7 +47,7 @@ const Section2Checklist = () => {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 mb-12 md:mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 md:gap-3 mb-8 md:mb-10">
           {items.map((item, i) => (
             <div
               key={i}
