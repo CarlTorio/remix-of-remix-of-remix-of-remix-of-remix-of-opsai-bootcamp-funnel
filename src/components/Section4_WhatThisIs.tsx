@@ -115,10 +115,10 @@ export default function Section4WhatThisIs() {
         </RevealBlock>
 
         <RevealBlock delay={100} className="max-w-2xl mx-auto mb-16 text-left md:text-center">
-          <p className="text-lg md:text-xl text-[#C4C4CC] leading-relaxed">
+          <p className="text-base md:text-lg text-[#C4C4CC] leading-relaxed">
             No developer will ever understand your business faster than <span className="text-white font-semibold">you, the owner</span>.
           </p>
-          <p className="text-lg md:text-xl text-[#C4C4CC] leading-relaxed mt-4">
+          <p className="text-base md:text-lg text-[#C4C4CC] leading-relaxed mt-4">
             You already know what's broken. You just need a <span className="text-[#ffb700] font-semibold">way to build the fix</span>.
           </p>
         </RevealBlock>
