@@ -8,7 +8,7 @@ const reasons = [
   {
     num: "01",
     Icon: Target,
-    title: "Built for owners who already feel the pain",
+    title: "Why This Is So Relevant To Real SME Owners?",
     body: "This isn't a 'learn tech for fun' offer. It's for business owners who keep saying things like 'ang dami naming tools pero ang gulo pa rin' or 'pag wala ako, bumabagal lahat.' If that sounds familiar, this wasn't built for everyone — it was built for you.",
     objectionLabel: "Sounds like:",
     objection: "Is this really for me?",
