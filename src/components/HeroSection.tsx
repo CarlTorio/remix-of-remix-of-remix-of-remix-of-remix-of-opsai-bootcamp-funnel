@@ -74,7 +74,7 @@ const HeroSection = () => {
 
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
-      // Scroll UP while hero is in view — reset to original
+      // Scroll UP while hero is in view reset to original
       if (e.deltaY < 0 && window.scrollY <= 10 && stageRef.current !== 0) {
         e.preventDefault();
         resetToInitial();
@@ -124,7 +124,7 @@ const HeroSection = () => {
     const handleTouchMove = (e: TouchEvent) => {
       const deltaY = touchStartY - e.touches[0].clientY;
 
-      // Swipe DOWN (scroll up) — reset
+      // Swipe DOWN (scroll up) reset
       if (deltaY < 0 && window.scrollY <= 10 && stageRef.current !== 0) {
         e.preventDefault();
         resetToInitial();
@@ -180,14 +180,14 @@ const HeroSection = () => {
 
   return (
     <>
-      {/* HERO SECTION — isolated, tall, handles all overlay logic */}
+      {/* HERO SECTION isolated, tall, handles all overlay logic */}
       <section
         ref={heroSectionRef}
         className="relative bg-background"
         style={{ height: "100vh" }}
       >
         <div className="h-screen w-full overflow-hidden relative">
-          {/* Hero content — blurred */}
+          {/* Hero content blurred */}
           <div
             className="absolute inset-0"
             style={{
@@ -211,7 +211,7 @@ const HeroSection = () => {
                 Without Hiring Developers, Without Coding,<br />and Without Spending ₱500,000+ on Custom Software.
               </p>
               <div style={isMobile ? { textShadow: "none" } : undefined}>
-                <CTAButton>Enroll Now — Limited Slots</CTAButton>
+                <CTAButton>Enroll Now Limited Slots</CTAButton>
               </div>
               <div className="mt-4 flex flex-wrap justify-center gap-6 text-sm text-muted-foreground font-body">
                 <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-success inline-block" /> Live Cohort</span>
@@ -248,7 +248,7 @@ const HeroSection = () => {
         </div>
       </section>
 
-      {/* SECOND SECTION — completely separate sibling, untouched */}
+      {/* SECOND SECTION completely separate sibling, untouched */}
       <section
         ref={secondSectionRef}
         className="relative w-full"

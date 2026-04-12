@@ -58,7 +58,7 @@ export default function Section4WhatThisIs() {
         <RevealBlock delay={160}>
           <p className="text-lg md:text-xl text-[#C4C4CC] leading-relaxed max-w-2xl mx-auto mb-16">
             The SME Systems Bootcamp teaches you how to build your own internal business system using{" "}
-            <span className="text-white font-semibold">AI and no-code tools</span> — in less than{" "}
+            <span className="text-white font-semibold">AI and no-code tools</span> in less than{" "}
             <span className="text-[#ffb700] font-semibold">2 weeks</span>.
           </p>
         </RevealBlock>
@@ -102,7 +102,7 @@ export default function Section4WhatThisIs() {
           <div className="flex flex-col gap-2 items-center">
             {notList.map((item, i) => (
               <p key={i} className="text-base md:text-lg text-[#8A8A94] font-medium">
-                <span className="text-[#ffb700] font-bold">— </span>{item}
+                <span className="text-[#ffb700] font-bold"></span>{item}
               </p>
             ))}
           </div>

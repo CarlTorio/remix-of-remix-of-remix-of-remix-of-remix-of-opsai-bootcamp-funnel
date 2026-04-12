@@ -45,7 +45,7 @@ const SectionAboutCreator = () => {
 
         {/* Main Grid */}
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          {/* Left Column — Photo */}
+          {/* Left Column Photo */}
           <div className="lg:col-span-5 relative lg:sticky lg:top-24">
             <div
               ref={photoReveal.ref}
@@ -80,7 +80,7 @@ const SectionAboutCreator = () => {
             </div>
           </div>
 
-          {/* Right Column — Bio */}
+          {/* Right Column Bio */}
           <div className="lg:col-span-7 flex flex-col gap-5">
             {/* Quote */}
             <div
@@ -101,7 +101,7 @@ const SectionAboutCreator = () => {
                 className={`text-sm md:text-base text-gray-300 leading-relaxed transition-all duration-700 ${p1Reveal.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
                 style={{ transitionDelay: "450ms" }}
               >
-                I'm John Carl Torio, and I built this bootcamp because I watched too many SME owners burn ₱500,000+ on custom software that didn't fit their business — only to end up still running on spreadsheets a year later.
+                I'm John Carl Torio, and I built this bootcamp because I watched too many SME owners burn ₱500,000+ on custom software that didn't fit their business only to end up still running on spreadsheets a year later.
               </p>
               <p
                 ref={p2Reveal.ref}
@@ -115,7 +115,7 @@ const SectionAboutCreator = () => {
                 className={`text-sm md:text-base text-gray-300 leading-relaxed transition-all duration-700 ${p3Reveal.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
                 style={{ transitionDelay: "750ms" }}
               >
-                So I built a method that puts the building back in your hands — using AI as your technical co-pilot, no-code as your foundation, and{" "}
+                So I built a method that puts the building back in your hands using AI as your technical co-pilot, no-code as your foundation, and{" "}
                 <span className="text-[#ffb700] font-semibold">your own business knowledge</span>{" "}
                 as the edge no developer can replicate.
               </p>

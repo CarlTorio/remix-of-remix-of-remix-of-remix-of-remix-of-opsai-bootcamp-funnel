@@ -6,13 +6,13 @@ import {
 } from "lucide-react";
 
 const week1Sessions = [
-  { num: "01", icon: Search, title: "Systems Diagnosis", desc: "Discover the hidden operational problems slowing down your business — the invisible backend drag most owners never see." },
-  { num: "02", icon: Map, title: "Operator Mapping", desc: "Audit your workflows, approvals, departments, and the exact data your business needs — like a CEO would." },
-  { num: "03", icon: LayoutGrid, title: "System Blueprinting", desc: "Design the internal system structure your business actually needs — before writing a single line of code." },
+  { num: "01", icon: Search, title: "Systems Diagnosis", desc: "Discover the hidden operational problems slowing down your business the invisible backend drag most owners never see." },
+  { num: "02", icon: Map, title: "Operator Mapping", desc: "Audit your workflows, approvals, departments, and the exact data your business needs like a CEO would." },
+  { num: "03", icon: LayoutGrid, title: "System Blueprinting", desc: "Design the internal system structure your business actually needs before writing a single line of code." },
 ];
 
 const week2Sessions = [
-  { num: "04", icon: Sparkles, title: "AI Build Method", desc: "Learn how to use AI and prompts to turn business logic into software logic — your repeatable AI-assisted workflow." },
+  { num: "04", icon: Sparkles, title: "AI Build Method", desc: "Learn how to use AI and prompts to turn business logic into software logic your repeatable AI-assisted workflow." },
   { num: "05", icon: Hammer, title: "Internal App Buildout", desc: "Build dashboards, workflows, forms, access control, permissions, and the core structure of your system." },
   { num: "06", icon: Rocket, title: "Operational Launch", desc: "Refine your build, test it in real conditions, and turn it into a usable internal system you can keep improving." },
 ];
@@ -76,7 +76,7 @@ const SectionRoadmap = () => {
             How This <span className="text-[#ffb700]">Bootcamp</span> Actually Works
           </h2>
           <p className="text-sm md:text-base text-gray-400 max-w-2xl mx-auto">
-            A live 2-week online bootcamp with 6 total sessions. From messy backend thinking to a working internal system — using AI, prompts, and no-code tools.
+            A live 2-week online bootcamp with 6 total sessions. From messy backend thinking to a working internal system using AI, prompts, and no-code tools.
           </p>
         </div>
 
@@ -92,7 +92,7 @@ const SectionRoadmap = () => {
             You're starting from <span className="text-[#ffb700]">ownership</span>.
           </p>
           <p className="text-sm text-gray-400 leading-relaxed mt-3">
-            And when the owner has the right tools, prompts, and process — the build gets <span className="text-[#ffb700] font-semibold">dramatically faster</span>.
+            And when the owner has the right tools, prompts, and process the build gets <span className="text-[#ffb700] font-semibold">dramatically faster</span>.
           </p>
         </div>
 
