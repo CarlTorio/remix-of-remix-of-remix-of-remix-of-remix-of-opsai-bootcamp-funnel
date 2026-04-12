@@ -1,4 +1,5 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import CTAButton from "./CTAButton";
 import {
   Star, BookMarked, FileSpreadsheet, Wrench, Video,
   ShieldCheck, Lock, Users, Infinity, ArrowRight, Check
@@ -162,13 +163,9 @@ const SectionOfferZone = () => {
             </div>
 
             {/* CTA */}
-            <button
-              onClick={() => document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" })}
-              className="w-full flex items-center justify-center gap-2 bg-[#ffb700] hover:bg-[#ffc733] text-black font-bold text-base py-4 rounded-2xl shadow-[0_10px_40px_rgba(255,183,0,0.5)] hover:shadow-[0_15px_50px_rgba(255,183,0,0.6)] hover:-translate-y-0.5 transition-all duration-300 tracking-wide mt-4"
-            >
+            <CTAButton href="#pricing" className="w-full">
               RESERVE MY SLOT FOR ₱4,886
-              <ArrowRight className="w-5 h-5" />
-            </button>
+            </CTAButton>
 
             <p className="text-[10px] text-gray-500 text-center mt-3">
               🔒 Secure payment  •  ✓ Limited to 100 slots  •  ✓ Lifetime access
