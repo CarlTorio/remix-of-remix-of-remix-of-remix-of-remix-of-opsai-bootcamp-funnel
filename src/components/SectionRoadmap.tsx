@@ -71,16 +71,32 @@ const SectionRoadmap = () => {
     >
       <div className="max-w-[1200px] mx-auto">
         {/* Header */}
-        <div ref={ref} className={`text-center mb-12 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+        <div ref={ref} className={`text-center mb-0 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
           <span className="inline-flex items-center gap-2 bg-[#ffb700]/10 border border-[#ffb700]/30 px-3 py-1 rounded-full text-[#ffb700] text-[10px] uppercase tracking-[0.25em] font-semibold mb-4">
             <span className="w-1 h-1 rounded-full bg-[#ffb700] animate-pulse" />
-            THE BUILDOUT ROADMAP
+            HOW IT WORKS
           </span>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-[1.2] max-w-3xl mx-auto mb-3">
-            Your <span className="text-[#ffb700]">14-Day Business System</span> Buildout Roadmap
+            How This <span className="text-[#ffb700]">Bootcamp</span> Actually Works
           </h2>
           <p className="text-sm md:text-base text-gray-400 max-w-2xl mx-auto">
-            6 live implementation sessions. Built around one goal: by the end, you walk away with a working internal business system tailored to your business — not a tutorial, not a template.
+            A live 2-week online bootcamp with 6 total sessions. From messy backend thinking to a working internal system — using AI, prompts, and no-code tools.
+          </p>
+        </div>
+
+        {/* Narrative Block */}
+        <div className={`max-w-2xl mx-auto text-center mb-12 mt-6 transition-all duration-700 delay-200 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+          <p className="text-sm md:text-base text-gray-500 italic leading-relaxed mb-3">
+            Instead of wasting months explaining your operations to someone else…
+          </p>
+          <p className="text-base md:text-lg font-bold text-white mb-2">
+            You're not starting from zero.
+          </p>
+          <p className="text-base md:text-lg font-bold text-[#ffb700]">
+            You're starting from <span className="text-[#ffb700]">ownership</span>.
+          </p>
+          <p className="text-sm text-gray-400 leading-relaxed mt-3">
+            And when the owner has the right tools, prompts, and process — the build gets <span className="text-[#ffb700] font-semibold">dramatically faster</span>.
           </p>
         </div>
 
