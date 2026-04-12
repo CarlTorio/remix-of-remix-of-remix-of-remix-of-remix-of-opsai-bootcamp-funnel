@@ -35,7 +35,7 @@ const Section5BeforeAfter = () => {
             </span>
           </div>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-[1.2] max-w-3xl mx-auto mb-3">
-            What <span className="text-[#ffb700]">6 Weeks of Building</span> Actually Changes
+            What <span className="text-[#ffb700]">2 Weeks of Building</span> Actually Changes
           </h2>
           <p className="text-sm md:text-base text-gray-400 max-w-xl mx-auto">
             Real numbers from real business owners after their first internal system.
@@ -85,7 +85,7 @@ const Section5BeforeAfter = () => {
           >
             <ArrowDown className="w-4 h-4 text-[#ffb700] animate-bounce" />
             <span className="text-[#ffb700] text-[10px] font-bold uppercase tracking-widest">
-              AFTER 6 WEEKS
+              AFTER 2 WEEKS
             </span>
           </div>
           <div className="flex-1 h-px bg-gradient-to-l from-transparent to-[#ffb700]/40" />
