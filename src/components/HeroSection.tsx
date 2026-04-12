@@ -176,7 +176,7 @@ const HeroSection = () => {
   const maxBlur = isMobile ? 6 : 10;
   const blurAmount = animationStage >= 1 ? maxBlur : 0;
   const overlayOpacity = animationStage === 1 ? 1 : 0;
-  const textOpacity = animationStage === 1 ? 1 : 0;
+  const textOpacity = animationStage >= 1 ? 1 : 0;
 
   return (
     <>
