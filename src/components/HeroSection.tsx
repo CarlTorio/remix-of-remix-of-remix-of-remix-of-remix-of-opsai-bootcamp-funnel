@@ -54,6 +54,7 @@ const HeroSection = () => {
   const isAnimatingRef = useRef(false);
   const stageRef = useRef<0 | 1 | 2>(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [isResetting, setIsResetting] = useState(false);
   const timeoutsRef = useRef<number[]>([]);
 
   const resetToInitial = () => {
@@ -62,7 +63,9 @@ const HeroSection = () => {
     timeoutsRef.current = [];
     isAnimatingRef.current = false;
     stageRef.current = 0;
+    setIsResetting(true);
     setAnimationStage(0);
+    setTimeout(() => setIsResetting(false), 200);
   };
 
   useEffect(() => {
