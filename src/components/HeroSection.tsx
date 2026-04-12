@@ -109,7 +109,7 @@ const HeroSection = () => {
             timeoutsRef.current.push(t3);
           }, 500);
           timeoutsRef.current.push(t2);
-        }, 800);
+        }, 5000);
         timeoutsRef.current.push(t1);
       } else if (currentStage === 1 || currentStage === 2) {
         e.preventDefault();
@@ -156,7 +156,7 @@ const HeroSection = () => {
             timeoutsRef.current.push(t3);
           }, 500);
           timeoutsRef.current.push(t2);
-        }, 800);
+        }, 5000);
         timeoutsRef.current.push(t1);
       } else if (currentStage === 1 || currentStage === 2) {
         e.preventDefault();
