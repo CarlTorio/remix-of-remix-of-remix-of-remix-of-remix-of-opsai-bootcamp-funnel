@@ -637,7 +637,7 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
   ];
 
   return (
-    <div ref={containerRef} className={`relative grid grid-cols-12 gap-3 p-4 transition-colors duration-500 ${d ? "bg-[#0A0F1A]" : "bg-[#F8FAFC]"}`}>
+    <div ref={containerRef} className={`relative flex flex-col md:grid md:grid-cols-12 gap-3 p-3 md:p-4 transition-colors duration-500 ${d ? "bg-[#0A0F1A]" : "bg-[#F8FAFC]"}`}>
       {/* LEFT SIDEBAR */}
       <div className={`col-span-2 hidden lg:flex flex-col gap-1 p-3 rounded-xl ${card}`}>
         <div className="flex items-center gap-2 mb-3">
