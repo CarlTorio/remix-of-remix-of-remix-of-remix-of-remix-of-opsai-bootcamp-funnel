@@ -245,11 +245,11 @@ const TopBar = ({ greeting, subtitle, isDark }: { greeting: string; subtitle: st
   return (
     <div className="flex items-center justify-between">
       <div>
-        <div className={`text-lg font-semibold ${d ? "text-white" : "text-slate-900"}`}>{greeting}</div>
-        <div className={`text-xs ${d ? "text-gray-500" : "text-slate-500"}`}>{subtitle}</div>
+        <div className={`text-sm font-semibold ${d ? "text-white" : "text-slate-900"}`}>{greeting}</div>
+        <div className={`text-[10px] ${d ? "text-gray-500" : "text-slate-500"}`}>{subtitle}</div>
       </div>
-      <div className={`px-3 py-1.5 rounded-full text-xs ${d ? "bg-[#1E2A44] text-gray-400" : "bg-slate-100 text-slate-600"}`}>
-        📅 Today — {new Date().toLocaleDateString()}
+      <div className={`px-2 py-1 rounded-full text-[10px] ${d ? "bg-[#1E2A44] text-gray-400" : "bg-slate-100 text-slate-600"}`}>
+        📅 {new Date().toLocaleDateString()}
       </div>
     </div>
   );
@@ -283,43 +283,42 @@ const fnbOrders: ListItem[] = [
   { id: "Table 5", desc: "2x Coffee, 1x Cake", amount: "₱890", time: "2 min ago", status: "new" },
   { id: "Table 12", desc: "Family Meal Set", amount: "₱1,450", time: "5 min ago", status: "preparing" },
   { id: "Take-out #142", desc: "3x Iced Latte", amount: "₱540", time: "8 min ago", status: "ready" },
-  { id: "Table 3", desc: "Breakfast combo", amount: "₱680", time: "12 min ago", status: "served" },
-  { id: "Delivery #89", desc: "Lunch special x2", amount: "₱1,200", time: "15 min ago", status: "served" },
 ];
 const fnbCategoryData: DonutEntry[] = [
-  { name: "Main Dishes", value: 45, color: "#ffb700" },
-  { name: "Drinks", value: 30, color: "#fcd34d" },
-  { name: "Desserts", value: 25, color: "#fde68a" },
+  { name: "Main Dishes", value: 45, color: "#a3e635" },
+  { name: "Drinks", value: 30, color: "#84cc16" },
+  { name: "Desserts", value: 25, color: "#d9f99d" },
 ];
 
 const FnBDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick: () => void }) => {
   const d = isDark;
+  const accent = "#a3e635";
   return (
-    <div className="flex min-h-[600px] w-full">
-      <DashboardSidebar brand={{ letter: "K", name: "Kape Ni Ana", tagline: "POS System" }} nav={fnbNav} isDark={d} onDemoClick={onDemoClick} />
-      <div className="flex-1 p-6 flex flex-col gap-5 transition-colors duration-500">
+    <div className="flex h-full w-full overflow-hidden">
+      <DashboardSidebar brand={{ letter: "K", name: "Kape Ni Ana", tagline: "POS System" }} nav={fnbNav} isDark={d} onDemoClick={onDemoClick} accentColor={accent} />
+      <div className="flex-1 p-3 flex flex-col gap-2 transition-colors duration-500 overflow-hidden">
         <TopBar greeting="Good morning, Juan 👋" subtitle="Here's what's happening at your restaurant today" isDark={d} />
-        <KPICards data={fnbKPIs} isDark={d} onDemoClick={onDemoClick} />
-        <ChartCard title="Sales by Hour" subtitle="Today's performance" isDark={d}>
+        <KPICards data={fnbKPIs} isDark={d} onDemoClick={onDemoClick} accentColor={accent} />
+        <ChartCard title="Sales by Hour" subtitle="Today's performance" isDark={d} chartHeight="150px">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={fnbHourlyData}>
               <CartesianGrid strokeDasharray="3 3" stroke={d ? "#1E2A44" : "#e2e8f0"} />
-              <XAxis dataKey="hour" stroke={d ? "#6B7280" : "#94a3b8"} fontSize={11} />
-              <YAxis stroke={d ? "#6B7280" : "#94a3b8"} fontSize={11} tickFormatter={(v) => `₱${v / 1000}k`} />
+              <XAxis dataKey="hour" stroke={d ? "#6B7280" : "#94a3b8"} fontSize={9} />
+              <YAxis stroke={d ? "#6B7280" : "#94a3b8"} fontSize={9} tickFormatter={(v) => `₱${v / 1000}k`} />
               <Tooltip content={<CustomTooltip isDark={d} />} />
-              <Bar dataKey="sales" fill="#ffb700" radius={[6, 6, 0, 0]} isAnimationActive={true} />
+              <Bar dataKey="sales" fill="#a3e635" radius={[4, 4, 0, 0]} isAnimationActive={true} />
             </BarChart>
           </ResponsiveContainer>
         </ChartCard>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          <DataList title="Recent Orders" items={fnbOrders} isDark={d} onDemoClick={onDemoClick} />
-          <DonutCard title="Menu Categories" subtitle="Today's sales mix" data={fnbCategoryData} isDark={d} />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+          <DataList title="Recent Orders" items={fnbOrders} isDark={d} onDemoClick={onDemoClick} accentColor={accent} />
+          <DonutCard title="Menu Categories" subtitle="Today's sales mix" data={fnbCategoryData} isDark={d} accentColor={accent} />
         </div>
         <ActionButtons buttons={[
           { label: "New Order", icon: Plus, primary: true },
           { label: "Add Menu Item", icon: PlusCircle },
           { label: "Print Report", icon: Printer },
-        ]} isDark={d} onDemoClick={onDemoClick} />
+        ]} isDark={d} onDemoClick={onDemoClick} accentColor={accent} />
       </div>
     </div>
   );
