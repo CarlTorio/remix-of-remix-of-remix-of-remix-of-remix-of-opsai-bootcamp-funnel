@@ -71,7 +71,7 @@ export default function Section4WhatThisIs() {
           <p className="text-lg md:text-xl text-white font-medium mb-8">You're probably still running on:</p>
         </RevealBlock>
 
-        <RevealBlock delay={150} className="max-w-xl mx-auto mb-16 pl-8 md:pl-16">
+        <RevealBlock delay={150} className="max-w-xl mx-auto mb-16 pl-12 md:pl-24">
           <div className="flex flex-col gap-4">
             {problems.map((p, i) => (
               <div key={i} className="flex items-start gap-4 text-left">
