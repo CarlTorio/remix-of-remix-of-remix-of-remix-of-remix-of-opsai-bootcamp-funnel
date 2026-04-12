@@ -324,13 +324,13 @@ const FnBDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick: (
   );
 };
 
-// ─── E-commerce Dashboard (Green Theme) ───
+// ─── E-commerce Dashboard (Yellow Theme) ───
 
 const ecomDonutData: DonutEntry[] = [
-  { name: "Shopee", value: 55, color: "#a3e635" },
-  { name: "Lazada", value: 25, color: "#84cc16" },
-  { name: "Website", value: 12, color: "#d9f99d" },
-  { name: "TikTok", value: 8, color: "#ecfccb" },
+  { name: "Shopee", value: 55, color: "#ffb700" },
+  { name: "Lazada", value: 25, color: "#facc15" },
+  { name: "Website", value: 12, color: "#fde68a" },
+  { name: "TikTok", value: 8, color: "#fef3c7" },
 ];
 
 const profitData = Array.from({ length: 20 }, (_, i) => ({
@@ -341,12 +341,12 @@ const profitData = Array.from({ length: 20 }, (_, i) => ({
 const ecomCustomers = [
   { name: "Danny Liu", email: "danny@gmail.com", orders: 1023, value: "₱37,431", avatarColor: "#f43f5e" },
   { name: "Bella Deviant", email: "bella@gmail.com", orders: 963, value: "₱30,423", avatarColor: "#f59e0b" },
-  { name: "Darrell Steward", email: "darrell@gmail.com", orders: 843, value: "₱28,549", avatarColor: "#10b981" },
 ];
 
 const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick: () => void }) => {
   const d = isDark;
   const card = `rounded-xl ${d ? "bg-[#131B2E] border border-[#1E2A44]" : "bg-white border border-slate-200"}`;
+  const accent = "#ffb700";
 
   const ecomNavItems = [
     { icon: LayoutDashboard, label: "Overview", active: true },
@@ -367,128 +367,127 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
   ];
   const notifications = [
     { icon: Users, text: "56 new users registered", time: "Just now" },
-    { icon: ShoppingBag, text: "132 orders placed", time: "59 minutes ago" },
-    { icon: DollarSign, text: "Funds withdrawn", time: "12 hours ago" },
+    { icon: ShoppingBag, text: "132 orders placed", time: "59 min ago" },
   ];
   const activities = [
     { icon: Palette, text: "Changed the style", time: "Just now" },
-    { icon: Plus, text: "177 products added", time: "47 minutes ago" },
+    { icon: Plus, text: "177 products added", time: "47 min ago" },
   ];
   const contacts = [
     { name: "Sarah Kim", color: "#f43f5e", highlight: false },
     { name: "James Cruz", color: "#3b82f6", highlight: false },
-    { name: "Nataniel Donowan", color: "#a3e635", highlight: true },
+    { name: "Nataniel Donowan", color: "#ffb700", highlight: true },
   ];
   const salesBreakdown = [
-    { label: "Shopee", value: "₱55,640", color: "#a3e635" },
-    { label: "Lazada", value: "₱11,420", color: "#84cc16" },
-    { label: "Website", value: "₱1,840", color: "#d9f99d" },
-    { label: "TikTok", value: "₱2,120", color: "#ecfccb" },
+    { label: "Shopee", value: "₱55,640", color: "#ffb700" },
+    { label: "Lazada", value: "₱11,420", color: "#facc15" },
+    { label: "Website", value: "₱1,840", color: "#fde68a" },
+    { label: "TikTok", value: "₱2,120", color: "#fef3c7" },
   ];
 
   return (
-    <div className={`grid grid-cols-12 gap-3 h-full p-4 transition-colors duration-500 ${d ? "bg-[#0A0F1A]" : "bg-[#F8FAFC]"}`}>
+    <div className={`grid grid-cols-12 gap-2 h-full p-3 transition-colors duration-500 overflow-hidden ${d ? "bg-[#0A0F1A]" : "bg-[#F8FAFC]"}`}>
       {/* LEFT SIDEBAR */}
-      <div className={`col-span-2 hidden lg:flex flex-col gap-1 p-3 rounded-xl ${card}`}>
-        <div className="flex items-center gap-2 mb-4">
-          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-lime-400 to-lime-600 flex items-center justify-center">
-            <span className="text-black font-bold text-sm">S</span>
+      <div className={`col-span-2 hidden lg:flex flex-col gap-1 p-2.5 rounded-xl ${card}`}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[#ffb700] to-[#e6a500] flex items-center justify-center">
+            <span className="text-black font-bold text-xs">S</span>
           </div>
-          <span className={`text-xs font-bold ${d ? "text-white" : "text-slate-900"}`}>ShopHub PH</span>
+          <span className={`text-[10px] font-bold ${d ? "text-white" : "text-slate-900"}`}>ShopHub PH</span>
         </div>
-        <div className={`flex items-center gap-2 rounded-lg px-2 py-1.5 mb-3 ${d ? "bg-[#1E2A44]" : "bg-slate-100"}`}>
+        <div className={`flex items-center gap-2 rounded-lg px-2 py-1 mb-2 ${d ? "bg-[#1E2A44]" : "bg-slate-100"}`}>
           <Search className="w-3 h-3 text-gray-500" />
-          <span className="text-[10px] text-gray-500 flex-1">Search...</span>
-          <span className={`text-[9px] px-1 rounded ${d ? "bg-[#2A3A5C] text-gray-500" : "bg-slate-200 text-slate-500"}`}>⌘K</span>
+          <span className="text-[9px] text-gray-500 flex-1">Search...</span>
+          <span className={`text-[8px] px-1 rounded ${d ? "bg-[#2A3A5C] text-gray-500" : "bg-slate-200 text-slate-500"}`}>⌘K</span>
         </div>
-        <div className="text-[9px] uppercase tracking-widest text-gray-500 mb-1 mt-2">Dashboards</div>
+        <div className="text-[8px] uppercase tracking-widest text-gray-500 mb-1 mt-1">Dashboards</div>
         {ecomNavItems.map((item) => {
           const Icon = item.icon;
           return (
-            <button key={item.label} onClick={onDemoClick} className={`flex items-center gap-2 px-2 py-1.5 rounded-md text-[11px] cursor-pointer transition-colors ${
-              item.active ? "bg-lime-400 text-black font-semibold shadow-[0_0_20px_rgba(163,230,53,0.3)]" : d ? "text-gray-500 hover:bg-[#1E2A44]" : "text-slate-500 hover:bg-slate-100"
+            <button key={item.label} onClick={onDemoClick} className={`flex items-center gap-2 px-2 py-1 rounded-md text-[10px] cursor-pointer transition-colors ${
+              item.active ? "bg-[#ffb700] text-black font-semibold shadow-[0_0_20px_rgba(255,183,0,0.3)]" : d ? "text-gray-500 hover:bg-[#1E2A44]" : "text-slate-500 hover:bg-slate-100"
             }`}>
-              <Icon className="w-3.5 h-3.5" /> {item.label}
+              <Icon className="w-3 h-3" /> {item.label}
             </button>
           );
         })}
-        <div className="text-[9px] uppercase tracking-widest text-gray-500 mb-1 mt-3">Settings</div>
+        <div className="text-[8px] uppercase tracking-widest text-gray-500 mb-1 mt-2">Settings</div>
         {ecomSettingsNav.map((item) => {
           const Icon = item.icon;
           return (
-            <button key={item.label} onClick={onDemoClick} className={`flex items-center gap-2 px-2 py-1.5 rounded-md text-[11px] cursor-pointer transition-colors ${d ? "text-gray-500 hover:bg-[#1E2A44]" : "text-slate-500 hover:bg-slate-100"}`}>
-              <Icon className="w-3.5 h-3.5" /> {item.label}
+            <button key={item.label} onClick={onDemoClick} className={`flex items-center gap-2 px-2 py-1 rounded-md text-[10px] cursor-pointer transition-colors ${d ? "text-gray-500 hover:bg-[#1E2A44]" : "text-slate-500 hover:bg-slate-100"}`}>
+              <Icon className="w-3 h-3" /> {item.label}
             </button>
           );
         })}
       </div>
 
       {/* MAIN AREA */}
-      <div className="col-span-12 lg:col-span-7 xl:col-span-7 flex flex-col gap-3">
+      <div className="col-span-12 lg:col-span-7 xl:col-span-7 flex flex-col gap-2 overflow-hidden">
         {/* Top bar */}
         <div className="flex items-center justify-between">
           <div>
-            <div className={`text-base font-bold ${d ? "text-white" : "text-slate-900"}`}>Overview</div>
-            <div className="text-[10px] text-gray-500">Dashboards / Overview</div>
+            <div className={`text-sm font-bold ${d ? "text-white" : "text-slate-900"}`}>Overview</div>
+            <div className="text-[9px] text-gray-500">Dashboards / Overview</div>
           </div>
-          <div className={`px-2 py-1 rounded-md text-[10px] ${d ? "bg-[#1E2A44] text-gray-400" : "bg-slate-100 text-slate-600"}`}>Today ▾</div>
+          <div className={`px-2 py-0.5 rounded-md text-[9px] ${d ? "bg-[#1E2A44] text-gray-400" : "bg-slate-100 text-slate-600"}`}>Today ▾</div>
         </div>
 
         {/* KPI Cards */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
           {ecomKPIs.map((kpi) => (
-            <div key={kpi.label} onClick={onDemoClick} className={`p-3 rounded-xl cursor-pointer hover:-translate-y-0.5 transition-all ${card} relative`}>
-              <div className={`text-[10px] uppercase tracking-wider ${d ? "text-gray-500" : "text-slate-500"}`}>{kpi.label}</div>
-              <div className={`text-xl font-bold mt-1 ${d ? "text-white" : "text-slate-900"}`}>
+            <div key={kpi.label} onClick={onDemoClick} className={`p-2.5 rounded-xl cursor-pointer hover:-translate-y-0.5 transition-all ${card} relative`}>
+              <div className={`text-[9px] uppercase tracking-wider ${d ? "text-gray-500" : "text-slate-500"}`}>{kpi.label}</div>
+              <div className={`text-lg font-bold mt-0.5 ${d ? "text-white" : "text-slate-900"}`}>
                 <CountUp value={kpi.value} prefix={kpi.prefix || ""} suffix={kpi.suffix || ""} />
               </div>
               {kpi.isGauge ? (
-                <svg className="absolute top-3 right-3" width="36" height="36" viewBox="0 0 40 40">
+                <svg className="absolute top-2.5 right-2.5" width="32" height="32" viewBox="0 0 40 40">
                   <circle cx="20" cy="20" r="16" stroke={d ? "#1E2A44" : "#e2e8f0"} strokeWidth={4} fill="none" />
-                  <circle cx="20" cy="20" r="16" stroke="#a3e635" strokeWidth={4} fill="none" strokeDasharray={`${71 * 1.005}, 100.5`} strokeLinecap="round" transform="rotate(-90 20 20)" />
+                  <circle cx="20" cy="20" r="16" stroke="#ffb700" strokeWidth={4} fill="none" strokeDasharray={`${71 * 1.005}, 100.5`} strokeLinecap="round" transform="rotate(-90 20 20)" />
                 </svg>
               ) : (
-                <div className="flex items-center gap-1 mt-1">
-                  <TrendingUp className="w-3 h-3 text-lime-400" />
-                  <span className="text-[10px] text-lime-400 font-medium">{kpi.trend}</span>
+                <div className="flex items-center gap-1 mt-0.5">
+                  <TrendingUp className="w-3 h-3 text-green-500" />
+                  <span className="text-[9px] text-green-500 font-medium">{kpi.trend}</span>
                 </div>
               )}
-              {kpi.subtitle && <div className="text-[9px] text-gray-500 mt-0.5">{kpi.subtitle}</div>}
+              {kpi.subtitle && <div className="text-[8px] text-gray-500">{kpi.subtitle}</div>}
             </div>
           ))}
         </div>
 
         {/* Charts row */}
-        <div className="grid grid-cols-12 gap-3">
+        <div className="grid grid-cols-12 gap-2">
           {/* Sales Overview */}
-          <div className={`col-span-12 md:col-span-7 p-4 ${card}`}>
-            <div className="flex items-center justify-between mb-3">
-              <span className={`text-sm font-bold ${d ? "text-white" : "text-slate-900"}`}>Sales Overview</span>
-              <MoreVertical className="w-4 h-4 text-gray-500 cursor-pointer" onClick={onDemoClick} />
+          <div className={`col-span-12 md:col-span-7 p-3 ${card}`}>
+            <div className="flex items-center justify-between mb-2">
+              <span className={`text-xs font-bold ${d ? "text-white" : "text-slate-900"}`}>Sales Overview</span>
+              <MoreVertical className="w-3.5 h-3.5 text-gray-500 cursor-pointer" onClick={onDemoClick} />
             </div>
-            <div className="flex gap-4">
-              <div className="w-[120px] h-[120px] relative flex-shrink-0">
+            <div className="flex gap-3">
+              <div className="w-[100px] h-[100px] relative flex-shrink-0">
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
-                    <Pie data={ecomDonutData} innerRadius={42} outerRadius={58} paddingAngle={2} dataKey="value" isAnimationActive>
+                    <Pie data={ecomDonutData} innerRadius={35} outerRadius={48} paddingAngle={2} dataKey="value" isAnimationActive>
                       {ecomDonutData.map((e, i) => <Cell key={i} fill={e.color} />)}
                     </Pie>
                   </PieChart>
                 </ResponsiveContainer>
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <span className={`text-base font-bold ${d ? "text-white" : "text-slate-900"}`}>102k</span>
-                  <span className="text-[9px] text-gray-500">Weekly Visits</span>
+                  <span className={`text-sm font-bold ${d ? "text-white" : "text-slate-900"}`}>102k</span>
+                  <span className="text-[8px] text-gray-500">Visits</span>
                 </div>
               </div>
               <div className="flex-1">
-                <div className="text-[10px] text-gray-500">Number of Sales</div>
-                <div className={`text-lg font-bold mb-2 ${d ? "text-white" : "text-slate-900"}`} style={{ fontVariantNumeric: "tabular-nums" }}>₱71,020</div>
-                <div className="grid grid-cols-2 gap-2">
+                <div className="text-[9px] text-gray-500">Number of Sales</div>
+                <div className={`text-base font-bold mb-1.5 ${d ? "text-white" : "text-slate-900"}`} style={{ fontVariantNumeric: "tabular-nums" }}>₱71,020</div>
+                <div className="grid grid-cols-2 gap-1.5">
                   {salesBreakdown.map((s) => (
-                    <div key={s.label} className="flex items-center gap-1.5">
-                      <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: s.color }} />
-                      <span className="text-[10px] text-gray-500">{s.label}</span>
-                      <span className={`text-[11px] font-bold ml-auto ${d ? "text-white" : "text-slate-900"}`} style={{ fontVariantNumeric: "tabular-nums" }}>{s.value}</span>
+                    <div key={s.label} className="flex items-center gap-1">
+                      <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: s.color }} />
+                      <span className="text-[9px] text-gray-500">{s.label}</span>
+                      <span className={`text-[9px] font-bold ml-auto ${d ? "text-white" : "text-slate-900"}`} style={{ fontVariantNumeric: "tabular-nums" }}>{s.value}</span>
                     </div>
                   ))}
                 </div>
@@ -497,50 +496,50 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
           </div>
 
           {/* Right mini cards */}
-          <div className="col-span-12 md:col-span-5 flex flex-col gap-3">
+          <div className="col-span-12 md:col-span-5 flex flex-col gap-2">
             <div className="grid grid-cols-2 gap-2">
-              <div className={`p-3 ${card} cursor-pointer`} onClick={onDemoClick}>
-                <div className="flex items-center gap-1 mb-1">
-                  <TrendingUp className="w-3 h-3 text-lime-400" />
-                  <span className="text-[9px] text-gray-500">New customers</span>
+              <div className={`p-2.5 ${card} cursor-pointer`} onClick={onDemoClick}>
+                <div className="flex items-center gap-1 mb-0.5">
+                  <TrendingUp className="w-3 h-3 text-[#ffb700]" />
+                  <span className="text-[8px] text-gray-500">New customers</span>
                 </div>
-                <div className={`text-lg font-bold ${d ? "text-white" : "text-slate-900"}`}><CountUp value={862} /></div>
+                <div className={`text-base font-bold ${d ? "text-white" : "text-slate-900"}`}><CountUp value={862} /></div>
                 <div className="flex items-center gap-1">
-                  <span className="text-[9px] text-red-400 font-medium">-8%</span>
-                  <span className="text-[9px] text-gray-500">Last Week</span>
+                  <span className="text-[8px] text-red-400 font-medium">-8%</span>
+                  <span className="text-[8px] text-gray-500">Last Week</span>
                 </div>
               </div>
-              <div className={`p-3 ${card} cursor-pointer`} onClick={onDemoClick}>
-                <div className="flex items-center gap-1 mb-1">
-                  <BarChart3 className="w-3 h-3 text-lime-400" />
-                  <span className="text-[9px] text-gray-500">Total profit</span>
+              <div className={`p-2.5 ${card} cursor-pointer`} onClick={onDemoClick}>
+                <div className="flex items-center gap-1 mb-0.5">
+                  <BarChart3 className="w-3 h-3 text-[#ffb700]" />
+                  <span className="text-[8px] text-gray-500">Total profit</span>
                 </div>
-                <div className={`text-lg font-bold ${d ? "text-white" : "text-slate-900"}`}>₱25.6k</div>
+                <div className={`text-base font-bold ${d ? "text-white" : "text-slate-900"}`}>₱25.6k</div>
                 <div className="flex items-center gap-1">
-                  <span className="text-[9px] text-green-400 font-medium">+42%</span>
-                  <span className="text-[9px] text-gray-500">Weekly Profit</span>
+                  <span className="text-[8px] text-green-400 font-medium">+42%</span>
+                  <span className="text-[8px] text-gray-500">Weekly Profit</span>
                 </div>
               </div>
             </div>
             {/* Profit chart */}
-            <div className={`p-3 flex-1 ${card}`}>
+            <div className={`p-2.5 flex-1 ${card}`}>
               <div className="flex items-center justify-between">
                 <div>
-                  <div className={`text-xs font-semibold ${d ? "text-white" : "text-slate-900"}`}>Total Profit</div>
-                  <div className="text-[9px] text-gray-500">February 2024</div>
+                  <div className={`text-[10px] font-semibold ${d ? "text-white" : "text-slate-900"}`}>Total Profit</div>
+                  <div className="text-[8px] text-gray-500">February 2024</div>
                 </div>
-                <span className="text-base font-bold text-lime-400" style={{ fontVariantNumeric: "tabular-nums" }}>₱136,755.77</span>
+                <span className="text-sm font-bold text-[#ffb700]" style={{ fontVariantNumeric: "tabular-nums" }}>₱136,755</span>
               </div>
-              <div className="w-full h-[70px] mt-1" style={{ filter: "drop-shadow(0 0 8px rgba(163,230,53,0.4))" }}>
+              <div className="w-full h-[55px] mt-1" style={{ filter: "drop-shadow(0 0 8px rgba(255,183,0,0.4))" }}>
                 <ResponsiveContainer width="100%" height="100%">
                   <AreaChart data={profitData}>
                     <defs>
-                      <linearGradient id="greenGlow" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stopColor="#a3e635" stopOpacity={0.6} />
-                        <stop offset="100%" stopColor="#a3e635" stopOpacity={0} />
+                      <linearGradient id="yellowGlow" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stopColor="#ffb700" stopOpacity={0.6} />
+                        <stop offset="100%" stopColor="#ffb700" stopOpacity={0} />
                       </linearGradient>
                     </defs>
-                    <Area type="monotone" dataKey="value" stroke="#a3e635" strokeWidth={2} fill="url(#greenGlow)" isAnimationActive />
+                    <Area type="monotone" dataKey="value" stroke="#ffb700" strokeWidth={2} fill="url(#yellowGlow)" isAnimationActive />
                   </AreaChart>
                 </ResponsiveContainer>
               </div>
@@ -549,100 +548,86 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
         </div>
 
         {/* Customer list */}
-        <div className={`p-4 ${card} hidden md:block`}>
-          <div className="flex items-center justify-between mb-2">
-            <span className={`text-sm font-bold ${d ? "text-white" : "text-slate-900"}`}>Customer List</span>
-            <MoreVertical className="w-4 h-4 text-gray-500 cursor-pointer" onClick={onDemoClick} />
+        <div className={`p-3 ${card} hidden md:block`}>
+          <div className="flex items-center justify-between mb-1">
+            <span className={`text-xs font-bold ${d ? "text-white" : "text-slate-900"}`}>Customer List</span>
+            <MoreVertical className="w-3.5 h-3.5 text-gray-500 cursor-pointer" onClick={onDemoClick} />
           </div>
-          <div className="flex items-center text-[10px] text-gray-500 uppercase tracking-wider mb-1 px-1">
+          <div className="flex items-center text-[9px] text-gray-500 uppercase tracking-wider mb-1 px-1">
             <span className="flex-1">Name</span>
-            <span className="w-16 text-center">Orders</span>
-            <span className="w-20 text-right">Total Value</span>
+            <span className="w-14 text-center">Orders</span>
+            <span className="w-16 text-right">Value</span>
           </div>
           {ecomCustomers.map((c, i) => (
-            <div key={i} onClick={onDemoClick} className={`flex items-center py-2 px-1 rounded-lg cursor-pointer transition-colors ${
+            <div key={i} onClick={onDemoClick} className={`flex items-center py-1.5 px-1 rounded-lg cursor-pointer transition-colors ${
               i < ecomCustomers.length - 1 ? (d ? "border-b border-[#1E2A44]" : "border-b border-slate-100") : ""
             } ${d ? "hover:bg-[#1A2238]" : "hover:bg-slate-50"}`}>
               <div className="flex items-center gap-2 flex-1">
-                <div className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold text-white" style={{ backgroundColor: c.avatarColor }}>
+                <div className="w-5 h-5 rounded-full flex items-center justify-center text-[9px] font-bold text-white" style={{ backgroundColor: c.avatarColor }}>
                   {c.name[0]}
                 </div>
                 <div>
-                  <div className={`text-[11px] font-semibold ${d ? "text-white" : "text-slate-900"}`}>{c.name}</div>
-                  <div className="text-[9px] text-gray-500">{c.email}</div>
+                  <div className={`text-[10px] font-semibold ${d ? "text-white" : "text-slate-900"}`}>{c.name}</div>
+                  <div className="text-[8px] text-gray-500">{c.email}</div>
                 </div>
               </div>
-              <span className="w-16 text-center text-[11px]" style={{ fontVariantNumeric: "tabular-nums", color: d ? "#e2e8f0" : "#334155" }}>{c.orders.toLocaleString()}</span>
-              <span className={`w-20 text-right text-[11px] font-bold ${d ? "text-white" : "text-slate-900"}`} style={{ fontVariantNumeric: "tabular-nums" }}>{c.value}</span>
+              <span className="w-14 text-center text-[10px]" style={{ fontVariantNumeric: "tabular-nums", color: d ? "#e2e8f0" : "#334155" }}>{c.orders.toLocaleString()}</span>
+              <span className={`w-16 text-right text-[10px] font-bold ${d ? "text-white" : "text-slate-900"}`} style={{ fontVariantNumeric: "tabular-nums" }}>{c.value}</span>
             </div>
           ))}
-        </div>
-
-        {/* Premium CTA */}
-        <div className="p-3 rounded-xl bg-lime-400 relative overflow-hidden cursor-pointer" onClick={onDemoClick}>
-          <div className="absolute -right-4 -top-4 w-12 h-12 bg-lime-300 rounded-full opacity-50" />
-          <div className="absolute -right-1 -bottom-3 w-8 h-8 bg-lime-300 rounded-full opacity-30" />
-          <div className="relative">
-            <div className="text-[10px] font-semibold text-black">💎 Premium Plan</div>
-            <div className="flex items-center justify-between">
-              <span className="text-lg font-bold text-black">₱30/month</span>
-              <span className="bg-black text-lime-400 text-[10px] px-3 py-1 rounded-full font-bold">Get Started →</span>
-            </div>
-            <div className="text-[9px] text-black/70">Upgrade your dashboard</div>
-          </div>
         </div>
       </div>
 
       {/* RIGHT SIDEBAR */}
-      <div className={`col-span-3 hidden xl:flex flex-col gap-3 p-3 rounded-xl ${card}`}>
+      <div className={`col-span-3 hidden xl:flex flex-col gap-2 p-2.5 rounded-xl ${card}`}>
         {/* Notifications */}
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className={`text-xs font-bold ${d ? "text-white" : "text-slate-900"}`}>Notifications</span>
-            <span className="bg-lime-400 text-black text-[9px] font-bold px-1.5 py-0.5 rounded-full">5</span>
+          <div className="flex items-center gap-1.5">
+            <span className={`text-[10px] font-bold ${d ? "text-white" : "text-slate-900"}`}>Notifications</span>
+            <span className="bg-[#ffb700] text-black text-[8px] font-bold px-1.5 py-0.5 rounded-full">5</span>
           </div>
-          <ChevronRight className="w-3.5 h-3.5 text-gray-500" />
+          <ChevronRight className="w-3 h-3 text-gray-500" />
         </div>
         {notifications.map((n, i) => {
           const Icon = n.icon;
           return (
-            <div key={i} className={`flex items-start gap-2 py-2 ${i < notifications.length - 1 ? (d ? "border-b border-[#1E2A44]" : "border-b border-slate-100") : ""}`}>
-              <div className="w-6 h-6 rounded-full bg-lime-400/20 flex items-center justify-center flex-shrink-0">
-                <Icon className="w-3 h-3 text-lime-400" />
+            <div key={i} className={`flex items-start gap-2 py-1.5 ${i < notifications.length - 1 ? (d ? "border-b border-[#1E2A44]" : "border-b border-slate-100") : ""}`}>
+              <div className="w-5 h-5 rounded-full bg-[#ffb700]/20 flex items-center justify-center flex-shrink-0">
+                <Icon className="w-2.5 h-2.5 text-[#ffb700]" />
               </div>
               <div>
-                <div className={`text-[10px] ${d ? "text-gray-300" : "text-slate-700"}`}>{n.text}</div>
-                <div className="text-[9px] text-gray-500">{n.time}</div>
+                <div className={`text-[9px] ${d ? "text-gray-300" : "text-slate-700"}`}>{n.text}</div>
+                <div className="text-[8px] text-gray-500">{n.time}</div>
               </div>
             </div>
           );
         })}
 
         {/* Activities */}
-        <div className={`text-xs font-bold mt-2 ${d ? "text-white" : "text-slate-900"}`}>Activities</div>
+        <div className={`text-[10px] font-bold mt-1 ${d ? "text-white" : "text-slate-900"}`}>Activities</div>
         {activities.map((a, i) => {
           const Icon = a.icon;
           return (
-            <div key={i} className="flex items-start gap-2 py-1.5">
-              <div className="w-6 h-6 rounded-full bg-lime-400/20 flex items-center justify-center flex-shrink-0">
-                <Icon className="w-3 h-3 text-lime-400" />
+            <div key={i} className="flex items-start gap-2 py-1">
+              <div className="w-5 h-5 rounded-full bg-[#ffb700]/20 flex items-center justify-center flex-shrink-0">
+                <Icon className="w-2.5 h-2.5 text-[#ffb700]" />
               </div>
               <div>
-                <div className={`text-[10px] ${d ? "text-gray-300" : "text-slate-700"}`}>{a.text}</div>
-                <div className="text-[9px] text-gray-500">{a.time}</div>
+                <div className={`text-[9px] ${d ? "text-gray-300" : "text-slate-700"}`}>{a.text}</div>
+                <div className="text-[8px] text-gray-500">{a.time}</div>
               </div>
             </div>
           );
         })}
 
         {/* Contacts */}
-        <div className={`text-xs font-bold mt-2 ${d ? "text-white" : "text-slate-900"}`}>Contacts</div>
+        <div className={`text-[10px] font-bold mt-1 ${d ? "text-white" : "text-slate-900"}`}>Contacts</div>
         {contacts.map((c) => (
-          <div key={c.name} className={`flex items-center gap-2 py-1.5 px-1 rounded ${c.highlight ? "bg-lime-400/10" : ""}`}>
-            <div className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold text-white" style={{ backgroundColor: c.color }}>
+          <div key={c.name} className={`flex items-center gap-2 py-1 px-1 rounded ${c.highlight ? "bg-[#ffb700]/10" : ""}`}>
+            <div className="w-5 h-5 rounded-full flex items-center justify-center text-[9px] font-bold text-white" style={{ backgroundColor: c.color }}>
               {c.name[0]}
             </div>
-            <span className={`text-[10px] ${d ? "text-gray-300" : "text-slate-700"}`}>{c.name}</span>
+            <span className={`text-[9px] ${d ? "text-gray-300" : "text-slate-700"}`}>{c.name}</span>
           </div>
         ))}
       </div>
