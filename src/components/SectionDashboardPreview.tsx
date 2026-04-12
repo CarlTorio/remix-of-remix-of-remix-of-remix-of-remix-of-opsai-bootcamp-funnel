@@ -854,6 +854,31 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
           </div>
         ))}
       </div>
+
+      {/* Live Notification Toast */}
+      {(() => {
+        const currentNotif = liveNotifications[liveNotifIndex];
+        const NotifIcon = currentNotif.icon;
+        return (
+          <div
+            className={`absolute bottom-4 left-4 z-20 flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl shadow-lg border transition-all duration-400 ${
+              notifVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
+            } ${d ? "bg-[#131B2E] border-[#1E2A44] shadow-[0_4px_24px_rgba(0,0,0,0.5)]" : "bg-white border-slate-200 shadow-[0_4px_24px_rgba(0,0,0,0.1)]"}`}
+            style={{ maxWidth: "320px" }}
+          >
+            <div className="w-7 h-7 rounded-full bg-[#ffb700]/20 flex items-center justify-center flex-shrink-0">
+              <NotifIcon className="w-3.5 h-3.5 text-[#ffb700]" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className={`text-[10px] font-semibold truncate ${d ? "text-white" : "text-slate-900"}`}>
+                {currentNotif.emoji} {currentNotif.text}
+              </div>
+              <div className="text-[8px] text-gray-500">Just now · Live</div>
+            </div>
+            <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse flex-shrink-0" />
+          </div>
+        );
+      })()}
     </div>
   );
 };
