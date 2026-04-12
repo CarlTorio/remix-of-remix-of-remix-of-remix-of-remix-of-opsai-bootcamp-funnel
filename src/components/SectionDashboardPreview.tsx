@@ -984,12 +984,12 @@ const RetailDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick
       {/* MAIN AREA */}
       <div className="flex-1 flex flex-col gap-3 min-w-0">
         {/* Top bar */}
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between flex-wrap gap-2">
           <div>
             <div className={`text-lg font-bold ${d ? "text-white" : "text-slate-900"}`}>Branch Network Overview</div>
             <div className="text-[10px] text-gray-500">Last update: 2 min ago</div>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 md:gap-2 flex-wrap">
             <button onClick={onDemoClick} className={`w-8 h-8 rounded-md flex items-center justify-center ${d ? "bg-[#1E2A44] border border-[#2A3A5C]" : "bg-white border border-slate-200"} cursor-pointer`}>
               <RefreshCw className={`w-4 h-4 ${d ? "text-gray-400" : "text-slate-500"}`} />
             </button>
