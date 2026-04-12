@@ -58,6 +58,7 @@ const Index = () => (
       </div>
     </section>
     <Section4WhatThisIs />
+    <SectionDashboardPreview />
     <Section5BeforeAfter />
     <Section6Relevant />
     <Section7Trust />
