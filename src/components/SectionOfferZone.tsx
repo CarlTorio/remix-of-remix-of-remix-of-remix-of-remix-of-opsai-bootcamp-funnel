@@ -144,7 +144,7 @@ const SectionOfferZone = () => {
             <div className="flex flex-col gap-1.5 mb-6">
               <div className="flex items-center justify-between">
                 <span className="text-xs text-gray-500">Bootcamp value:</span>
-                <span className="text-xs text-gray-400 tabular-nums">₱15,000</span>
+                <span className="text-xs text-gray-400 tabular-nums">₱200,000</span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-xs text-gray-500">Bonuses value:</span>
