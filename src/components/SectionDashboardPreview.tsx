@@ -1347,23 +1347,29 @@ const SectionDashboardPreview = () => {
             </button>
           </div>
 
-          <div className="flex flex-wrap gap-2 px-4 py-2.5 border-b border-[#ffb700]/15 overflow-x-auto flex-shrink-0 justify-center">
-            {tabs.map((tab) => {
+          <div className="flex flex-wrap gap-2 px-4 py-3 border-b border-[#ffb700]/15 overflow-x-auto flex-shrink-0 justify-center items-end">
+            {tabs.map((tab, index) => {
               const Icon = tab.icon;
               const isActive = tab.id === activeTab;
               return (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold transition-all duration-300 cursor-pointer whitespace-nowrap ${
-                    isActive
-                      ? "bg-[#ffb700] text-black shadow-[0_4px_20px_rgba(255,183,0,0.4)]"
-                      : "bg-transparent text-gray-500 hover:text-white hover:bg-white/5"
-                  }`}
-                >
-                  <Icon className="w-3.5 h-3.5" />
-                  {tab.label}
-                </button>
+                <div key={tab.id} className="relative flex flex-col items-center">
+                  {!isActive && (
+                    <span className={`absolute -top-5 text-[10px] font-bold tracking-wide text-[#ffb700] animate-bounce`} style={{ animationDelay: `${index * 0.15}s` }}>
+                      👆 Click
+                    </span>
+                  )}
+                  <button
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`relative flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-300 cursor-pointer whitespace-nowrap ${
+                      isActive
+                        ? "bg-[#ffb700] text-black shadow-[0_4px_20px_rgba(255,183,0,0.4)] scale-105"
+                        : "bg-white/5 text-gray-400 hover:text-white hover:bg-white/10 border border-white/10 hover:border-[#ffb700]/30"
+                    }`}
+                  >
+                    <Icon className="w-3.5 h-3.5" />
+                    {tab.label}
+                  </button>
+                </div>
               );
             })}
           </div>
