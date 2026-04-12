@@ -6,13 +6,10 @@ import CircularGallery from "@/components/CircularGallery";
 import Section4WhatThisIs from "@/components/Section4_WhatThisIs";
 import SectionDashboardPreview from "@/components/SectionDashboardPreview";
 import Section5BeforeAfter from "@/components/Section5_BeforeAfter";
-import Section6Relevant from "@/components/Section6_Relevant";
-import Section7Trust from "@/components/Section7_Trust";
-import Section8Timing from "@/components/Section8_Timing";
+import SectionWhyThisWorks from "@/components/SectionWhyThisWorks";
 import Section9HowItWorks from "@/components/Section9_HowItWorks";
 import Section10Curriculum from "@/components/Section10_Curriculum";
 import Section11Industries from "@/components/Section11_Industries";
-import Section12Smarter from "@/components/Section12_Smarter";
 import Section13Pricing from "@/components/Section13_Pricing";
 import Section14Bonuses from "@/components/Section14_Bonuses";
 import Section15FAQ from "@/components/Section15_FAQ";
@@ -60,13 +57,10 @@ const Index = () => (
     <Section4WhatThisIs />
     <SectionDashboardPreview />
     <Section5BeforeAfter />
-    <Section6Relevant />
-    <Section7Trust />
-    <Section8Timing />
+    <SectionWhyThisWorks />
     <Section9HowItWorks />
     <Section10Curriculum />
     <Section11Industries />
-    <Section12Smarter />
     <Section13Pricing />
     <Section14Bonuses />
     <Section15FAQ />
