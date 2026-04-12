@@ -73,33 +73,56 @@ const SectionWhyThisWorks = () => {
         </div>
 
         {/* 3 Reason Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16">
-          {reasons.map((r, i) => (
-            <div
-              key={i}
-              className={`group relative bg-[#13131A] border border-white/[0.06] rounded-2xl p-5 md:p-6 flex flex-col gap-3 transition-all duration-300 hover:border-[#ffb700]/40 hover:-translate-y-1 hover:shadow-[0_10px_40px_rgba(255,183,0,0.08)] ${
-                visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-              }`}
-              style={{ transitionDelay: `${i * 100}ms` }}
-            >
-              <span className="absolute top-4 right-4 text-4xl font-bold text-[#ffb700]/15 group-hover:text-[#ffb700]/30 transition-colors font-mono">
-                {r.num}
-              </span>
-              <div className="w-12 h-12 rounded-xl bg-[#ffb700]/10 border border-[#ffb700]/25 flex items-center justify-center mb-2 group-hover:bg-[#ffb700]/15 transition-colors">
-                <r.Icon className="w-5 h-5 text-[#ffb700]" />
+        <div className="flex flex-col gap-10 md:gap-14 mb-16">
+          {reasons.map((r, i) => {
+            const isImageRight = r.imagePosition === "right";
+            return (
+              <div
+                key={i}
+                className={`flex flex-col ${isImageRight ? "md:flex-row" : "md:flex-row-reverse"} items-center gap-6 md:gap-10 transition-all duration-700 ${
+                  visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                }`}
+                style={{ transitionDelay: `${i * 150}ms` }}
+              >
+                {/* Text Side */}
+                <div className="flex-1 w-full">
+                  <div className="group relative bg-[#13131A] border border-white/[0.06] rounded-2xl p-6 md:p-8 flex flex-col gap-3 hover:border-[#ffb700]/40 hover:shadow-[0_10px_40px_rgba(255,183,0,0.08)] transition-all duration-300">
+                    <span className="absolute top-4 right-4 text-5xl font-bold text-[#ffb700]/15 group-hover:text-[#ffb700]/30 transition-colors font-mono">
+                      {r.num}
+                    </span>
+                    <div className="w-12 h-12 rounded-xl bg-[#ffb700]/10 border border-[#ffb700]/25 flex items-center justify-center mb-2 group-hover:bg-[#ffb700]/15 transition-colors">
+                      <r.Icon className="w-5 h-5 text-[#ffb700]" />
+                    </div>
+                    <h3 className="text-lg md:text-xl font-bold text-white tracking-tight leading-tight">
+                      {r.title}
+                    </h3>
+                    <p className="text-sm md:text-base text-gray-400 leading-relaxed">{r.body}</p>
+                    <div className="mt-3 pt-3 border-t border-white/[0.05]">
+                      <p className="text-xs text-gray-500 italic">
+                        Kills the objection:{" "}
+                        <span className="text-[#ffb700]/80 not-italic">"{r.objection}"</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Image Side */}
+                <div className="flex-1 w-full max-w-[400px] md:max-w-none">
+                  <div className="relative rounded-2xl overflow-hidden border border-white/[0.06] shadow-[0_8px_30px_rgba(0,0,0,0.4)]">
+                    <img
+                      src={r.image}
+                      alt={r.title}
+                      loading="lazy"
+                      width={640}
+                      height={640}
+                      className="w-full h-auto object-cover aspect-square"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0F]/60 to-transparent pointer-events-none" />
+                  </div>
+                </div>
               </div>
-              <h3 className="text-base md:text-lg font-bold text-white tracking-tight leading-tight">
-                {r.title}
-              </h3>
-              <p className="text-sm text-gray-400 leading-relaxed">{r.body}</p>
-              <div className="mt-3 pt-3 border-t border-white/[0.05]">
-                <p className="text-xs text-gray-500 italic">
-                  Kills the objection:{" "}
-                  <span className="text-[#ffb700]/80 not-italic">"{r.objection}"</span>
-                </p>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Comparison Table — Desktop */}
