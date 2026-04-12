@@ -69,7 +69,6 @@ const SectionWhyThisWorks = () => {
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-[1.2] max-w-3xl mx-auto mb-3">
             Why This <span className="text-[#ffb700]">Actually Works</span> for Real SME Owners
           </h2>
-          </h2>
           <p className="text-sm md:text-base text-gray-400 max-w-2xl mx-auto">
             You don't need to know how to code. You need to know your business — which you already do.
           </p>
