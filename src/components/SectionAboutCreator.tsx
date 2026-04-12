@@ -54,7 +54,7 @@ const SectionAboutCreator = () => {
             >
               <div className="aspect-[4/5] max-md:aspect-square rounded-xl relative overflow-hidden">
                 <img
-                  src="https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object/public/Video%20-%20Image%20Hosting/mobile%20-%20poster.png"
+                  src="https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object/public/Video%20-%20Image%20Hosting/hf_20260409_085727_886e4939-933e-479d-922b-93bbee78dbd8.png"
                   alt="John Carl Torio"
                   className="w-full h-full object-cover"
                 />
