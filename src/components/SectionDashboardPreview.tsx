@@ -255,72 +255,261 @@ const TopBar = ({ greeting, subtitle, isDark }: { greeting: string; subtitle: st
   );
 };
 
-// ─── Dashboard Data ───
+// ─── F&B Inventory Dashboard (Green Theme) ───
 
-const fnbNav: NavItem[] = [
-  { icon: LayoutDashboard, label: "Dashboard", active: true },
-  { icon: ShoppingBag, label: "Orders", active: false },
-  { icon: UtensilsCrossed, label: "Menu", active: false },
-  { icon: Package, label: "Inventory", active: false },
-  { icon: Users, label: "Suppliers", active: false },
-  { icon: BarChart3, label: "Reports", active: false },
-];
-const fnbKPIs: KPIData[] = [
-  { icon: DollarSign, label: "TODAY'S SALES", value: 47850, prefix: "₱", trend: "+12.5%", trendColor: "green" },
-  { icon: ShoppingBag, label: "ORDERS", value: 143, trend: "+8.2%", trendColor: "green" },
-  { icon: Receipt, label: "AVG TICKET", value: 335, prefix: "₱", trend: "+4.1%", trendColor: "green" },
-  { icon: AlertCircle, label: "LOW STOCK", value: 7, suffix: " items", trend: "-2 items", trendColor: "red" },
-];
-const fnbHourlyData = [
-  { hour: "7AM", sales: 2400 }, { hour: "8AM", sales: 3800 }, { hour: "9AM", sales: 2900 },
-  { hour: "10AM", sales: 3200 }, { hour: "11AM", sales: 4100 }, { hour: "12PM", sales: 6800 },
-  { hour: "1PM", sales: 5900 }, { hour: "2PM", sales: 3400 }, { hour: "3PM", sales: 2800 },
-  { hour: "4PM", sales: 3100 }, { hour: "5PM", sales: 4200 }, { hour: "6PM", sales: 5500 },
-  { hour: "7PM", sales: 7200 }, { hour: "8PM", sales: 5800 }, { hour: "9PM", sales: 3900 },
-  { hour: "10PM", sales: 2100 },
-];
-const fnbOrders: ListItem[] = [
-  { id: "Table 5", desc: "2x Coffee, 1x Cake", amount: "₱890", time: "2 min ago", status: "new" },
-  { id: "Table 12", desc: "Family Meal Set", amount: "₱1,450", time: "5 min ago", status: "preparing" },
-  { id: "Take-out #142", desc: "3x Iced Latte", amount: "₱540", time: "8 min ago", status: "ready" },
-  { id: "Table 3", desc: "Breakfast combo", amount: "₱680", time: "12 min ago", status: "served" },
-  { id: "Delivery #89", desc: "Lunch special x2", amount: "₱1,200", time: "15 min ago", status: "served" },
-];
-const fnbCategoryData: DonutEntry[] = [
-  { name: "Main Dishes", value: 45, color: "#a3e635" },
-  { name: "Drinks", value: 30, color: "#84cc16" },
-  { name: "Desserts", value: 25, color: "#d9f99d" },
-];
+function Sparkline({ data, up }: { data: number[]; up: boolean }) {
+  const width = 80;
+  const height = 24;
+  const max = Math.max(...data);
+  const min = Math.min(...data);
+  const range = max - min || 1;
+  const points = data.map((v, i) =>
+    `${(i / (data.length - 1)) * width},${height - ((v - min) / range) * height}`
+  ).join(" ");
+  return (
+    <svg width={width} height={height} className="overflow-visible">
+      <polyline points={points} fill="none" stroke={up ? "#22c55e" : "#ef4444"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
 
 const FnBDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick: () => void }) => {
   const d = isDark;
-  const accent = "#a3e635";
+  const card = `rounded-xl ${d ? "bg-[#0F1B14] border border-lime-900/30" : "bg-white border border-slate-200"}`;
+
+  const fnbNav = [
+    { icon: TrendingUp, label: "Overview", active: true },
+    { icon: Package, label: "Stock", active: false },
+    { icon: ShoppingCart, label: "Purchases", active: false },
+    { icon: Truck, label: "Suppliers", active: false },
+    { icon: AlertCircle, label: "Alerts", active: false, badge: "3" },
+    { icon: BarChart3, label: "Reports", active: false },
+  ];
+
+  const ticker = [
+    { name: "BEEF", qty: "42kg", change: "+2.1%", up: true },
+    { name: "ONION", qty: "18kg", change: "-5.3%", up: false },
+    { name: "CHICKEN", qty: "65kg", change: "+8.7%", up: true },
+    { name: "RICE", qty: "120kg", change: "+0.4%", up: true },
+    { name: "TOMATO", qty: "22kg", change: "-12.1%", up: false },
+    { name: "GARLIC", qty: "8kg", change: "-18.5%", up: false },
+    { name: "OIL", qty: "35L", change: "+3.2%", up: true },
+    { name: "SUGAR", qty: "50kg", change: "+1.1%", up: true },
+  ];
+
+  const usageData = [
+    { day: "Mon", usage: 38 },
+    { day: "Tue", usage: 42 },
+    { day: "Wed", usage: 35 },
+    { day: "Thu", usage: 48 },
+    { day: "Fri", usage: 55 },
+    { day: "Sat", usage: 62 },
+    { day: "Sun", usage: 58 },
+  ];
+
+  const lowStock = [
+    { name: "Garlic", current: "8kg", needed: "25kg", percent: 32, urgency: "high" as const },
+    { name: "Tomato", current: "22kg", needed: "50kg", percent: 44, urgency: "medium" as const },
+    { name: "Onion", current: "18kg", needed: "30kg", percent: 60, urgency: "low" as const },
+  ];
+
+  const ingredients = [
+    { name: "Beef", category: "Protein", qty: "42kg", value: "₱18,900", change: "+2.1%", up: true, spark: [35,38,32,40,45,42,48] },
+    { name: "Chicken", category: "Protein", qty: "65kg", value: "₱13,000", change: "+8.7%", up: true, spark: [55,60,58,62,65,64,68] },
+    { name: "Rice", category: "Grain", qty: "120kg", value: "₱6,000", change: "+0.4%", up: true, spark: [118,120,119,121,120,122,120] },
+    { name: "Tomato", category: "Vegetable", qty: "22kg", value: "₱1,760", change: "-12.1%", up: false, spark: [35,32,30,28,25,23,22] },
+    { name: "Garlic", category: "Vegetable", qty: "8kg", value: "₱960", change: "-18.5%", up: false, spark: [15,13,12,10,9,8,8] },
+  ];
+
+  const urgencyColor = { high: "bg-red-500", medium: "bg-amber-500", low: "bg-[#a3e635]" };
+
+  const tickerItems = [...ticker, ...ticker];
+
   return (
-    <div className="flex w-full">
-      <DashboardSidebar brand={{ letter: "K", name: "Kape Ni Ana", tagline: "POS System" }} nav={fnbNav} isDark={d} onDemoClick={onDemoClick} accentColor={accent} />
-      <div className="flex-1 p-5 flex flex-col gap-4 transition-colors duration-500">
-        <TopBar greeting="Good morning, Juan 👋" subtitle="Here's what's happening at your restaurant today" isDark={d} />
-        <KPICards data={fnbKPIs} isDark={d} onDemoClick={onDemoClick} accentColor={accent} />
-        <ChartCard title="Sales by Hour" subtitle="Today's performance" isDark={d} chartHeight="150px">
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={fnbHourlyData}>
-              <CartesianGrid strokeDasharray="3 3" stroke={d ? "#1E2A44" : "#e2e8f0"} />
-              <XAxis dataKey="hour" stroke={d ? "#6B7280" : "#94a3b8"} fontSize={9} />
-              <YAxis stroke={d ? "#6B7280" : "#94a3b8"} fontSize={9} tickFormatter={(v) => `₱${v / 1000}k`} />
-              <Tooltip content={<CustomTooltip isDark={d} />} />
-              <Bar dataKey="sales" fill="#a3e635" radius={[4, 4, 0, 0]} isAnimationActive={true} />
-            </BarChart>
-          </ResponsiveContainer>
-        </ChartCard>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
-          <DataList title="Recent Orders" items={fnbOrders} isDark={d} onDemoClick={onDemoClick} accentColor={accent} />
-          <DonutCard title="Menu Categories" subtitle="Today's sales mix" data={fnbCategoryData} isDark={d} accentColor={accent} />
+    <div className={`flex gap-3 h-full w-full p-4 transition-colors duration-500 ${d ? "bg-[#0A1410]" : "bg-[#F0FDF4]"}`}>
+      {/* LEFT SIDEBAR */}
+      <div className={`w-48 flex-shrink-0 hidden lg:flex flex-col gap-3 p-3 rounded-xl ${card}`}>
+        <div className="flex items-center gap-2">
+          <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-lime-400 to-lime-600 flex items-center justify-center">
+            <span className="text-black font-bold text-base">K</span>
+          </div>
+          <div>
+            <div className={`text-xs font-bold ${d ? "text-white" : "text-slate-900"}`}>Kape Ni Ana</div>
+            <div className="text-[9px] text-gray-500">Inventory</div>
+          </div>
         </div>
-        <ActionButtons buttons={[
-          { label: "New Order", icon: Plus, primary: true },
-          { label: "Add Menu Item", icon: PlusCircle },
-          { label: "Print Report", icon: Printer },
-        ]} isDark={d} onDemoClick={onDemoClick} accentColor={accent} />
+
+        <div className="flex flex-col gap-0.5 mt-2">
+          {fnbNav.map((item) => {
+            const Icon = item.icon;
+            return (
+              <button key={item.label} onClick={onDemoClick} className={`flex items-center justify-between gap-2 px-2.5 py-2 rounded-lg text-[11px] cursor-pointer transition-colors ${
+                item.active ? "bg-[#a3e635] text-black font-semibold shadow-[0_0_20px_rgba(163,230,53,0.3)]" : d ? "text-gray-500 hover:bg-[#1A2818]" : "text-slate-500 hover:bg-slate-100"
+              }`}>
+                <span className="flex items-center gap-2"><Icon className="w-3.5 h-3.5" />{item.label}</span>
+                {"badge" in item && item.badge && <span className="bg-red-500 text-white text-[8px] px-1.5 rounded-full">{item.badge}</span>}
+              </button>
+            );
+          })}
+        </div>
+
+        <div className="mt-auto bg-[#a3e635]/10 border border-[#a3e635]/30 p-2.5 rounded-lg">
+          <div className="text-[8px] uppercase tracking-widest text-lime-600 dark:text-lime-400 font-bold">TOTAL STOCK VALUE</div>
+          <div className={`text-sm font-bold ${d ? "text-white" : "text-slate-900"}`}>
+            <CountUp value={284750} prefix="₱" />
+          </div>
+          <div className="text-[9px] text-green-500">▲ +2.3% today</div>
+        </div>
+      </div>
+
+      {/* MAIN AREA */}
+      <div className="flex-1 flex flex-col gap-3 overflow-hidden min-w-0">
+        {/* ROW 1 — TICKER */}
+        <div className={`relative overflow-hidden rounded-xl h-12 flex items-center ${card}`}>
+          <div className="absolute left-3 z-10 bg-[#a3e635] text-black text-[9px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+            <span className="w-1.5 h-1.5 bg-black rounded-full animate-pulse" />LIVE
+          </div>
+          <div className="flex gap-6 ml-20 whitespace-nowrap" style={{ animation: "marquee 30s linear infinite" }}>
+            {tickerItems.map((t, i) => (
+              <span key={i} className="flex items-center gap-2 text-[11px]">
+                {t.up ? <TrendingUp className="w-3 h-3 text-green-500" /> : <TrendingDown className="w-3 h-3 text-red-500" />}
+                <span className={`font-bold ${d ? "text-white" : "text-slate-900"}`}>{t.name}</span>
+                <span className="text-gray-500">{t.qty}</span>
+                <span className={`font-semibold ${t.up ? "text-green-500" : "text-red-500"}`}>{t.change}</span>
+                <span className={d ? "text-gray-700" : "text-gray-300"}>|</span>
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* ROW 2 — MAIN GRID */}
+        <div className="flex-1 grid grid-cols-12 gap-3 overflow-hidden">
+          {/* Usage Trend Chart */}
+          <div className={`col-span-12 md:col-span-8 p-4 flex flex-col ${card}`}>
+            <div className="flex items-center justify-between mb-3">
+              <div>
+                <div className="text-[9px] uppercase tracking-widest text-gray-500 font-bold">INGREDIENT USAGE (7 DAYS)</div>
+                <div className={`text-2xl font-bold ${d ? "text-white" : "text-slate-900"}`}>
+                  <CountUp value={187420} prefix="₱" />
+                </div>
+                <span className="bg-green-500/15 text-green-500 text-[10px] px-2 py-0.5 rounded-md font-bold">▲ +12.8%</span>
+              </div>
+              <button onClick={onDemoClick} className="bg-[#a3e635]/10 border border-[#a3e635]/30 text-[10px] px-2.5 py-1 rounded-md text-lime-700 dark:text-lime-400 font-semibold cursor-pointer">
+                Beef ▾
+              </button>
+            </div>
+            <div className="flex-1 min-h-[180px]" style={{ filter: "drop-shadow(0 0 8px rgba(163, 230, 53, 0.4))" }}>
+              <ResponsiveContainer width="100%" height="100%">
+                <AreaChart data={usageData}>
+                  <defs>
+                    <linearGradient id="fnbGlow" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#a3e635" stopOpacity={0.6} />
+                      <stop offset="100%" stopColor="#a3e635" stopOpacity={0} />
+                    </linearGradient>
+                  </defs>
+                  <CartesianGrid strokeDasharray="3 3" stroke={d ? "#1A2818" : "#e2e8f0"} />
+                  <XAxis dataKey="day" fontSize={10} stroke={d ? "#6B7280" : "#94a3b8"} />
+                  <YAxis fontSize={10} tickFormatter={(v) => `${v}kg`} stroke={d ? "#6B7280" : "#94a3b8"} />
+                  <Tooltip content={<CustomTooltip isDark={d} />} />
+                  <Area type="monotone" dataKey="usage" stroke="#a3e635" strokeWidth={2.5} fill="url(#fnbGlow)" isAnimationActive={true} />
+                </AreaChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+
+          {/* Right column — Alerts & Stats */}
+          <div className="col-span-12 md:col-span-4 flex flex-col gap-3">
+            {/* Mini stat cards */}
+            <div className="grid grid-cols-2 gap-2">
+              <div onClick={onDemoClick} className={`p-2.5 rounded-lg cursor-pointer hover:-translate-y-0.5 transition-all ${card}`}>
+                <div className="flex items-center gap-1 mb-1">
+                  <AlertCircle className="w-3 h-3 text-red-500" />
+                  <span className="text-[9px] text-gray-500">LOW STOCK</span>
+                </div>
+                <div className="text-xl font-bold text-red-500">3</div>
+                <div className="text-[9px] text-gray-500">items</div>
+              </div>
+              <div onClick={onDemoClick} className={`p-2.5 rounded-lg cursor-pointer hover:-translate-y-0.5 transition-all ${card}`}>
+                <div className="flex items-center gap-1 mb-1">
+                  <Truck className="w-3 h-3 text-[#a3e635]" />
+                  <span className="text-[9px] text-gray-500">INCOMING</span>
+                </div>
+                <div className={`text-xl font-bold ${d ? "text-white" : "text-slate-900"}`}>5</div>
+                <div className="text-[9px] text-gray-500">orders</div>
+              </div>
+            </div>
+
+            {/* Reorder Soon */}
+            <div className={`flex-1 p-3 rounded-lg flex flex-col ${card}`}>
+              <div className="flex items-center justify-between mb-2">
+                <span className={`text-[11px] font-bold ${d ? "text-white" : "text-slate-900"}`}>⚠️ Reorder Soon</span>
+                <span onClick={onDemoClick} className="text-[9px] text-[#a3e635] cursor-pointer hover:underline">View all</span>
+              </div>
+              {lowStock.map((item, i) => (
+                <div key={item.name} onClick={onDemoClick} className={`flex items-center justify-between py-2 cursor-pointer ${i < lowStock.length - 1 ? (d ? "border-b border-lime-900/20" : "border-b border-slate-100") : ""}`}>
+                  <div>
+                    <div className={`text-[11px] font-semibold ${d ? "text-white" : "text-slate-900"}`}>{item.name}</div>
+                    <div className="text-[8px] text-gray-500">Current: {item.current} / Need: {item.needed}</div>
+                  </div>
+                  <div className="flex flex-col items-end gap-0.5">
+                    <div className="w-12 h-1.5 rounded-full bg-gray-200 dark:bg-gray-800 overflow-hidden">
+                      <div className={`h-full rounded-full ${urgencyColor[item.urgency]}`} style={{ width: `${item.percent}%` }} />
+                    </div>
+                    <span className="text-[9px] font-bold text-gray-500">{item.percent}%</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* ROW 3 — INGREDIENT PORTFOLIO TABLE */}
+        <div className={`p-3 flex flex-col gap-2 ${card}`}>
+          <div className="flex items-center justify-between">
+            <span className={`text-[12px] font-bold ${d ? "text-white" : "text-slate-900"}`}>Ingredient Portfolio</span>
+            <div className="flex items-center gap-1.5">
+              <button onClick={onDemoClick} className={`flex items-center gap-1 text-[9px] px-2 py-1 rounded-md cursor-pointer ${d ? "bg-[#1A2818] text-gray-400" : "bg-slate-100 text-slate-500"}`}>
+                <Search className="w-2.5 h-2.5" />Filter
+              </button>
+              <button onClick={onDemoClick} className={`flex items-center gap-1 text-[9px] px-2 py-1 rounded-md cursor-pointer ${d ? "bg-[#1A2818] text-gray-400" : "bg-slate-100 text-slate-500"}`}>
+                <ArrowUpDown className="w-2.5 h-2.5" />Sort
+              </button>
+            </div>
+          </div>
+          {/* Header */}
+          <div className="grid grid-cols-12 gap-2 px-2 py-1.5 text-[9px] uppercase tracking-widest text-gray-500">
+            <span className="col-span-3">Ingredient</span>
+            <span className="col-span-2">Stock</span>
+            <span className="col-span-2">Value</span>
+            <span className="col-span-2">7D Change</span>
+            <span className="col-span-3">Trend</span>
+          </div>
+          {/* Rows */}
+          {ingredients.map((ing) => (
+            <div key={ing.name} onClick={onDemoClick} className={`grid grid-cols-12 gap-2 px-2 py-2 cursor-pointer transition-colors rounded-md ${d ? "border-t border-lime-900/20 hover:bg-lime-900/20" : "border-t border-slate-100 hover:bg-lime-50"}`}>
+              <div className="col-span-3 flex items-center gap-2">
+                <div className="w-6 h-6 rounded-md bg-[#a3e635]/15 flex items-center justify-center">
+                  <span className="text-[10px] text-lime-700 dark:text-lime-400 font-bold">{ing.name[0]}</span>
+                </div>
+                <div>
+                  <div className={`text-[11px] font-bold ${d ? "text-white" : "text-slate-900"}`}>{ing.name}</div>
+                  <div className="text-[9px] text-gray-500">{ing.category}</div>
+                </div>
+              </div>
+              <div className={`col-span-2 flex items-center text-[11px] font-semibold ${d ? "text-white" : "text-slate-900"}`}>{ing.qty}</div>
+              <div className="col-span-2 flex items-center text-[11px] font-semibold text-[#a3e635]">{ing.value}</div>
+              <div className="col-span-2 flex items-center">
+                <span className={`flex items-center gap-1 px-2 py-0.5 rounded-md text-[9px] font-bold ${ing.up ? "bg-green-500/15 text-green-500" : "bg-red-500/15 text-red-500"}`}>
+                  {ing.up ? <TrendingUp className="w-2.5 h-2.5" /> : <TrendingDown className="w-2.5 h-2.5" />}
+                  {ing.change}
+                </span>
+              </div>
+              <div className="col-span-3 flex items-center">
+                <Sparkline data={ing.spark} up={ing.up} />
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
