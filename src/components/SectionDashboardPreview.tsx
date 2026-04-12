@@ -10,7 +10,7 @@ import {
   UserCircle, UserPlus, FilePlus, Clock,
   Sparkles, ArrowRight,
   Search, MessageSquare, Star, Settings, MoreVertical,
-  Palette, ChevronRight
+  Palette, ChevronRight, RefreshCw, Bell, ChevronDown, ArrowUpDown
 } from "lucide-react";
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip,
