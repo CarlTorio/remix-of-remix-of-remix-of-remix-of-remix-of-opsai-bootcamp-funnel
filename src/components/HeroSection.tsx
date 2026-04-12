@@ -292,20 +292,9 @@ const HeroSection = () => {
             <p className="relative z-10 text-foreground font-body text-xl md:text-3xl mb-3">
               …then your business is not "ORGANIZED ENOUGH."
             </p>
-            <div className="relative z-10 flex justify-center">
-              <FuzzyText
-                fontSize="clamp(1.5rem, 3.5vw, 2rem)"
-                fontWeight={800}
-                color="#fbbd23"
-                baseIntensity={0.2}
-                hoverIntensity={0.5}
-                enableHover
-                fuzzRange={15}
-                className="max-w-full"
-              >
-                IT IS ONE PROBLEM AWAY FROM CHAOS.
-              </FuzzyText>
-            </div>
+            <p className="relative z-10 text-accent font-heading text-2xl md:text-4xl font-extrabold">
+              IT IS ONE PROBLEM AWAY FROM CHAOS.
+            </p>
           </div>
         </div>
       </section>
