@@ -105,8 +105,6 @@ const SectionWhyThisWorks = () => {
                         <span className="text-[#ffb700]/80 not-italic font-semibold">"{r.objection}"</span>
                       </p>
                     </div>
-                      </p>
-                    </div>
                   </div>
                 </div>
 
