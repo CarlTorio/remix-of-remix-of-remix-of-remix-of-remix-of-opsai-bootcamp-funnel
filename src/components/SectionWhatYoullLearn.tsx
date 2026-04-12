@@ -1,4 +1,5 @@
 import { Check, ArrowRight } from "lucide-react";
+import CTAButton from "./CTAButton";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const week1Outcomes = [
@@ -124,13 +125,9 @@ const SectionWhatYoullLearn = () => {
         {/* Bottom CTA */}
         <div className="mt-10 text-center">
           <p className="text-base md:text-lg text-white font-semibold mb-4">Your business deserves a real system.</p>
-          <button
-            onClick={() => document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" })}
-            className="inline-flex items-center gap-2 bg-[#ffb700] hover:bg-[#ffc733] text-black font-bold text-sm px-6 py-3 rounded-full shadow-[0_8px_30px_rgba(255,183,0,0.3)] hover:-translate-y-0.5 transition-all duration-300"
-          >
+          <CTAButton href="#pricing">
             Reserve My Slot
-            <ArrowRight className="w-4 h-4" />
-          </button>
+          </CTAButton>
         </div>
       </div>
     </section>
