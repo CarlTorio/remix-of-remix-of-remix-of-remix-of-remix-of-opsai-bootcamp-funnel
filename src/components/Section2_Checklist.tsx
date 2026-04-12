@@ -32,7 +32,7 @@ const Section2Checklist = () => {
           <div className="w-12 h-px bg-[#ffb700]/40 mx-auto mb-4" />
 
           {/* Bridge line */}
-          <p className="text-xl md:text-2xl lg:text-3xl font-bold text-white tracking-tight leading-tight">
+          <p className="text-lg md:text-xl lg:text-2xl font-bold text-white tracking-tight leading-tight">
             This is exactly the problem the <span className="text-[#ffb700]">SME Systems Bootcamp</span> was built to solve.
           </p>
 
