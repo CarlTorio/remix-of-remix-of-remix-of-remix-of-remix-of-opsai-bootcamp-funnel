@@ -102,7 +102,7 @@ export default function Section4WhatThisIs() {
           <div className="flex flex-col gap-2 items-center">
             {notList.map((item, i) => (
               <p key={i} className="text-base md:text-lg text-[#8A8A94] font-medium">
-                <span className="text-[#ffb700] font-bold"></span>{item}
+                {item}
               </p>
             ))}
           </div>
