@@ -1272,12 +1272,12 @@ const AgencyDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoClick
       {/* Main Calendar */}
       <div className="flex-1 flex flex-col gap-2 min-w-0">
         {/* Top bar */}
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between flex-wrap gap-2">
           <div>
             <div className={`text-lg font-bold ${d ? "text-white" : "text-slate-900"}`}>This Week</div>
             <div className="text-[10px] text-gray-500">Sep 15 – Sep 21, 2026 · 12 events scheduled</div>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 flex-wrap">
             <div className={`flex items-center gap-0.5 p-0.5 rounded-lg ${d ? "bg-[#1F1418]" : "bg-slate-100"}`}>
               {["Day", "Week", "Month"].map((v) => (
                 <button key={v} onClick={onDemoClick} className={`text-[10px] px-3 py-1 rounded cursor-pointer transition-colors ${v === "Week" ? "bg-rose-500 text-white font-semibold" : "text-gray-500"}`}>{v}</button>
