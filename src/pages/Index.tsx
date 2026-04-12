@@ -4,6 +4,7 @@ import Section2Checklist from "@/components/Section2_Checklist";
 import Section3Intro from "@/components/Section3_Intro";
 import CircularGallery from "@/components/CircularGallery";
 import Section4WhatThisIs from "@/components/Section4_WhatThisIs";
+import SectionDashboardPreview from "@/components/SectionDashboardPreview";
 import Section5BeforeAfter from "@/components/Section5_BeforeAfter";
 import Section6Relevant from "@/components/Section6_Relevant";
 import Section7Trust from "@/components/Section7_Trust";
