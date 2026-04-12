@@ -18,6 +18,7 @@ const SectionAboutCreator = () => {
 
   return (
     <section
+      id="about"
       className="w-full py-20 px-6"
       style={{
         background: "#0A0A0F",

@@ -39,6 +39,7 @@ const SectionWhyThisWorks = () => {
 
   return (
     <section
+      id="why"
       className="w-full py-16 md:py-20 px-4 md:px-6"
       style={{
         backgroundColor: "#0A0A0F",
