@@ -8,6 +8,7 @@ import SectionDashboardPreview from "@/components/SectionDashboardPreview";
 import Section5BeforeAfter from "@/components/Section5_BeforeAfter";
 import SectionWhyThisWorks from "@/components/SectionWhyThisWorks";
 import SectionRoadmap from "@/components/SectionRoadmap";
+import SectionWhatYoullLearn from "@/components/SectionWhatYoullLearn";
 import Section11Industries from "@/components/Section11_Industries";
 import SectionAboutCreator from "@/components/SectionAboutCreator";
 import SectionOfferZone from "@/components/SectionOfferZone";
