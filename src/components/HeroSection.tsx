@@ -218,6 +218,13 @@ const HeroSection = () => {
                 <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-success inline-block" /> 14-Day Program</span>
                 <span className="hidden md:flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-success inline-block" /> Lifetime Access</span>
               </div>
+              {/* Scroll indicator */}
+              <div className="mt-8 flex flex-col items-center gap-1 animate-bounce">
+                <span className="text-muted-foreground text-xs font-body tracking-widest uppercase">Scroll</span>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="text-muted-foreground">
+                  <path d="M10 4v10m0 0l-4-4m4 4l4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
             </div>
           </div>
 
