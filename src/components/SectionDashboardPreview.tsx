@@ -556,18 +556,30 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
   const card = `rounded-xl ${d ? "bg-[#131B2E] border border-[#1E2A44]" : "bg-white border border-slate-200"}`;
   const accent = "#ffb700";
 
-  const [liveNotifIndex, setLiveNotifIndex] = useState(0);
-  const [notifVisible, setNotifVisible] = useState(true);
+  const [visibleNotifs, setVisibleNotifs] = useState<{id: number; index: number; visible: boolean}[]>([]);
+  const notifCounter = useRef(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setNotifVisible(false);
+    // Add a new notification every 2 seconds
+    const addInterval = setInterval(() => {
+      const newId = notifCounter.current++;
+      const newIndex = newId % liveNotifications.length;
+      setVisibleNotifs((prev) => {
+        // Keep max 4, remove oldest if needed
+        const updated = prev.length >= 4 ? prev.slice(1) : prev;
+        return [...updated, { id: newId, index: newIndex, visible: true }];
+      });
+      // Remove this notification after 4 seconds
       setTimeout(() => {
-        setLiveNotifIndex((prev) => (prev + 1) % liveNotifications.length);
-        setNotifVisible(true);
-      }, 400);
-    }, 3000);
-    return () => clearInterval(interval);
+        setVisibleNotifs((prev) =>
+          prev.map((n) => (n.id === newId ? { ...n, visible: false } : n))
+        );
+        setTimeout(() => {
+          setVisibleNotifs((prev) => prev.filter((n) => n.id !== newId));
+        }, 400);
+      }, 4000);
+    }, 2000);
+    return () => clearInterval(addInterval);
   }, []);
 
   const ecomNavItems = [
@@ -855,30 +867,32 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
         ))}
       </div>
 
-      {/* Live Notification Toast */}
-      {(() => {
-        const currentNotif = liveNotifications[liveNotifIndex];
-        const NotifIcon = currentNotif.icon;
-        return (
-          <div
-            className={`absolute bottom-16 right-4 z-20 flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl shadow-lg border transition-all duration-400 ${
-              notifVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
-            } ${d ? "bg-[#131B2E] border-[#1E2A44] shadow-[0_4px_24px_rgba(0,0,0,0.5)]" : "bg-white border-slate-200 shadow-[0_4px_24px_rgba(0,0,0,0.1)]"}`}
-            style={{ maxWidth: "320px" }}
-          >
-            <div className="w-7 h-7 rounded-full bg-[#ffb700]/20 flex items-center justify-center flex-shrink-0">
-              <NotifIcon className="w-3.5 h-3.5 text-[#ffb700]" />
-            </div>
-            <div className="flex-1 min-w-0">
-              <div className={`text-[10px] font-semibold truncate ${d ? "text-white" : "text-slate-900"}`}>
-                {currentNotif.emoji} {currentNotif.text}
+      {/* Live Notification Toasts */}
+      <div className="absolute bottom-16 right-4 z-20 flex flex-col-reverse gap-2" style={{ maxWidth: "320px" }}>
+        {visibleNotifs.map((notif) => {
+          const currentNotif = liveNotifications[notif.index];
+          const NotifIcon = currentNotif.icon;
+          return (
+            <div
+              key={notif.id}
+              className={`flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl shadow-lg border transition-all duration-400 ${
+                notif.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
+              } ${d ? "bg-[#131B2E] border-[#1E2A44] shadow-[0_4px_24px_rgba(0,0,0,0.5)]" : "bg-white border-slate-200 shadow-[0_4px_24px_rgba(0,0,0,0.1)]"}`}
+            >
+              <div className="w-7 h-7 rounded-full bg-[#ffb700]/20 flex items-center justify-center flex-shrink-0">
+                <NotifIcon className="w-3.5 h-3.5 text-[#ffb700]" />
               </div>
-              <div className="text-[8px] text-gray-500">Just now · Live</div>
+              <div className="flex-1 min-w-0">
+                <div className={`text-[10px] font-semibold truncate ${d ? "text-white" : "text-slate-900"}`}>
+                  {currentNotif.emoji} {currentNotif.text}
+                </div>
+                <div className="text-[8px] text-gray-500">Just now · Live</div>
+              </div>
+              <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse flex-shrink-0" />
             </div>
-            <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse flex-shrink-0" />
-          </div>
-        );
-      })()}
+          );
+        })}
+      </div>
     </div>
   );
 };
