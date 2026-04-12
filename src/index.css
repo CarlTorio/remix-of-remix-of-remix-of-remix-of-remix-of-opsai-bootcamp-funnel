@@ -187,3 +187,8 @@
 .dashboard-scroll::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 183, 0, 0.5);
 }
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
