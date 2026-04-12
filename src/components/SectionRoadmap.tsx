@@ -97,51 +97,6 @@ const SectionRoadmap = () => {
         </div>
 
 
-        {/* Outcome Strip */}
-        <div ref={ref3} className={`mt-12 max-w-4xl mx-auto bg-gradient-to-br from-[#ffb700]/10 via-[#13131A] to-[#13131A] border border-[#ffb700]/30 rounded-2xl p-6 shadow-[0_10px_40px_rgba(255,183,0,0.08)] relative overflow-hidden transition-all duration-700 ${visible3 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
-          <div className="absolute -right-6 -top-6 w-24 h-24 bg-[#ffb700]/5 rounded-full" />
-          <div className="relative z-10 flex items-start gap-4">
-            <div className="w-12 h-12 rounded-xl bg-[#ffb700]/15 border border-[#ffb700]/40 flex items-center justify-center flex-shrink-0">
-              <CheckCircle2 className="w-6 h-6 text-[#ffb700]" />
-            </div>
-            <div className="flex-1">
-              <span className="text-[#ffb700] text-[10px] uppercase tracking-widest font-bold mb-1.5 block">AFTER 14 DAYS</span>
-              <h3 className="text-base md:text-lg font-bold text-white leading-tight mb-2">You'll have a working business system you built yourself.</h3>
-              <p className="text-xs text-gray-400 leading-relaxed">Not a tutorial. Not a template. Your actual internal business system — running live, owned by you, and built around your real business logic.</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Bonuses */}
-        <div ref={ref4} className={`mt-8 max-w-4xl mx-auto text-center transition-all duration-700 ${visible4 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
-          <span className="text-[#ffb700] text-[10px] uppercase tracking-widest font-bold mb-4 block">PLUS, EVERY STUDENT GETS:</span>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            {bonuses.map((b, i) => (
-              <div
-                key={i}
-                className={`bg-[#13131A] border border-white/[0.06] rounded-lg p-3 text-center hover:border-[#ffb700]/30 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer ${visible4 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
-                style={{ transitionDelay: visible4 ? `${i * 80}ms` : "0ms" }}
-              >
-                <b.icon className="w-7 h-7 mx-auto mb-2 text-[#ffb700]" />
-                <p className="text-[11px] font-bold text-white leading-tight mb-1">{b.title}</p>
-                <p className="text-[9px] text-gray-500">{b.sub}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="mt-10 text-center">
-          <p className="text-sm text-gray-500 mb-3">Next cohort fills up fast.</p>
-          <button
-            onClick={() => document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" })}
-            className="inline-flex items-center justify-center gap-2 bg-[#ffb700] hover:bg-[#ffc733] text-black font-bold text-sm md:text-base px-8 py-3.5 rounded-full shadow-[0_10px_40px_rgba(255,183,0,0.4)] hover:shadow-[0_15px_50px_rgba(255,183,0,0.5)] hover:-translate-y-0.5 transition-all duration-300"
-          >
-            Reserve My Slot for ₱4,886
-            <ArrowRight className="w-4 h-4" />
-          </button>
-          <p className="mt-3 text-[10px] text-gray-500">✓ Limited to 100 slots  •  ✓ Lifetime access  •  ✓ Live cohort</p>
-        </div>
       </div>
     </section>
   );
