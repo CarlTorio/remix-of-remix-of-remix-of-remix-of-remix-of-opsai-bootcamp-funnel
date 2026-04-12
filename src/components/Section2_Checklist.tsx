@@ -36,13 +36,6 @@ const Section2Checklist = () => {
             This is exactly the problem the <span className="text-[#ffb700]">SME Systems Bootcamp</span> was built to solve.
           </p>
 
-          {/* Eyebrow pill */}
-          <div className="mt-10 mb-5 flex justify-center">
-            <div className="inline-flex items-center gap-2 bg-[#ffb700]/10 border border-[#ffb700]/30 px-4 py-1.5 rounded-full">
-              <span className="w-1.5 h-1.5 bg-[#ffb700] rounded-full animate-pulse" />
-              <span className="text-[#ffb700] text-xs uppercase tracking-[0.25em] font-semibold">FIND YOUR INDUSTRY</span>
-            </div>
-          </div>
 
           {/* Headline */}
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-4">
