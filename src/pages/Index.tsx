@@ -10,11 +10,8 @@ import SectionWhyThisWorks from "@/components/SectionWhyThisWorks";
 import SectionRoadmap from "@/components/SectionRoadmap";
 import Section11Industries from "@/components/Section11_Industries";
 import SectionAboutCreator from "@/components/SectionAboutCreator";
-import Section13Pricing from "@/components/Section13_Pricing";
-import Section14Bonuses from "@/components/Section14_Bonuses";
+import SectionOfferZone from "@/components/SectionOfferZone";
 import Section15FAQ from "@/components/Section15_FAQ";
-import Section16Guarantee from "@/components/Section16_Guarantee";
-import Section17EmotionalPush from "@/components/Section17_EmotionalPush";
 import Section18FinalCTA from "@/components/Section18_FinalCTA";
 import NewFooter from "@/components/NewFooter";
 
