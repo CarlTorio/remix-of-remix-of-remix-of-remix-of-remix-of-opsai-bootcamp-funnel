@@ -560,16 +560,16 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
   const notifCounter = useRef(0);
 
   useEffect(() => {
-    // Add a new notification every 2 seconds
+    // Add a new notification every 2.5 seconds
     const addInterval = setInterval(() => {
       const newId = notifCounter.current++;
       const newIndex = newId % liveNotifications.length;
       setVisibleNotifs((prev) => {
-        // Keep max 4, remove oldest if needed
+        // Keep max 4, remove oldest immediately if at cap
         const updated = prev.length >= 4 ? prev.slice(1) : prev;
         return [...updated, { id: newId, index: newIndex, visible: true }];
       });
-      // Remove this notification after 4 seconds
+      // Each notification stays for 10 seconds before fading out
       setTimeout(() => {
         setVisibleNotifs((prev) =>
           prev.map((n) => (n.id === newId ? { ...n, visible: false } : n))
@@ -577,8 +577,8 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
         setTimeout(() => {
           setVisibleNotifs((prev) => prev.filter((n) => n.id !== newId));
         }, 400);
-      }, 4000);
-    }, 2000);
+      }, 10000);
+    }, 2500);
     return () => clearInterval(addInterval);
   }, []);
 
