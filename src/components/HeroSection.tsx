@@ -190,11 +190,6 @@ const HeroSection = () => {
           {/* Hero content blurred */}
           <div
             className="absolute inset-0"
-            style={{
-              filter: `blur(${blurAmount}px)`,
-              willChange: "filter",
-              transition: "filter 0.3s ease-out",
-            }}
           >
             {/* Image area */}
             <div className="relative w-full overflow-hidden">
