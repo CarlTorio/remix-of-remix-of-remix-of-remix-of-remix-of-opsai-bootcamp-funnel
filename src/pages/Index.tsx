@@ -59,7 +59,6 @@ const Index = () => (
     <Section5BeforeAfter />
     <SectionWhyThisWorks />
     <Section9HowItWorks />
-    <Section10Curriculum />
     <Section11Industries />
     <Section13Pricing />
     <Section14Bonuses />
