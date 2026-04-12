@@ -556,18 +556,30 @@ const EcommerceDashboard = ({ isDark, onDemoClick }: { isDark: boolean; onDemoCl
   const card = `rounded-xl ${d ? "bg-[#131B2E] border border-[#1E2A44]" : "bg-white border border-slate-200"}`;
   const accent = "#ffb700";
 
-  const [liveNotifIndex, setLiveNotifIndex] = useState(0);
-  const [notifVisible, setNotifVisible] = useState(true);
+  const [visibleNotifs, setVisibleNotifs] = useState<{id: number; index: number; visible: boolean}[]>([]);
+  const notifCounter = useRef(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setNotifVisible(false);
+    // Add a new notification every 2 seconds
+    const addInterval = setInterval(() => {
+      const newId = notifCounter.current++;
+      const newIndex = newId % liveNotifications.length;
+      setVisibleNotifs((prev) => {
+        // Keep max 4, remove oldest if needed
+        const updated = prev.length >= 4 ? prev.slice(1) : prev;
+        return [...updated, { id: newId, index: newIndex, visible: true }];
+      });
+      // Remove this notification after 4 seconds
       setTimeout(() => {
-        setLiveNotifIndex((prev) => (prev + 1) % liveNotifications.length);
-        setNotifVisible(true);
-      }, 400);
-    }, 3000);
-    return () => clearInterval(interval);
+        setVisibleNotifs((prev) =>
+          prev.map((n) => (n.id === newId ? { ...n, visible: false } : n))
+        );
+        setTimeout(() => {
+          setVisibleNotifs((prev) => prev.filter((n) => n.id !== newId));
+        }, 400);
+      }, 4000);
+    }, 2000);
+    return () => clearInterval(addInterval);
   }, []);
 
   const ecomNavItems = [
