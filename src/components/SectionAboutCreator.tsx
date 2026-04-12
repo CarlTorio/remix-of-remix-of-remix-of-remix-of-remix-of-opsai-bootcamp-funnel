@@ -52,25 +52,12 @@ const SectionAboutCreator = () => {
               className={`relative rounded-2xl bg-gradient-to-br from-[#1a1a24] to-[#0f0f16] border border-[#ffb700]/25 p-2.5 shadow-[0_20px_60px_rgba(0,0,0,0.5),0_0_50px_rgba(255,183,0,0.08)] transition-all duration-700 ${photoReveal.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
               style={{ transitionDelay: "100ms" }}
             >
-              <div className="aspect-[4/5] max-md:aspect-square rounded-xl bg-gradient-to-br from-[#1a1a24] to-[#13131A] relative overflow-hidden flex flex-col items-center justify-center gap-3 border border-[#ffb700]/10">
-                {/* Grid pattern */}
-                <div
-                  className="absolute inset-0 opacity-[0.03]"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
-                    backgroundSize: "20px 20px",
-                  }}
+              <div className="aspect-[4/5] max-md:aspect-square rounded-xl relative overflow-hidden">
+                <img
+                  src="https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object/public/Video%20-%20Image%20Hosting/mobile%20-%20poster.png"
+                  alt="John Carl Torio"
+                  className="w-full h-full object-cover"
                 />
-                <div className="w-20 h-20 rounded-full bg-[#ffb700]/10 border-2 border-[#ffb700]/30 flex items-center justify-center relative z-10">
-                  <User className="w-10 h-10 text-[#ffb700]/60" />
-                </div>
-                <span className="text-[#ffb700]/70 text-[11px] uppercase tracking-widest font-bold mt-2 relative z-10">
-                  REPLACE WITH FOUNDER PHOTO
-                </span>
-                <span className="text-gray-500 text-[10px] relative z-10">
-                  Portrait orientation works best
-                </span>
               </div>
 
               {/* Name card */}
