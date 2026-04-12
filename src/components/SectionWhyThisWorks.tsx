@@ -18,7 +18,7 @@ const reasons = [
   {
     num: "02",
     Icon: Wrench,
-    title: "Built from real operations, not theory",
+    title: "Why Trust This Method?",
     body: "This method wasn't pulled from generic software advice. It comes from real internal systems built for real business operations — workflows, monitoring, departments, visibility. And the reason it actually works isn't the trainer. It's that the business logic already lives with you. AI just makes the translation finally possible.",
     objectionLabel: "Sounds like:",
     objection: "How do I know this works?",
