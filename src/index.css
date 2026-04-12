@@ -95,6 +95,12 @@
   }
 }
 
+@keyframes scrollDot {
+  0% { opacity: 1; transform: translateY(0); }
+  50% { opacity: 0.3; transform: translateY(10px); }
+  100% { opacity: 0; transform: translateY(14px); }
+}
+
 .star-border-container {
   display: inline-block;
   position: relative;
