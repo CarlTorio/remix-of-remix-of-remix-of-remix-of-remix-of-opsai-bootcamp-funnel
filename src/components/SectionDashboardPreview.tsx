@@ -1414,9 +1414,9 @@ const SectionDashboardPreview = () => {
       }}
     >
       <div className="max-w-5xl mx-auto text-center">
-        <div className="inline-flex items-center gap-2 bg-[#ffb700]/10 border border-[#ffb700]/30 px-4 py-1.5 rounded-full mb-5">
-          <span className="w-1.5 h-1.5 bg-[#ffb700] rounded-full animate-pulse" />
-          <span className="text-[#ffb700] text-xs uppercase tracking-[0.25em] font-semibold">
+        <div className="inline-flex items-center gap-2.5 bg-[#ffb700]/10 border border-[#ffb700]/30 px-5 py-2 rounded-full mb-5">
+          <span className="w-2 h-2 bg-[#ffb700] rounded-full animate-pulse" />
+          <span className="text-[#ffb700] text-sm md:text-base uppercase tracking-[0.25em] font-semibold">
             SEE WHAT YOU CAN BUILD
           </span>
         </div>
