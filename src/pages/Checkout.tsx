@@ -170,34 +170,34 @@ const Checkout = () => {
             )}
 
             {paymentMethod === "bank" && (
-              <div className="bg-muted/30 border-2 border-secondary/40 rounded-xl p-5 space-y-3 font-body">
-                <div className="flex items-center gap-3">
-                  <img src={bpiLogo} alt="BPI" className="h-10 w-auto" />
-                  <p className="text-foreground font-bold text-base">Bank Details:</p>
+              <div className="bg-muted/30 border-2 border-secondary/40 rounded-xl p-4 font-body">
+                <div className="flex items-center gap-2 mb-2">
+                  <img src={bpiLogo} alt="BPI" className="h-8 w-auto" />
+                  <p className="text-foreground font-bold text-sm">Bank Details:</p>
                 </div>
-                <div className="space-y-2">
-                  <p className="text-muted-foreground text-sm">Bank: <span className="text-foreground font-semibold text-base">BPI Savings</span></p>
-                  <p className="text-muted-foreground text-sm">Account Name: <span className="text-foreground font-semibold text-base">John Paolo Mercado</span></p>
-                  <div className="flex items-center gap-2">
-                    <p className="text-muted-foreground text-sm">Account Number: <span className="text-secondary font-bold text-lg tracking-wide">0929-3286-71</span></p>
-                    <button
-                      onClick={() => {
-                        navigator.clipboard.writeText("0929328671");
-                        const btn = document.getElementById("copy-acct");
-                        if (btn) btn.dataset.copied = "true";
-                        setTimeout(() => { if (btn) btn.dataset.copied = "false"; }, 2000);
-                      }}
-                      id="copy-acct"
-                      className="group p-1.5 rounded-md hover:bg-secondary/20 transition-colors data-[copied=true]:text-green-400 text-muted-foreground hover:text-secondary"
-                      data-copied="false"
-                    >
-                      <Copy className="w-4 h-4 group-data-[copied=true]:hidden" />
-                      <Check className="w-4 h-4 hidden group-data-[copied=true]:block" />
-                    </button>
+                <div className="flex items-start gap-4">
+                  <div className="space-y-1 flex-1">
+                    <p className="text-muted-foreground text-xs">Bank: <span className="text-foreground font-semibold text-sm">BPI Savings</span></p>
+                    <p className="text-muted-foreground text-xs">Account Name: <span className="text-foreground font-semibold text-sm">John Paolo Mercado</span></p>
+                    <div className="flex items-center gap-1.5">
+                      <p className="text-muted-foreground text-xs">Account Number: <span className="text-secondary font-bold text-sm tracking-wide">0929-3286-71</span></p>
+                      <button
+                        onClick={() => {
+                          navigator.clipboard.writeText("0929328671");
+                          const btn = document.getElementById("copy-acct");
+                          if (btn) btn.dataset.copied = "true";
+                          setTimeout(() => { if (btn) btn.dataset.copied = "false"; }, 2000);
+                        }}
+                        id="copy-acct"
+                        className="group p-1 rounded-md hover:bg-secondary/20 transition-colors data-[copied=true]:text-green-400 text-muted-foreground hover:text-secondary"
+                        data-copied="false"
+                      >
+                        <Copy className="w-3.5 h-3.5 group-data-[copied=true]:hidden" />
+                        <Check className="w-3.5 h-3.5 hidden group-data-[copied=true]:block" />
+                      </button>
+                    </div>
                   </div>
-                </div>
-                <div className="flex justify-center pt-2">
-                  <img src={bpiQr} alt="BPI QR Code" className="w-48 rounded-lg" />
+                  <img src={bpiQr} alt="BPI QR Code" className="w-32 rounded-lg shrink-0" />
                 </div>
               </div>
             )}
