@@ -61,18 +61,6 @@ const Checkout = () => {
             </div>
           </div>
 
-          {/* Billing Information */}
-          <div className="bg-card border border-border rounded-2xl p-6 space-y-4">
-            <h2 className="font-heading font-bold text-xl text-foreground">Billing Information</h2>
-            <div className="space-y-1.5">
-              <Label>Full Name (as shown on payment)</Label>
-              <Input placeholder="Juan Dela Cruz" className="bg-muted/50 border-border" />
-            </div>
-            <div className="space-y-1.5">
-              <Label>Company / Business Name (Optional)</Label>
-              <Input placeholder="Your Business Inc." className="bg-muted/50 border-border" />
-            </div>
-          </div>
 
           {/* Payment Plan */}
           <div className="bg-card border border-border rounded-2xl p-6 space-y-4">
