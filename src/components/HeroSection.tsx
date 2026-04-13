@@ -188,6 +188,7 @@ const HeroSection = () => {
             </div>
             {/* Text content */}
             <div className="relative z-10 container text-center -mt-80 md:-mt-24" style={isMobile ? { textShadow: "0 2px 12px rgba(0,0,0,0.8), 0 0 30px rgba(0,0,0,0.6)" } : undefined}>
+              <p className="font-heading font-bold text-secondary text-sm md:text-base uppercase tracking-widest mb-2">🔥 Starts April 28</p>
               <h1 className="font-heading font-black text-[26px] md:text-[44px] leading-[1.1] mb-3 max-w-4xl mx-auto">
                 Build Your Own <span style={{ color: "#fbbd23" }}>Internal Business System</span> with{" "}
                 <span style={{ color: "#fbbd23" }}>A.I.</span> in Less Than <span style={{ color: "#fbbd23" }}>2 Weeks</span>
