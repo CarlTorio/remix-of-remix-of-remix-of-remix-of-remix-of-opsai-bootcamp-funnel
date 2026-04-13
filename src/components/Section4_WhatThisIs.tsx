@@ -152,7 +152,7 @@ export default function Section4WhatThisIs() {
           <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-tight mb-8">
             You need a <span className="text-[#ffb700]">way to build</span>.
           </p>
-          <a href="#pricing" className="inline-flex text-base md:text-lg text-[#ffb700] font-semibold hover:text-white cursor-pointer underline-offset-4 hover:underline transition-colors">
+          <a href="/checkout" className="inline-flex text-base md:text-lg text-[#ffb700] font-semibold hover:text-white cursor-pointer underline-offset-4 hover:underline transition-colors">
             That's exactly what this bootcamp gives you. →
           </a>
         </RevealBlock>
