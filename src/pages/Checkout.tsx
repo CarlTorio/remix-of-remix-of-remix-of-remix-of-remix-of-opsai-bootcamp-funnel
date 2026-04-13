@@ -224,10 +224,10 @@ const Checkout = () => {
                 />
                 <button
                   onClick={() => fileInputRef.current?.click()}
-                  className="w-full border-2 border-dashed border-border rounded-lg p-6 flex flex-col items-center gap-2 hover:border-secondary/50 transition-colors"
+                  className="w-full border border-dashed border-border rounded-lg p-3 flex items-center gap-2 hover:border-secondary/50 transition-colors"
                 >
-                  <Upload className="w-8 h-8 text-muted-foreground" />
-                  <p className="text-muted-foreground text-xs font-body">
+                  <Upload className="w-4 h-4 text-muted-foreground shrink-0" />
+                  <p className="text-muted-foreground text-xs font-body truncate">
                     {selectedFile ? selectedFile.name : "Click to select your receipt (image or PDF)"}
                   </p>
                 </button>
