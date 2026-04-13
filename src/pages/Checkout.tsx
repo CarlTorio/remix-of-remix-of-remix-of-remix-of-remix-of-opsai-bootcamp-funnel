@@ -29,7 +29,7 @@ const Checkout = () => {
 
       {/* Header */}
       <div className="text-center pt-6 pb-4 px-4">
-        <h1 className="font-heading font-bold text-xl md:text-2xl">
+        <h1 className="font-heading font-bold text-2xl md:text-3xl">
           Join The <span className="text-secondary">SME Systems Bootcamp</span> Today!
         </h1>
       </div>
