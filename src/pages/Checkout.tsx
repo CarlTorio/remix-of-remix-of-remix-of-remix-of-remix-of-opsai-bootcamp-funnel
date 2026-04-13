@@ -1,10 +1,12 @@
-import { useState, useEffect } from "react";
-import { Copy, Check } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Copy, Check, Upload, Loader2, CheckCircle } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { CyanCheck } from "@/components/icons";
 import CTAButton from "@/components/CTAButton";
 import bpiLogo from "@/assets/bpi-logo.png";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 const benefits = [
   "2-Week Live Bootcamp with hands-on system building",
@@ -15,10 +17,65 @@ const benefits = [
 
 const Checkout = () => {
   const [paymentMethod, setPaymentMethod] = useState<"gcash" | "bank">("gcash");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [uploading, setUploading] = useState(false);
+  const [uploaded, setUploaded] = useState(false);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const { toast } = useToast();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const handleUpload = async () => {
+    if (!selectedFile) {
+      toast({ title: "Please select a file first", variant: "destructive" });
+      return;
+    }
+    if (!firstName || !lastName || !email) {
+      toast({ title: "Please fill in your contact information first", variant: "destructive" });
+      return;
+    }
+
+    setUploading(true);
+    try {
+      const fileExt = selectedFile.name.split(".").pop();
+      const filePath = `${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
+
+      const { error: uploadError } = await supabase.storage
+        .from("receipts")
+        .upload(filePath, selectedFile);
+
+      if (uploadError) throw uploadError;
+
+      const { data: urlData } = supabase.storage
+        .from("receipts")
+        .getPublicUrl(filePath);
+
+      const { error: dbError } = await supabase.from("receipts").insert({
+        first_name: firstName,
+        last_name: lastName,
+        email,
+        phone: phone || null,
+        file_url: urlData.publicUrl,
+        file_name: selectedFile.name,
+        payment_method: paymentMethod,
+      });
+
+      if (dbError) throw dbError;
+
+      setUploaded(true);
+      toast({ title: "Receipt uploaded successfully! We'll verify your payment within 1-2 days." });
+    } catch (err: any) {
+      toast({ title: "Upload failed", description: err.message, variant: "destructive" });
+    } finally {
+      setUploading(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -46,20 +103,20 @@ const Checkout = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="space-y-1">
                 <Label className="text-xs">First Name</Label>
-                <Input placeholder="Juan" className="bg-muted/50 border-border h-9 text-sm" />
+                <Input placeholder="Juan" value={firstName} onChange={e => setFirstName(e.target.value)} className="bg-muted/50 border-border h-9 text-sm" />
               </div>
               <div className="space-y-1">
                 <Label className="text-xs">Last Name</Label>
-                <Input placeholder="Dela Cruz" className="bg-muted/50 border-border h-9 text-sm" />
+                <Input placeholder="Dela Cruz" value={lastName} onChange={e => setLastName(e.target.value)} className="bg-muted/50 border-border h-9 text-sm" />
               </div>
             </div>
             <div className="space-y-1">
               <Label className="text-xs">Email Address</Label>
-              <Input type="email" placeholder="juan@email.com" className="bg-muted/50 border-border h-9 text-sm" />
+              <Input type="email" placeholder="juan@email.com" value={email} onChange={e => setEmail(e.target.value)} className="bg-muted/50 border-border h-9 text-sm" />
             </div>
             <div className="space-y-1">
               <Label className="text-xs">Phone Number</Label>
-              <Input type="tel" placeholder="+63 9XX XXX XXXX" className="bg-muted/50 border-border h-9 text-sm" />
+              <Input type="tel" placeholder="+63 9XX XXX XXXX" value={phone} onChange={e => setPhone(e.target.value)} className="bg-muted/50 border-border h-9 text-sm" />
             </div>
           </div>
 
@@ -146,11 +203,54 @@ const Checkout = () => {
             </p>
           </div>
 
-          {/* Submit */}
-          <div className="text-center pt-1">
-            <CTAButton href="mailto:hello@opsaiph.com?subject=Proof%20of%20Payment%20-%20SME%20Systems%20Bootcamp">
-              SUBMIT PROOF OF PAYMENT
-            </CTAButton>
+          {/* Upload Receipt */}
+          <div className="bg-card border border-border rounded-xl p-4 space-y-3">
+            <h2 className="font-heading font-bold text-base text-foreground">Upload Receipt</h2>
+
+            {uploaded ? (
+              <div className="flex flex-col items-center gap-2 py-4">
+                <CheckCircle className="w-10 h-10 text-green-400" />
+                <p className="text-foreground font-semibold text-sm">Receipt uploaded successfully!</p>
+                <p className="text-muted-foreground text-xs">We'll verify your payment within 1–2 days.</p>
+              </div>
+            ) : (
+              <>
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept="image/*,.pdf"
+                  className="hidden"
+                  onChange={e => setSelectedFile(e.target.files?.[0] || null)}
+                />
+                <button
+                  onClick={() => fileInputRef.current?.click()}
+                  className="w-full border-2 border-dashed border-border rounded-lg p-6 flex flex-col items-center gap-2 hover:border-secondary/50 transition-colors"
+                >
+                  <Upload className="w-8 h-8 text-muted-foreground" />
+                  <p className="text-muted-foreground text-xs font-body">
+                    {selectedFile ? selectedFile.name : "Click to select your receipt (image or PDF)"}
+                  </p>
+                </button>
+
+                <button
+                  onClick={handleUpload}
+                  disabled={uploading || !selectedFile}
+                  className="w-full bg-secondary text-secondary-foreground font-heading font-bold text-sm py-3 rounded-lg hover:bg-secondary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                >
+                  {uploading ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      Uploading...
+                    </>
+                  ) : (
+                    <>
+                      <Upload className="w-4 h-4" />
+                      SUBMIT PROOF OF PAYMENT
+                    </>
+                  )}
+                </button>
+              </>
+            )}
           </div>
         </div>
 
