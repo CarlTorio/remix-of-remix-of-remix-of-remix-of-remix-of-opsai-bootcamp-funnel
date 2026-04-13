@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import StarBorder from "./StarBorder";
 
 interface CTAButtonProps {
@@ -7,11 +8,23 @@ interface CTAButtonProps {
   onClick?: () => void;
 }
 
-const CTAButton = ({ children, href = "#pricing", className = "" }: CTAButtonProps) => {
+const CTAButton = ({ children, href = "/checkout", className = "", onClick }: CTAButtonProps) => {
+  const navigate = useNavigate();
+
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (onClick) {
+      onClick();
+    } else {
+      navigate(href);
+    }
+  };
+
   return (
     <StarBorder
       as="a"
       href={href}
+      onClick={handleClick}
       color="hsl(43, 96%, 56%)"
       speed="5s"
       className={`animate-slow-pulse ${className}`}
