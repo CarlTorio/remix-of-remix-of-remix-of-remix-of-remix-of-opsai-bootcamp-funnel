@@ -1563,7 +1563,7 @@ const SectionDashboardPreview = () => {
           This is exactly what you'll build in Week 1 of the bootcamp.
         </p>
         <div className="mt-6">
-          <CTAButton href="#pricing">
+          <CTAButton href="/checkout">
             I WANT TO BUILD THIS
           </CTAButton>
         </div>

@@ -117,7 +117,7 @@ const SectionSmarterWay = () => {
 
         {/* CTA */}
         <div className="mt-6">
-          <CTAButton href="#pricing">
+          <CTAButton href="/checkout">
             Show Me the Offer
           </CTAButton>
         </div>

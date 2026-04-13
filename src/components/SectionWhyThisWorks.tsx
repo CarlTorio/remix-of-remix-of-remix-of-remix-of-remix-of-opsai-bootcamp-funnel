@@ -136,7 +136,7 @@ const SectionWhyThisWorks = () => {
           <p className="text-lg md:text-xl font-bold text-white tracking-tight mb-5">
             This isn't theory. It's <span className="text-[#ffb700]">a different way to build</span>.
           </p>
-          <CTAButton href="#how-it-works">
+          <CTAButton href="/checkout">
             See How It Works
           </CTAButton>
         </div>

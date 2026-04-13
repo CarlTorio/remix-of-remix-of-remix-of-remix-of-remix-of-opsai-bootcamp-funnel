@@ -125,7 +125,7 @@ const SectionWhatYoullLearn = () => {
         {/* Bottom CTA */}
         <div className="mt-10 text-center">
           <p className="text-base md:text-lg text-white font-semibold mb-4">Your business deserves a real system.</p>
-          <CTAButton href="#pricing">
+          <CTAButton href="/checkout">
             Reserve My Slot
           </CTAButton>
         </div>
