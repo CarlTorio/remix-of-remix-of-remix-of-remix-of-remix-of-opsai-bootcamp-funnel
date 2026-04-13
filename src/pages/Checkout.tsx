@@ -110,18 +110,11 @@ const Checkout = () => {
             )}
 
             {paymentMethod === "bank" && (
-              <div className="bg-muted/30 border border-border rounded-lg p-3 space-y-2 text-xs font-body">
-                <div className="space-y-0.5">
-                  <p className="text-foreground font-semibold">Bank Transfer Details:</p>
-                  <p className="text-muted-foreground">Bank: <span className="text-foreground">Banco de Oro (BDO Unibank, Inc.)</span></p>
-                  <p className="text-muted-foreground">Account Name: <span className="text-foreground">OpsAI PH</span></p>
-                  <p className="text-muted-foreground">Account Number: <span className="text-foreground">0129 0800 0769</span></p>
-                </div>
-                <div className="border-t border-border pt-2 space-y-0.5">
-                  <p className="text-muted-foreground">Bank: <span className="text-foreground">Union Bank of the Philippines</span></p>
-                  <p className="text-muted-foreground">Account Name: <span className="text-foreground">OpsAI PH</span></p>
-                  <p className="text-muted-foreground">Account Number: <span className="text-foreground">1093 5684 5287</span></p>
-                </div>
+              <div className="bg-muted/30 border border-border rounded-lg p-3 space-y-0.5 text-xs font-body">
+                <p className="text-foreground font-semibold">Bank Details:</p>
+                <p className="text-muted-foreground">Bank: <span className="text-foreground">BPI Savings</span></p>
+                <p className="text-muted-foreground">Account Name: <span className="text-foreground">John Paolo Mercado</span></p>
+                <p className="text-muted-foreground">Account Number: <span className="text-foreground">0929-3286-71</span></p>
               </div>
             )}
 
