@@ -5,6 +5,7 @@ import { Label } from "@/components/ui/label";
 import { CyanCheck } from "@/components/icons";
 import CTAButton from "@/components/CTAButton";
 import bpiLogo from "@/assets/bpi-logo.png";
+import bpiQr from "@/assets/bpi-qr.png";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 
@@ -194,6 +195,9 @@ const Checkout = () => {
                       <Check className="w-4 h-4 hidden group-data-[copied=true]:block" />
                     </button>
                   </div>
+                </div>
+                <div className="flex justify-center pt-2">
+                  <img src={bpiQr} alt="BPI QR Code" className="w-48 rounded-lg" />
                 </div>
               </div>
             )}
