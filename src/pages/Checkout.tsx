@@ -6,6 +6,7 @@ import { CyanCheck } from "@/components/icons";
 import CTAButton from "@/components/CTAButton";
 import bpiLogo from "@/assets/bpi-logo.png";
 import bpiQr from "@/assets/bpi-qr.png";
+import gcashQr from "@/assets/gcash-qr.png";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 
@@ -162,10 +163,13 @@ const Checkout = () => {
             </div>
 
             {paymentMethod === "gcash" && (
-              <div className="bg-muted/30 border border-border rounded-lg p-3 space-y-0.5 text-xs font-body">
-                <p className="text-foreground font-semibold">GCash Details:</p>
-                <p className="text-muted-foreground">Name: <span className="text-foreground">OpsAI PH</span></p>
-                <p className="text-muted-foreground">Account Number: <span className="text-foreground">0917 XXX XXXX</span></p>
+              <div className="bg-muted/30 border border-border rounded-lg p-3 flex items-start gap-3 text-xs font-body">
+                <div className="space-y-0.5 flex-1">
+                  <p className="text-foreground font-semibold">GCash Details:</p>
+                  <p className="text-muted-foreground">Name: <span className="text-foreground">OpsAI PH</span></p>
+                  <p className="text-muted-foreground">Account Number: <span className="text-foreground">0917 XXX XXXX</span></p>
+                </div>
+                <img src={gcashQr} alt="GCash QR Code" className="w-32 rounded-lg shrink-0" />
               </div>
             )}
 
