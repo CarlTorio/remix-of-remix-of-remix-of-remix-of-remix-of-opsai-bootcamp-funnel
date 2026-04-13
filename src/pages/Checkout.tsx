@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Copy, Check } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { CyanCheck } from "@/components/icons";
@@ -119,7 +120,23 @@ const Checkout = () => {
                 <div className="space-y-2">
                   <p className="text-muted-foreground text-sm">Bank: <span className="text-foreground font-semibold text-base">BPI Savings</span></p>
                   <p className="text-muted-foreground text-sm">Account Name: <span className="text-foreground font-semibold text-base">John Paolo Mercado</span></p>
-                  <p className="text-muted-foreground text-sm">Account Number: <span className="text-secondary font-bold text-lg tracking-wide">0929-3286-71</span></p>
+                  <div className="flex items-center gap-2">
+                    <p className="text-muted-foreground text-sm">Account Number: <span className="text-secondary font-bold text-lg tracking-wide">0929-3286-71</span></p>
+                    <button
+                      onClick={() => {
+                        navigator.clipboard.writeText("0929328671");
+                        const btn = document.getElementById("copy-acct");
+                        if (btn) btn.dataset.copied = "true";
+                        setTimeout(() => { if (btn) btn.dataset.copied = "false"; }, 2000);
+                      }}
+                      id="copy-acct"
+                      className="group p-1.5 rounded-md hover:bg-secondary/20 transition-colors data-[copied=true]:text-green-400 text-muted-foreground hover:text-secondary"
+                      data-copied="false"
+                    >
+                      <Copy className="w-4 h-4 group-data-[copied=true]:hidden" />
+                      <Check className="w-4 h-4 hidden group-data-[copied=true]:block" />
+                    </button>
+                  </div>
                 </div>
               </div>
             )}
