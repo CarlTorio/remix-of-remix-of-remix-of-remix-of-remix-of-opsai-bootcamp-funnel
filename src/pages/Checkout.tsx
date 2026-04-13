@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { CyanCheck } from "@/components/icons";
 import CTAButton from "@/components/CTAButton";
+import bpiLogo from "@/assets/bpi-logo.png";
 
 const benefits = [
   "2-Week Live Bootcamp with hands-on system building",
@@ -110,8 +111,11 @@ const Checkout = () => {
             )}
 
             {paymentMethod === "bank" && (
-              <div className="bg-muted/30 border border-border rounded-lg p-3 space-y-0.5 text-xs font-body">
-                <p className="text-foreground font-semibold">Bank Details:</p>
+              <div className="bg-muted/30 border border-border rounded-lg p-3 space-y-2 text-xs font-body">
+                <div className="flex items-center gap-2">
+                  <img src={bpiLogo} alt="BPI" className="h-6 w-auto" />
+                  <p className="text-foreground font-semibold">Bank Details:</p>
+                </div>
                 <p className="text-muted-foreground">Bank: <span className="text-foreground">BPI Savings</span></p>
                 <p className="text-muted-foreground">Account Name: <span className="text-foreground">John Paolo Mercado</span></p>
                 <p className="text-muted-foreground">Account Number: <span className="text-foreground">0929-3286-71</span></p>
