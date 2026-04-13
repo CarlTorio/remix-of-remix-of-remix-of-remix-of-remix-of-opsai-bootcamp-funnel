@@ -16,7 +16,7 @@ const Section18FinalCTA = () => {
         </p>
         <p className="text-muted-foreground font-body text-sm mb-8">Limited to 100 slots only.</p>
 
-        <CTAButton href="#pricing" className="text-xl px-12 py-5">RESERVE MY SLOT NOW</CTAButton>
+        <CTAButton href="/checkout" className="text-xl px-12 py-5">RESERVE MY SLOT NOW</CTAButton>
 
         <div className="mt-12 border-t border-border pt-8 text-left max-w-[600px] mx-auto">
           <p className="text-accent font-heading font-bold text-sm mb-3">P.S.</p>
@@ -31,7 +31,7 @@ const Section18FinalCTA = () => {
           </p>
           <p className="text-muted-foreground font-body text-sm mb-6">Slots available: 100 only</p>
           <div className="text-center">
-            <CTAButton href="#pricing">RESERVE MY SLOT FOR ₱4,886</CTAButton>
+            <CTAButton href="/checkout">RESERVE MY SLOT FOR ₱4,886</CTAButton>
           </div>
         </div>
       </div>

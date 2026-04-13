@@ -29,7 +29,7 @@ const Section3Intro = () => {
           <p className="text-muted-foreground font-body text-sm mt-2">Limited to 100 slots only</p>
         </div>
 
-        <CTAButton href="#pricing">RESERVE MY SLOT FOR ₱4,886</CTAButton>
+        <CTAButton href="/checkout">RESERVE MY SLOT FOR ₱4,886</CTAButton>
       </div>
     </section>
   );

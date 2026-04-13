@@ -150,7 +150,7 @@ const Section5BeforeAfter = () => {
 
         {/* BOTTOM CTA */}
         <div className="mt-16 text-center max-w-xl mx-auto">
-          <CTAButton href="#how-it-works">
+          <CTAButton href="/checkout">
             Show Me How
           </CTAButton>
           <p className="text-[10px] text-gray-500 italic mt-3">

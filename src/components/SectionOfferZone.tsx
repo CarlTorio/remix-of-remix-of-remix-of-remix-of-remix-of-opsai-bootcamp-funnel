@@ -163,7 +163,7 @@ const SectionOfferZone = () => {
             </div>
 
             {/* CTA */}
-            <CTAButton href="#pricing" className="w-full">
+            <CTAButton href="/checkout" className="w-full">
               RESERVE MY SLOT FOR ₱4,886
             </CTAButton>
 

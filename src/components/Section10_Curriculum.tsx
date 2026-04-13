@@ -78,7 +78,7 @@ const Section10Curriculum = () => {
           <p className="font-body text-base text-muted-foreground max-w-[800px] mx-auto leading-relaxed">
             Something that used to take months of back-and-forth, expensive custom development, and endless waiting… can now begin taking shape in <span className="text-accent font-semibold" style={{ textShadow: "0 0 15px hsl(217 71% 68% / 0.3)" }}>less than 2 weeks</span>.
           </p>
-          <CTAButton href="#pricing">SAVE MY FREE SPOT</CTAButton>
+          <CTAButton href="/checkout">SAVE MY FREE SPOT</CTAButton>
         </div>
       </div>
     </section>

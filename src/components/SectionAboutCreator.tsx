@@ -155,7 +155,7 @@ const SectionAboutCreator = () => {
             This is your invitation to{" "}
             <span className="text-[#ffb700]">build it with me</span>.
           </p>
-          <CTAButton href="#pricing">
+          <CTAButton href="/checkout">
             Join the Next Cohort
           </CTAButton>
         </div>

@@ -62,7 +62,7 @@ const Section13Pricing = () => {
         </div>
 
         <div className="text-center">
-          <CTAButton href="#pricing">RESERVE MY SLOT FOR ₱4,886</CTAButton>
+          <CTAButton href="/checkout">RESERVE MY SLOT FOR ₱4,886</CTAButton>
         </div>
       </div>
     </section>

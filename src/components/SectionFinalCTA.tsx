@@ -36,7 +36,7 @@ const SectionFinalCTA = () => {
 
         {/* CTA */}
         <div className="flex flex-col items-center gap-3 mb-6">
-          <CTAButton href="#pricing">
+          <CTAButton href="/checkout">
             RESERVE MY SLOT FOR ₱4,886
           </CTAButton>
           <p className="text-[11px] text-gray-500 leading-relaxed mt-4 text-center">

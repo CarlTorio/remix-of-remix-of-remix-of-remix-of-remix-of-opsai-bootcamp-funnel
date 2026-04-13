@@ -64,7 +64,7 @@ const Section12Smarter = () => {
           <p className="font-body text-foreground font-semibold text-xl">
             If your backend has been slowing you down, this is for you.
           </p>
-          <CTAButton href="#pricing">RESERVE MY SLOT FOR ₱4,886</CTAButton>
+          <CTAButton href="/checkout">RESERVE MY SLOT FOR ₱4,886</CTAButton>
         </div>
       </div>
     </section>
