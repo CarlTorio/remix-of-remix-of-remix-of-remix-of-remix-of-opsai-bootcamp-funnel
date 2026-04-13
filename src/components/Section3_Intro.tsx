@@ -7,7 +7,7 @@ const Section3Intro = () => {
   const { ref, visible } = useScrollReveal();
 
   return (
-    <section className="py-12 md:py-20">
+    <section className="py-12 md:py-20 -mt-20 md:-mt-32">
       <div ref={ref} className={`container max-w-[900px] text-center transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
         <HeroImage />
         
