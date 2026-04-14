@@ -18,7 +18,7 @@ const CheckoutSuccess = () => {
         {/* Main Message */}
         <div className="space-y-1.5">
           <h1 className="font-heading font-bold text-2xl md:text-3xl text-foreground">
-            Congratulations{state?.firstName ? `, ${state.firstName}` : ""}! 🎉
+            Congratulations{state?.firstName ? `, ${state.firstName}` : ""}!
           </h1>
           <p className="text-muted-foreground font-body text-sm md:text-base leading-relaxed">
             Welcome to the <span className="text-secondary font-semibold">SME Systems Bootcamp</span>! You've just taken your first step to becoming an AI System Builder.
