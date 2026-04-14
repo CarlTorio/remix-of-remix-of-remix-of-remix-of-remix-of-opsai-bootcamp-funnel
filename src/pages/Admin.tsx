@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { ExternalLink, RefreshCw, Users, Clock, CheckCircle, CreditCard, Eye, BarChart3 } from "lucide-react";
+import { ExternalLink, RefreshCw, Users, Clock, CheckCircle, CreditCard, Eye, BarChart3, EyeOff } from "lucide-react";
 
 type Receipt = {
   id: string;
@@ -20,6 +20,8 @@ const Admin = () => {
   const [loading, setLoading] = useState(true);
   const [password, setPassword] = useState("");
   const [authenticated, setAuthenticated] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [loginError, setLoginError] = useState(false);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [totalVisitors, setTotalVisitors] = useState(0);
 
@@ -58,16 +60,36 @@ const Admin = () => {
             <h1 className="font-heading font-bold text-2xl text-foreground">Admin Panel</h1>
             <p className="text-muted-foreground text-sm">Enter password to continue</p>
           </div>
-          <input
-            type="password"
-            placeholder="Enter admin password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-            onKeyDown={e => e.key === "Enter" && password === ADMIN_PASS && setAuthenticated(true)}
-            className="w-full bg-muted/50 border border-border rounded-lg px-4 py-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-secondary/50"
-          />
+          <div className="relative">
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="Enter admin password"
+              value={password}
+              onChange={e => { setPassword(e.target.value); setLoginError(false); }}
+              onKeyDown={e => {
+                if (e.key === "Enter") {
+                  if (password === ADMIN_PASS) setAuthenticated(true);
+                  else setLoginError(true);
+                }
+              }}
+              className={`w-full bg-muted/50 border rounded-lg px-4 py-3 pr-11 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-secondary/50 ${loginError ? "border-red-500" : "border-border"}`}
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+            >
+              {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+            </button>
+          </div>
+          {loginError && (
+            <p className="text-red-500 text-xs font-body -mt-2">Wrong password. Please try again.</p>
+          )}
           <button
-            onClick={() => password === ADMIN_PASS && setAuthenticated(true)}
+            onClick={() => {
+              if (password === ADMIN_PASS) setAuthenticated(true);
+              else setLoginError(true);
+            }}
             className="w-full bg-secondary text-secondary-foreground font-heading font-bold text-sm py-3 rounded-lg hover:opacity-90 transition-opacity"
           >
             Login
