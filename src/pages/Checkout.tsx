@@ -12,11 +12,22 @@ import gcashLogo from "@/assets/gcash-logo.png";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 
-const benefits = [
-  "2-Week Live Bootcamp with hands-on system building",
-  "System Blueprint Kit to map your workflows",
-  "SME Prompt Vault with ready-to-use prompts",
-  "No-Code Tool Stack Guide to avoid trial-and-error",
+const week1Items = [
+  "Identify what's slowing down your operations",
+  "Map manual tasks that need to disappear",
+  "Define what each department should track",
+  "Set up reports and approvals that matter",
+  "Design your ideal dashboard layout",
+  "Choose the right system and tools for your business",
+];
+
+const week2Items = [
+  "Build dashboards and forms with real data flow",
+  "Set up back-end workflows and approvals",
+  "Create usernames, passwords & employee access",
+  "Configure user roles and permissions",
+  "Implement process logic and automation",
+  "Launch the first working version of your internal system",
 ];
 
 const getTimeLeft = () => {
@@ -168,45 +179,57 @@ const Checkout = () => {
             </div>
           </div>
 
-          {/* Order Summary / Offer */}
+          {/* What You'll Learn */}
           <div className="bg-card border border-border rounded-xl p-4 space-y-4">
             <div className="text-center">
-              <span className="inline-block bg-secondary/15 text-secondary font-heading font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full border border-secondary/30">
-                🔥 Special Early-Bird Offer
+              <span className="inline-block bg-accent/15 text-accent font-heading font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full border border-accent/30">
+                📚 What You'll Learn in 2 Weeks
               </span>
-              <p className="text-muted-foreground text-[10px] mt-1 font-body">(For fast action-takers only)</p>
             </div>
+
+            {/* Week 1 */}
             <div className="space-y-2">
-              {benefits.map((b, i) => (
+              <div className="flex items-center gap-2 mb-1">
+                <span className="bg-accent/10 text-accent font-heading font-bold text-[10px] uppercase tracking-wider px-2.5 py-0.5 rounded-full border border-accent/20">Week 1</span>
+                <p className="text-foreground font-heading font-semibold text-xs">Map Your Business Before You Build</p>
+              </div>
+              {week1Items.map((item, i) => (
                 <div key={i} className="flex items-start gap-2">
                   <CyanCheck className="shrink-0 mt-0.5 w-3.5 h-3.5" />
-                  <p className="text-muted-foreground text-xs font-body">{b}</p>
+                  <p className="text-muted-foreground text-xs font-body">{item}</p>
                 </div>
               ))}
             </div>
 
-            {/* Premium Bonuses */}
-            <div className="pt-2">
-              <div className="flex items-center justify-between mb-2">
-                <p className="text-secondary font-heading font-bold text-[10px] uppercase tracking-wider">Plus 4 Premium Bonuses</p>
-                <p className="text-muted-foreground text-[10px] font-body">Total bonus value: ₱25,000</p>
+            <div className="border-t border-border" />
+
+            {/* Week 2 */}
+            <div className="space-y-2">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="bg-secondary/10 text-secondary font-heading font-bold text-[10px] uppercase tracking-wider px-2.5 py-0.5 rounded-full border border-secondary/20">Week 2</span>
+                <p className="text-foreground font-heading font-semibold text-xs">Build Your Real Working System</p>
               </div>
-              <div className="space-y-1.5">
+              {week2Items.map((item, i) => (
+                <div key={i} className="flex items-start gap-2">
+                  <CyanCheck className="shrink-0 mt-0.5 w-3.5 h-3.5" />
+                  <p className="text-muted-foreground text-xs font-body">{item}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Bonuses */}
+            <div className="border-t border-border pt-3">
+              <p className="text-secondary font-heading font-bold text-[10px] uppercase tracking-wider mb-2">Plus 4 Premium Bonuses Included</p>
+              <div className="grid grid-cols-2 gap-1.5">
                 {[
-                  { icon: "📋", title: "SME Prompt Vault", sub: "100+ ready-to-use prompts", value: "₱10,000" },
-                  { icon: "📐", title: "System Blueprint Kit", sub: "Templates & worksheets", value: "₱5,000" },
-                  { icon: "🔧", title: "No-Code Tool Stack Guide", sub: "Curated tool recommendations", value: "₱5,000" },
-                  { icon: "🎬", title: "Fast-Track Replay Vault", sub: "30-day priority access", value: "₱5,000" },
+                  { icon: "📋", title: "SME Prompt Vault" },
+                  { icon: "📐", title: "System Blueprint Kit" },
+                  { icon: "🔧", title: "No-Code Tool Stack Guide" },
+                  { icon: "🎬", title: "Fast-Track Replay Vault" },
                 ].map((bonus, i) => (
-                  <div key={i} className="flex items-center gap-3 border border-secondary/30 rounded-lg px-3 py-2.5">
-                    <span className="text-base">{bonus.icon}</span>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-foreground font-heading font-semibold text-xs">{bonus.title}</p>
-                      <p className="text-muted-foreground text-[10px] font-body">{bonus.sub}</p>
-                    </div>
-                    <span className="shrink-0 bg-secondary/20 text-secondary text-[10px] font-heading font-bold px-2.5 py-1 rounded border border-secondary/40">
-                      VALUE: {bonus.value}
-                    </span>
+                  <div key={i} className="flex items-center gap-2 border border-border/50 rounded-md px-2 py-1.5">
+                    <span className="text-xs">{bonus.icon}</span>
+                    <p className="text-muted-foreground text-[10px] font-body">{bonus.title}</p>
                   </div>
                 ))}
               </div>
