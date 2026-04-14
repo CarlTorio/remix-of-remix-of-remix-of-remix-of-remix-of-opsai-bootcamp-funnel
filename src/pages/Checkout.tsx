@@ -159,7 +159,10 @@ const Checkout = () => {
                 </div>
                 <span className="font-body text-foreground text-sm">SME Systems Bootcamp — Early Bird</span>
               </div>
-              <span className="font-heading font-bold text-secondary text-base">₱4,886</span>
+              <div className="flex items-center gap-2">
+                <span className="font-body text-muted-foreground line-through text-sm">₱250,000</span>
+                <span className="font-heading font-bold text-secondary text-base">₱4,886</span>
+              </div>
             </div>
           </div>
 
