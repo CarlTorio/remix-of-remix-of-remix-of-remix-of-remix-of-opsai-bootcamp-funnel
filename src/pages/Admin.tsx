@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { ExternalLink, RefreshCw, Users, Clock, CheckCircle, CreditCard, Eye } from "lucide-react";
+import { ExternalLink, RefreshCw, Users, Clock, CheckCircle, CreditCard, Eye, BarChart3 } from "lucide-react";
 
 type Receipt = {
   id: string;
@@ -21,6 +21,7 @@ const Admin = () => {
   const [password, setPassword] = useState("");
   const [authenticated, setAuthenticated] = useState(false);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const [totalVisitors, setTotalVisitors] = useState(0);
 
   const ADMIN_PASS = "logicode2026";
 
@@ -35,8 +36,18 @@ const Admin = () => {
     setLoading(false);
   };
 
+  const fetchVisitorCount = async () => {
+    const { count } = await supabase
+      .from("page_views")
+      .select("*", { count: "exact", head: true });
+    setTotalVisitors(count || 0);
+  };
+
   useEffect(() => {
-    if (authenticated) fetchReceipts();
+    if (authenticated) {
+      fetchReceipts();
+      fetchVisitorCount();
+    }
   }, [authenticated]);
 
   if (!authenticated) {
