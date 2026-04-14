@@ -263,7 +263,7 @@ const Checkout = () => {
         </div>
 
         {/* Right — Order Summary */}
-        <div className="lg:col-span-2">
+        <div className="lg:col-span-2 self-start">
           <div className="sticky top-6 space-y-4">
             <div className="bg-card border border-border rounded-xl p-4 space-y-4">
               {/* Offer badge */}
