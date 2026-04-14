@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { ExternalLink, RefreshCw, Users, Clock, CheckCircle, CreditCard, Eye } from "lucide-react";
+import { ExternalLink, RefreshCw, Users, Clock, CheckCircle, CreditCard, Eye, BarChart3 } from "lucide-react";
 
 type Receipt = {
   id: string;
@@ -21,6 +21,7 @@ const Admin = () => {
   const [password, setPassword] = useState("");
   const [authenticated, setAuthenticated] = useState(false);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const [totalVisitors, setTotalVisitors] = useState(0);
 
   const ADMIN_PASS = "logicode2026";
 
@@ -35,8 +36,18 @@ const Admin = () => {
     setLoading(false);
   };
 
+  const fetchVisitorCount = async () => {
+    const { count } = await supabase
+      .from("page_views")
+      .select("*", { count: "exact", head: true });
+    setTotalVisitors(count || 0);
+  };
+
   useEffect(() => {
-    if (authenticated) fetchReceipts();
+    if (authenticated) {
+      fetchReceipts();
+      fetchVisitorCount();
+    }
   }, [authenticated]);
 
   if (!authenticated) {
@@ -82,7 +93,7 @@ const Admin = () => {
             <p className="text-muted-foreground text-xs sm:text-sm">SME Systems Bootcamp — Registrations</p>
           </div>
           <button
-            onClick={fetchReceipts}
+            onClick={() => { fetchReceipts(); fetchVisitorCount(); }}
             disabled={loading}
             className="flex items-center gap-2 bg-secondary text-secondary-foreground font-heading font-semibold text-xs sm:text-sm px-4 py-2 rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50"
           >
@@ -94,7 +105,14 @@ const Admin = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 space-y-6">
         {/* Stats Cards */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4">
+          <div className="bg-card border border-border rounded-xl p-4 space-y-1">
+            <div className="flex items-center gap-2 text-blue-400">
+              <BarChart3 className="w-4 h-4" />
+              <span className="text-xs font-medium">Total Visitors</span>
+            </div>
+            <p className="font-heading font-bold text-2xl sm:text-3xl text-blue-400">{totalVisitors}</p>
+          </div>
           <div className="bg-card border border-border rounded-xl p-4 space-y-1">
             <div className="flex items-center gap-2 text-muted-foreground">
               <Users className="w-4 h-4" />

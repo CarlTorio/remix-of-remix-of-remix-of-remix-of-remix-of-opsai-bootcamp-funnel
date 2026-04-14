@@ -16,9 +16,12 @@ import SectionOfferZone from "@/components/SectionOfferZone";
 import SectionFAQ from "@/components/SectionFAQ";
 import SectionFinalCTA from "@/components/SectionFinalCTA";
 import NewFooter from "@/components/NewFooter";
+import { usePageView } from "@/hooks/usePageView";
 
-const Index = () => (
-  <main>
+const Index = () => {
+  usePageView("/");
+  return (
+    <main>
     <HeroSection />
     
     <Section2Checklist />
@@ -66,6 +69,7 @@ const Index = () => (
     <SectionFinalCTA />
     <NewFooter />
   </main>
-);
+  );
+};
 
 export default Index;
