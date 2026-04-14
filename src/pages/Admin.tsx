@@ -20,6 +20,8 @@ const Admin = () => {
   const [loading, setLoading] = useState(true);
   const [password, setPassword] = useState("");
   const [authenticated, setAuthenticated] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [loginError, setLoginError] = useState(false);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [totalVisitors, setTotalVisitors] = useState(0);
 
