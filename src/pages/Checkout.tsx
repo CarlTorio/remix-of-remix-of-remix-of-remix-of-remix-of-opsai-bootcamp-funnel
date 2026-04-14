@@ -145,20 +145,20 @@ const Checkout = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="space-y-1">
                 <Label className="text-xs">First Name</Label>
-                <Input placeholder="Juan" value={firstName} onChange={e => setFirstName(e.target.value)} className="bg-muted/50 border-border h-9 text-sm" />
+                <Input placeholder="" value={firstName} onChange={e => setFirstName(e.target.value)} className="bg-muted/50 border-border h-9 text-sm" />
               </div>
               <div className="space-y-1">
                 <Label className="text-xs">Last Name</Label>
-                <Input placeholder="Dela Cruz" value={lastName} onChange={e => setLastName(e.target.value)} className="bg-muted/50 border-border h-9 text-sm" />
+                <Input placeholder="" value={lastName} onChange={e => setLastName(e.target.value)} className="bg-muted/50 border-border h-9 text-sm" />
               </div>
             </div>
             <div className="space-y-1">
               <Label className="text-xs">Email Address</Label>
-              <Input type="email" placeholder="juan@email.com" value={email} onChange={e => setEmail(e.target.value)} className="bg-muted/50 border-border h-9 text-sm" />
+              <Input type="email" placeholder="" value={email} onChange={e => setEmail(e.target.value)} className="bg-muted/50 border-border h-9 text-sm" />
             </div>
             <div className="space-y-1">
               <Label className="text-xs">Phone Number</Label>
-              <Input type="tel" placeholder="+63 9XX XXX XXXX" value={phone} onChange={e => setPhone(e.target.value)} className="bg-muted/50 border-border h-9 text-sm" />
+              <Input type="tel" placeholder="" value={phone} onChange={e => setPhone(e.target.value)} className="bg-muted/50 border-border h-9 text-sm" />
             </div>
           </div>
 
