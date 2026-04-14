@@ -64,7 +64,7 @@ const SectionAboutCreator = () => {
               {/* Name card */}
               <div className="bg-[#0F0F14] border-t border-[#ffb700]/15 px-4 py-3 rounded-b-xl mt-0">
                 <p className="text-base font-bold text-white tracking-tight">John Carl Torio</p>
-                <p className="text-[11px] text-[#ffb700] font-semibold mt-0.5">
+                <p className="text-sm text-[#ffb700] font-semibold mt-0.5">
                   Founder, SME Systems Bootcamp
                 </p>
                 <div className="flex flex-wrap gap-1.5 mt-2.5">
