@@ -12,7 +12,7 @@ const FinalCTASection = () => (
       </p>
       <CTAButton>Claim Your Spot Now</CTAButton>
       <p className="text-muted-foreground text-sm font-body mt-6">
-        Limited to 50 slots per cohort. Secure your seat before enrollment closes.
+        Limited to 50 slots per bootcamp. Secure your seat before enrollment closes.
       </p>
     </div>
   </section>

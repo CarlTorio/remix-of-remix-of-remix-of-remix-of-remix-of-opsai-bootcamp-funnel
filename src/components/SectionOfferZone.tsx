@@ -69,7 +69,7 @@ const SectionOfferZone = () => {
             <div className="absolute -top-4 left-1/2 -translate-x-1/2">
               <span className="inline-flex items-center gap-1.5 bg-[#ffb700] text-black text-[10px] font-bold uppercase tracking-wider px-4 py-1.5 rounded-full shadow-[0_4px_20px_rgba(255,183,0,0.4)]">
                 <Star className="w-3 h-3" />
-                FOUNDING COHORT
+                FOUNDING BOOTCAMP
               </span>
             </div>
 
