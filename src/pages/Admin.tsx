@@ -22,7 +22,7 @@ const Admin = () => {
   const [authenticated, setAuthenticated] = useState(false);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 
-  const ADMIN_PASS = "opsai2025";
+  const ADMIN_PASS = "logicode2026";
 
   const fetchReceipts = async () => {
     setLoading(true);
