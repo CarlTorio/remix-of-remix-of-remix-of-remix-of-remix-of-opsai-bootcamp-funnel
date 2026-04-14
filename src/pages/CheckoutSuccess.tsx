@@ -18,7 +18,7 @@ const CheckoutSuccess = () => {
         {/* Main Message */}
         <div className="space-y-3">
           <h1 className="font-heading font-bold text-3xl md:text-4xl text-foreground">
-            Payment Submitted{state?.firstName ? `, ${state.firstName}` : ""}! 🎉
+            Payment Submitted{state?.firstName ? `, ${state.firstName}` : ""}!
           </h1>
           <p className="text-muted-foreground font-body text-base md:text-lg leading-relaxed">
             Your proof of payment for the <span className="text-secondary font-semibold">SME Systems Bootcamp</span> has been received successfully.
