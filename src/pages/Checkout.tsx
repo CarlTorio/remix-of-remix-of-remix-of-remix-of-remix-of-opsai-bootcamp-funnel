@@ -7,6 +7,7 @@ import CTAButton from "@/components/CTAButton";
 import bpiLogo from "@/assets/bpi-logo.png";
 import bpiQr from "@/assets/bpi-qr.png";
 import gcashQr from "@/assets/gcash-qr.png";
+import gcashLogo from "@/assets/gcash-logo.png";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 
@@ -235,7 +236,10 @@ const Checkout = () => {
               {paymentMethod === "gcash" && (
                 <div className="bg-muted/30 border border-border rounded-lg p-3 text-xs font-body space-y-3">
                   <div className="space-y-0.5">
-                    <p className="text-foreground font-bold">GCash Details:</p>
+                    <p className="text-foreground font-bold flex items-center gap-2">
+                      <img src={gcashLogo} alt="GCash" className="h-5" />
+                      GCash Details:
+                    </p>
                     <p className="text-muted-foreground font-medium">Name: <span className="text-foreground font-bold">OpsAI PH</span></p>
                     <p className="text-muted-foreground font-medium">Account Number: <span className="text-foreground font-bold">0917 XXX XXXX</span></p>
                   </div>
