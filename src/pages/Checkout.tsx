@@ -378,7 +378,7 @@ const Checkout = () => {
 
                   <button
                     onClick={handleUpload}
-                    disabled={uploading || !selectedFile}
+                    disabled={uploading || !selectedFile || !firstName.trim() || !lastName.trim() || !email.trim()}
                     className="w-full bg-secondary text-secondary-foreground font-heading font-bold text-sm py-3 rounded-lg hover:bg-secondary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                   >
                     {uploading ? (
