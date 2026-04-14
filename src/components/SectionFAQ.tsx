@@ -40,8 +40,8 @@ const faqs = [
   },
   {
     num: "08",
-    question: "When does the next cohort start?",
-    answer: "The bootcamp will start on April 28. We limit it to 100 students per cohort to keep the live sessions intimate and high-quality. Once those slots fill, the next cohort won't be until later. Reserving your slot now locks in the founding cohort price."
+    question: "When does the next bootcamp start?",
+    answer: "The bootcamp will start on April 28. We limit it to 100 students per bootcamp to keep the live sessions intimate and high-quality. Once those slots fill, the next bootcamp won't be until later. Reserving your slot now locks in the founding bootcamp price."
   },
 ];
 
@@ -70,7 +70,7 @@ const SectionFAQ = () => {
             Got Questions? <span className="text-[#ffb700]">We Got Answers.</span>
           </h2>
           <p className="text-sm md:text-base text-gray-400 max-w-2xl mx-auto">
-            Everything you need to know before joining the cohort.
+            Everything you need to know before joining the bootcamp.
           </p>
         </div>
 
