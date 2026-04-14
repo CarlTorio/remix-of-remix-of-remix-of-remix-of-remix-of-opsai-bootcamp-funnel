@@ -136,9 +136,7 @@ const Checkout = () => {
             </div>
           </div>
 
-          {/* Payment Method */}
-          <div className="bg-card border border-border rounded-xl p-4 space-y-3">
-            <h2 className="font-heading font-bold text-base text-foreground">Payment Method</h2>
+        </div>
             <div className="grid grid-cols-2 gap-2">
               <button
                 onClick={() => setPaymentMethod("gcash")}
