@@ -29,7 +29,7 @@ const CheckoutSuccess = () => {
         <div className="bg-secondary/10 border border-secondary/30 rounded-xl p-3 space-y-1">
           <div className="flex items-center justify-center gap-2 text-secondary">
             <CalendarDays className="w-4 h-4" />
-            <span className="font-heading font-bold text-sm">Bootcamp starts on April 7!</span>
+            <span className="font-heading font-bold text-sm">Bootcamp starts on April 28!</span>
           </div>
           <p className="text-muted-foreground font-body text-xs">Make sure you're ready. More details will be sent to you soon.</p>
         </div>
