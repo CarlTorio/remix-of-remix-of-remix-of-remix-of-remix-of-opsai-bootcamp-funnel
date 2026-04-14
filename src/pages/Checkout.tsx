@@ -224,7 +224,7 @@ const Checkout = () => {
               </div>
               <div className="flex justify-between text-foreground font-heading font-bold text-sm pt-1">
                 <span>TOTAL VALUE:</span>
-                <span>₱225,000</span>
+                <span className="line-through text-muted-foreground">₱225,000</span>
               </div>
             </div>
 
