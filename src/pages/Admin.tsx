@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { ExternalLink, RefreshCw, Users, Clock, CheckCircle, CreditCard, Eye, BarChart3 } from "lucide-react";
+import { ExternalLink, RefreshCw, Users, Clock, CheckCircle, CreditCard, Eye, BarChart3, EyeOff } from "lucide-react";
 
 type Receipt = {
   id: string;
