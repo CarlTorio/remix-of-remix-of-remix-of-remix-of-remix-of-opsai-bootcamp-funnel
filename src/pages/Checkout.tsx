@@ -136,7 +136,7 @@ const Checkout = () => {
       </div>
 
       {/* Main Content */}
-      <div className="container max-w-5xl px-4 pb-10 grid grid-cols-1 lg:grid-cols-5 gap-5">
+      <div className="container max-w-5xl px-4 pt-6 pb-10 grid grid-cols-1 lg:grid-cols-5 gap-5">
         {/* Left — Form */}
         <div className="lg:col-span-3 space-y-4">
           {/* Contact Information */}
