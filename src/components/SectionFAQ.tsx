@@ -41,7 +41,7 @@ const faqs = [
   {
     num: "08",
     question: "When does the next cohort start?",
-    answer: "The next cohort starts soon and we limit it to 100 students per cohort to keep the live sessions intimate and high-quality. Once those slots fill, the next cohort won't be until later. Reserving your slot now locks in the founding cohort price."
+    answer: "The bootcamp will start on April 28. We limit it to 100 students per cohort to keep the live sessions intimate and high-quality. Once those slots fill, the next cohort won't be until later. Reserving your slot now locks in the founding cohort price."
   },
 ];
 
