@@ -188,7 +188,7 @@ const SectionOfferZone = () => {
                 <p className="text-[#ffb700] text-[10px] uppercase tracking-widest font-bold mb-1.5">7-Day Money-Back Guarantee</p>
                 <p className="text-base font-bold text-white mb-1.5">Try the first sessions risk-free.</p>
                 <p className="text-xs text-gray-400 leading-relaxed">
-                  If within 7 days you feel the bootcamp isn't for you, send one email and we'll refund every peso. No forms. No questions. No hard feelings.
+                  If you attend all the sessions, complete every task, and still feel like the bootcamp isn't for you — just send us one email and we'll refund every peso. No forms. No questions. No hard feelings.
                 </p>
               </div>
             </div>
