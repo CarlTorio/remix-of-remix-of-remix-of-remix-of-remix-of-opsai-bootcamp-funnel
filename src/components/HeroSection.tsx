@@ -206,7 +206,7 @@ const HeroSection = () => {
               </div>
               {/* Scroll indicator */}
               <div className="mt-4 flex justify-center">
-                <span className="text-white/30 text-[10px] font-body tracking-[0.25em] uppercase animate-bounce">Scroll down</span>
+                <span className="hidden md:inline text-white/30 text-[10px] font-body tracking-[0.25em] uppercase animate-bounce">Scroll down</span>
               </div>
             </div>
           </div>
