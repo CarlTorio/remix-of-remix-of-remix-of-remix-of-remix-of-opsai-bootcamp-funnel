@@ -198,48 +198,9 @@ const Checkout = () => {
           </div>
         </div>
 
-        {/* Right — Order Summary + Payment + Upload */}
+        {/* Right — Payment + Upload */}
         <div className="lg:col-span-2 self-start">
           <div className="sticky top-6 space-y-4">
-            <div className="bg-card border border-border rounded-xl p-4 space-y-4">
-              {/* Offer badge */}
-              <div className="text-center">
-                <span className="inline-block bg-secondary/15 text-secondary font-heading font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full border border-secondary/30">
-                  🔥 Special Early-Bird Offer
-                </span>
-                <p className="text-muted-foreground text-[10px] mt-1 font-body">(For fast action-takers only)</p>
-              </div>
-
-              {/* Benefits */}
-              <div className="space-y-2">
-                {benefits.map((b, i) => (
-                  <div key={i} className="flex items-start gap-2">
-                    <CyanCheck className="shrink-0 mt-0.5 w-3.5 h-3.5" />
-                    <p className="text-muted-foreground text-xs font-body">{b}</p>
-                  </div>
-                ))}
-              </div>
-
-              {/* Price */}
-              <div className="text-center pt-1">
-                <p className="text-muted-foreground text-xs line-through font-body mb-1">Total Value: ₱200,000+++</p>
-                <div className="inline-block bg-secondary rounded-lg px-6 py-2">
-                  <p className="font-heading font-extrabold text-secondary-foreground text-base uppercase tracking-wide">
-                    Early-Bird Rate: ₱4,886
-                  </p>
-                </div>
-              </div>
-
-              {/* Urgency */}
-              <div className="text-center space-y-0.5">
-                <p className="text-destructive text-[10px] font-body">
-                  🚨 Early bird rate is limited — once it's gone, the price goes up.
-                </p>
-                <p className="text-foreground text-[10px] font-body font-semibold italic">
-                  Only limited slots available. Secure your spot now before it's too late.
-                </p>
-              </div>
-            </div>
 
             {/* Payment Method */}
             <div className="bg-card border border-border rounded-xl p-4 space-y-3">
