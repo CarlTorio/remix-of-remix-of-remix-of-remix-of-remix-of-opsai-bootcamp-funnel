@@ -89,9 +89,9 @@ const CheckoutSuccess = () => {
         {/* Back Button */}
         <button
           onClick={() => navigate("/")}
-          className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground text-xs font-body transition-colors"
+          className="inline-flex items-center gap-2 bg-secondary text-secondary-foreground hover:bg-secondary/90 text-xs font-heading font-semibold px-5 py-2.5 rounded-lg transition-colors"
         >
-          <ArrowLeft className="w-3 h-3" />
+          <ArrowLeft className="w-3.5 h-3.5" />
           Back to Home
         </button>
 
