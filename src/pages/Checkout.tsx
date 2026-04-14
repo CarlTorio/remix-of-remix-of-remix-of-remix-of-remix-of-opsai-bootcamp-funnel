@@ -240,8 +240,8 @@ const Checkout = () => {
                       <img src={gcashLogo} alt="GCash" className="h-7" />
                       GCash Details:
                     </p>
-                    <p className="text-muted-foreground font-medium text-center">Scan this QR code to pay via GCash</p>
-                  </div>
+                   </div>
+                  <p className="text-muted-foreground font-medium text-center text-xs mt-1">Scan this QR code to pay via GCash</p>
                   <img src={gcashQr} alt="GCash QR Code" className="w-full rounded-lg" />
                 </div>
               )}
