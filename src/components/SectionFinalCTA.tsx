@@ -58,11 +58,11 @@ const SectionFinalCTA = () => {
         </div>
 
         {/* Closing line */}
-        <div className="mt-12 max-w-2xl mx-auto text-center">
-          <p className="text-sm md:text-base text-gray-500 italic leading-relaxed">
+        <div className="mt-12 max-w-3xl mx-auto text-center">
+          <p className="text-base md:text-xl text-gray-500 italic leading-relaxed">
             The best time to build your system was yesterday. The second best time is right now.
           </p>
-          <p className="mt-3 text-[11px] text-[#ffb700] font-semibold">John Carl Torio, SME Systems Bootcamp</p>
+          <p className="mt-3 text-sm text-[#ffb700] font-semibold">John Carl Torio, SME Systems Bootcamp</p>
         </div>
       </div>
     </section>
