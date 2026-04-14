@@ -47,7 +47,7 @@ const SectionSmarterWay = () => {
           <p className="text-red-400 text-[11px] uppercase tracking-[0.3em] font-bold mb-3">
             THE TRADITIONAL WAY
           </p>
-          <div className="max-w-md mx-auto text-left flex flex-col gap-2.5 mb-5">
+          <div className="max-w-md mx-auto text-left flex flex-col gap-2.5 mb-5 pl-8 md:pl-12">
             {traditional.map((item, i) => (
               <div
                 key={i}
