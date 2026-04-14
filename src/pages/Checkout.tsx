@@ -110,9 +110,9 @@ const Checkout = () => {
         <h1 className="font-heading font-bold text-2xl md:text-3xl">
           Join The <span className="text-secondary">SME Systems Bootcamp</span> Today!
         </h1>
-        <div className="mt-3 inline-flex items-center gap-2 bg-destructive/10 border border-destructive/30 rounded-full px-5 py-2">
-          <span className="w-2 h-2 rounded-full bg-destructive animate-pulse" />
-          <span className="font-heading font-semibold text-destructive text-sm">
+        <div className="mt-3 inline-flex items-center gap-2 bg-secondary rounded-full px-5 py-2">
+          <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
+          <span className="font-heading font-semibold text-white text-sm">
             Early-bird rate expires in{" "}
             <span className="tabular-nums">
               {String(timeLeft.hours).padStart(2, "0")}:{String(timeLeft.minutes).padStart(2, "0")}:{String(timeLeft.seconds).padStart(2, "0")}
