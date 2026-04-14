@@ -183,7 +183,7 @@ const HeroSection = () => {
           >
             {/* Image area */}
             <div className="relative w-full overflow-hidden">
-              <img src={isMobile ? heroBgMobile : heroBgDesktop} alt="" className="w-full h-auto md:scale-100 scale-[1.35] origin-top md:translate-y-0 -translate-y-[13.5rem]" width={1920} height={1080} />
+              <img src={isMobile ? heroBgMobile : heroBgDesktop} alt="" className="w-full h-auto md:scale-100 scale-[1.35] origin-top md:translate-y-0 -translate-y-[13.5rem]" width={1920} height={1080} fetchPriority="high" decoding="async" />
               <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-transparent to-background" />
             </div>
             {/* Text content */}
