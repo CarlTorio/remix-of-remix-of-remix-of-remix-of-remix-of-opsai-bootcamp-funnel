@@ -237,7 +237,7 @@ const Checkout = () => {
                 <div className="bg-muted/30 border border-border rounded-lg p-3 text-xs font-body space-y-3">
                   <div className="space-y-0.5">
                     <p className="text-foreground font-bold flex items-center gap-2">
-                      <img src={gcashLogo} alt="GCash" className="h-5" />
+                      <img src={gcashLogo} alt="GCash" className="h-7" />
                       GCash Details:
                     </p>
                     <p className="text-muted-foreground font-medium">Name: <span className="text-foreground font-bold">OpsAI PH</span></p>
