@@ -15,9 +15,9 @@ const includes = [
 
 const bonusItems = [
   { icon: BookMarked, title: "SME Prompt Vault", sub: "100+ ready-to-use prompts", value: "₱10,000" },
-  { icon: FileSpreadsheet, title: "System Blueprint Kit", sub: "Templates & worksheets", value: "₱1,500" },
-  { icon: Wrench, title: "No-Code Tool Stack Guide", sub: "Curated tool recommendations", value: "₱1,000" },
-  { icon: Video, title: "Fast-Track Replay Vault", sub: "30-day priority access", value: "₱2,000" },
+  { icon: FileSpreadsheet, title: "System Blueprint Kit", sub: "Templates & worksheets", value: "₱5,000" },
+  { icon: Wrench, title: "No-Code Tool Stack Guide", sub: "Curated tool recommendations", value: "₱5,000" },
+  { icon: Video, title: "Fast-Track Replay Vault", sub: "30-day priority access", value: "₱5,000" },
 ];
 
 const trustItems = [
@@ -117,7 +117,7 @@ const SectionOfferZone = () => {
             <div className="mb-6">
               <div className="flex items-center justify-between mb-3">
                 <p className="text-[#ffb700] text-[10px] uppercase tracking-widest font-bold">Plus 4 Premium Bonuses</p>
-                <p className="text-[10px] text-gray-500 font-semibold">Total bonus value: ₱7,000</p>
+                <p className="text-[10px] text-gray-500 font-semibold">Total bonus value: ₱25,000</p>
               </div>
               <div className="flex flex-col gap-2.5">
                 {bonusItems.map((b, i) => (
@@ -149,12 +149,12 @@ const SectionOfferZone = () => {
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-xs text-gray-500">Bonuses value:</span>
-                <span className="text-xs text-gray-400 tabular-nums">₱7,000</span>
+                <span className="text-xs text-gray-400 tabular-nums">₱25,000</span>
               </div>
               <div className="border-t border-white/10 my-2" />
               <div className="flex items-center justify-between">
                 <span className="text-sm text-white font-bold uppercase">Total Value:</span>
-                <span className="text-base text-gray-300 line-through tabular-nums">₱207,000</span>
+                <span className="text-base text-gray-300 line-through tabular-nums">₱225,000</span>
               </div>
               <div className="flex items-center justify-between bg-[#ffb700]/10 border border-[#ffb700]/30 rounded-lg px-3 py-2.5 mt-2">
                 <span className="text-sm text-[#ffb700] font-bold uppercase">Your Price Today:</span>
