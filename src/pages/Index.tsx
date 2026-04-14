@@ -21,6 +21,7 @@ import { usePageView } from "@/hooks/usePageView";
 const Index = () => {
   usePageView("/");
   return (
+    <main>
     <HeroSection />
     
     <Section2Checklist />
