@@ -218,35 +218,33 @@ const Checkout = () => {
               )}
 
               {paymentMethod === "bank" && (
-                <div className="bg-muted/30 border-2 border-secondary/40 rounded-xl p-4 font-body">
-                  <div className="flex items-center gap-2 mb-2">
+                <div className="bg-muted/30 border-2 border-secondary/40 rounded-xl p-4 font-body space-y-3">
+                  <div className="flex items-center gap-2">
                     <img src={bpiLogo} alt="BPI" className="h-8 w-auto" />
                     <p className="text-foreground font-bold text-sm">Bank Details:</p>
                   </div>
-                  <div className="flex items-start gap-4">
-                    <div className="space-y-1 flex-1">
-                      <p className="text-muted-foreground text-xs">Bank: <span className="text-foreground font-semibold text-sm">BPI Savings</span></p>
-                      <p className="text-muted-foreground text-xs">Account Name: <span className="text-foreground font-semibold text-sm">John Paolo Mercado</span></p>
-                      <div className="flex items-center gap-1.5">
-                        <p className="text-muted-foreground text-xs">Account Number: <span className="text-secondary font-bold text-sm tracking-wide">0929-3286-71</span></p>
-                        <button
-                          onClick={() => {
-                            navigator.clipboard.writeText("0929328671");
-                            const btn = document.getElementById("copy-acct");
-                            if (btn) btn.dataset.copied = "true";
-                            setTimeout(() => { if (btn) btn.dataset.copied = "false"; }, 2000);
-                          }}
-                          id="copy-acct"
-                          className="group p-1 rounded-md hover:bg-secondary/20 transition-colors data-[copied=true]:text-green-400 text-muted-foreground hover:text-secondary"
-                          data-copied="false"
-                        >
-                          <Copy className="w-3.5 h-3.5 group-data-[copied=true]:hidden" />
-                          <Check className="w-3.5 h-3.5 hidden group-data-[copied=true]:block" />
-                        </button>
-                      </div>
+                  <div className="space-y-1">
+                    <p className="text-muted-foreground text-xs">Bank: <span className="text-foreground font-semibold text-sm">BPI Savings</span></p>
+                    <p className="text-muted-foreground text-xs">Account Name: <span className="text-foreground font-semibold text-sm">John Paolo Mercado</span></p>
+                    <div className="flex items-center gap-1.5">
+                      <p className="text-muted-foreground text-xs">Account Number: <span className="text-secondary font-bold text-sm tracking-wide">0929-3286-71</span></p>
+                      <button
+                        onClick={() => {
+                          navigator.clipboard.writeText("0929328671");
+                          const btn = document.getElementById("copy-acct");
+                          if (btn) btn.dataset.copied = "true";
+                          setTimeout(() => { if (btn) btn.dataset.copied = "false"; }, 2000);
+                        }}
+                        id="copy-acct"
+                        className="group p-1 rounded-md hover:bg-secondary/20 transition-colors data-[copied=true]:text-green-400 text-muted-foreground hover:text-secondary"
+                        data-copied="false"
+                      >
+                        <Copy className="w-3.5 h-3.5 group-data-[copied=true]:hidden" />
+                        <Check className="w-3.5 h-3.5 hidden group-data-[copied=true]:block" />
+                      </button>
                     </div>
-                    <img src={bpiQr} alt="BPI QR Code" className="w-32 rounded-lg shrink-0" />
                   </div>
+                  <img src={bpiQr} alt="BPI QR Code" className="w-full rounded-lg" />
                 </div>
               )}
 
