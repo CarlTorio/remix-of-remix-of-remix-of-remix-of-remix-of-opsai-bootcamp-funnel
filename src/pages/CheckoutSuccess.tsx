@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { CheckCircle, Clock, Mail, Phone, ArrowLeft } from "lucide-react";
+import { Clock, Mail, Phone, ArrowLeft, CalendarDays, Rocket } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const CheckoutSuccess = () => {
@@ -18,11 +18,21 @@ const CheckoutSuccess = () => {
         {/* Main Message */}
         <div className="space-y-3">
           <h1 className="font-heading font-bold text-3xl md:text-4xl text-foreground">
-            Payment Submitted{state?.firstName ? `, ${state.firstName}` : ""}!
+            Congratulations{state?.firstName ? `, ${state.firstName}` : ""}! 🎉
           </h1>
           <p className="text-muted-foreground font-body text-base md:text-lg leading-relaxed">
-            Your proof of payment for the <span className="text-secondary font-semibold">SME Systems Bootcamp</span> has been received successfully.
+            Welcome to the <span className="text-secondary font-semibold">SME Systems Bootcamp</span>! You've just taken your first step in your journey to becoming an AI System Builder.
           </p>
+        </div>
+
+        {/* Important Date */}
+        <div className="bg-secondary/10 border border-secondary/30 rounded-2xl p-5 space-y-2">
+          <div className="flex items-center justify-center gap-2 text-secondary">
+            <CalendarDays className="w-5 h-5" />
+            <span className="font-heading font-bold text-base">Mark Your Calendar</span>
+          </div>
+          <p className="text-foreground font-heading font-bold text-xl">Bootcamp starts on April 7!</p>
+          <p className="text-muted-foreground font-body text-sm">Make sure you're ready. More details will be sent to you soon.</p>
         </div>
 
         {/* What Happens Next */}
@@ -69,12 +79,24 @@ const CheckoutSuccess = () => {
                 </p>
               </div>
             </div>
+
+            <div className="flex items-start gap-4">
+              <div className="w-10 h-10 rounded-full bg-secondary/15 flex items-center justify-center shrink-0 mt-0.5">
+                <Rocket className="w-5 h-5 text-secondary" />
+              </div>
+              <div>
+                <p className="font-heading font-semibold text-foreground text-sm">Get Ready to Build</p>
+                <p className="text-muted-foreground font-body text-sm">
+                  Prepare yourself — you're about to learn how to build powerful AI-driven business systems from scratch.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Note */}
         <p className="text-muted-foreground text-xs font-body">
-          If you don't hear from us within 24 hours, please email us at <span className="text-secondary font-medium">support@opsai.ph</span>
+          If you don't hear from us within 24 hours, please email us at <span className="text-secondary font-medium">johncarlotorio@gmail.com</span>
         </p>
 
         {/* Back Button */}
@@ -89,7 +111,7 @@ const CheckoutSuccess = () => {
         {/* Footer */}
         <div className="border-t border-border pt-6">
           <p className="text-muted-foreground text-xs font-body">
-            © 2025 OpsAI PH. All rights reserved.
+            © 2025 LogiCode.ph. All rights reserved.
           </p>
         </div>
       </div>
