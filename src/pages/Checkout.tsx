@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { Copy, Check, Upload, Loader2, CheckCircle } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -39,6 +40,7 @@ const Checkout = () => {
   const [uploaded, setUploaded] = useState(false);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate();
   const { toast } = useToast();
   const [timeLeft, setTimeLeft] = useState(getTimeLeft());
 
@@ -89,7 +91,7 @@ const Checkout = () => {
       if (dbError) throw dbError;
 
       setUploaded(true);
-      toast({ title: "Receipt uploaded successfully! We'll verify your payment within 1-2 days." });
+      navigate("/checkout/success", { state: { firstName, email } });
     } catch (err: any) {
       toast({ title: "Upload failed", description: err.message, variant: "destructive" });
     } finally {
