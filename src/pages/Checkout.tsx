@@ -207,13 +207,13 @@ const Checkout = () => {
               </div>
 
               {paymentMethod === "gcash" && (
-                <div className="bg-muted/30 border border-border rounded-lg p-3 flex items-start gap-3 text-xs font-body">
-                  <div className="space-y-0.5 flex-1">
+                <div className="bg-muted/30 border border-border rounded-lg p-3 text-xs font-body space-y-3">
+                  <div className="space-y-0.5">
                     <p className="text-foreground font-semibold">GCash Details:</p>
                     <p className="text-muted-foreground">Name: <span className="text-foreground">OpsAI PH</span></p>
                     <p className="text-muted-foreground">Account Number: <span className="text-foreground">0917 XXX XXXX</span></p>
                   </div>
-                  <img src={gcashQr} alt="GCash QR Code" className="w-32 rounded-lg shrink-0" />
+                  <img src={gcashQr} alt="GCash QR Code" className="w-full rounded-lg" />
                 </div>
               )}
 
