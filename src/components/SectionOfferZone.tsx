@@ -14,7 +14,7 @@ const includes = [
 ];
 
 const bonusItems = [
-  { icon: BookMarked, title: "SME Prompt Vault", sub: "100+ ready-to-use prompts", value: "₱2,500" },
+  { icon: BookMarked, title: "SME Prompt Vault", sub: "100+ ready-to-use prompts", value: "₱10,000" },
   { icon: FileSpreadsheet, title: "System Blueprint Kit", sub: "Templates & worksheets", value: "₱1,500" },
   { icon: Wrench, title: "No-Code Tool Stack Guide", sub: "Curated tool recommendations", value: "₱1,000" },
   { icon: Video, title: "Fast-Track Replay Vault", sub: "30-day priority access", value: "₱2,000" },
