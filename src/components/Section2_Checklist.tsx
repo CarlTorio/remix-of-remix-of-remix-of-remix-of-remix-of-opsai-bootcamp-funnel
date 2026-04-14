@@ -39,7 +39,7 @@ const Section2Checklist = () => {
 
           {/* Headline */}
           <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight mb-3 mt-6">
-            This Is For You If…
+            This Is For You If You're In The Business Of...
           </h2>
 
           {/* Subhead */}
