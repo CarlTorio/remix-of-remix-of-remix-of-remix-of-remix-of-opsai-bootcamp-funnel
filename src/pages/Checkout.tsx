@@ -403,7 +403,7 @@ const Checkout = () => {
       {/* Footer */}
       <div className="border-t border-border py-6 text-center">
         <p className="text-muted-foreground text-xs font-body">
-          © 2025 OpsAI PH. All rights reserved.
+          © 2026 LogiCode.PH. All rights reserved.
         </p>
       </div>
     </div>
