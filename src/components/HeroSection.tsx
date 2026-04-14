@@ -187,7 +187,7 @@ const HeroSection = () => {
               <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-transparent to-background" />
             </div>
             {/* Text content */}
-            <div className="md:relative md:z-10 md:container md:text-center md:-mt-24 <div className="md:relative md:z-10 md:container md:text-center md:-mt-24 absolute bottom-12 left-0 right-0 z-10 container text-center" style={isMobile ? { textShadow: "0 2px 12px rgba(0,0,0,0.8), 0 0 30px rgba(0,0,0,0.6)" } : undefined}>" style={isMobile ? { textShadow: "0 2px 12px rgba(0,0,0,0.8), 0 0 30px rgba(0,0,0,0.6)" } : undefined}>
+            <div className="md:relative md:z-10 md:container md:text-center md:-mt-24 absolute bottom-12 left-0 right-0 z-10 container text-center" style={isMobile ? { textShadow: "0 2px 12px rgba(0,0,0,0.8), 0 0 30px rgba(0,0,0,0.6)" } : undefined}>
               <p className="font-heading font-bold text-secondary text-sm md:text-base uppercase tracking-widest mb-2">Starts April 28</p>
               <h1 className="font-heading font-black text-[26px] md:text-[44px] leading-[1.1] mb-3 max-w-4xl mx-auto">
                 Build Your Own <span style={{ color: "#fbbd23" }}>Internal Business System</span> with{" "}
