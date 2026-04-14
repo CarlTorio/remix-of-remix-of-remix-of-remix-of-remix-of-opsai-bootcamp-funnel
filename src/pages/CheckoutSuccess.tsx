@@ -83,7 +83,7 @@ const CheckoutSuccess = () => {
 
         {/* Note */}
         <p className="text-muted-foreground text-[11px] font-body">
-          If you don't hear from us within 24 hours, email us at <span className="text-secondary font-medium">johncarlotorio@gmail.com</span>
+          If you don't hear from us within 24 hours, email us at <span className="text-secondary font-medium">johncarltorio@gmail.com</span>
         </p>
 
         {/* Back Button */}
