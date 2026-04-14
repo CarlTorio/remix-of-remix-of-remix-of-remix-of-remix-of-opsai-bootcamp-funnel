@@ -256,7 +256,7 @@ const HeroSection = () => {
               {stackCards.map((card, i) => (
                 <ScrollStackItem
                   key={i}
-                  itemClassName="border border-accent/60 shadow-[0_0_50px_rgba(251,189,35,0.4)]" style={{ backgroundColor: '#fbbd23' }}
+                  itemClassName="bg-[#fbbd23] border border-accent/60 shadow-[0_0_50px_rgba(251,189,35,0.4)]"
                 >
                   <div className="flex flex-col items-center justify-center text-center h-full p-2">
                     <h3 className="font-heading font-bold text-xl md:text-2xl text-foreground mb-2">
