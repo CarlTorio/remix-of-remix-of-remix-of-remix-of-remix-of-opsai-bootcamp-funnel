@@ -184,14 +184,56 @@ const Checkout = () => {
                 </div>
               ))}
             </div>
-            <div className="text-center pt-1">
-              <p className="text-muted-foreground text-xs line-through font-body mb-1">Total Value: ₱200,000+++</p>
-              <div className="inline-block bg-secondary rounded-lg px-6 py-2">
-                <p className="font-heading font-extrabold text-secondary-foreground text-base uppercase tracking-wide">
-                  Early-Bird Rate: ₱4,886
-                </p>
+
+            {/* Premium Bonuses */}
+            <div className="pt-2">
+              <div className="flex items-center justify-between mb-2">
+                <p className="text-secondary font-heading font-bold text-[10px] uppercase tracking-wider">Plus 4 Premium Bonuses</p>
+                <p className="text-muted-foreground text-[10px] font-body">Total bonus value: ₱25,000</p>
+              </div>
+              <div className="space-y-1.5">
+                {[
+                  { icon: "📋", title: "SME Prompt Vault", sub: "100+ ready-to-use prompts", value: "₱10,000" },
+                  { icon: "📐", title: "System Blueprint Kit", sub: "Templates & worksheets", value: "₱5,000" },
+                  { icon: "🔧", title: "No-Code Tool Stack Guide", sub: "Curated tool recommendations", value: "₱5,000" },
+                  { icon: "🎬", title: "Fast-Track Replay Vault", sub: "30-day priority access", value: "₱5,000" },
+                ].map((bonus, i) => (
+                  <div key={i} className="flex items-center gap-3 bg-background/60 border border-border/50 rounded-lg px-3 py-2">
+                    <span className="text-base">{bonus.icon}</span>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-foreground font-heading font-semibold text-xs">{bonus.title}</p>
+                      <p className="text-muted-foreground text-[10px] font-body">{bonus.sub}</p>
+                    </div>
+                    <span className="shrink-0 bg-secondary/15 text-secondary text-[10px] font-heading font-bold px-2 py-0.5 rounded border border-secondary/30">
+                      VALUE: {bonus.value}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
+
+            {/* Value Stack */}
+            <div className="pt-2 space-y-1 text-xs font-body">
+              <div className="flex justify-between text-muted-foreground">
+                <span>Bootcamp value:</span>
+                <span>₱200,000</span>
+              </div>
+              <div className="flex justify-between text-muted-foreground">
+                <span>Bonuses value:</span>
+                <span>₱25,000</span>
+              </div>
+              <div className="flex justify-between text-foreground font-heading font-bold text-sm pt-1">
+                <span>TOTAL VALUE:</span>
+                <span>₱225,000</span>
+              </div>
+            </div>
+
+            {/* Final Price */}
+            <div className="bg-secondary/15 border border-secondary/40 rounded-lg px-4 py-2 flex items-center justify-between">
+              <p className="font-heading font-bold text-secondary text-xs uppercase tracking-wide italic">Your Price Today:</p>
+              <p className="font-heading font-extrabold text-secondary text-xl">₱4,886</p>
+            </div>
+
             <div className="text-center space-y-0.5">
               <p className="text-destructive text-[10px] font-body">
                 🚨 Early bird rate is limited — once it's gone, the price goes up.
