@@ -17,6 +17,17 @@ const benefits = [
   "No-Code Tool Stack Guide to avoid trial-and-error",
 ];
 
+const getTimeLeft = () => {
+  const now = new Date();
+  const endOfDay = new Date(now);
+  endOfDay.setHours(23, 59, 59, 999);
+  const diff = endOfDay.getTime() - now.getTime();
+  const hours = Math.floor(diff / (1000 * 60 * 60));
+  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+  return { hours, minutes, seconds };
+};
+
 const Checkout = () => {
   const [paymentMethod, setPaymentMethod] = useState<"gcash" | "bank">("gcash");
   const [firstName, setFirstName] = useState("");
@@ -28,9 +39,15 @@ const Checkout = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
+  const [timeLeft, setTimeLeft] = useState(getTimeLeft());
 
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => setTimeLeft(getTimeLeft()), 1000);
+    return () => clearInterval(timer);
   }, []);
 
   const handleUpload = async () => {
