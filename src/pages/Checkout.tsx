@@ -40,6 +40,7 @@ const Checkout = () => {
   const [uploaded, setUploaded] = useState(false);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate();
   const { toast } = useToast();
   const [timeLeft, setTimeLeft] = useState(getTimeLeft());
 
