@@ -111,7 +111,7 @@ const Checkout = () => {
         <h1 className="font-heading font-bold text-2xl md:text-3xl">
           Join The <span className="text-secondary">SME Systems Bootcamp</span> Today!
         </h1>
-        <div className="mt-3 inline-flex items-center gap-2 bg-secondary rounded-full px-5 py-2">
+        <div className="mt-3 inline-flex items-center gap-2 rounded-full px-5 py-2" style={{ backgroundColor: '#fbbd23' }}>
           <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
           <span className="font-heading font-semibold text-white text-sm">
             Early-bird rate expires in{" "}
