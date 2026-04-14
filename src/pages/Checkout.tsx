@@ -284,7 +284,7 @@ const Checkout = () => {
 
             {/* Upload Receipt */}
             <div className="bg-card border border-border rounded-xl p-4 space-y-3">
-              <h2 className="font-heading font-bold text-base text-foreground">Upload Receipt</h2>
+              <h2 className="font-heading font-bold text-base text-foreground text-center">Upload Receipt</h2>
 
               {uploaded ? (
                 <div className="flex flex-col items-center gap-2 py-4">
