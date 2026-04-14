@@ -153,7 +153,7 @@ const Section5BeforeAfter = () => {
           <CTAButton href="/checkout">
             Show Me How
           </CTAButton>
-          <p className="text-[10px] text-gray-500 italic mt-3">
+          <p className="text-sm md:text-base text-gray-400 italic mt-4 font-medium">
             Built in 14 days. Owned forever.
           </p>
         </div>
