@@ -20,7 +20,7 @@ import { usePageView } from "@/hooks/usePageView";
 
 const Index = () => {
   usePageView("/");
-  <main>
+  return (
     <HeroSection />
     
     <Section2Checklist />
@@ -68,6 +68,7 @@ const Index = () => {
     <SectionFinalCTA />
     <NewFooter />
   </main>
-);
+  );
+};
 
 export default Index;
