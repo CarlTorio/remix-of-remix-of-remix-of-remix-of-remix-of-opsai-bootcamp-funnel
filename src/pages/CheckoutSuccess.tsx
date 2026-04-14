@@ -98,7 +98,7 @@ const CheckoutSuccess = () => {
         {/* Footer */}
         <div className="border-t border-border pt-3">
           <p className="text-muted-foreground text-[11px] font-body">
-            © 2025 LogiCode.ph. All rights reserved.
+            © 2026 LogiCode.ph. All rights reserved.
           </p>
         </div>
       </div>
