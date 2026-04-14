@@ -7,6 +7,7 @@ import CTAButton from "@/components/CTAButton";
 import bpiLogo from "@/assets/bpi-logo.png";
 import bpiQr from "@/assets/bpi-qr.png";
 import gcashQr from "@/assets/gcash-qr.png";
+import gcashLogo from "@/assets/gcash-logo.png";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 
