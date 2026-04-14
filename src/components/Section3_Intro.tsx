@@ -14,9 +14,14 @@ const Section3Intro = () => {
         <h2 className="font-heading font-bold text-2xl md:text-4xl mb-5">
           Introducing the <span className="text-secondary">SME Systems Bootcamp</span>
         </h2>
-        <p className="font-body text-lg leading-relaxed mb-10 max-w-[800px] mx-auto text-primary-foreground">
+        <p className="font-body text-lg leading-relaxed mb-6 max-w-[800px] mx-auto text-primary-foreground">
           A live 2-week online bootcamp where SME owners learn how to build their own internal business system, software, dashboards, workflows, user roles, and business logic using AI and no-code tools.
         </p>
+
+        <div className="inline-flex items-center gap-3 bg-secondary/10 border border-secondary/30 rounded-full px-6 py-3 mb-10">
+          <span className="w-2.5 h-2.5 rounded-full bg-secondary animate-pulse" />
+          <span className="font-heading font-bold text-secondary text-base md:text-lg tracking-wide">Starts April 28</span>
+        </div>
 
         <div className="mb-8">
           <p className="text-muted-foreground font-body text-sm mb-1">Price Today:</p>
