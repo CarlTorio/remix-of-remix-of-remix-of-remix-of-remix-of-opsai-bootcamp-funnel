@@ -93,7 +93,7 @@ const Admin = () => {
             <p className="text-muted-foreground text-xs sm:text-sm">SME Systems Bootcamp — Registrations</p>
           </div>
           <button
-            onClick={fetchReceipts}
+            onClick={() => { fetchReceipts(); fetchVisitorCount(); }}
             disabled={loading}
             className="flex items-center gap-2 bg-secondary text-secondary-foreground font-heading font-semibold text-xs sm:text-sm px-4 py-2 rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50"
           >
