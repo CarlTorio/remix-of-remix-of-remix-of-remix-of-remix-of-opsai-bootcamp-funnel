@@ -128,6 +128,10 @@ const SectionWhatYoullLearn = () => {
           <CTAButton href="/checkout">
             Reserve My Slot
           </CTAButton>
+          <div className="inline-flex items-center gap-3 bg-secondary/10 border border-secondary/30 rounded-full px-6 py-3 mt-4">
+            <span className="w-2.5 h-2.5 rounded-full bg-secondary animate-pulse" />
+            <span className="font-bold text-secondary text-sm md:text-base tracking-wide">Starts April 28</span>
+          </div>
         </div>
       </div>
     </section>
