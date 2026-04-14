@@ -135,132 +135,9 @@ const Checkout = () => {
               <span className="font-heading font-bold text-secondary text-base">₱4,886</span>
             </div>
           </div>
-
-        </div>
-            <div className="grid grid-cols-2 gap-2">
-              <button
-                onClick={() => setPaymentMethod("gcash")}
-                className={`rounded-lg border p-3 text-center font-heading font-semibold text-sm transition-all ${
-                  paymentMethod === "gcash"
-                    ? "border-secondary bg-secondary/10 text-secondary"
-                    : "border-border bg-muted/30 text-muted-foreground hover:border-muted-foreground"
-                }`}
-              >
-                GCash
-              </button>
-              <button
-                onClick={() => setPaymentMethod("bank")}
-                className={`rounded-lg border p-3 text-center font-heading font-semibold text-sm transition-all ${
-                  paymentMethod === "bank"
-                    ? "border-secondary bg-secondary/10 text-secondary"
-                    : "border-border bg-muted/30 text-muted-foreground hover:border-muted-foreground"
-                }`}
-              >
-                Bank Transfer
-              </button>
-            </div>
-
-            {paymentMethod === "gcash" && (
-              <div className="bg-muted/30 border border-border rounded-lg p-3 flex items-start gap-3 text-xs font-body">
-                <div className="space-y-0.5 flex-1">
-                  <p className="text-foreground font-semibold">GCash Details:</p>
-                  <p className="text-muted-foreground">Name: <span className="text-foreground">OpsAI PH</span></p>
-                  <p className="text-muted-foreground">Account Number: <span className="text-foreground">0917 XXX XXXX</span></p>
-                </div>
-                <img src={gcashQr} alt="GCash QR Code" className="w-32 rounded-lg shrink-0" />
-              </div>
-            )}
-
-            {paymentMethod === "bank" && (
-              <div className="bg-muted/30 border-2 border-secondary/40 rounded-xl p-4 font-body">
-                <div className="flex items-center gap-2 mb-2">
-                  <img src={bpiLogo} alt="BPI" className="h-8 w-auto" />
-                  <p className="text-foreground font-bold text-sm">Bank Details:</p>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="space-y-1 flex-1">
-                    <p className="text-muted-foreground text-xs">Bank: <span className="text-foreground font-semibold text-sm">BPI Savings</span></p>
-                    <p className="text-muted-foreground text-xs">Account Name: <span className="text-foreground font-semibold text-sm">John Paolo Mercado</span></p>
-                    <div className="flex items-center gap-1.5">
-                      <p className="text-muted-foreground text-xs">Account Number: <span className="text-secondary font-bold text-sm tracking-wide">0929-3286-71</span></p>
-                      <button
-                        onClick={() => {
-                          navigator.clipboard.writeText("0929328671");
-                          const btn = document.getElementById("copy-acct");
-                          if (btn) btn.dataset.copied = "true";
-                          setTimeout(() => { if (btn) btn.dataset.copied = "false"; }, 2000);
-                        }}
-                        id="copy-acct"
-                        className="group p-1 rounded-md hover:bg-secondary/20 transition-colors data-[copied=true]:text-green-400 text-muted-foreground hover:text-secondary"
-                        data-copied="false"
-                      >
-                        <Copy className="w-3.5 h-3.5 group-data-[copied=true]:hidden" />
-                        <Check className="w-3.5 h-3.5 hidden group-data-[copied=true]:block" />
-                      </button>
-                    </div>
-                  </div>
-                  <img src={bpiQr} alt="BPI QR Code" className="w-32 rounded-lg shrink-0" />
-                </div>
-              </div>
-            )}
-
-            <p className="text-muted-foreground text-[10px] font-body">
-              Please send your proof of payment by clicking the button below and give us at least 1–2 days to verify your payment and grant access.
-            </p>
-          </div>
-
-          {/* Upload Receipt */}
-          <div className="bg-card border border-border rounded-xl p-4 space-y-3">
-            <h2 className="font-heading font-bold text-base text-foreground">Upload Receipt</h2>
-
-            {uploaded ? (
-              <div className="flex flex-col items-center gap-2 py-4">
-                <CheckCircle className="w-10 h-10 text-green-400" />
-                <p className="text-foreground font-semibold text-sm">Receipt uploaded successfully!</p>
-                <p className="text-muted-foreground text-xs">We'll verify your payment within 1–2 days.</p>
-              </div>
-            ) : (
-              <>
-                <input
-                  ref={fileInputRef}
-                  type="file"
-                  accept="image/*,.pdf"
-                  className="hidden"
-                  onChange={e => setSelectedFile(e.target.files?.[0] || null)}
-                />
-                <button
-                  onClick={() => fileInputRef.current?.click()}
-                  className="w-full border border-dashed border-border rounded-lg p-3 flex items-center justify-center gap-2 hover:border-secondary/50 transition-colors"
-                >
-                  <Upload className="w-4 h-4 text-muted-foreground shrink-0" />
-                  <p className="text-muted-foreground text-xs font-body truncate">
-                    {selectedFile ? selectedFile.name : "Click to select your receipt (image or PDF)"}
-                  </p>
-                </button>
-
-                <button
-                  onClick={handleUpload}
-                  disabled={uploading || !selectedFile}
-                  className="w-full bg-secondary text-secondary-foreground font-heading font-bold text-sm py-3 rounded-lg hover:bg-secondary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                >
-                  {uploading ? (
-                    <>
-                      <Loader2 className="w-4 h-4 animate-spin" />
-                      Uploading...
-                    </>
-                  ) : (
-                    <>
-                      <Upload className="w-4 h-4" />
-                      SUBMIT PROOF OF PAYMENT
-                    </>
-                  )}
-                </button>
-              </>
-            )}
-          </div>
         </div>
 
-        {/* Right — Order Summary */}
+        {/* Right — Order Summary + Payment + Upload */}
         <div className="lg:col-span-2 self-start">
           <div className="sticky top-6 space-y-4">
             <div className="bg-card border border-border rounded-xl p-4 space-y-4">
@@ -301,6 +178,131 @@ const Checkout = () => {
                   Only limited slots available. Secure your spot now before it's too late.
                 </p>
               </div>
+            </div>
+
+            {/* Payment Method */}
+            <div className="bg-card border border-border rounded-xl p-4 space-y-3">
+              <h2 className="font-heading font-bold text-base text-foreground">Payment Method</h2>
+              <div className="grid grid-cols-2 gap-2">
+                <button
+                  onClick={() => setPaymentMethod("gcash")}
+                  className={`rounded-lg border p-3 text-center font-heading font-semibold text-sm transition-all ${
+                    paymentMethod === "gcash"
+                      ? "border-secondary bg-secondary/10 text-secondary"
+                      : "border-border bg-muted/30 text-muted-foreground hover:border-muted-foreground"
+                  }`}
+                >
+                  GCash
+                </button>
+                <button
+                  onClick={() => setPaymentMethod("bank")}
+                  className={`rounded-lg border p-3 text-center font-heading font-semibold text-sm transition-all ${
+                    paymentMethod === "bank"
+                      ? "border-secondary bg-secondary/10 text-secondary"
+                      : "border-border bg-muted/30 text-muted-foreground hover:border-muted-foreground"
+                  }`}
+                >
+                  Bank Transfer
+                </button>
+              </div>
+
+              {paymentMethod === "gcash" && (
+                <div className="bg-muted/30 border border-border rounded-lg p-3 flex items-start gap-3 text-xs font-body">
+                  <div className="space-y-0.5 flex-1">
+                    <p className="text-foreground font-semibold">GCash Details:</p>
+                    <p className="text-muted-foreground">Name: <span className="text-foreground">OpsAI PH</span></p>
+                    <p className="text-muted-foreground">Account Number: <span className="text-foreground">0917 XXX XXXX</span></p>
+                  </div>
+                  <img src={gcashQr} alt="GCash QR Code" className="w-32 rounded-lg shrink-0" />
+                </div>
+              )}
+
+              {paymentMethod === "bank" && (
+                <div className="bg-muted/30 border-2 border-secondary/40 rounded-xl p-4 font-body">
+                  <div className="flex items-center gap-2 mb-2">
+                    <img src={bpiLogo} alt="BPI" className="h-8 w-auto" />
+                    <p className="text-foreground font-bold text-sm">Bank Details:</p>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <div className="space-y-1 flex-1">
+                      <p className="text-muted-foreground text-xs">Bank: <span className="text-foreground font-semibold text-sm">BPI Savings</span></p>
+                      <p className="text-muted-foreground text-xs">Account Name: <span className="text-foreground font-semibold text-sm">John Paolo Mercado</span></p>
+                      <div className="flex items-center gap-1.5">
+                        <p className="text-muted-foreground text-xs">Account Number: <span className="text-secondary font-bold text-sm tracking-wide">0929-3286-71</span></p>
+                        <button
+                          onClick={() => {
+                            navigator.clipboard.writeText("0929328671");
+                            const btn = document.getElementById("copy-acct");
+                            if (btn) btn.dataset.copied = "true";
+                            setTimeout(() => { if (btn) btn.dataset.copied = "false"; }, 2000);
+                          }}
+                          id="copy-acct"
+                          className="group p-1 rounded-md hover:bg-secondary/20 transition-colors data-[copied=true]:text-green-400 text-muted-foreground hover:text-secondary"
+                          data-copied="false"
+                        >
+                          <Copy className="w-3.5 h-3.5 group-data-[copied=true]:hidden" />
+                          <Check className="w-3.5 h-3.5 hidden group-data-[copied=true]:block" />
+                        </button>
+                      </div>
+                    </div>
+                    <img src={bpiQr} alt="BPI QR Code" className="w-32 rounded-lg shrink-0" />
+                  </div>
+                </div>
+              )}
+
+              <p className="text-muted-foreground text-[10px] font-body">
+                Please send your proof of payment by clicking the button below and give us at least 1–2 days to verify your payment and grant access.
+              </p>
+            </div>
+
+            {/* Upload Receipt */}
+            <div className="bg-card border border-border rounded-xl p-4 space-y-3">
+              <h2 className="font-heading font-bold text-base text-foreground">Upload Receipt</h2>
+
+              {uploaded ? (
+                <div className="flex flex-col items-center gap-2 py-4">
+                  <CheckCircle className="w-10 h-10 text-green-400" />
+                  <p className="text-foreground font-semibold text-sm">Receipt uploaded successfully!</p>
+                  <p className="text-muted-foreground text-xs">We'll verify your payment within 1–2 days.</p>
+                </div>
+              ) : (
+                <>
+                  <input
+                    ref={fileInputRef}
+                    type="file"
+                    accept="image/*,.pdf"
+                    className="hidden"
+                    onChange={e => setSelectedFile(e.target.files?.[0] || null)}
+                  />
+                  <button
+                    onClick={() => fileInputRef.current?.click()}
+                    className="w-full border border-dashed border-border rounded-lg p-3 flex items-center justify-center gap-2 hover:border-secondary/50 transition-colors"
+                  >
+                    <Upload className="w-4 h-4 text-muted-foreground shrink-0" />
+                    <p className="text-muted-foreground text-xs font-body truncate">
+                      {selectedFile ? selectedFile.name : "Click to select your receipt (image or PDF)"}
+                    </p>
+                  </button>
+
+                  <button
+                    onClick={handleUpload}
+                    disabled={uploading || !selectedFile}
+                    className="w-full bg-secondary text-secondary-foreground font-heading font-bold text-sm py-3 rounded-lg hover:bg-secondary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  >
+                    {uploading ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        Uploading...
+                      </>
+                    ) : (
+                      <>
+                        <Upload className="w-4 h-4" />
+                        SUBMIT PROOF OF PAYMENT
+                      </>
+                    )}
+                  </button>
+                </>
+              )}
             </div>
           </div>
         </div>
