@@ -14,12 +14,6 @@ const CheckoutSuccess = () => {
   return (
     <div className="min-h-screen bg-background text-foreground flex items-center justify-center px-4 py-12">
       <div className="max-w-lg w-full text-center space-y-8">
-        {/* Success Icon */}
-        <div className="flex justify-center">
-          <div className="w-24 h-24 rounded-full bg-green-500/15 flex items-center justify-center animate-pulse">
-            <CheckCircle className="w-14 h-14 text-green-400" />
-          </div>
-        </div>
 
         {/* Main Message */}
         <div className="space-y-3">
