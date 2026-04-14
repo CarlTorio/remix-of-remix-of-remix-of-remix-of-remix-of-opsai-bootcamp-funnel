@@ -198,13 +198,13 @@ const Checkout = () => {
                   { icon: "🔧", title: "No-Code Tool Stack Guide", sub: "Curated tool recommendations", value: "₱5,000" },
                   { icon: "🎬", title: "Fast-Track Replay Vault", sub: "30-day priority access", value: "₱5,000" },
                 ].map((bonus, i) => (
-                  <div key={i} className="flex items-center gap-3 bg-background/60 border border-border/50 rounded-lg px-3 py-2">
+                  <div key={i} className="flex items-center gap-3 border border-secondary/30 rounded-lg px-3 py-2.5">
                     <span className="text-base">{bonus.icon}</span>
                     <div className="flex-1 min-w-0">
                       <p className="text-foreground font-heading font-semibold text-xs">{bonus.title}</p>
                       <p className="text-muted-foreground text-[10px] font-body">{bonus.sub}</p>
                     </div>
-                    <span className="shrink-0 bg-secondary/15 text-secondary text-[10px] font-heading font-bold px-2 py-0.5 rounded border border-secondary/30">
+                    <span className="shrink-0 bg-secondary/20 text-secondary text-[10px] font-heading font-bold px-2.5 py-1 rounded border border-secondary/40">
                       VALUE: {bonus.value}
                     </span>
                   </div>
