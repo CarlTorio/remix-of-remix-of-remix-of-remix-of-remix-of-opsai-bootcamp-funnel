@@ -22,8 +22,6 @@ const Section2Checklist = () => {
     >
       {/* Radial glow */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,183,0,0.04),transparent_60%)] pointer-events-none" />
-      {/* Subtle grid pattern */}
-      <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0z' fill='none' stroke='white' stroke-width='0.5'/%3E%3C/svg%3E\")" }} />
 
       <div ref={ref} className="max-w-[1200px] mx-auto relative z-10">
         {/* Bridge Intro */}
