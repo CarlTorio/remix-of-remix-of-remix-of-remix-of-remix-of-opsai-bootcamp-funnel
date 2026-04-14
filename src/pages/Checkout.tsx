@@ -91,7 +91,7 @@ const Checkout = () => {
       if (dbError) throw dbError;
 
       setUploaded(true);
-      toast({ title: "Receipt uploaded successfully! We'll verify your payment within 1-2 days." });
+      navigate("/checkout/success", { state: { firstName, email } });
     } catch (err: any) {
       toast({ title: "Upload failed", description: err.message, variant: "destructive" });
     } finally {
