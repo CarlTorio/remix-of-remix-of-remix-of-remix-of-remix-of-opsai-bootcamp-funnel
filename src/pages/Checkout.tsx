@@ -111,11 +111,11 @@ const Checkout = () => {
         <h1 className="font-heading font-bold text-2xl md:text-3xl">
           Join The <span className="text-secondary">SME Systems Bootcamp</span> Today!
         </h1>
-        <div className="mt-3 inline-flex items-center gap-2 rounded-full px-5 py-2" style={{ backgroundColor: '#fbbd23' }}>
-          <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
-          <span className="font-heading font-semibold text-white text-sm">
+        <div className="mt-3 inline-flex items-center gap-3 rounded-full px-6 py-3" style={{ backgroundColor: '#fbbd23' }}>
+          <span className="w-3 h-3 rounded-full bg-white animate-pulse" />
+          <span className="font-heading font-bold text-white text-base">
             Early-bird rate expires in{" "}
-            <span className="tabular-nums">
+            <span className="tabular-nums text-lg">
               {String(timeLeft.hours).padStart(2, "0")}:{String(timeLeft.minutes).padStart(2, "0")}:{String(timeLeft.seconds).padStart(2, "0")}
             </span>
           </span>
