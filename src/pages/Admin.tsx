@@ -105,7 +105,14 @@ const Admin = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 space-y-6">
         {/* Stats Cards */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4">
+          <div className="bg-card border border-border rounded-xl p-4 space-y-1">
+            <div className="flex items-center gap-2 text-blue-400">
+              <BarChart3 className="w-4 h-4" />
+              <span className="text-xs font-medium">Total Visitors</span>
+            </div>
+            <p className="font-heading font-bold text-2xl sm:text-3xl text-blue-400">{totalVisitors}</p>
+          </div>
           <div className="bg-card border border-border rounded-xl p-4 space-y-1">
             <div className="flex items-center gap-2 text-muted-foreground">
               <Users className="w-4 h-4" />
