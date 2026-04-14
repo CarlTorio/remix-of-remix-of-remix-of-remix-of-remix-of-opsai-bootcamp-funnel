@@ -124,7 +124,7 @@ const SectionFAQ = () => {
             <p className="text-base font-bold text-white mb-2">Still have a question?</p>
             <p className="text-sm text-gray-400 mb-4">Send us a message and we'll get back to you within 24 hours.</p>
             <button
-              onClick={() => { window.location.href = "mailto:hello@opsai.ph"; }}
+              onClick={() => { window.open("https://www.messenger.com/t/109495534183594", "_blank"); }}
               className="inline-flex items-center gap-2 bg-[#ffb700]/10 hover:bg-[#ffb700]/20 border border-[#ffb700]/40 px-5 py-2.5 rounded-full text-[#ffb700] text-sm font-semibold hover:-translate-y-0.5 transition-all duration-300"
             >
               Message Us
