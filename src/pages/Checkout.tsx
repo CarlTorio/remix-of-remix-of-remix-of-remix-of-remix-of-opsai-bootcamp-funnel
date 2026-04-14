@@ -240,8 +240,7 @@ const Checkout = () => {
                       <img src={gcashLogo} alt="GCash" className="h-7" />
                       GCash Details:
                     </p>
-                    <p className="text-muted-foreground font-medium">Name: <span className="text-foreground font-bold">OpsAI PH</span></p>
-                    <p className="text-muted-foreground font-medium">Account Number: <span className="text-foreground font-bold">0917 XXX XXXX</span></p>
+                    <p className="text-muted-foreground font-medium text-center">Scan this QR code to pay via GCash</p>
                   </div>
                   <img src={gcashQr} alt="GCash QR Code" className="w-full rounded-lg" />
                 </div>
