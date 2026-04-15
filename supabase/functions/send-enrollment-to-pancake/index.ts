@@ -47,8 +47,8 @@ serve(async (req) => {
       received_at_shop: true,
       items: [
         {
-          product_id: "SMEB-4886",
-          variation_id: PANCAKE_VARIATION_ID,
+          product_id: "db4cf24d-fed6-460b-a47f-783b2aa0799f",
+          variation_id: "9c9684f3-f59f-4264-93a0-1063b6654f30",
           quantity: 1,
           discount_each_product: 0,
           is_bonus_product: false,
