@@ -14,6 +14,48 @@ export type Database = {
   }
   public: {
     Tables: {
+      enrollments: {
+        Row: {
+          amount: number
+          batch_month: string
+          email: string
+          enrolled_at: string
+          enrollment_reference: string
+          first_name: string
+          id: string
+          payment_method: string
+          phone: string
+          status: string
+          surname: string
+        }
+        Insert: {
+          amount?: number
+          batch_month: string
+          email: string
+          enrolled_at?: string
+          enrollment_reference: string
+          first_name: string
+          id?: string
+          payment_method?: string
+          phone: string
+          status?: string
+          surname: string
+        }
+        Update: {
+          amount?: number
+          batch_month?: string
+          email?: string
+          enrolled_at?: string
+          enrollment_reference?: string
+          first_name?: string
+          id?: string
+          payment_method?: string
+          phone?: string
+          status?: string
+          surname?: string
+        }
+        Relationships: []
+      }
       page_views: {
         Row: {
           created_at: string
