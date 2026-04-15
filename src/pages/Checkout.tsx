@@ -41,6 +41,7 @@ const Checkout = () => {
       const now = new Date();
       const batchMonth = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}`;
 
+      const tempRef = `TEMP-${Date.now()}`;
       const { data, error } = await supabase
         .from("enrollments")
         .insert({
@@ -51,17 +52,37 @@ const Checkout = () => {
           payment_method: paymentMethod,
           amount: 4886,
           batch_month: batchMonth,
+          enrollment_reference: tempRef,
         })
         .select("enrollment_reference")
         .single();
 
       if (error) throw error;
 
+      const enrollmentRef = data.enrollment_reference;
+
+      // Send to Pancake POS
+      try {
+        await supabase.functions.invoke("send-enrollment-to-pancake", {
+          body: {
+            first_name: firstName.trim(),
+            surname: surname.trim(),
+            email: email.trim().toLowerCase(),
+            phone: phone.trim(),
+            payment_method: paymentMethod,
+            enrollment_reference: enrollmentRef,
+            batch_month: batchMonth,
+          },
+        });
+      } catch (pancakeErr) {
+        console.error("Pancake sync failed:", pancakeErr);
+      }
+
       navigate("/checkout/success", {
         state: {
           firstName: firstName.trim(),
           email: email.trim(),
-          enrollmentReference: data.enrollment_reference,
+          enrollmentReference: enrollmentRef,
           paymentMethod,
         },
       });
