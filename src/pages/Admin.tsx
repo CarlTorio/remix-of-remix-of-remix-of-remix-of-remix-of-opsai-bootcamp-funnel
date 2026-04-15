@@ -19,8 +19,11 @@ const Admin = () => {
   const [receipts, setReceipts] = useState<Receipt[]>([]);
   const [loading, setLoading] = useState(true);
   const [password, setPassword] = useState("");
-  const [authenticated, setAuthenticated] = useState(false);
+  const [authenticated, setAuthenticated] = useState(() => {
+    return localStorage.getItem("admin_remembered") === "true";
+  });
   const [showPassword, setShowPassword] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
   const [loginError, setLoginError] = useState(false);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [totalVisitors, setTotalVisitors] = useState(0);
