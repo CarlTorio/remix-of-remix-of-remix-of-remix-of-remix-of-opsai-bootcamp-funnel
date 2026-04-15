@@ -88,7 +88,7 @@ const CheckoutSuccess = () => {
 
         {/* Back Button */}
         <button
-          onClick={() => navigate("/")}
+          onClick={() => { window.location.href = "/"; }}
           className="inline-flex items-center gap-2 bg-secondary text-secondary-foreground hover:bg-secondary/90 text-xs font-heading font-semibold px-5 py-2.5 rounded-lg transition-colors"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
