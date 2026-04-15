@@ -19,8 +19,11 @@ const Admin = () => {
   const [receipts, setReceipts] = useState<Receipt[]>([]);
   const [loading, setLoading] = useState(true);
   const [password, setPassword] = useState("");
-  const [authenticated, setAuthenticated] = useState(false);
+  const [authenticated, setAuthenticated] = useState(() => {
+    return localStorage.getItem("admin_remembered") === "true";
+  });
   const [showPassword, setShowPassword] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
   const [loginError, setLoginError] = useState(false);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [totalVisitors, setTotalVisitors] = useState(0);
@@ -68,8 +71,10 @@ const Admin = () => {
               onChange={e => { setPassword(e.target.value); setLoginError(false); }}
               onKeyDown={e => {
                 if (e.key === "Enter") {
-                  if (password === ADMIN_PASS) setAuthenticated(true);
-                  else setLoginError(true);
+                  if (password === ADMIN_PASS) {
+                    setAuthenticated(true);
+                    if (rememberMe) localStorage.setItem("admin_remembered", "true");
+                  } else setLoginError(true);
                 }
               }}
               className={`w-full bg-muted/50 border rounded-lg px-4 py-3 pr-11 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-secondary/50 ${loginError ? "border-red-500" : "border-border"}`}
@@ -85,10 +90,21 @@ const Admin = () => {
           {loginError && (
             <p className="text-red-500 text-xs font-body -mt-2">Wrong password. Please try again.</p>
           )}
+          <label className="flex items-center gap-2 cursor-pointer select-none -mt-1">
+            <input
+              type="checkbox"
+              checked={rememberMe}
+              onChange={e => setRememberMe(e.target.checked)}
+              className="w-4 h-4 rounded border-border accent-secondary"
+            />
+            <span className="text-muted-foreground text-xs">Remember me</span>
+          </label>
           <button
             onClick={() => {
-              if (password === ADMIN_PASS) setAuthenticated(true);
-              else setLoginError(true);
+              if (password === ADMIN_PASS) {
+                setAuthenticated(true);
+                if (rememberMe) localStorage.setItem("admin_remembered", "true");
+              } else setLoginError(true);
             }}
             className="w-full bg-secondary text-secondary-foreground font-heading font-bold text-sm py-3 rounded-lg hover:opacity-90 transition-opacity"
           >
