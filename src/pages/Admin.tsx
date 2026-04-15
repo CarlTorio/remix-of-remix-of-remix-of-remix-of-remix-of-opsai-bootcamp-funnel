@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { ExternalLink, RefreshCw, Users, Clock, CheckCircle, CreditCard, Eye, BarChart3, EyeOff } from "lucide-react";
+import { ExternalLink, RefreshCw, Users, Clock, CheckCircle, CreditCard, Eye, BarChart3, EyeOff, LogOut, Trash2, DollarSign } from "lucide-react";
 
 type Receipt = {
   id: string;
@@ -14,6 +14,8 @@ type Receipt = {
   status: string;
   created_at: string;
 };
+
+const AMOUNT_PER_REGISTRATION = 4886;
 
 const Admin = () => {
   const [receipts, setReceipts] = useState<Receipt[]>([]);
@@ -29,6 +31,12 @@ const Admin = () => {
   const [totalVisitors, setTotalVisitors] = useState(0);
 
   const ADMIN_PASS = "logicode2026";
+
+  const handleLogout = () => {
+    setAuthenticated(false);
+    setPassword("");
+    localStorage.removeItem("admin_remembered");
+  };
 
   const fetchReceipts = async () => {
     setLoading(true);
@@ -46,6 +54,27 @@ const Admin = () => {
       .from("page_views")
       .select("*", { count: "exact", head: true });
     setTotalVisitors(count || 0);
+  };
+
+  const updateStatus = async (id: string, newStatus: string) => {
+    const { error } = await supabase
+      .from("receipts")
+      .update({ status: newStatus })
+      .eq("id", id);
+    if (!error) {
+      setReceipts(prev => prev.map(r => r.id === id ? { ...r, status: newStatus } : r));
+    }
+  };
+
+  const deleteReceipt = async (id: string) => {
+    if (!confirm("Are you sure you want to delete this registration?")) return;
+    const { error } = await supabase
+      .from("receipts")
+      .delete()
+      .eq("id", id);
+    if (!error) {
+      setReceipts(prev => prev.filter(r => r.id !== id));
+    }
   };
 
   useEffect(() => {
@@ -120,6 +149,7 @@ const Admin = () => {
   const verifiedCount = receipts.filter(r => r.status === "verified").length;
   const gcashCount = receipts.filter(r => r.payment_method === "gcash").length;
   const bankCount = receipts.filter(r => r.payment_method === "bank").length;
+  const totalSales = verifiedCount * AMOUNT_PER_REGISTRATION;
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -130,20 +160,29 @@ const Admin = () => {
             <h1 className="font-heading font-bold text-xl sm:text-2xl">OpsAI Admin Panel</h1>
             <p className="text-muted-foreground text-xs sm:text-sm">SME Systems Bootcamp — Registrations</p>
           </div>
-          <button
-            onClick={() => { fetchReceipts(); fetchVisitorCount(); }}
-            disabled={loading}
-            className="flex items-center gap-2 bg-secondary text-secondary-foreground font-heading font-semibold text-xs sm:text-sm px-4 py-2 rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50"
-          >
-            <RefreshCw className={`w-4 h-4 ${loading ? "animate-spin" : ""}`} />
-            Refresh
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => { fetchReceipts(); fetchVisitorCount(); }}
+              disabled={loading}
+              className="flex items-center gap-2 bg-secondary text-secondary-foreground font-heading font-semibold text-xs sm:text-sm px-4 py-2 rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50"
+            >
+              <RefreshCw className={`w-4 h-4 ${loading ? "animate-spin" : ""}`} />
+              Refresh
+            </button>
+            <button
+              onClick={handleLogout}
+              className="flex items-center gap-2 bg-muted text-muted-foreground font-heading font-semibold text-xs sm:text-sm px-4 py-2 rounded-lg hover:bg-red-500/20 hover:text-red-400 transition-colors"
+            >
+              <LogOut className="w-4 h-4" />
+              Logout
+            </button>
+          </div>
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 space-y-6">
         {/* Stats Cards */}
-        <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-6 gap-3 sm:gap-4">
           <div className="bg-card border border-border rounded-xl p-4 space-y-1">
             <div className="flex items-center gap-2 text-blue-400">
               <BarChart3 className="w-4 h-4" />
@@ -179,6 +218,13 @@ const Admin = () => {
             </div>
             <p className="font-heading font-bold text-2xl sm:text-3xl">{gcashCount} <span className="text-base text-muted-foreground">/</span> {bankCount}</p>
           </div>
+          <div className="bg-card border border-border rounded-xl p-4 space-y-1">
+            <div className="flex items-center gap-2 text-emerald-400">
+              <DollarSign className="w-4 h-4" />
+              <span className="text-xs font-medium">Total Sales</span>
+            </div>
+            <p className="font-heading font-bold text-xl sm:text-2xl text-emerald-400">₱{totalSales.toLocaleString()}</p>
+          </div>
         </div>
 
         {/* Table */}
@@ -206,6 +252,7 @@ const Admin = () => {
                     <th className="font-heading font-semibold text-muted-foreground py-3 px-4 text-left text-xs uppercase tracking-wider">Method</th>
                     <th className="font-heading font-semibold text-muted-foreground py-3 px-4 text-left text-xs uppercase tracking-wider">Status</th>
                     <th className="font-heading font-semibold text-muted-foreground py-3 px-4 text-left text-xs uppercase tracking-wider">Receipt</th>
+                    <th className="font-heading font-semibold text-muted-foreground py-3 px-4 text-left text-xs uppercase tracking-wider">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -228,13 +275,19 @@ const Admin = () => {
                         </span>
                       </td>
                       <td className="py-3 px-4">
-                        <span className={`inline-block text-xs font-semibold px-2.5 py-1 rounded-full capitalize ${
-                          r.status === "pending" ? "bg-amber-500/15 text-amber-400" :
-                          r.status === "verified" ? "bg-green-500/15 text-green-400" :
-                          "bg-red-500/15 text-red-400"
-                        }`}>
-                          {r.status}
-                        </span>
+                        <select
+                          value={r.status}
+                          onChange={e => updateStatus(r.id, e.target.value)}
+                          className={`text-xs font-semibold px-2.5 py-1 rounded-full capitalize cursor-pointer border-none outline-none ${
+                            r.status === "pending" ? "bg-amber-500/15 text-amber-400" :
+                            r.status === "verified" ? "bg-green-500/15 text-green-400" :
+                            "bg-red-500/15 text-red-400"
+                          }`}
+                        >
+                          <option value="pending" className="bg-card text-foreground">Pending</option>
+                          <option value="verified" className="bg-card text-foreground">Verified</option>
+                          <option value="rejected" className="bg-card text-foreground">Rejected</option>
+                        </select>
                       </td>
                       <td className="py-3 px-4">
                         <div className="flex items-center gap-2">
@@ -256,6 +309,15 @@ const Admin = () => {
                             <ExternalLink className="w-3 h-3" />
                           </a>
                         </div>
+                      </td>
+                      <td className="py-3 px-4">
+                        <button
+                          onClick={() => deleteReceipt(r.id)}
+                          className="inline-flex items-center gap-1 text-muted-foreground hover:text-red-400 text-xs transition-colors"
+                          title="Delete registration"
+                        >
+                          <Trash2 className="w-3.5 h-3.5" />
+                        </button>
                       </td>
                     </tr>
                   ))}
