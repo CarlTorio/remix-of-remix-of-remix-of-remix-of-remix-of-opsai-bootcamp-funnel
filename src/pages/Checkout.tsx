@@ -359,13 +359,13 @@ const Checkout = () => {
                     <p className="text-foreground font-bold text-sm">Bank Details:</p>
                   </div>
                   <div className="space-y-1">
-                    <p className="text-muted-foreground text-xs">Bank: <span className="text-foreground font-semibold text-sm">BPI Savings</span></p>
-                    <p className="text-muted-foreground text-xs">Account Name: <span className="text-foreground font-semibold text-sm">John Paolo Mercado</span></p>
+                    <p className="text-muted-foreground text-xs">Bank: <span className="text-foreground font-semibold text-sm">Union Bank</span></p>
+                    <p className="text-muted-foreground text-xs">Account Name: <span className="text-foreground font-semibold text-sm">SG Digital Corp</span></p>
                     <div className="flex items-center gap-1.5">
-                      <p className="text-muted-foreground text-xs">Account Number: <span className="text-secondary font-bold text-sm tracking-wide">0929-3286-71</span></p>
+                      <p className="text-muted-foreground text-xs">Account Number: <span className="text-secondary font-bold text-sm tracking-wide">0026 5001 4540</span></p>
                       <button
                         onClick={() => {
-                          navigator.clipboard.writeText("0929328671");
+                          navigator.clipboard.writeText("002650014540");
                           const btn = document.getElementById("copy-acct");
                           if (btn) btn.dataset.copied = "true";
                           setTimeout(() => { if (btn) btn.dataset.copied = "false"; }, 2000);
