@@ -11,6 +11,15 @@ const CheckoutSuccess = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  useEffect(() => {
+    if (typeof window !== "undefined" && (window as any).fbq) {
+      (window as any).fbq('track', 'Purchase', {
+        currency: 'PHP',
+        value: 0,
+      });
+    }
+  }, []);
+
   return (
     <div className="h-screen bg-background text-foreground flex items-center justify-center px-4 py-4 overflow-hidden">
       <div className="max-w-2xl w-full text-center space-y-4">
