@@ -379,7 +379,7 @@ const Checkout = () => {
                       </button>
                     </div>
                   </div>
-                  <img src={bpiQr} alt="BPI QR Code" className="w-full rounded-lg" />
+                  
                 </div>
               )}
 
