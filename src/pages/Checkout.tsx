@@ -355,7 +355,7 @@ const Checkout = () => {
               {paymentMethod === "bank" && (
                 <div className="bg-muted/30 border-2 border-secondary/40 rounded-xl p-4 font-body space-y-3">
                   <div className="flex items-center gap-2">
-                    <img src={bpiLogo} alt="BPI" className="h-8 w-auto" />
+                    <img src={unionBankLogo} alt="Union Bank" className="h-8 w-auto" />
                     <p className="text-foreground font-bold text-sm">Bank Details:</p>
                   </div>
                   <div className="space-y-1">
