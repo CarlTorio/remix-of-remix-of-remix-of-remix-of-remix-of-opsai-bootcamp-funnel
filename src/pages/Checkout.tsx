@@ -140,6 +140,33 @@ const Checkout = () => {
         // Don't block enrollment if Pancake fails
       }
 
+      // Track Purchase event via Meta Pixel + CAPI
+      const eventId = crypto.randomUUID();
+      if (typeof window !== "undefined" && (window as any).fbq) {
+        (window as any).fbq("track", "Purchase", {
+          currency: "PHP",
+          value: 4886,
+        }, { eventID: eventId });
+      }
+      try {
+        await supabase.functions.invoke("meta-capi", {
+          body: {
+            event_name: "Purchase",
+            event_id: eventId,
+            user_data: {
+              fbp: document.cookie.match(/_fbp=([^;]+)/)?.[1] ?? null,
+              fbc: document.cookie.match(/_fbc=([^;]+)/)?.[1] ?? null,
+            },
+            custom_data: {
+              currency: "PHP",
+              value: 4886,
+            },
+          },
+        });
+      } catch (e) {
+        console.error("CAPI error:", e);
+      }
+
       setUploaded(true);
       navigate(`/checkout/success?ref=${enrollmentData.enrollment_reference}`, {
         state: { firstName, email },
