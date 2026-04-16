@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { CyanCheck } from "@/components/icons";
 import CTAButton from "@/components/CTAButton";
-import bpiLogo from "@/assets/bpi-logo.png";
+import unionBankLogo from "@/assets/unionbank-logo.png";
 import bpiQr from "@/assets/bpi-qr.png";
 import gcashQr from "@/assets/gcash-qr.png";
 import gcashLogo from "@/assets/gcash-logo.png";
