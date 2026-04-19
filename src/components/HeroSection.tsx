@@ -41,111 +41,11 @@ const HeroSection = () => {
   const [isMobile, setIsMobile] = useState(false);
   const timeoutsRef = useRef<number[]>([]);
 
-  const resetToInitial = () => {
-    // Clear all pending timeouts
-    timeoutsRef.current.forEach(id => clearTimeout(id));
-    timeoutsRef.current = [];
-    isAnimatingRef.current = false;
-    stageRef.current = 0;
-    setAnimationStage(0);
-  };
-
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
-  useEffect(() => {
-    const handleWheel = (e: WheelEvent) => {
-      // Scroll UP while hero is in view reset to original
-      if (e.deltaY < 0 && window.scrollY <= 10 && stageRef.current !== 0) {
-        e.preventDefault();
-        resetToInitial();
-        return;
-      }
-
-      // Only intercept downward scrolls when hero is at top
-      if (e.deltaY <= 0) return;
-      if (window.scrollY > 10) return;
-
-      const currentStage = stageRef.current;
-
-      if (currentStage === 0 && !isAnimatingRef.current) {
-        e.preventDefault();
-        isAnimatingRef.current = true;
-        stageRef.current = 1;
-        setAnimationStage(1);
-
-        const t1 = window.setTimeout(() => {
-          stageRef.current = 2;
-          setAnimationStage(2);
-
-          const t2 = window.setTimeout(() => {
-            isAnimatingRef.current = false;
-            if (secondSectionRef.current) {
-              secondSectionRef.current.scrollIntoView({ behavior: "smooth" });
-            }
-          }, 500);
-          timeoutsRef.current.push(t2);
-        }, 5000);
-        timeoutsRef.current.push(t1);
-      } else if (currentStage === 1 || currentStage === 2) {
-        e.preventDefault();
-      }
-    };
-
-    // Also handle touch for mobile
-    let touchStartY = 0;
-    const handleTouchStart = (e: TouchEvent) => {
-      touchStartY = e.touches[0].clientY;
-    };
-    const handleTouchMove = (e: TouchEvent) => {
-      const deltaY = touchStartY - e.touches[0].clientY;
-
-      // Swipe DOWN (scroll up) reset
-      if (deltaY < 0 && window.scrollY <= 10 && stageRef.current !== 0) {
-        e.preventDefault();
-        resetToInitial();
-        return;
-      }
-
-      if (deltaY <= 0) return;
-      if (window.scrollY > 10) return;
-
-      const currentStage = stageRef.current;
-      if (currentStage === 0 && !isAnimatingRef.current) {
-        e.preventDefault();
-        isAnimatingRef.current = true;
-        stageRef.current = 1;
-        setAnimationStage(1);
-
-        const t1 = window.setTimeout(() => {
-          stageRef.current = 2;
-          setAnimationStage(2);
-          const t2 = window.setTimeout(() => {
-            isAnimatingRef.current = false;
-            if (secondSectionRef.current) {
-              secondSectionRef.current.scrollIntoView({ behavior: "smooth" });
-            }
-          }, 500);
-          timeoutsRef.current.push(t2);
-        }, 5000);
-        timeoutsRef.current.push(t1);
-      } else if (currentStage === 1 || currentStage === 2) {
-        e.preventDefault();
-      }
-    };
-
-    window.addEventListener("wheel", handleWheel, { passive: false });
-    window.addEventListener("touchstart", handleTouchStart, { passive: true });
-    window.addEventListener("touchmove", handleTouchMove, { passive: false });
-    return () => {
-      window.removeEventListener("wheel", handleWheel);
-      window.removeEventListener("touchstart", handleTouchStart);
-      window.removeEventListener("touchmove", handleTouchMove);
-    };
   }, []);
 
   const maxBlur = isMobile ? 6 : 10;
