@@ -170,7 +170,7 @@ const HeroSection = () => {
           </div>
 
           {/* Problem statement below stacks */}
-          <div className="relative w-full text-center py-12 md:py-20">
+          <div className="relative w-full text-center py-6 md:py-10">
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent rounded-lg pointer-events-none -z-0" />
             <p className="relative z-10 text-foreground font-body text-base md:text-xl mb-2">
               …then your business is not "ORGANIZED ENOUGH."
