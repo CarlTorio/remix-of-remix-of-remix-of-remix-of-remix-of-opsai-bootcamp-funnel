@@ -6,43 +6,28 @@ const heroBgMobile = "https://prrjyforguhxcouhkzqs.supabase.co/storage/v1/object
 import chaosBg from "@/assets/chaos-bg.png";
 const systemBg = "https://fhgovsymhevqsjtxhiui.supabase.co/storage/v1/object/public/Bootcamp%20Funnel/System.png";
 import CTAButton from "./CTAButton";
-import { ScrollStack, ScrollStackItem } from "./ScrollStack";
-import cardGoogleSheets from "@/assets/card-google-sheets.jpg";
-import cardMessenger from "@/assets/card-messenger.jpg";
-import cardFollowups from "@/assets/card-followups.jpg";
-import cardDisconnected from "@/assets/card-disconnected.jpg";
-import cardReports from "@/assets/card-reports.jpg";
+import { Check } from "lucide-react";
 
-const stackCards = [
+const checklistItems = [
   {
     title: "Google Sheets",
     description: "Endless tabs and broken formulas with no single source of truth across your team.",
-    gradient: "from-[#fbbd23] to-[#e5a910]",
-    image: cardGoogleSheets,
   },
   {
     title: "Messenger Group Chats",
     description: "Critical updates and client requests buried under hundreds of unread messages.",
-    gradient: "from-[#e5a910] to-[#c48d0a]",
-    image: cardMessenger,
   },
   {
     title: "Manual Follow-ups",
     description: "Hours wasted every week chasing leads instead of actually growing the business.",
-    gradient: "from-[#c48d0a] to-[#9a6f08]",
-    image: cardFollowups,
   },
   {
     title: "Disconnected Tools",
     description: "Every app works in isolation, forcing you to switch tabs and re-enter the same data.",
-    gradient: "from-[#9a6f08] to-[#705006]",
-    image: cardDisconnected,
   },
   {
     title: "Delayed Reports",
     description: "You only find out if you're profitable at month-end, when it's already too late to fix.",
-    gradient: "from-[#705006] to-[#4a3504]",
-    image: cardReports,
   },
 ];
 
@@ -244,39 +229,44 @@ const HeroSection = () => {
         className="relative w-full"
       >
         <div className="relative z-10">
-          <div className="relative">
-            <ScrollStack
-              useWindowScroll={true}
-              itemScale={0.03}
-              itemStackDistance={30}
-              stackPosition="15%"
-              baseScale={0.88}
-              className="max-w-5xl mx-auto px-4 md:px-8 pt-4 md:pt-8"
+          <div className="max-w-3xl mx-auto px-4 md:px-8 py-16 md:py-24">
+            <div
+              className="rounded-3xl p-8 md:p-12 border-2"
+              style={{
+                borderColor: "rgba(251, 189, 35, 0.4)",
+                background: "linear-gradient(180deg, rgba(20, 16, 6, 0.95) 0%, rgba(10, 8, 3, 0.95) 100%)",
+                boxShadow: "0 0 60px rgba(251, 189, 35, 0.15), inset 0 1px 0 rgba(251, 189, 35, 0.1)",
+              }}
             >
-              {stackCards.map((card, i) => (
-                <ScrollStackItem
-                  key={i}
-                  itemClassName="bg-[#fbbd23] border border-accent/60 shadow-[0_0_50px_rgba(251,189,35,0.4)]"
-                >
-                  <div className="flex flex-col items-center justify-center text-center h-full p-2">
-                    <h3 className="font-heading font-bold text-xl md:text-2xl text-foreground mb-2">
-                      {card.title}
-                    </h3>
-                    <p className="font-body text-foreground text-sm md:text-base leading-relaxed max-w-2xl mb-4">
-                      {card.description}
-                    </p>
-                    <img
-                      src={card.image}
-                      alt={card.title}
-                      loading="lazy"
-                      width={800}
-                      height={512}
-                      className="w-full max-h-40 md:max-h-52 object-cover rounded-lg"
-                    />
-                  </div>
-                </ScrollStackItem>
-              ))}
-            </ScrollStack>
+              <h2 className="font-heading font-black text-2xl md:text-3xl text-center mb-8 md:mb-10" style={{ color: "#fbbd23" }}>
+                If your business is still running on:
+              </h2>
+
+              <ul className="space-y-6 md:space-y-7">
+                {checklistItems.map((item, i) => (
+                  <li key={i} className="flex gap-4 items-start">
+                    <span
+                      className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center mt-0.5"
+                      style={{
+                        background: "rgba(251, 189, 35, 0.15)",
+                        border: "1.5px solid #fbbd23",
+                      }}
+                      aria-hidden="true"
+                    >
+                      <Check className="w-4 h-4" strokeWidth={3} style={{ color: "#fbbd23" }} />
+                    </span>
+                    <div className="flex-1">
+                      <h3 className="font-heading font-bold text-base md:text-lg text-white mb-1">
+                        {item.title}
+                      </h3>
+                      <p className="font-body text-sm md:text-base text-white/75 leading-relaxed">
+                        {item.description}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           {/* Problem statement below stacks */}
