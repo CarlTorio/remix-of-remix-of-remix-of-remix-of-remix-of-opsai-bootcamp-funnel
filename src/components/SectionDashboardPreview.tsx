@@ -1560,7 +1560,7 @@ const SectionDashboardPreview = () => {
 
         {/* Helper text + CTA below frame */}
         <p className="mt-3 text-lg text-primary-foreground">
-          This is exactly what you'll build in Week 1 of the bootcamp.
+          This is exactly what you'll build in Phase 1 of the bootcamp.
         </p>
         <div className="mt-6">
           <CTAButton href="/checkout">

@@ -4,7 +4,7 @@ import { CyanCheck } from "./icons";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const offers = [
-  { title: "2-Week Live Bootcamp", desc: "A guided live experience to help you plan, structure, and build your internal business system in just 6 sessions", value: "₱150,000++" },
+  { title: "1-Day Live Intensive Bootcamp", desc: "A guided live online experience to help you plan, structure, and build your internal business system in a single 6-hour session (3 phases)", value: "₱150,000++" },
   { title: "System Blueprint Kit", desc: "Map out your workflows, departments, dashboards, approvals, and automations clearly before you build", value: "₱50,000++" },
   { title: "SME Prompt Vault", desc: "Ready-to-use prompts for dashboards, workflows, permissions, forms, access logic, and internal systems", value: "₱5,000" },
   { title: "No-Code Tool Stack Guide", desc: "Know exactly what tools to use so you avoid trial-and-error and wasted weeks", value: "₱3,500" },

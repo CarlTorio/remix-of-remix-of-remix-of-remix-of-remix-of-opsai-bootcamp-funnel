@@ -38,7 +38,7 @@ const reasons = [
   },
 ];
 const comparisonRows = [
-  { label: "TIMELINE", traditional: "6+ months", ours: "2 weeks", Icon: Clock },
+  { label: "TIMELINE", traditional: "6+ months", ours: "1 day", Icon: Clock },
   { label: "COST", traditional: "₱500,000+", ours: "₱4,886", Icon: DollarSign },
   
   { label: "UNDERSTANDING", traditional: "Generic templates", ours: "Your business logic", Icon: Brain },

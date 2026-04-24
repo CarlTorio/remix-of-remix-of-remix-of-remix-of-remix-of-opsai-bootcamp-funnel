@@ -1,12 +1,9 @@
 import SectionLabel from "./SectionLabel";
 
 const modules = [
-  { week: "Week 1", title: "Business Audit & Foundation", desc: "Map your current operations, identify bottlenecks, and set your systems roadmap." },
-  { week: "Week 2", title: "Standard Operating Procedures", desc: "Create SOPs that your team actually follows. Document, delegate, and scale." },
-  { week: "Week 3", title: "Hiring & Team Systems", desc: "Build hiring funnels, onboarding checklists, and accountability frameworks." },
-  { week: "Week 4", title: "Sales & Marketing Automation", desc: "Set up lead capture, follow-up sequences, and CRM workflows that close deals." },
-  { week: "Week 5", title: "Financial & Operations Dashboards", desc: "Track KPIs, cash flow, and team performance in real-time dashboards." },
-  { week: "Week 6", title: "Scale & Exit Strategy", desc: "Build a business that runs without you. Prepare for scale, franchising, or exit." },
+  { week: "Phase 1", title: "Map (Morning · ~2 hrs)", desc: "Diagnose hidden bottlenecks, audit workflows and approvals, define data/dashboards/reports, and choose the right no-code tool stack. Walk out with a clear system blueprint." },
+  { week: "Phase 2", title: "Build (Midday · ~3 hrs)", desc: "Use AI + prompts to translate business logic into software logic. Build dashboards, forms, workflows, user roles, employee logins, and back-end automations — live." },
+  { week: "Phase 3", title: "Launch (Afternoon · ~1 hr)", desc: "Test the system in real conditions, refine, and walk out with the first usable version of your internal business system." },
 ];
 
 const CurriculumSection = () => (
@@ -15,7 +12,7 @@ const CurriculumSection = () => (
       <div className="text-center mb-12">
         <SectionLabel>What You'll Learn</SectionLabel>
         <h2 className="font-heading font-bold text-2xl md:text-4xl">
-          14 Days to a <span className="text-accent">Systemized</span> Business
+          1 Day to a <span className="text-accent">Systemized</span> Business
         </h2>
       </div>
       <div className="max-w-3xl mx-auto space-y-4">

@@ -58,8 +58,8 @@ export default function Section4WhatThisIs() {
         <RevealBlock delay={160}>
           <p className="text-lg md:text-xl text-[#C4C4CC] leading-relaxed max-w-2xl mx-auto mb-16">
             The SME Systems Bootcamp teaches you how to build your own internal business system using{" "}
-            <span className="text-white font-semibold">AI and no-code tools</span> in less than{" "}
-            <span className="text-[#ffb700] font-semibold">2 weeks</span>.
+            <span className="text-white font-semibold">AI and no-code tools</span> in just{" "}
+            <span className="text-[#ffb700] font-semibold">1 day</span>.
           </p>
         </RevealBlock>
 

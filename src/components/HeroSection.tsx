@@ -76,7 +76,7 @@ const HeroSection = () => {
               <p className="font-heading font-bold text-secondary text-sm md:text-base uppercase tracking-widest mb-2">Starts April 28</p>
               <h1 className="font-heading font-black text-[26px] md:text-[44px] leading-[1.1] mb-3 max-w-4xl mx-auto">
                 Build Your Own <span style={{ color: "#fbbd23" }}>Internal Business System</span> with{" "}
-                <span style={{ color: "#fbbd23" }}>A.I.</span> in Less Than <span style={{ color: "#fbbd23" }}>2 Weeks</span>
+                <span style={{ color: "#fbbd23" }}>A.I.</span> in Just <span style={{ color: "#fbbd23" }}>1 Day</span>
               </h1>
               <p className="font-body text-white text-base md:text-lg max-w-2xl mx-auto mb-6 leading-relaxed">
                 Without Hiring Developers, Without Coding,<br />and Without Spending ₱500,000+ on Custom Software.
@@ -86,7 +86,7 @@ const HeroSection = () => {
               </div>
               <div className="mt-4 flex flex-wrap justify-center gap-6 text-sm text-muted-foreground font-body">
                 <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-success inline-block" /> Live Bootcamp</span>
-                <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-success inline-block" /> 14-Day Program</span>
+                <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-success inline-block" /> 1-Day Intensive</span>
                 <span className="hidden md:flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-success inline-block" /> Lifetime Access</span>
               </div>
               {/* Scroll indicator */}

@@ -15,7 +15,7 @@ const Section3Intro = () => {
           Introducing the <span className="text-secondary">SME Systems Bootcamp</span>
         </h2>
         <p className="font-body text-lg leading-relaxed mb-6 max-w-[800px] mx-auto text-primary-foreground">
-          A live 2-week online bootcamp where SME owners learn how to build their own internal business system, software, dashboards, workflows, user roles, and business logic using AI and no-code tools.
+          A live 1-day online bootcamp where SME owners learn how to build their own internal business system, software, dashboards, workflows, user roles, and business logic using AI and no-code tools — in a single intensive day.
         </p>
 
         <div className="inline-flex items-center gap-3 bg-secondary/10 border border-secondary/30 rounded-full px-6 py-3 mb-10">

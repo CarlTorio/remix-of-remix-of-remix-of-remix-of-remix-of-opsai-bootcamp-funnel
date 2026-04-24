@@ -2,8 +2,8 @@ import SectionLabel from "./SectionLabel";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const stats = [
-  { num: "2", label: "Weeks", desc: "Compact, focused, implementation-driven" },
-  { num: "6", label: "Live Sessions", desc: "Guided step-by-step with real mapping" },
+  { num: "1", label: "Day", desc: "Single live online intensive, ~6 hours" },
+  { num: "3", label: "Phases", desc: "Map → Build → Launch, all in one day" },
   { num: "1", label: "Working System", desc: "Your own internal business software" },
 ];
 
@@ -17,7 +17,7 @@ const Section9HowItWorks = () => {
           <SectionLabel>THE FORMAT</SectionLabel>
           <h2 className="font-heading font-bold text-2xl md:text-4xl mb-4">How This Bootcamp Works</h2>
           <p className="text-muted-foreground font-body text-base mb-2">
-            This is a live 2-week online bootcamp with 6 total sessions. The goal is simple:
+            This is a live 1-day online bootcamp delivered in 3 phases. The goal is simple:
           </p>
           <p className="font-body text-foreground font-medium text-base">
             help you go from messy backend thinking <span className="text-accent">→</span> to a clear business system <span className="text-accent">→</span> to a working internal software structure

@@ -3,7 +3,7 @@ import CTAButton from "./CTAButton";
 import { CyanArrow } from "./icons";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
-const week1 = [
+const phase1 = [
   "what is slowing down your operations",
   "what manual tasks need to disappear",
   "what each department should track",
@@ -13,7 +13,7 @@ const week1 = [
   "what tools make the most sense for your setup",
 ];
 
-const week2 = [
+const phase23 = [
   "dashboards",
   "forms and data flow",
   "back-end workflows",
@@ -22,7 +22,7 @@ const week2 = [
   "employee access",
   "user roles and permissions",
   "process logic",
-  "and the first usable structure of your internal web app",
+  "and the first usable, tested version of your internal web app — deployed the same day",
 ];
 
 const Section10Curriculum = () => {
@@ -37,13 +37,13 @@ const Section10Curriculum = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-          {/* Week 1 */}
+          {/* Phase 1 */}
           <div className="bg-card rounded-2xl border border-accent/30 p-6">
-            <span className="inline-block text-xs font-heading font-bold uppercase tracking-wider text-accent bg-accent/10 rounded-full px-3 py-1 mb-4">WEEK 1</span>
+            <span className="inline-block text-xs font-heading font-bold uppercase tracking-wider text-accent bg-accent/10 rounded-full px-3 py-1 mb-4">PHASE 1 — MORNING</span>
             <h3 className="font-heading font-bold text-lg text-foreground mb-2">Map Your Business Before You Build</h3>
-            <p className="text-muted-foreground font-body text-sm mb-4">Before you build anything, you need clarity. In Week 1, you'll identify:</p>
+            <p className="text-muted-foreground font-body text-sm mb-4">Before you build anything, you need clarity. In Phase 1 (~2 hrs), you'll identify:</p>
             <div className="space-y-2 mb-4">
-              {week1.map((item, i) => (
+              {phase1.map((item, i) => (
                 <div key={i} className="flex items-start gap-2">
                   <CyanArrow className="shrink-0 mt-0.5" />
                   <span className="font-body text-sm text-muted-foreground">{item}</span>
@@ -51,17 +51,17 @@ const Section10Curriculum = () => {
               ))}
             </div>
             <div className="border-l-4 border-accent bg-accent/5 rounded-r-lg p-3">
-              <p className="font-body text-sm text-muted-foreground">By the end of Week 1, you'll stop guessing. You'll have a clear system blueprint.</p>
+              <p className="font-body text-sm text-muted-foreground">By the end of Phase 1, you'll stop guessing. You'll have a clear system blueprint.</p>
             </div>
           </div>
 
-          {/* Week 2 */}
+          {/* Phase 2 + 3 */}
           <div className="bg-card rounded-2xl border border-accent/30 p-6">
-            <span className="inline-block text-xs font-heading font-bold uppercase tracking-wider text-accent bg-accent/10 rounded-full px-3 py-1 mb-4">WEEK 2</span>
-            <h3 className="font-heading font-bold text-lg text-foreground mb-2">Build Your Real Working Business System</h3>
-            <p className="text-muted-foreground font-body text-sm mb-4">In Week 2, you'll start building. Using AI, prompts, and guided implementation, you'll learn how to create:</p>
+            <span className="inline-block text-xs font-heading font-bold uppercase tracking-wider text-accent bg-accent/10 rounded-full px-3 py-1 mb-4">PHASE 2 + 3 — AFTERNOON</span>
+            <h3 className="font-heading font-bold text-lg text-foreground mb-2">Build & Launch Your Real Working Business System</h3>
+            <p className="text-muted-foreground font-body text-sm mb-4">In Phase 2 (~3 hrs) you'll build live, then in Phase 3 (~1 hr) you'll test and deploy. Using AI, prompts, and guided implementation, you'll create:</p>
             <div className="space-y-2 mb-4">
-              {week2.map((item, i) => (
+              {phase23.map((item, i) => (
                 <div key={i} className="flex items-start gap-2">
                   <CyanArrow className="shrink-0 mt-0.5" />
                   <span className="font-body text-sm text-muted-foreground">{item}</span>
@@ -69,14 +69,14 @@ const Section10Curriculum = () => {
               ))}
             </div>
             <div className="border-l-4 border-accent bg-accent/5 rounded-r-lg p-3">
-              <p className="font-body text-sm text-muted-foreground">By the end of Week 2, you can have the first working version of your internal system.</p>
+              <p className="font-body text-sm text-muted-foreground">By the end of the day, you'll have the first working version of your internal system — tested and live.</p>
             </div>
           </div>
         </div>
 
         <div className="text-center space-y-4">
           <p className="font-body text-base text-muted-foreground max-w-[800px] mx-auto leading-relaxed">
-            Something that used to take months of back-and-forth, expensive custom development, and endless waiting… can now begin taking shape in <span className="text-accent font-semibold" style={{ textShadow: "0 0 15px hsl(217 71% 68% / 0.3)" }}>less than 2 weeks</span>.
+            Something that used to take months of back-and-forth, expensive custom development, and endless waiting… can now begin taking shape in <span className="text-accent font-semibold" style={{ textShadow: "0 0 15px hsl(217 71% 68% / 0.3)" }}>a single day</span>.
           </p>
           <CTAButton href="/checkout">SAVE MY FREE SPOT</CTAButton>
         </div>

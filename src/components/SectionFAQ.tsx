@@ -10,8 +10,8 @@ const faqs = [
   },
   {
     num: "02",
-    question: "What if I don't have time for live sessions?",
-    answer: "Live sessions run 3 times a week (Mon/Wed/Fri) for 2 weeks that's 6 sessions total. Each session is 2 hours. If you miss one, every session is recorded and you get lifetime access to the replays. Many students rewatch sessions while implementing on their own time."
+    question: "What if I can't make the live day?",
+    answer: "It's a single 6-hour live online session — split into 3 phases (Map, Build, Launch). If you can't attend live, the full recording is uploaded to your private replay vault within 24 hours and you get lifetime access to rewatch anytime. Many students replay it while building on their own schedule."
   },
   {
     num: "03",
@@ -25,8 +25,8 @@ const faqs = [
   },
   {
     num: "05",
-    question: "What if I miss a session?",
-    answer: "Every session is recorded and uploaded to your private replay vault within 24 hours. You'll have lifetime access to rewatch anytime. We also recommend joining live whenever possible because you can ask questions and get real-time help."
+    question: "What if I miss the live day?",
+    answer: "The full live day is recorded and uploaded to your private replay vault within 24 hours. You'll have lifetime access to rewatch anytime. We still recommend joining live whenever possible because you can ask questions and get real-time help during the build."
   },
   {
     num: "06",
@@ -36,12 +36,12 @@ const faqs = [
   {
     num: "07",
     question: "What if I'm not happy with the bootcamp?",
-    answer: "We offer a 7-day money-back guarantee. If within 7 days of your first session you feel the bootcamp isn't for you, send us one email and we'll refund every peso. No forms, no questions, no hard feelings."
+    answer: "We offer a 7-day money-back guarantee. If within 7 days of the live day you feel the bootcamp isn't for you, send us one email and we'll refund every peso. No forms, no questions, no hard feelings."
   },
   {
     num: "08",
-    question: "When does the next bootcamp start?",
-    answer: "The bootcamp will start on April 28. We limit it to 100 students per bootcamp to keep the live sessions intimate and high-quality. Once those slots fill, the next bootcamp won't be until later. Reserving your slot now locks in the founding bootcamp price."
+    question: "When does the next 1-day bootcamp run?",
+    answer: "The next live 1-day intensive runs on April 28. We limit it to 100 students per cohort to keep the live build intimate and high-quality. Once those slots fill, the next 1-day bootcamp won't run until later — and you can join the waitlist. Reserving your slot now locks in the founding bootcamp price."
   },
 ];
 
