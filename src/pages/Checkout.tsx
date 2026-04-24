@@ -224,14 +224,14 @@ const Checkout = () => {
           <div className="bg-card border border-border rounded-xl p-4 space-y-4">
             <div className="text-center">
               <span className="inline-block bg-accent/15 text-accent font-heading font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full border border-accent/30">
-                📚 What You'll Learn in 2 Weeks
+                📚 What You'll Learn in 1 Day
               </span>
             </div>
 
-            {/* Week 1 */}
+            {/* Phase 1 */}
             <div className="space-y-2">
               <div className="flex items-center gap-2 mb-1">
-                <span className="bg-accent/10 text-accent font-heading font-bold text-[10px] uppercase tracking-wider px-2.5 py-0.5 rounded-full border border-accent/20">Week 1</span>
+                <span className="bg-accent/10 text-accent font-heading font-bold text-[10px] uppercase tracking-wider px-2.5 py-0.5 rounded-full border border-accent/20">Phase 1 · Morning</span>
                 <p className="text-foreground font-heading font-semibold text-xs">Map Your Business Before You Build</p>
               </div>
               {week1Items.map((item, i) => (
@@ -244,11 +244,11 @@ const Checkout = () => {
 
             <div className="border-t border-border" />
 
-            {/* Week 2 */}
+            {/* Phase 2 + 3 */}
             <div className="space-y-2">
               <div className="flex items-center gap-2 mb-1">
-                <span className="bg-secondary/10 text-secondary font-heading font-bold text-[10px] uppercase tracking-wider px-2.5 py-0.5 rounded-full border border-secondary/20">Week 2</span>
-                <p className="text-foreground font-heading font-semibold text-xs">Build Your Real Working System</p>
+                <span className="bg-secondary/10 text-secondary font-heading font-bold text-[10px] uppercase tracking-wider px-2.5 py-0.5 rounded-full border border-secondary/20">Phase 2 + 3 · Afternoon</span>
+                <p className="text-foreground font-heading font-semibold text-xs">Build & Launch Your Real Working System</p>
               </div>
               {week2Items.map((item, i) => (
                 <div key={i} className="flex items-start gap-2">
