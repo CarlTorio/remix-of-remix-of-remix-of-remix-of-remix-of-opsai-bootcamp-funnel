@@ -5,16 +5,10 @@ import {
   ArrowRight
 } from "lucide-react";
 
-const week1Sessions = [
-  { num: "01", icon: Search, title: "Systems Diagnosis", desc: "Discover the hidden operational problems slowing down your business the invisible backend drag most owners never see." },
-  { num: "02", icon: Map, title: "Operator Mapping", desc: "Audit your workflows, approvals, departments, and the exact data your business needs like a CEO would." },
-  { num: "03", icon: LayoutGrid, title: "System Blueprinting", desc: "Design the internal system structure your business actually needs before writing a single line of code." },
-];
-
-const week2Sessions = [
-  { num: "04", icon: Sparkles, title: "AI Build Method", desc: "Learn how to use AI and prompts to turn business logic into software logic your repeatable AI-assisted workflow." },
-  { num: "05", icon: Hammer, title: "Internal App Buildout", desc: "Build dashboards, workflows, forms, access control, permissions, and the core structure of your system." },
-  { num: "06", icon: Rocket, title: "Operational Launch", desc: "Refine your build, test it in real conditions, and turn it into a usable internal system you can keep improving." },
+const phases = [
+  { num: "01", icon: Map, title: "Phase 1 — Map", time: "Morning · ~2 hrs", desc: "Diagnose hidden bottlenecks, audit workflows and approvals, define the data, dashboards, and reports you actually need, and choose the right no-code tool stack. Walk out with a clear system blueprint." },
+  { num: "02", icon: Hammer, title: "Phase 2 — Build", time: "Midday · ~3 hrs", desc: "Use AI and prompts to translate business logic into software logic. Build dashboards, forms, workflows, user roles, employee logins, approvals, and back-end automations — live." },
+  { num: "03", icon: Rocket, title: "Phase 3 — Launch", time: "Afternoon · ~1 hr", desc: "Test the system in real conditions, refine and polish, and walk out with the first usable version of your internal business system." },
 ];
 
 const bonuses = [
@@ -76,7 +70,7 @@ const SectionRoadmap = () => {
             How This <span className="text-[#ffb700]">Bootcamp</span> Actually Works
           </h2>
           <p className="text-sm md:text-base text-gray-400 max-w-2xl mx-auto">
-            A live 2-week online bootcamp with 6 total sessions. From messy backend thinking to a working internal system using AI, prompts, and no-code tools.
+            A live 1-day intensive online bootcamp delivered in 3 phases — Map, Build, Launch. From messy backend thinking to a working internal system using AI, prompts, and no-code tools, all in a single day.
           </p>
         </div>
 
