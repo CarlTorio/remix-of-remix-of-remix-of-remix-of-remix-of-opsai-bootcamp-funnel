@@ -2,7 +2,7 @@ import { Check, ArrowRight } from "lucide-react";
 import CTAButton from "./CTAButton";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
-const week1Outcomes = [
+const phase1Outcomes = [
   { bold: "Bottlenecks", rest: " in your operations identified" },
   { bold: "System blueprint", rest: " of what you actually need" },
   { bold: "Reports & dashboards", rest: " defined for your business" },
@@ -10,13 +10,13 @@ const week1Outcomes = [
   { bold: "Stop guessing", rest: " what your business needs" },
 ];
 
-const week2Outcomes = [
+const phase23Outcomes = [
   { bold: "Dashboards", rest: " that show your real-time business" },
   { bold: "Forms & data flow", rest: " for capturing information" },
   { bold: "Workflows & approvals", rest: " that move automatically" },
   { bold: "User roles & permissions", rest: " for your team" },
   { bold: "Login access", rest: " for employees" },
-  { bold: "The first working version", rest: " of your internal system" },
+  { bold: "The first working version", rest: " of your internal system, tested & deployed" },
 ];
 
 const SectionWhatYoullLearn = () => {
@@ -43,7 +43,7 @@ const SectionWhatYoullLearn = () => {
             The Skills You'll <span className="text-[#ffb700]">Build</span> (Not Just Watch)
           </h2>
           <p className="text-sm md:text-base text-gray-400 max-w-2xl mx-auto">
-            By the end of 2 weeks, you'll have done the work not just sat through lessons. Here's what each week unlocks.
+            By the end of the day, you'll have done the work — not just sat through lessons. Here's what each phase unlocks.
           </p>
         </div>
 
@@ -54,17 +54,17 @@ const SectionWhatYoullLearn = () => {
             className={`bg-[#13131A] border border-white/[0.08] rounded-2xl p-6 md:p-7 relative transition-all duration-700 hover:border-[#ffb700]/30 hover:-translate-y-1 hover:shadow-[0_10px_40px_rgba(255,183,0,0.06)] group ${visible2 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
           >
             <div className="flex items-center gap-2 mb-4">
-              <span className="bg-[#ffb700]/10 border border-[#ffb700]/30 px-2.5 py-0.5 rounded-md text-[#ffb700] text-[10px] font-bold uppercase tracking-wider">WEEK 1</span>
-              <span className="text-gray-500 text-[10px] uppercase tracking-widest font-semibold">PLANNING PHASE</span>
+              <span className="bg-[#ffb700]/10 border border-[#ffb700]/30 px-2.5 py-0.5 rounded-md text-[#ffb700] text-[10px] font-bold uppercase tracking-wider">PHASE 1</span>
+              <span className="text-gray-500 text-[10px] uppercase tracking-widest font-semibold">MORNING · MAP</span>
             </div>
             <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight leading-tight mb-3">Map Before You Build</h3>
             <p className="text-sm text-gray-400 leading-relaxed mb-5">
               Before you build anything, you need clarity. You can't fix what you can't see.
             </p>
             <div className="w-12 h-px bg-[#ffb700]/30 mb-4" />
-            <span className="text-[#ffb700] text-[10px] uppercase tracking-widest font-bold mb-3 block">BY THE END OF WEEK 1:</span>
+            <span className="text-[#ffb700] text-[10px] uppercase tracking-widest font-bold mb-3 block">BY THE END OF PHASE 1:</span>
             <div className="flex flex-col gap-2.5">
-              {week1Outcomes.map((item, i) => (
+              {phase1Outcomes.map((item, i) => (
                 <div
                   key={i}
                   className={`flex items-start gap-2.5 transition-all duration-500 ${visible2 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"}`}
@@ -86,17 +86,17 @@ const SectionWhatYoullLearn = () => {
             style={{ transitionDelay: visible2 ? "100ms" : "0ms" }}
           >
             <div className="flex items-center gap-2 mb-4">
-              <span className="bg-[#ffb700]/15 border border-[#ffb700]/40 px-2.5 py-0.5 rounded-md text-[#ffb700] text-[10px] font-bold uppercase tracking-wider">WEEK 2</span>
-              <span className="text-[#ffb700]/70 text-[10px] uppercase tracking-widest font-semibold">BUILDING PHASE</span>
+              <span className="bg-[#ffb700]/15 border border-[#ffb700]/40 px-2.5 py-0.5 rounded-md text-[#ffb700] text-[10px] font-bold uppercase tracking-wider">PHASE 2 + 3</span>
+              <span className="text-[#ffb700]/70 text-[10px] uppercase tracking-widest font-semibold">AFTERNOON · BUILD & LAUNCH</span>
             </div>
-            <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight leading-tight mb-3">Build Your Real System</h3>
+            <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight leading-tight mb-3">Build & Launch Your Real System</h3>
             <p className="text-sm text-gray-400 leading-relaxed mb-5">
-              Now you build. Using AI, prompts, and guided implementation you turn the blueprint into something real.
+              Now you build. Using AI, prompts, and guided implementation, you turn the blueprint into something real — then test, refine, and deploy it the same day.
             </p>
             <div className="w-12 h-px bg-[#ffb700]/40 mb-4" />
             <span className="text-[#ffb700] text-[10px] uppercase tracking-widest font-bold mb-3 block">YOU'LL CREATE:</span>
             <div className="flex flex-col gap-2.5">
-              {week2Outcomes.map((item, i) => (
+              {phase23Outcomes.map((item, i) => (
                 <div
                   key={i}
                   className={`flex items-start gap-2.5 transition-all duration-500 ${visible2 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"}`}
@@ -118,7 +118,7 @@ const SectionWhatYoullLearn = () => {
           <div className="flex items-center justify-center gap-3">
             <span className="text-sm md:text-base text-red-400/70 line-through font-medium">Months of back-and-forth</span>
             <ArrowRight className="w-5 h-5 text-[#ffb700]" />
-            <span className="text-sm md:text-base text-[#ffb700] font-bold">14 days of building</span>
+            <span className="text-sm md:text-base text-[#ffb700] font-bold">1 day of building</span>
           </div>
         </div>
 
