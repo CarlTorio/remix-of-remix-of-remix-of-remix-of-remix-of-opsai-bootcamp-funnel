@@ -6,7 +6,7 @@ import {
 } from "lucide-react";
 
 const includes = [
-  { main: "6 Live Implementation Sessions", sub: "Mon/Wed/Fri over 2 weeks" },
+  { main: "1-Day Live Intensive Bootcamp", sub: "Single live online session · ~6 hours · 3 phases" },
   { main: "Internal System Blueprint Method", sub: "Map → design → build framework" },
   { main: "AI Build Method (Prompt-to-System)", sub: "Translate business to software logic" },
   { main: "Internal App Buildout Workflows", sub: "Dashboards, forms, permissions, roles" },
@@ -76,7 +76,7 @@ const SectionOfferZone = () => {
             {/* Title */}
             <div className="mt-3 text-center">
               <p className="text-base text-gray-400 uppercase tracking-widest font-semibold mb-1">SME Systems Bootcamp</p>
-              <p className="text-xs text-gray-500 mb-5">The 14-Day Buildout Program</p>
+              <p className="text-xs text-gray-500 mb-5">The 1-Day Buildout Intensive</p>
             </div>
 
             {/* Price */}
@@ -186,9 +186,9 @@ const SectionOfferZone = () => {
               </div>
               <div className="flex-1">
                 <p className="text-[#ffb700] text-[10px] uppercase tracking-widest font-bold mb-1.5">7-Day Money-Back Guarantee</p>
-                <p className="text-base font-bold text-white mb-1.5">Try the first sessions risk-free.</p>
+                <p className="text-base font-bold text-white mb-1.5">Try the live session risk-free.</p>
                 <p className="text-xs text-gray-400 leading-relaxed">
-                  If you attend all the sessions, complete every task, and still feel like the bootcamp isn't for you — just send us one email and we'll refund every peso. No forms. No questions. No hard feelings.
+                  If you attend the full live day, complete every task, and still feel like the bootcamp isn't for you — just send us one email and we'll refund every peso. No forms. No questions. No hard feelings.
                 </p>
               </div>
             </div>
