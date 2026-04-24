@@ -25,7 +25,7 @@ const SectionFinalCTA = () => {
             You've Read Enough. Now <span className="text-[#ffb700]">Build It</span>.
           </h2>
           <p className="text-base md:text-lg text-gray-400 leading-relaxed max-w-2xl mx-auto">
-            In 14 days, you'll either have a working internal business system or you'll still be running on spreadsheets, wondering what could've been.
+            In 1 day, you'll either have a working internal business system or you'll still be running on spreadsheets, wondering what could've been.
           </p>
         </div>
 

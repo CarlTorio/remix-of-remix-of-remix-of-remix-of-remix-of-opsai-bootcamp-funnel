@@ -154,7 +154,7 @@ const Section5BeforeAfter = () => {
             Show Me How
           </CTAButton>
           <p className="text-sm md:text-base text-gray-400 italic mt-4 font-medium">
-            Built in 14 days. Owned forever.
+            Built in 1 day. Owned forever.
           </p>
         </div>
       </div>
