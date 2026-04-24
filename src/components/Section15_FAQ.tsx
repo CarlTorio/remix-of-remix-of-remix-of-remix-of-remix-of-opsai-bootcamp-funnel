@@ -6,9 +6,9 @@ const faqs = [
   { q: "What if I'm not techy?", a: "That's exactly who this is for. The process uses AI, prompts, and no-code tools so you can build without traditional coding." },
   { q: "What if I'm too busy?", a: "That's exactly why you need this. The more manual your business is, the more time it steals from you every day." },
   { q: "What if I already have a developer?", a: "Great. This will still help you because you'll become far clearer on the logic, structure, and system requirements before delegating anything." },
-  { q: "What if I don't have a clear system idea yet?", a: "That's okay. Week 1 is designed to help you figure out exactly what your business needs before you build." },
-  { q: "Is this live?", a: "Yes. This is a live 2-week online bootcamp with 6 sessions." },
-  { q: "Are the sessions recorded?", a: "Yes. Through the Fast-Track Replay Vault, you'll get 30-day access to review while implementing." },
+  { q: "What if I don't have a clear system idea yet?", a: "That's okay. Phase 1 (the morning) is designed to help you figure out exactly what your business needs before you build." },
+  { q: "Is this live?", a: "Yes. This is a live 1-day online intensive bootcamp delivered in 3 phases (Map, Build, Launch)." },
+  { q: "Are the sessions recorded?", a: "Yes. Through the Fast-Track Replay Vault, you'll get 30-day access to the full session while implementing." },
   { q: "What if I join and don't find it valuable?", a: "You're protected by the guarantee below." },
 ];
 

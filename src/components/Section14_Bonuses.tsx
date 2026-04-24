@@ -3,7 +3,7 @@ import CTAButton from "./CTAButton";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const bonuses = [
-  { title: "Fast-Track Replay Vault", desc: "Rewatch every session for 30 days while building your system." },
+  { title: "Fast-Track Replay Vault", desc: "Rewatch the full session for 30 days while building your system." },
   { title: "SME Prompt Vault", desc: "Get the exact prompts that speed up dashboards, workflows, logic, forms, and access control." },
   { title: "System Blueprint Kit", desc: "Plan your system before building so you don't waste time in confusion." },
   { title: "No-Code Tool Stack Guide", desc: "Use the right tools from day one instead of wasting energy on random platforms." },

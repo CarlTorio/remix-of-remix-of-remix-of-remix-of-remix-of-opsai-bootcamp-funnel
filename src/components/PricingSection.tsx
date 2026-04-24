@@ -2,7 +2,7 @@ import SectionLabel from "./SectionLabel";
 import CTAButton from "./CTAButton";
 
 const included = [
-  "14 days of live coaching sessions",
+  "1-day live intensive bootcamp (~6 hours, 3 phases)",
   "Done-for-you SOP templates (50+)",
   "Private community access",
   "Hiring & onboarding toolkit",

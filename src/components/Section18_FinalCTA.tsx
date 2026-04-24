@@ -12,7 +12,7 @@ const Section18FinalCTA = () => {
           <span className="text-secondary" style={{ textShadow: "0 0 25px hsl(43 96% 56% / 0.3)" }}>₱4,886</span>
         </h2>
         <p className="text-muted-foreground font-body text-base leading-relaxed mb-4 max-w-[700px] mx-auto">
-          Build your own internal business system with AI in less than 2 weeks without hiring developers, without coding, and without spending ₱500,000+ on custom software.
+          Build your own internal business system with AI in just 1 day without hiring developers, without coding, and without spending ₱500,000+ on custom software.
         </p>
         <p className="text-muted-foreground font-body text-sm mb-8">Limited to 100 slots only.</p>
 
@@ -24,7 +24,7 @@ const Section18FinalCTA = () => {
             Every month you delay this, your business keeps paying for it through slower operations, scattered data, manual work, and avoidable confusion.
           </p>
           <p className="text-muted-foreground font-body text-base leading-relaxed mb-6">
-            If you join now, in less than 2 weeks you can begin building the first real version of the system your business should have had a long time ago.
+            If you join now, in just 1 day you can begin building the first real version of the system your business should have had a long time ago.
           </p>
           <p className="text-muted-foreground font-body text-sm mb-1">
             Price today: <span className="text-secondary font-semibold">₱4,886</span>

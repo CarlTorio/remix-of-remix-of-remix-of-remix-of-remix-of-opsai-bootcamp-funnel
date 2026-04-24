@@ -7,8 +7,8 @@ const faqs = [
     a: "This is for Filipino SME owners and entrepreneurs who want to build systems, delegate effectively, and scale without burning out. Whether you have 2 employees or 200, this will work for you.",
   },
   {
-    q: "What if I can't attend live?",
-    a: "All sessions are recorded and you get lifetime access. You can watch on your own schedule and still get support in the private community.",
+    q: "What if I can't attend the live day?",
+    a: "The full session is recorded and you get lifetime access. You can watch on your own schedule and still get support in the private community.",
   },
   {
     q: "Do I need technical skills?",
@@ -16,7 +16,7 @@ const faqs = [
   },
   {
     q: "What's the time commitment?",
-    a: "About 3-4 hours per week: 1.5 hours live session + implementation time. Most owners see ROI within the first 2 weeks.",
+    a: "It's a single live intensive day, about 6 hours, plus a bit of implementation time afterward. Most owners see ROI within the first few days.",
   },
   {
     q: "Is there a refund policy?",
